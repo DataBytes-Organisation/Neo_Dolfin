@@ -1,5 +1,22 @@
 # NE0 DolFin 
-Updated: 30/07/2023
+Updated: 31/07/2023
+
+## Branch Management
+### master
+* Source of Truth
+* This branch is the release branch, this branch must only have pushes from code owners on it as the final check to contribute to the next release. 
+
+### develop
+* All dev is finialised on this branch.
+* This branch is a copy of the most recent release branch, this branch must have a push request against it that must be verified by code owners.
+
+### feature
+* This branch is where you must commit your work to.
+* Please follow the following naming convention for these branches: ```\feature_{COMPONENT}_<INSERT_FILE_OR_FUNCTION_CHANGE>``` 
+	* EXAMPLE: ```\feature_FRONT_update_homepage```
+* COMPONENT must be equal to == ```FRONT``` OR ```FLASK```.
+	* FRONT is any change made exclusively to a file in ```Templates``` or the ```layout.py``` file.
+	* FLASK is any change made to ```app.py``` or ```app.py``` + ANY OTHER FILE/DIRECTORY or ANY OTHER FILE/DIRECTORY in the project folder.   
 
 ## Local Deployment
 ### Requirements:
