@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Sign In</h1>
+    <form method="POST" action="/signin">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.submit() }}
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>

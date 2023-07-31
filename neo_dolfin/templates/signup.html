@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="POST" action="/signup">
+        {{ form.csrf_token }}
+        {{ form.given_name.label }} {{ form.given_name() }}
+        {{ form.family_name.label }} {{ form.family_name() }}
+        {{ form.nickname.label }} {{ form.nickname() }}
+        {{ form.username.label }} {{ form.username() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.confirm_password.label }} {{ form.confirm_password() }}
+        {{ form.submit() }}
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
