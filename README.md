@@ -2,16 +2,20 @@
 Updated: 31/07/2023
 
 ## Branch Management
+### Authorised Code Owners:
+* Shane Dzartov (@SDzartov)
+* Jackson Thompson (@thompsonjac)
+
 ### master
-* Source of Truth
-* This branch is the release branch, this branch must only have pushes from code owners on it as the final check to contribute to the next release. 
+* ***Source of Truth***
+	* This branch is the release branch, pushes on this branch require 2 codeowner approvals to merge from develop, as it is the final check to contribute to the next release. 
 
 ### develop
-* All dev is finialised on this branch.
-* This branch is a copy of the most recent release branch, this branch must have a push request against it that must be verified by code owners.
+* ***Source of Truth for all development***
+	* This branch is a copy of the most recent release branch, pushes on this branch require 1 codeowner approval to merge from feature, as it is the first check to contribute to the next release. 
 
 ### feature
-* This branch is where you must commit your work to.
+* ***This branch is where you must commit your work***
 * Please follow the following naming convention for these branches: ```\feature_{COMPONENT}_<INSERT_FILE_OR_FUNCTION_CHANGE>``` 
 	* EXAMPLE: ```\feature_FRONT_update_homepage```
 * COMPONENT must be equal to == ```FRONT``` OR ```FLASK```.
