@@ -5,6 +5,7 @@ Updated: 31/07/2023
 ### Authorised Code Owners:
 * Shane Dzartov (@SDzartov)
 * Jackson Thompson (@thompsonjac)
+* Christopher Russo (@CRussoDeakin)
 
 ### master
 * ***Source of Truth***
