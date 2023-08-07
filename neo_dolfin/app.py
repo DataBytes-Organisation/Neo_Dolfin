@@ -52,7 +52,7 @@ def is_token_valid():
 
     # Token is still valid
     return True
-
+ 
 def calculate_secret_hash(client_id, client_secret, username):
     message = username + client_id
     dig = hmac.new(str(client_secret).encode('utf-8'),
@@ -63,7 +63,7 @@ def calculate_secret_hash(client_id, client_secret, username):
 
 #CLASSES
 class SignInForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField('E-Mail', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
@@ -71,9 +71,13 @@ class SignUpForm(FlaskForm):
     given_name = StringField('Given_name',validators=[DataRequired()])#
     family_name = StringField('Family_name',validators=[DataRequired()])
     nickname = StringField('Nickname',validators=[DataRequired()])
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField('E-Mail', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
+    submit = SubmitField('Sign Up')
+
+class SignUpConfForm(FlaskForm):
+    signupconf = PasswordField('Confirmation Code', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
 
@@ -89,6 +93,8 @@ def signin():
     if form.validate_on_submit():
         try:
             SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)
+            # Set session username 
+            session['username'] = form.username.data
             response = client.initiate_auth(
                 AuthFlow='USER_PASSWORD_AUTH',
                 AuthParameters={
@@ -111,6 +117,9 @@ def signin():
             print(session['access_token'])
             print(session['username'])
             return redirect('/home/')
+        except client.exceptions.UserNotConfirmedException:
+            # Handle case where the user has not confirmed their email account
+            return redirect('/signupconf') #error='User requires confirmation. Check your email address for a verification code.')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-in error: {e}")
@@ -157,6 +166,45 @@ def signup():
             return render_template('signup.html', form=form, error='An error occurred. Please try again.')
 
     return render_template('signup.html', form=form)
+
+@app.route('/signupconf', methods=['GET', 'POST'])
+def signupconf():
+    form = SignUpConfForm()
+    if form.validate_on_submit():
+        try:
+            response = client.confirm_sign_up(
+                ClientId=AWS_COGNITO_APP_CLIENT_ID,
+                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
+                Username=session.get('username'),
+                ConfirmationCode=form.signupconf.data
+                )
+            # If sign-up is successful, redirect to a different page (e.g., a success page or the sign-in page).
+            print("Sign-up conf response:", response)
+            return redirect('/signin')
+        except client.exceptions.ExpiredCodeException:
+            # Handle case where the code has expired
+            return render_template('signupconf.html', form=form, error='Code has expired, please generate a new one')
+        except Exception as e:
+            # Log the error for debugging purposes
+            logging.error(f"Sign-up error: {e}")
+            # Handle other sign-up errors
+            return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
+    return render_template('signupconf.html', form=form)
+
+@app.route('/signupconf/resendconfemail', methods=['GET', 'POST'])
+def resendconfemail():
+    form = SignUpConfForm()
+    try:
+        response = client.resend_confirmation_code(
+            ClientId=AWS_COGNITO_APP_CLIENT_ID,
+                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
+                Username=session.get('username'))
+        return render_template('signupconf.html', form=form)
+    except Exception as e:
+            # Log the error for debugging purposes
+            logging.error(f"Sign-up error: {e}")
+            # Handle other sign-up errors
+            return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
