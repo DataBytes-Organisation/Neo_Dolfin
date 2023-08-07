@@ -177,6 +177,13 @@ def auth_news():
     if is_token_valid():
         return render_template("news.html")
     
+@app.route('/FAQ/')
+def auth_FAQ(): 
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("FAQ.html")
+    
 # Run the Flask app
 if __name__ == '__main__':
     app.run(host='127.0.0.1', debug=True)
