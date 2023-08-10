@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 import hashlib
 import hmac
 import base64
+import qrcode
 #import dash
 #import dash_core_components as dcc
 #import dash_html_components as html
@@ -80,6 +81,11 @@ class SignUpConfForm(FlaskForm):
     signupconf = PasswordField('Confirmation Code', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
+class SignUpMFADForm(FlaskForm):
+    signupmfadevicename = StringField('MFA Device Name', validators=[DataRequired()])
+    signupmfadevicecode = StringField('MFA Device Code', validators=[DataRequired()])
+    submit = SubmitField('Sign Up')
+
 
 
 # ROUTING
@@ -102,27 +108,38 @@ def signin():
                     'PASSWORD': form.password.data,
                     'SECRET_HASH': SecretHash
                     },
-                ClientId=AWS_COGNITO_APP_CLIENT_ID)            
-            # Extract the JWT token and its expiration time from the response
-            access_token = response['AuthenticationResult']['AccessToken']
-            expires_in = response['AuthenticationResult']['ExpiresIn']
+                ClientId=AWS_COGNITO_APP_CLIENT_ID)
+            #print(response)      d
+            if response['ChallengeName'] == 'MFA_SETUP': #User has to setup MFA to log in
+                response=client.associate_software_token(Session=response['Session'])
+                session['username'] = form.username.data
+                session['sicode'] = response['SecretCode']
+                session['siresponse'] = response['Session']
+                print('Moving to Signup MFA Device')
+                return redirect('/signupmfad')
+            else:      
+                # Extract the JWT token and its expiration time from the response
+                access_token = response['AuthenticationResult']['AccessToken']
+                expires_in = response['AuthenticationResult']['ExpiresIn']
 
-            # Calculate the absolute expiration timestamp for the token
-            expiration_timestamp = int(time.time()) + expires_in
+                # Calculate the absolute expiration timestamp for the token
+                expiration_timestamp = int(time.time()) + expires_in
 
-            # Store the token and its expiration timestamp in the session
-            session['access_token'] = access_token
-            session['token_expiration'] = expiration_timestamp
-            session['username'] = form.username.data
-            print(session['access_token'])
-            print(session['username'])
-            return redirect('/home/')
+                # Store the token and its expiration timestamp in the session
+                session['access_token'] = access_token
+                session['token_expiration'] = expiration_timestamp
+                session['username'] = form.username.data
+                print(session['access_token'])
+                print(session['username'])
+                print(response['ChallengeName'])
+                return redirect('/home/')
         except client.exceptions.UserNotConfirmedException:
             # Handle case where the user has not confirmed their email account
             return redirect('/signupconf') #error='User requires confirmation. Check your email address for a verification code.')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-in error: {e}")
+            print(response['ChallengeName'])
             # Handle authentication failure
             return render_template('signin.html', form=form, error='Invalid credentials. Please try again.')
 
@@ -205,6 +222,50 @@ def resendconfemail():
             logging.error(f"Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
+    
+@app.route('/signupmfad', methods=['GET', 'POST'])
+def signupmfadevice():
+    form = SignUpMFADForm()
+    awssession=session.get('sisession')
+    username=session.get('username')
+    awssecretcode=session.get('sicode')
+
+    try:
+        qr_img = qrcode.make(
+            f"otpauth://totp/{username}?secret={awssecretcode}")
+        qr_img.save("static/images/qr.png")
+    except Exception as e:
+        # Log the error for debugging purposes
+        logging.error(f"Failed to generate QR code: {e}")
+    
+    if form.validate_on_submit():
+        try:
+            response = client.verify_software_token(
+                AccessToken=awssession,
+                Session=awssession,
+                UserCode=form.signupmfadevicecode.data,
+                FriendlyDeviceName=form.signupmfadevicename.data)
+
+            print(response)
+            #return response
+
+            response = client.respond_to_auth_challenge(
+                ClientId=AWS_COGNITO_APP_CLIENT_ID,
+                ChallengeName="MFA_SETUP",
+                Session=response['Session'],
+
+                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
+                Username=session.get('username'))
+            return render_template('signin.html', form=form, error='MFA Device Subscribed')
+        except Exception as e:
+                # Log the error for debugging purposes
+                logging.error(f"MFA Device Sign-up error: {e}")
+                # Handle other sign-up errors
+                return render_template('signupmfad.html', form=form, error='Invalid MFA Device ID. Please try again.')
+    return render_template('signupmfad.html', form=form, error='Invalid MFA Device ID. Please try again.')
+
+        
+    
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
