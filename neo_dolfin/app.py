@@ -21,6 +21,7 @@ load_dotenv()  # Load environment variables from .env
 app = Flask(__name__)
 df = pd.read_csv('static/dummies.csv')
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
+app.static_folder = 'static'
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
