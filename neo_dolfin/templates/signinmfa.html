@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up - MFA Device</title>
+    <title>Sign In - MFA One Time Password</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Sign Up - MFA Device</h1>
-        <form method="POST" action="/signupmfad">
+    <h1>Sign In - Enter your one time password from your authenticator</h1>
+    <form method="POST" action="/signinmfa">
         {{ form.csrf_token }}
-        {{ form.signupmfadevicename.label }} {{ form.signupmfadevicename() }}
-        {{ form.signupmfadevicecode.label }} {{ form.signupmfadevicecode() }}
+        {{ form.otp.label }} {{ form.otp() }}
         {{ form.submit() }}
-        </form>
-
-        <h1>Scan the Below QR Code to add to your favorite authenticator</h1>
-        <img src="{{ url_for('static', filename='images/qr.png') }}"/>
-
+    </form>
     {% if error %}
     <p>{{ error }}</p>
     {% endif %}
-
 </body>
 </html>

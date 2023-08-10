@@ -68,6 +68,10 @@ class SignInForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
+class SignInMFAForm(FlaskForm):
+    otp = PasswordField('One Time Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')
+
 class SignUpForm(FlaskForm):
     given_name = StringField('Given_name',validators=[DataRequired()])#
     family_name = StringField('Family_name',validators=[DataRequired()])
@@ -109,14 +113,18 @@ def signin():
                     'SECRET_HASH': SecretHash
                     },
                 ClientId=AWS_COGNITO_APP_CLIENT_ID)
-            #print(response)      d
-            if response['ChallengeName'] == 'MFA_SETUP': #User has to setup MFA to log in
-                response=client.associate_software_token(Session=response['Session'])
-                session['username'] = form.username.data
-                session['sicode'] = response['SecretCode']
+            print(response) 
+            if response['ChallengeName'] == 'SOFTWARE_TOKEN_MFA': #User has to log in with MFA
                 session['siresponse'] = response['Session']
-                print('Moving to Signup MFA Device')
-                return redirect('/signupmfad')
+                return redirect('/signinmfa') #Send to enter MFA OTP
+            elif    response['ChallengeName'] == 'MFA_SETUP': #User has to setup MFA to log in
+                    response=client.associate_software_token(Session=response['Session'])
+                    session['username'] = form.username.data
+                    session['sicode'] = response['SecretCode']
+                    session['siresponse'] = response['Session']
+                    #session['siaccesstoken'] = response['AccessToken']
+                    print('Moving to Signup MFA Device')
+                    return redirect('/signupmfad')
             else:      
                 # Extract the JWT token and its expiration time from the response
                 access_token = response['AuthenticationResult']['AccessToken']
@@ -139,11 +147,51 @@ def signin():
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-in error: {e}")
-            print(response['ChallengeName'])
             # Handle authentication failure
             return render_template('signin.html', form=form, error='Invalid credentials. Please try again.')
 
     return render_template('signin.html', form=form)
+
+@app.route('/signinmfa', methods=['GET', 'POST'])
+def signinmfa():
+    form=SignInMFAForm()
+    print(session.get('username'))
+    if form.validate_on_submit():
+        try:
+            print(session.get('username'))
+            response=client.respond_to_auth_challenge(
+                ClientId=AWS_COGNITO_APP_CLIENT_ID,
+                ChallengeName='SOFTWARE_TOKEN_MFA',
+                Session=session.get('siresponse'),
+                ChallengeResponses={
+                    'USERNAME': session.get('username'),
+                    'SECRET_HASH': calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
+                    'SOFTWARE_TOKEN_MFA_CODE':form.otp.data
+                    }
+            )
+            print(response)
+
+            # Extract the JWT token and its expiration time from the response
+            access_token = response['AuthenticationResult']['AccessToken']
+            expires_in = response['AuthenticationResult']['ExpiresIn']
+
+            # Calculate the absolute expiration timestamp for the token
+            expiration_timestamp = int(time.time()) + expires_in
+
+            # Store the token and its expiration timestamp in the session
+            session['access_token'] = access_token
+            session['token_expiration'] = expiration_timestamp
+            print(session['access_token'])
+            print(session['username'])
+            return redirect('/home/')
+
+        except Exception as e:
+            # Log the error for debugging purposes
+            logging.error(f"Sign-in error: {e}")
+            # Handle other sign-up errors
+            return render_template('signinmfa.html', form=form, error=e)
+    return render_template('signinmfa.html', form=form)
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -226,43 +274,29 @@ def resendconfemail():
 @app.route('/signupmfad', methods=['GET', 'POST'])
 def signupmfadevice():
     form = SignUpMFADForm()
-    awssession=session.get('sisession')
+    awssession=session.get('siresponse')
+    print(awssession)
     username=session.get('username')
     awssecretcode=session.get('sicode')
 
-    try:
-        qr_img = qrcode.make(
-            f"otpauth://totp/{username}?secret={awssecretcode}")
-        qr_img.save("static/images/qr.png")
-    except Exception as e:
-        # Log the error for debugging purposes
-        logging.error(f"Failed to generate QR code: {e}")
+    qr_img = qrcode.make(
+        f"otpauth://totp/{username}?secret={awssecretcode}")
+    qr_img.save("static/images/qr.png")
     
     if form.validate_on_submit():
         try:
             response = client.verify_software_token(
-                AccessToken=awssession,
                 Session=awssession,
                 UserCode=form.signupmfadevicecode.data,
                 FriendlyDeviceName=form.signupmfadevicename.data)
-
             print(response)
             #return response
-
-            response = client.respond_to_auth_challenge(
-                ClientId=AWS_COGNITO_APP_CLIENT_ID,
-                ChallengeName="MFA_SETUP",
-                Session=response['Session'],
-
-                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
-                Username=session.get('username'))
-            return render_template('signin.html', form=form, error='MFA Device Subscribed')
         except Exception as e:
-                # Log the error for debugging purposes
-                logging.error(f"MFA Device Sign-up error: {e}")
-                # Handle other sign-up errors
-                return render_template('signupmfad.html', form=form, error='Invalid MFA Device ID. Please try again.')
-    return render_template('signupmfad.html', form=form, error='Invalid MFA Device ID. Please try again.')
+            # Log the error for debugging purposes
+            logging.error(f"MFA Device Sign-up error: {e}")
+            # Handle other sign-up errors
+            return render_template('signupmfad.html', form=form, error=e)
+    return render_template('signupmfad.html', form=form)
 
         
     
