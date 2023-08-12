@@ -1,5 +1,27 @@
 # NE0 DolFin 
-Updated: 30/07/2023
+Updated: 31/07/2023
+
+## Branch Management
+### Authorised Code Owners:
+* Shane Dzartov (@SDzartov)
+* Jackson Thompson (@thompsonjac)
+* Christopher Russo (@CRussoDeakin)
+
+### master
+* ***Source of Truth***
+	* This branch is the release branch, pushes on this branch require 2 codeowner approvals to merge from develop, as it is the final check to contribute to the next release. 
+
+### develop
+* ***Source of Truth for all development***
+	* This branch is a copy of the most recent release branch, pushes on this branch require 1 codeowner approval to merge from feature, as it is the first check to contribute to the next release. 
+
+### feature
+* ***This branch is where you must commit your work***
+* Please follow the following naming convention for these branches: ```\feature_{COMPONENT}_<INSERT_FILE_OR_FUNCTION_CHANGE>``` 
+	* EXAMPLE: ```\feature_FRONT_update_homepage```
+* COMPONENT must be equal to == ```FRONT``` OR ```FLASK```.
+	* FRONT is any change made exclusively to a file in ```Templates``` or the ```layout.py``` file.
+	* FLASK is any change made to ```app.py``` or ```app.py``` + ANY OTHER FILE/DIRECTORY or ANY OTHER FILE/DIRECTORY in the project folder.   
 
 ## Local Deployment
 ### Requirements:
