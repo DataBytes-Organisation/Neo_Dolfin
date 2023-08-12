@@ -1,5 +1,0 @@
-# .env file
-AWS_REGION=ap-southeast-2
-AWS_COGNITO_USER_POOL_ID=ap-southeast-2_gm5sNHxuy
-AWS_COGNITO_APP_CLIENT_ID=3uo2j25f4qs6f845hj9tss9lac
-AWS_COGNITO_CLIENT_SECRET=14m4pb7d33k0m8hlo3o6kbuva8nhhhadbt3tnr2aihq79en6obdc
