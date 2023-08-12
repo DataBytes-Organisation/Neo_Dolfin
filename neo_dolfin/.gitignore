@@ -3,3 +3,6 @@ venv/
 
 # Ignore .env file
 .env
+
+# Ignore the qr.png file
+qr.png
