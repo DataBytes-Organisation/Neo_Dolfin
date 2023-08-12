@@ -22,6 +22,7 @@ load_dotenv()  # Load environment variables from .env
 app = Flask(__name__)
 df = pd.read_csv('static/dummies.csv')
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
+app.static_folder = 'static'
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -317,6 +318,13 @@ def auth_news():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("news.html")
+# APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+@app.route('/FAQ/')
+def auth_FAQ(): 
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("FAQ.html")
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
