@@ -14,6 +14,7 @@ import hmac
 import base64
 import qrcode
 import logging 
+
 #import dash
 #import dash_core_components as dcc
 #import dash_html_components as html
@@ -117,8 +118,7 @@ def signin():
                 ClientId=AWS_COGNITO_APP_CLIENT_ID)
             # Log the response for debugging
             print(response)
-            logging.debug(f"Initiate Auth Response: {response}")
-            
+            logging.debug(f"Initiate Auth Response: {response}") 
             # If user has a registered authentication device lead them to page to enter code
             if response['ChallengeName'] == 'SOFTWARE_TOKEN_MFA': #User has to log in with MFA
                 session['siresponse'] = response['Session']
@@ -246,7 +246,6 @@ def signup():
 @app.route('/signupconf', methods=['GET', 'POST'])
 def signupconf():
     form = SignUpConfForm()
-    print(session.get('username'))
     if form.validate_on_submit():
         try:
             response = client.confirm_sign_up(
@@ -295,7 +294,6 @@ def signupmfadevice():
     qr_img = qrcode.make(
         f"otpauth://totp/{username}?secret={awssecretcode}&issuer=DolFin")
     qr_img.save("static/img/qr.png")
-    
     if form.validate_on_submit():
         try:
             response = client.verify_software_token(
@@ -324,7 +322,7 @@ def auth_news():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("news.html")
-    
+
 # APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
