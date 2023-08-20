@@ -35,6 +35,7 @@ print(user)
 all_accounts = data_instance.all_accounts(user_id, access_token)
 print(all_accounts)
 
+#testing using a sample account from Basiq sandbox
 account_id = '594d1aa0-73d2-4ce2-8a0a-9ae6a28985c6'
 
 #return one account
@@ -46,6 +47,7 @@ transactions = data_instance.get_transactions(user_id, access_token)
 print(transactions)
 
 #get details on one transaction
+# testing using a sample transaction from Basiq sandbox
 transaction_id = '8e7ecaa7-66f4-4cbd-ab47-ab5265bcf0b7'
 transaction = data_instance.get_transaction(user_id, transaction_id, access_token)
 print(transaction)
