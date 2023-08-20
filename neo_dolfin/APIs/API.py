@@ -31,9 +31,6 @@ class Core:
 
         access_token = response_data["access_token"]  # Get the access token from the JSON data
         return access_token
-        #response = requests.post(url, headers=headers)
-        #access_token = json.loads(response)["access_token"] #strips just the bearer token from the json response
-        #return response.text
 
     def get_user(self, user_id, access_token):
         url = f"https://au-api.basiq.io/users/{user_id}"
