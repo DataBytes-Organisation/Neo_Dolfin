@@ -13,6 +13,7 @@ import hashlib
 import hmac
 import base64
 import qrcode
+import logging 
 #import dash
 #import dash_core_components as dcc
 #import dash_html_components as html
@@ -20,21 +21,22 @@ import qrcode
 load_dotenv()  # Load environment variables from .env
 
 app = Flask(__name__)
-df = pd.read_csv('static/dummies.csv')
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
+df = pd.read_csv('static/dummies.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
 AWS_COGNITO_USER_POOL_ID = os.environ.get('AWS_COGNITO_USER_POOL_ID')
-AWS_COGNITO_APP_CLIENT_ID = os.environ.get('AWS_COGNITO_APP_CLIENT_ID')
+AWS_COGNITO_APP_CLIENT_ID = os.environ.get('AWS_COGNITO_APP_CLIENT_ID')#
 AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
+
 client = boto3.client('cognito-idp', region_name=AWS_REGION)
 
 # DASH APP
 # Initialize Dash app
 #dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dash/')  # Set the route to '/dash/'
-
+#
 # TODO: UPDATE DASH APP WITH USER DATA
 # Define the Dash layout
 #dash_app.layout = dash_layout#
@@ -105,22 +107,22 @@ def signin():
     form = SignInForm()
     if form.validate_on_submit():
         try:
-            SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)
-            # Set session username 
-            session['username'] = form.username.data
             # Initiate sign in process
             response = client.initiate_auth(
                 AuthFlow='USER_PASSWORD_AUTH',
                 AuthParameters={
                     'USERNAME': form.username.data,
                     'PASSWORD': form.password.data,
-                    'SECRET_HASH': SecretHash
-                    },
+                    'SECRET_HASH': calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)},
                 ClientId=AWS_COGNITO_APP_CLIENT_ID)
+            # Log the response for debugging
+            print(response)
+            logging.debug(f"Initiate Auth Response: {response}")
             
             # If user has a registered authentication device lead them to page to enter code
             if response['ChallengeName'] == 'SOFTWARE_TOKEN_MFA': #User has to log in with MFA
                 session['siresponse'] = response['Session']
+                session['username'] = form.username.data
                 return redirect('/signinmfa') #Send to enter MFA OTP
             
             # If user has not registered a MFA device / autheticator lead them to page to do so
@@ -144,11 +146,13 @@ def signin():
                 session['access_token'] = access_token
                 session['token_expiration'] = expiration_timestamp
                 session['username'] = form.username.data
+                logging.info(f"User {form.username.data} signed in successfully.")
                 return redirect('/home/')
 
         # If user has not confirmed their email they must do so    
         except client.exceptions.UserNotConfirmedException:
             # Handle case where the user has not confirmed their email account
+            logging.warning(f"User {form.username.data} attempted to sign in, but email is not confirmed.")
             return redirect('/signupconf')
         
         # General error handling catch for remaining exceptions from sign-in initiation
@@ -223,7 +227,8 @@ def signup():
                 SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)
                 )
             # If sign-up is successful, redirect to a different page (e.g., a success page or the sign-in page).
-            return redirect('/signin')
+            session['username'] = form.username.data
+            return redirect('/signupconf')
         
         except client.exceptions.UsernameExistsException:
             # Handle case where the username already exists
@@ -241,6 +246,7 @@ def signup():
 @app.route('/signupconf', methods=['GET', 'POST'])
 def signupconf():
     form = SignUpConfForm()
+    print(session.get('username'))
     if form.validate_on_submit():
         try:
             response = client.confirm_sign_up(
@@ -288,7 +294,7 @@ def signupmfadevice():
     #Generate user specific QR code
     qr_img = qrcode.make(
         f"otpauth://totp/{username}?secret={awssecretcode}&issuer=DolFin")
-    qr_img.save("static/images/qr.png")
+    qr_img.save("static/img/qr.png")
     
     if form.validate_on_submit():
         try:
@@ -301,7 +307,7 @@ def signupmfadevice():
             logging.error(f"MFA Device Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('signupmfad.html', form=form)
+    return render_template('/home/.html', form=form)
 
 # APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
@@ -318,6 +324,7 @@ def auth_news():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("news.html")
+    
 # APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
