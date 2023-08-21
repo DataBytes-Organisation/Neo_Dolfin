@@ -3,19 +3,61 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DolFin - Home Page</title>
+    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='logo/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='logo/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='logo/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='logo/site.webmanifest') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home.css')}}"/> 
   </head>
+
+  <style>
+    /* Style for the container */
+    #navigationBarList{
+    display: inline-block;
+    margin: 0;
+    background-color: black;    
+    font-size: 25px;
+    color: white;
+    width: 100%;
+  }
+  #navigationBarList li{
+    display: inline;
+    width: 100px;
+    margin-right: 200px;
+  }
+
+
+  .nav-item {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-item:hover {
+  color: #f8f9fa;
+}
+
+.nav-item-active {
+  background-color: #0077BB;
+}
+
+    .ellipse-svg {
+      fill-opacity: 0.933333; /* Initial opacity */
+      transition: fill-opacity 0.3s; /* Add smooth transition for opacity */
+    }
+
+    /* Highlight the ellipse on hover */
+    .ellipse-svg:hover {
+      fill-opacity: 1;
+    }
+
+  </style>
+
+
   <body>
+      
+    <!--
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="{{ url_for('static', filename='logo/apple-touch-icon.png') }}" width="30" height="30" alt="">
-          </a>
+          <a class="navbar-brand" href="/">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,20 +73,119 @@
                 <a class="nav-link" href="#">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+-->
+    <h2 style="text-align: center;color: blue;">Join <span style="color: black;">DolFin</span> Today and</h2>
+    <h1 style="text-align: center; font-size: 80px; color: blue;">Start Saving</h1>
 
-    <h1>U R LOGGED IN! {{ session['username'] }}</h1>
+    <ul id="navigationBarList">
+      <li><a href="#section1" class="nav-item">Section1</a></li>
+      <li>/</li>
+      <li><a href="#section2" class="nav-item">Section2</a></li>
+      <li>/</li>
+      <li><a href="#section3" class="nav-item">Section3</a></li>
+    </ul> 
+
+    <svg id="section1" width="600" height="300" viewBox="0 0 720 524" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M38.0016 26.4634C97.5016 -17.0366 542.002 0.463364 656.002 26.4634C770.002 52.4634 705.502 474.963 656.002 500.463C606.502 525.963 79.0016 536.463 38.0016 500.463C-2.99846 464.463 -21.4984 69.9634 38.0016 26.4634Z" fill="#343A40"/>
+      <text x="50%" y="30%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        DolFin is a Fintech solution
+      </text>
+      <text x="50%" y="40%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        that aims to address
+      </text>
+      <text x="50%" y="50%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        the issue of people
+      </text>
+      <text x="50%" y="60%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        struggling to keep track 
+      </text>
+      <text x="50%" y="70%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        of their finances
+      </text>
+      
+    </svg>
+    
+
+
+
+    <svg  width="320" height="345" viewBox="0 0 850 825" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse class="ellipse-svg" cx="700" cy="627.5" rx="114" ry="107.5" fill="#0077BB" fill-opacity="0.933333"/>
+      </svg>
+      
+      <svg width="220" height="245" viewBox="0 0 420 445" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse class="ellipse-svg" cx="210" cy="127.5" rx="114" ry="107.5" fill="#0077BB" fill-opacity="0.933333"/>
+        </svg>
+
+        <svg width="320" height="425" viewBox="0 0 420 445" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse class="ellipse-svg" cx="300" cy="122.5" rx="114" ry="107.5" fill="#0077BB" fill-opacity="0.933333"/>
+          </svg>
+
+      
+
+
+
+
+          <svg id = "section2" width="1214" height="702" viewBox="0 0 1214 702" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M369.109 135.32C1018.22 -121.889 1107.36 28.8105 1161.8 245.229C1180.25 318.542 1192.09 394.597 1199.69 463.124C1212.47 578.423 1095.6 663.965 981.179 644.839C856.381 623.978 686.064 608.55 482.18 622.545C36.4758 653.138 -280.004 392.53 369.109 135.32Z" fill="#343A40"/>
+            <text x="50%" y="50%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+        DolFin reduces the difficulties/costs associated 
+      </text>
+      <text x="50%" y="60%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+         with obtaining financial advice.
+      </text>
+            </svg>
+            
+
+
+            <svg id = "section3" width="1403" height="965" viewBox="0 0 1403 965" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1403 0C1403 0 1002.95 82.6246 805.902 341.862C608.857 601.099 191.771 341.362 43.0719 648.238C-105.627 955.114 178.42 962.611 178.42 962.611C178.42 962.611 403.08 983.603 746.975 901.136C1090.87 818.669 1403 851.156 1403 800.177C1403 749.197 1403 402.837 1403 402.837V0Z" fill="#343A40"/>
+              <text x="50%" y="60%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="40">
+                JOIN DOLFIN TODAY
+             </text>
+             <a href="neo_dolfin\templates\signup.html">
+              <rect x="42%" y="75%" width="200" height="50" rx="8" fill="#007BFF"/>
+              <text x="49%" y="78%" fill="white" text-anchor="middle" dominant-baseline="middle" font-size="20">
+                Sign Up
+              </text> 
+            </svg>
+              
+              
+            
+
+            
+            <script>
+              // Smooth scrolling for navigation links
+              document.addEventListener("DOMContentLoaded", function () {
+                const navLinks = document.querySelectorAll('.nav-item');
+          
+                navLinks.forEach(link => {
+                  link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  });
+                });
+              });
+            </script>          
+            
+            
+      
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     
+    
+
     <footer><p>Footer</p></footer>
+
+   
+
   </body>
 </html>
+
