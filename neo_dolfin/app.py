@@ -311,6 +311,12 @@ def signupmfadevice():
 @app.route('/home/')
 def auth_home(): 
     if not is_token_valid():
+        # INSERT BOTO3 REQUEST HERE
+        # CHECK IF USERNAME.FOLDER EXISTS 
+            # IF NOT, MAKE A DIRECTORY AND UPLOAD THE DUMMY DATA
+                # df should be set to dummy data. 
+            # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
+                # LOAD LAST CSV OBJECT INTO df VAR.
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("home.html")
