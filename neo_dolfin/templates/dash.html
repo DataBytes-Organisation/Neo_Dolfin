@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart Example</title>
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}"/>
+</head>
+
+<style>
+    .inline-block {
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+
+    <h1 style="text-align: center; font-size: 80px; color: blue;">Dashboard</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col inline-block">
+                <h2>Welcome back</h2>
+            </div>
+            <div class="col inline-block">
+                <div id="piechart"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var mockData = [
+            { label: "Rent", value: 1795 },
+            { label: "Food", value: 1113 },
+            { label: "Entertainment", value: 296 },
+            // ... Add more mock data points
+        ];
+    
+        var layout = {
+            title: "Spending Categories",
+        };
+    
+        var plotData = {
+            values: mockData.map(item => item.value),
+            labels: mockData.map(item => item.label),
+            type: "pie"
+        };
+    
+        Plotly.newPlot("piechart", [plotData], layout);
+    </script>
+
+     <!-- Include JavaScript logic for pie chart -->
+    <!-- Include JavaScript logic for pie chart -->
+ <!--  <script>
+        fetch('/get_data')
+            .then(response => response.json())
+            .then(data => {
+                var layout = {
+                    title: "Spending Categories",
+                };
+
+                var plotData = {
+                    values: data.map(item => item.value),
+                    labels: data.map(item => item.label),
+                    type: "pie"
+                };
+
+                Plotly.newPlot("piechart", [plotData], layout);
+            })
+            .catch(error => console.error(error));
+    </script>-->
+
+
+</body>
+</html>
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Welcome back</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Rest of your HTML layout -->
+
+ <!--   <div class="row">
+        <div class="col">
+            <div id="piechart"></div>
+        </div>
+    </div>
+</div>
