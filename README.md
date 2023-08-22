@@ -113,5 +113,13 @@ aws_secret_access_key=<>
   * To run the flask application, use the following terminal command: ```python app.py``` 
   * Navigate to ```127.0.0.1``` in your web browser. 
 
+### {NEW} Testing
+We have testing scripts enabled for this application. 
+* Make sure to install the pytest-flask module, it is currently listed in the ```requirements.txt ```
+* To run, follow the steps for local deployment, but instead of the ```python app.py``` command, please use the ```pytest``` command. 
+
+**PLEASE RUN THE PYTEST AND ATTACH THE LOG TEXT/SCREENSHOT TO YOUR PULL REQUEST**
+***Warnings are OKAY, Fails will result in the PULL request not being reviewed.*** 
+
 ## EC2 Deployment 
 ***WORK IN PROGRESS***

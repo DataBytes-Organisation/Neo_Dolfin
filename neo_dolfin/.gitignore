@@ -6,3 +6,7 @@ venv/
 
 # Ignore the qr.png file
 qr.png
+
+# pycache
+.pytest_cache
+__pycache__
