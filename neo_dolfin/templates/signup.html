@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>DolFin - User Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
@@ -12,15 +11,46 @@
     <form method="POST" action="/signup">
         {{ form.csrf_token }}
         {{ form.given_name.label }} {{ form.given_name() }}
+        <br>
         {{ form.family_name.label }} {{ form.family_name() }}
+        <br>
         {{ form.nickname.label }} {{ form.nickname() }}
+        <br>
         {{ form.username.label }} {{ form.username() }}
+        {% if form.username.errors %}
+        <ul class="errors">
+        {% for error in form.username.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        <br>
         {{ form.password.label }} {{ form.password() }}
+        {% if form.password.errors %}
+        <ul class="errors">
+        {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        <br>
         {{ form.confirm_password.label }} {{ form.confirm_password() }}
+        {% if form.confirm_password.errors %}
+        <ul class="errors">
+        {% for error in form.confirm_password.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        <p>By creating an account you agree that you have reviewed and agree to the full terms and conditions set out in the DolFin Terms of Use</p>
+        <br>
+        <a class="btn btn-primary" href="/TermsofUse" role="button">Terms of Use</a>
+        <br>
         {{ form.submit() }}
     </form>
     {% if error %}
     <p>{{ error }}</p>
     {% endif %}
+
 </body>
 </html>
