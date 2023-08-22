@@ -2,7 +2,6 @@
 from app import app
 
 def test_hello():
-    os.environ['AWS_DEFAULT_REGION'] = 'ap-southeast-2'  # Replace with your desired AWS region
     client = app.test_client()
 
     response = client.get('/')

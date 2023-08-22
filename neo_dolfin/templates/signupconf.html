@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DolFin - User Sign Up - Email Confirmation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='signUPmfa.css')}}"/>
+    <!-- Font Family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
+      </style>
 </head>
 <body>
-    <h1>Sign Up - Confirmation</h1>
-        <form method="POST" action="/signupconf">
-        {{ form.csrf_token }}
-        {{ form.signupconf.label }} {{ form.signupconf() }}
-        {{ form.submit() }}
-        </form>
 
-    {% if error %}
-    <p>{{ error }}</p>
-    {% endif %}
+    <div class="container">        
+        <div class="mfa-form row">
+            <div class="mfa-content col-md-12">
+                <h1 class="mfa-heading">Two-Factor <br>Authentication</h1>
+                <form method="POST" action="/signupconf">
+                {{ form.csrf_token }}
+                <h2 class="mfa-subheading">Enter your code: </h2>
+                <!-- <span class="mfa-label">{{ form.signupconf.label }}</span> <br> -->
+                <span class="mfa-input">{{ form.signupconf() }}</span>
+                <div class="mfa-buttons">
+                    <a role="button">{{ form.submit() }}</a>
+                    <a class="btn btn-primary" href="/signupconf/resendconfemail" role="button">RESEND</a>
+                </div>
 
-    <br>
-
-    <a class="btn btn-primary" href="/signupconf/resendconfemail" role="button">Resend Confirmation Email</a>
-
+                </form>
+            
+                {% if error %}
+                <p class="mfa-error">{{ error }}</p>
+                {% endif %}
+            
+                <br>
+            
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
