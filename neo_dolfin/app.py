@@ -16,7 +16,7 @@ import qrcode
 import logging 
 
 #import dash
-#import dash_core_components as dcc
+#import dash_core_components as dcc#
 #import dash_html_components as html
 
 load_dotenv()  # Load environment variables from .env
@@ -27,7 +27,7 @@ from functions import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
-df = pd.read_csv('static/dummies.csv')
+#df = pd.read_csv('static/dummies.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
