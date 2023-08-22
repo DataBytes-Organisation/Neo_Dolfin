@@ -1,0 +1,70 @@
+body{
+    font-family: "Inter", sans-serif;
+    background-color: #FAFAFE !important; 
+    overflow-x: hidden;
+}
+
+
+/* Div containing contents of header */
+#headerSection{
+    color: #0077BB;
+    font-size: 48px;
+    font-weight: bolder;
+    padding-top: 120px !important;
+    padding-bottom: 120px !important;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#headerTitle{
+    font-size: 84px;
+    font-weight: bold;
+}
+
+/* Divider from header */
+#rectangleDivider{
+    padding: 0%;
+}
+
+
+
+/* ACCORDION */
+/* Div containing all accordions */
+#accordionMain{
+    padding-top: 50px !important;
+    padding-bottom: 200px !important;
+}
+
+#accordionHeading{
+    padding-bottom: 0%;
+}
+
+#accordionButton{
+    color: #FAFAFE !important;
+    background-color: #343A40 !important;
+    font-size: 36px;
+    font-weight: bolder;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: none;
+    margin: 0;
+}
+
+#accordionBody {
+    margin-top: -12px;
+    color: #FAFAFE !important;
+    background-color: #343A40 !important;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Buttons for FAQ acordion */
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-plus-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/></svg>");
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-dash-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>");
+}
+
+
+
