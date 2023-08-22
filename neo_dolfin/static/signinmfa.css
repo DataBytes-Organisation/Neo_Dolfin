@@ -1,0 +1,87 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+
+body {
+    background-image: url("img/bg-img.png");
+    height: 100vh !important;
+}
+
+.mfa-form {
+    background-image: url(img/mfa-blob.png);
+    background-repeat: no-repeat;
+    background-size: 800px auto;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.mfa-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.mfa-heading {
+    color: #fafafe;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 60px;
+    padding-bottom: 20px;
+    text-shadow: black 1px 0px 40px;
+}
+
+.mfa-subheading{
+    color: #fafafe;
+    font-family: 'Inter', sans-serif !important;
+    padding-bottom: 20px;
+}
+
+#otp {
+    border-radius: 80px;
+    border: none;
+    width: 350px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#submit{
+    border-radius: 80px;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: bold;
+    color: #fafafe;
+    background-color: #0077bb;
+    border: none;
+    width: 130px;
+    height: 50px;
+    font-size: 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+
+#submit:hover{
+    background-color: #BAFBFF;
+    color: #343a40;
+}
+
+
+
+/* <----- Footer CSS START -----> */
+
+footer{
+    background-color: #343a40;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+}
+
+
