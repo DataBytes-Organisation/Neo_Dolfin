@@ -16,9 +16,11 @@
     <div class="container">        
         <div class="mfa-form row">
             <div class="mfa-content col-md-12">
+
                 <h1 class="mfa-heading">Two-Factor <br>Authentication</h1>
                 <form method="POST" action="/signupconf">
                 {{ form.csrf_token }}
+                <img src="{{ url_for('static', filename='img/qr.png') }}" alt="QR Image" style="max-width: 300px; max-height: 200px;">
                 <h2 class="mfa-subheading">Enter your code: </h2>
                 <!-- <span class="mfa-label">{{ form.signupconf.label }}</span> <br> -->
                 <span class="mfa-input">{{ form.signupconf() }}</span>
@@ -26,7 +28,7 @@
                     <a role="button">{{ form.submit() }}</a>
                     <a class="btn btn-primary" href="/signupconf/resendconfemail" role="button">RESEND</a>
                 </div>
-
+                
                 </form>
             
                 {% if error %}
