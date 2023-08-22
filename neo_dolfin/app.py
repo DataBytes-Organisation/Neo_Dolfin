@@ -21,6 +21,9 @@ import logging
 
 load_dotenv()  # Load environment variables from .env
 
+from classes import *
+from functions import * 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
@@ -37,62 +40,8 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 # DASH APP
 # Initialize Dash app
 #dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dash/')  # Set the route to '/dash/'
-#
-# TODO: UPDATE DASH APP WITH USER DATA
 # Define the Dash layout
 #dash_app.layout = dash_layout#
-
-#FUNCTIONS
-def is_token_valid(): #Confirm whether access token exists and has not expired, token provided by AWS Cognito, stored in local session
-    access_token = session.get('access_token')
-    expiration_timestamp = session.get('token_expiration')
-
-    if not access_token or not expiration_timestamp:
-        return False
-
-    current_timestamp = int(time.time())
-    if current_timestamp >= expiration_timestamp:
-        # Token has expired
-        return False
-
-    # Token is still valid
-    return True
- 
-def calculate_secret_hash(client_id, client_secret, username): #Calculate secret hash, as per AWS API AWS>Documentation>Amazon Cognito?Developer Guide
-    message = username + client_id
-    dig = hmac.new(str(client_secret).encode('utf-8'),
-                   msg=message.encode('utf-8'), digestmod=hashlib.sha256).digest()
-    return base64.b64encode(dig).decode()
-
-
-#CLASSES
-class SignInForm(FlaskForm): #Used on signin.html
-    username = StringField('E-Mail', validators=[DataRequired(), Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignInMFAForm(FlaskForm): #Used on signinmfa.html
-    otp = PasswordField('One Time Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignUpForm(FlaskForm): #Used on signup.html
-    given_name = StringField('Given_name',validators=[DataRequired()])
-    family_name = StringField('Family_name',validators=[DataRequired()])
-    nickname = StringField('Nickname',validators=[DataRequired()])
-    username = StringField('E-Mail', validators=[DataRequired(),  Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired(), Regexp("(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$",
-                                                                            message="At least 8 characters, Minimum 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character and only contains symbols from the alphabet")])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
-    submit = SubmitField('Sign Up')
-
-class SignUpConfForm(FlaskForm): #Used on signup.html
-    signupconf = PasswordField('Confirmation Code', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-class SignUpMFADForm(FlaskForm): #Used on signupmfad.html
-    signupmfadevicename = StringField('MFA Device Name', validators=[DataRequired()])
-    signupmfadevicecode = StringField('MFA Device Code', validators=[DataRequired()])
-    submit = SubmitField('Register Device')
 
 
 # ROUTING
