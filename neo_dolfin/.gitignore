@@ -9,4 +9,4 @@ qr.png
 
 # pycache
 .pytest_cache
-__pycache__
+test/__pycache__
