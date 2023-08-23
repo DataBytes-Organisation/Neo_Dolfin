@@ -5,52 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DolFin - User Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/signin.css">
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <form method="POST" action="/signup">
-        {{ form.csrf_token }}
-        {{ form.given_name.label }} {{ form.given_name() }}
-        <br>
-        {{ form.family_name.label }} {{ form.family_name() }}
-        <br>
-        {{ form.nickname.label }} {{ form.nickname() }}
-        <br>
-        {{ form.username.label }} {{ form.username() }}
-        {% if form.username.errors %}
-        <ul class="errors">
-        {% for error in form.username.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-        <br>
-        {{ form.password.label }} {{ form.password() }}
-        {% if form.password.errors %}
-        <ul class="errors">
-        {% for error in form.password.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-        <br>
-        {{ form.confirm_password.label }} {{ form.confirm_password() }}
-        {% if form.confirm_password.errors %}
-        <ul class="errors">
-        {% for error in form.confirm_password.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-        <p>By creating an account you agree that you have reviewed and agree to the full terms and conditions set out in the DolFin Terms of Use</p>
-        <br>
-        <a class="btn btn-primary" href="/TermsofUse" role="button">Terms of Use</a>
-        <br>
-        {{ form.submit() }}
-    </form>
-    {% if error %}
-    <p>{{ error }}</p>
-    {% endif %}
+    <div class="container">
+        <div class="card">
+            <h1>Sign Up</h1>
+            <form method="POST" action="/signup">
+                {{ form.csrf_token }}
+                <input type="text" placeholder="Given Name" name="given_name" value="{{ form.given_name.data if form.given_name.data else '' }}">
+                
+                <input type="text" placeholder="Family Name" name="family_name" value="{{ form.family_name.data if form.family_name.data else ''}}">
 
+                <input type="text" placeholder="Nickname" name="nickname" value="{{ form.nickname.data if form.nickname.data else '' }}">
+
+                <input type="text" placeholder="Username" name="username" value="{{ form.username.data if form.username.data else '' }}">
+                {% if form.username.errors %}
+                <ul class="errors">
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <input type="password" placeholder="Password" name="password" value="{{ form.password.data if form.password.data else '' }}">
+                {% if form.password.errors %}
+                <ul class="errors">
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <input type="password" placeholder="Confirm Password" name="confirm_password" value="{{ form.confirm_password.data if form.confirm_password.data else '' }}">
+                {% if form.confirm_password.errors %}
+                <ul class="errors">
+                {% for error in form.confirm_password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <button type="submit" class="login-button">Sign Up</button>
+            </form>
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
