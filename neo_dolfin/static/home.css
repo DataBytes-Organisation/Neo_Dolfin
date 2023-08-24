@@ -1,94 +1,68 @@
+#header-section {
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
- body {
-        background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        background-repeat: repeat;
-      }
+#navigationBarList {
+  font-family: Inter;
+  font-weight: 800;
+  font-size: 48px;
+  color:lightgray;
+  display: inline-block;
+  margin: 0;
+  background-color: black;
+  width: 100%;
+  margin-top: 100px;
+  /* Add top padding to create space */
+}
+#centered-section {
+  text-align: center;
+}
 
-      h1{
-        Font: Inter;
-        
-      }
+h1 {
+  font-family: Inter;
+  font-weight: 800;
+  font-size: 144px;
+  line-height: 174.27px;
+  color: #0077BB;
+}
 
-      #Group1 {
-      position: absolute;
-      width: 1213.21px;
-      height: 701.97px;
-    }
+h2 {
+  font-family: Inter;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58.09px;
+  color: #0077BB;
+}
 
-    /* Rectangle 307 */
-    #Rectangle307 {
-      position: relative;
-      width: 200px;
-      height: 100px;
-      background: #343A40;
-      border-radius: 80px 80px 80px 80px;
-    }
-
-    /* Title! */
-    #Title {
-      position: absolute;
-      width: 502px;
-      height: 172px;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 800;
-      font-size: 128px;
-      line-height: 155px;
-      letter-spacing: -0.03em;
-      color: #D9D9D9;
-      text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
-    }
-
-   
-
-    
-
-/* navbar-dark */
-Navbar{
-
-
-position: relative;
-width: 1349px;
-height: 113px;
-background: #343A40;
-border-radius: 4px;
+/* Title! */
+#Title {
+  position: absolute;
+  width: 502px;
+  height: 172px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 155px;
+  letter-spacing: -0.03em;
+  color: #D9D9D9;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
 }
 
 
 
 
 
+/* navbar-dark */
+Navbar {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+  position: relative;
+  width: 1349px;
+  height: 113px;
+  background: #343A40;
+  border-radius: 4px;
+}
