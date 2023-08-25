@@ -6,54 +6,82 @@
 }
 
 #navigationBarList {
-  font-family: Inter;
+  font: Inter;
   font-weight: 800;
   font-size: 48px;
   color:lightgray;
   display: inline-block;
   margin: 0;
-  background-color: black;
+  background-color: #343A40;
   width: 100%;
-  margin-top: 100px;
+ /* margin-top: 100px;*/
   /* Add top padding to create space */
 }
+
 #centered-section {
   text-align: center;
 }
 
-h1 {
-  font-family: Inter;
+#header-title {
+  font: Inter;
   font-weight: 800;
   font-size: 144px;
   line-height: 174.27px;
   color: #0077BB;
 }
 
-h2 {
-  font-family: Inter;
+#header-subtitle {
+  font: Inter;
   font-weight: 800;
   font-size: 48px;
   line-height: 58.09px;
   color: #0077BB;
 }
 
-/* Title! */
-#Title {
-  position: absolute;
-  width: 502px;
-  height: 172px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 128px;
-  line-height: 155px;
-  letter-spacing: -0.03em;
-  color: #D9D9D9;
-  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+.nav-item {
+  text-decoration: none;
+  transition: color 0.3s;
+  font: Inter;
 }
 
 
 
+
+#navigationBarList li {
+  display: inline;
+  width: 100px;
+  margin-right: 200px;
+}
+
+
+.ellipse-svg {
+  fill-opacity: 0.933333;
+  /* Initial opacity */
+  transition: fill-opacity 0.3s;
+  /* Add smooth transition for opacity */
+}
+
+/* Highlight the ellipse on hover */
+.ellipse-svg:hover {
+  fill-opacity: 1;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: 100vh;
+  /* 100% of the viewport height */
+}
+
+.full-width {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 
 /* navbar-dark */
