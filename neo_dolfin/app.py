@@ -14,6 +14,7 @@ import hmac
 import base64
 import qrcode
 import logging 
+from services import BasiqService 
 
 #import dash
 #import dash_core_components as dcc#
@@ -27,6 +28,11 @@ from functions import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
+
+# Default S3 storage values
+bucket_name = 'neodolfin-transaction-data-storage-01'
+dummy_csv_filename = 'dummies.csv'
+
 #df = pd.read_csv('static/dummies.csv')
 
 # AWS STUFF
@@ -36,6 +42,7 @@ AWS_COGNITO_APP_CLIENT_ID = os.environ.get('AWS_COGNITO_APP_CLIENT_ID')#
 AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
 
 client = boto3.client('cognito-idp', region_name=AWS_REGION)
+s3_client = boto3.client('s3')
 
 # DASH APP
 # Initialize Dash app
@@ -229,7 +236,7 @@ def resendconfemail():
             ClientId=AWS_COGNITO_APP_CLIENT_ID,
                 SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
                 Username=session.get('username'))
-        return redirect('signupconf.html', form=form)
+        return render_template('signupconf.html', form=form)
     except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-up Resend Confirmation Email error: {e}")
@@ -254,24 +261,40 @@ def signupmfadevice():
                 Session=awssession,
                 UserCode=form.signupmfadevicecode.data,
                 FriendlyDeviceName=form.signupmfadevicename.data)
-            return redirect('/signin')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"MFA Device Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('signupmfad.html', form=form)
+    return render_template('/home/.html', form=form)
 
 # APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
 def auth_home(): 
     if not is_token_valid():
-        # INSERT BOTO3 REQUEST HERE
-        # CHECK IF USERNAME.FOLDER EXISTS 
-            # IF NOT, MAKE A DIRECTORY AND UPLOAD THE DUMMY DATA
-                # df should be set to dummy data. 
-            # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
-                # LOAD LAST CSV OBJECT INTO df VAR.
+        success = True
+        current_time = datetime.datetime.now().strftime("%m%d%Y%H%M%S")
+
+        # Check if user has a directory in the S3 bucket
+        try:
+            s3_client.get_object(Bucket = bucket_name, Key = session.get('username'))
+        except Exception:
+            print("No folder exists for user: " + session.get('username'))
+            success = False
+            
+            # If the user directory does not exist, create that object in the S3 bucket and load the dummy data as a dataframe
+            if not success:
+                s3_client.put_object(Body = dummy_csv_filename, Bucket = bucket_name, Key = session.get('username') + "/" + dummy_csv_filename + current_time)
+                df = pd.read_csv('static/dummies.csv')
+
+            #If success, get the latest object and read it into a dataframe
+            if success:
+                # modified from https://stackoverflow.com/questions/45375999/how-to-download-the-latest-file-of-an-s3-bucket-using-boto3
+                get_lateset_object = lambda obj: int(obj['LastModified'].strftime('%S'))
+                objects = s3_client.list_objects(Bucket = bucket_name, Prefix = session.get('username'))['Contents']         
+                latest_object = [obj['Key'] for obj in sorted(objects, key = get_latest_object)][0]
+                df = pd.read_csv(s3.get_object(Bucket = bucket_name, Key = latest_object).get('Body'))
+
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("home.html")
