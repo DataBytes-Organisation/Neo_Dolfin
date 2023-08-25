@@ -11,3 +11,6 @@ qr.png
 .pytest_cache
 test/__pycache__
 __pycache__
+
+.gitignore
+app.py

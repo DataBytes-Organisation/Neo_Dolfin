@@ -271,25 +271,27 @@ def auth_home():
                 # df should be set to dummy data. 
             # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
                 # LOAD LAST CSV OBJECT INTO df VAR.
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
+    #     return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    # if is_token_valid():
         return render_template("home.html")
 
 # APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("news.html")
+    if is_token_valid():
+        return render_template("news.html")   
+        
 
 # APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return render_template("faq.html")
     if is_token_valid():
-        return render_template("FAQ.html")
+        return render_template("faq.html")        
+        
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
