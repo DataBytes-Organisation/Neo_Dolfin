@@ -16,15 +16,18 @@ import qrcode
 import logging 
 
 #import dash
-#import dash_core_components as dcc
+#import dash_core_components as dcc#
 #import dash_html_components as html
 
 load_dotenv()  # Load environment variables from .env
 
+from classes import *
+from functions import * 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
-df = pd.read_csv('static/dummies.csv')
+#df = pd.read_csv('static/dummies.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -37,62 +40,8 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 # DASH APP
 # Initialize Dash app
 #dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dash/')  # Set the route to '/dash/'
-#
-# TODO: UPDATE DASH APP WITH USER DATA
 # Define the Dash layout
 #dash_app.layout = dash_layout#
-
-#FUNCTIONS
-def is_token_valid(): #Confirm whether access token exists and has not expired, token provided by AWS Cognito, stored in local session
-    access_token = session.get('access_token')
-    expiration_timestamp = session.get('token_expiration')
-
-    if not access_token or not expiration_timestamp:
-        return False
-
-    current_timestamp = int(time.time())
-    if current_timestamp >= expiration_timestamp:
-        # Token has expired
-        return False
-
-    # Token is still valid
-    return True
- 
-def calculate_secret_hash(client_id, client_secret, username): #Calculate secret hash, as per AWS API AWS>Documentation>Amazon Cognito?Developer Guide
-    message = username + client_id
-    dig = hmac.new(str(client_secret).encode('utf-8'),
-                   msg=message.encode('utf-8'), digestmod=hashlib.sha256).digest()
-    return base64.b64encode(dig).decode()
-
-
-#CLASSES
-class SignInForm(FlaskForm): #Used on signin.html
-    username = StringField('E-Mail', validators=[DataRequired(), Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignInMFAForm(FlaskForm): #Used on signinmfa.html
-    otp = PasswordField('One Time Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignUpForm(FlaskForm): #Used on signup.html
-    given_name = StringField('Given_name',validators=[DataRequired()])
-    family_name = StringField('Family_name',validators=[DataRequired()])
-    nickname = StringField('Nickname',validators=[DataRequired()])
-    username = StringField('E-Mail', validators=[DataRequired(),  Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired(), Regexp("(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$",
-                                                                            message="At least 8 characters, Minimum 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character and only contains symbols from the alphabet")])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
-    submit = SubmitField('Sign Up')
-
-class SignUpConfForm(FlaskForm): #Used on signup.html
-    signupconf = PasswordField('Confirmation Code', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-class SignUpMFADForm(FlaskForm): #Used on signupmfad.html
-    signupmfadevicename = StringField('MFA Device Name', validators=[DataRequired()])
-    signupmfadevicecode = StringField('MFA Device Code', validators=[DataRequired()])
-    submit = SubmitField('Register Device')
 
 
 # ROUTING
@@ -101,6 +50,11 @@ class SignUpMFADForm(FlaskForm): #Used on signupmfad.html
 @app.route("/") #Initial landing page for application
 def landing():
     return render_template('landing.html')
+
+# TERMS OF USE PAGE
+@app.route('/TermsofUse') #Terms of Use for application
+def TermsofUse():
+    return render_template('TermsofUse.html')
 
 # SIGN IN PAGE
 @app.route('/signin', methods=['GET', 'POST']) #Initial sign in page
@@ -275,7 +229,7 @@ def resendconfemail():
             ClientId=AWS_COGNITO_APP_CLIENT_ID,
                 SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
                 Username=session.get('username'))
-        return render_template('signupconf.html', form=form)
+        return redirect('signupconf.html', form=form)
     except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-up Resend Confirmation Email error: {e}")
@@ -300,17 +254,24 @@ def signupmfadevice():
                 Session=awssession,
                 UserCode=form.signupmfadevicecode.data,
                 FriendlyDeviceName=form.signupmfadevicename.data)
+            return redirect('/signin')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"MFA Device Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('/home/.html', form=form)
+    return render_template('signupmfad.html', form=form)
 
 # APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
 def auth_home(): 
     if not is_token_valid():
+        # INSERT BOTO3 REQUEST HERE
+        # CHECK IF USERNAME.FOLDER EXISTS 
+            # IF NOT, MAKE A DIRECTORY AND UPLOAD THE DUMMY DATA
+                # df should be set to dummy data. 
+            # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
+                # LOAD LAST CSV OBJECT INTO df VAR.
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("home.html")
