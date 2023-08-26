@@ -229,7 +229,7 @@ def resendconfemail():
             ClientId=AWS_COGNITO_APP_CLIENT_ID,
                 SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
                 Username=session.get('username'))
-        return render_template('signupconf.html', form=form)
+        return redirect('signupconf.html', form=form)
     except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-up Resend Confirmation Email error: {e}")
@@ -254,12 +254,13 @@ def signupmfadevice():
                 Session=awssession,
                 UserCode=form.signupmfadevicecode.data,
                 FriendlyDeviceName=form.signupmfadevicename.data)
+            return redirect('/signin')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"MFA Device Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('/home/.html', form=form)
+    return render_template('signupmfad.html', form=form)
 
 # APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
