@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DolFin - User Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<<<<<<< Updated upstream
+=======
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/signin.css')}}">
+>>>>>>> Stashed changes
 </head>
+
 <body>
     <h1>Sign Up</h1>
     <form method="POST" action="/signup">
@@ -52,5 +58,45 @@
     <p>{{ error }}</p>
     {% endif %}
 
+<<<<<<< Updated upstream
+=======
+                <input type="text" placeholder="Nickname" name="nickname" value="{{ form.nickname.data if form.nickname.data else '' }}">
+
+                <input type="text" placeholder="Username" name="username" value="{{ form.username.data if form.username.data else '' }}">
+                {% if form.username.errors %}
+                <ul class="errors">
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <input type="password" placeholder="Password" name="password" value="{{ form.password.data if form.password.data else '' }}">
+                {% if form.password.errors %}
+                <ul class="errors">
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <input type="password" placeholder="Confirm Password" name="confirm_password" value="{{ form.confirm_password.data if form.confirm_password.data else '' }}">
+                {% if form.confirm_password.errors %}
+                <ul class="errors">
+                {% for error in form.confirm_password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+                <button type="submit" class="login-button">Sign Up</button>
+            </form>
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+>>>>>>> Stashed changes
 </body>
 </html>
