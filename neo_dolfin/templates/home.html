@@ -1,18 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< Updated upstream
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DolFin - Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='logo/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='logo/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='logo/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='logo/site.webmanifest') }}">
-  </head>
-  <body>
-=======
 
 <head>
   <meta charset="utf-8">
@@ -22,14 +9,14 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
 </head>
 
+
+
 <body>
+
   <!--
->>>>>>> Stashed changes
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="{{ url_for('static', filename='logo/apple-touch-icon.png') }}" width="30" height="30" alt="">
-          </a>
+          <a class="navbar-brand" href="/">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,19 +32,19 @@
                 <a class="nav-link" href="#">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+-->
+  <div id="header-section">
+    <h2 id="header-subtitle" style="text-align: center;color: #0077BB;">Join <span style="color: #343A40;">DolFin</span>
+      Today and</h2>
+    <h1 id="header-title" style="text-align: center;  color: #0077BB;">Start Saving</h1>
+  </div>
 
-<<<<<<< Updated upstream
-    <h1>WELCOME TO DOLFIN YOU ARE LOGGED IN! {{ session['username'] }}</h1>
-=======
   <ul id="navigationBarList" style="display: flex; align-items: center;">
     <li style="flex: 1;"></li>
     <li><a href="#section1" class="nav-item" style="color: #D9D9D9;">Section1</a></li>
@@ -174,13 +161,10 @@
   </script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 
     #<h1>WELCOME TO DOLFIN YOU ARE LOGGED IN! {{ session['username'] }}</h1>
->>>>>>> Stashed changes
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
-    <footer><p>Footer</p></footer>
-  </body>
 </html>
