@@ -1,5 +1,5 @@
 # NE0 DolFin 
-Updated: 31/07/2023
+Updated: 28/08/2023
 
 ## Branch Management
 ### Authorised Code Owners:
@@ -88,10 +88,14 @@ aws_secret_access_key=<>
 * Verify with the command: ```aws configure list```
 
 ### WINDOWS 
-*  * Ensure that you have an AWS Credentials file in your root directory 
-	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
-	* Move into that directory via: ```cd %userprofile%\.aws ```
-	* After that, open the configure file via the command: ```nano credentials```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
+*  * Install the latest version of the AWS CLI for Windows from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+*  * Ensure that you have an AWS Credentials file in your root directory (%userprofile%/.aws/configure)
+	* If you do not have a configure file, use the AWS CLI from the command prompt via running the command ```aws configure``` to configure an AWS Profile.
+	* Press Enter to accept the default options for AWS Access Key ID, AWS Secret Access Key, Default region name, Default output format.
+ 	* Change directory into your user profile directory ```cd %userprofile% ``` 
+	* Make a directory called .aws via the following command: ```mkdir .aws ```
+   	* Move into that directory via: ```cd .aws ```
+	* Create the 'configure' file (with no extension - ie: configure) using notepad, Visual Studio Code or another text editor.  Make sure the code matches the below, save the file and close the text editor
 * Ensure that your AWS credentials file is in the correct format. The format is given below:
 ```
 [default]
