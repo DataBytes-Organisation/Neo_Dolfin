@@ -31,10 +31,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r neo_dolfin/requirements.txt
 
-        - name: Start Flask app
-        run: |
-          cd neo_dolfin
-          python app.py &  # Run the app in the background
+    - name: Start Flask app
+      run: |
+        cd neo_dolfin
+        python app.py &  # Run the app in the background
       
     - name: Wait for 30 seconds
       run: sleep 30  # Sleep for 30 seconds
