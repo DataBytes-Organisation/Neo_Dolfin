@@ -31,9 +31,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r neo_dolfin/requirements.txt
 
-    - name: Test Flask app
+        - name: Start Flask app
+        run: |
+          cd neo_dolfin
+          python app.py &  # Run the app in the background
+      
+    - name: Wait for 30 seconds
+      run: sleep 30  # Sleep for 30 seconds
+      
+    - name: Check Flask app status
       run: |
-        cd neo_dolfin
-        python app.py       # Replace with the appropriate command to run your Flask app
-        sleep 60            # Wait for a minute
-        pkill -f "app.py"   # Stop the app
+        if pkill -0 -f "app.py"; then
+          echo "Flask app is still running"
+        else
+          echo "Flask app stopped"
+          exit 1
+        fi
