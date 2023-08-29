@@ -34,4 +34,6 @@ jobs:
     - name: Test Flask app
       run: |
         cd neo_dolfin
-        python app.py  # Replace with the appropriate command to run your Flask app
+        python app.py       # Replace with the appropriate command to run your Flask app
+        sleep 60            # Wait for a minute
+        pkill -f "app.py"   # Stop the app
