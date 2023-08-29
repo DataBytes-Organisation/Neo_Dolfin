@@ -33,4 +33,5 @@ jobs:
 
     - name: Run tests
       run: |
+        cd neo_dolfin
         python app.py  # Replace with the appropriate command to run your Flask app
