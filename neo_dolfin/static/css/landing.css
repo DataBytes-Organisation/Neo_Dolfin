@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("img/bg-img.png");
+    background-image: url("/static/img/bg-img.png");
     max-height: 100vh !important;
 }
 
@@ -43,7 +43,7 @@ body {
     .landing-blob
     {
         padding-right: 0px;
-        background-image: url(img/blob.png);
+        background-image: url("/static/img/blob.png");
         background-position: center;
         background-repeat: no-repeat;
         min-height: 27em;
