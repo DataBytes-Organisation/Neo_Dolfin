@@ -4,12 +4,12 @@
 
 
 body {
-    background-image: url("img/bg-img.png");
+    background-image: url("/static/img/bg-img.png");
     height: 100vh !important;
 }
 
 .mfa-form {
-    background-image: url(img/mfa-blob.png);
+    background-image: url("/static/img/mfa-blob.png");
     background-repeat: no-repeat;
     background-size: 800px auto;
     background-position: center;

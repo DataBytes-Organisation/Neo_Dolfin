@@ -11,3 +11,4 @@ qr.png
 .pytest_cache
 test/__pycache__
 __pycache__
+.DS_store

@@ -1,0 +1,49 @@
+name: Flask App CI
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    env:  # Define environment variables for the job
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_COGNITO_USER_POOL_ID: ${{ secrets.AWS_COGNITO_USER_POOL_ID }}
+      AWS_COGNITO_APP_CLIENT_ID: ${{ secrets.AWS_COGNITO_APP_CLIENT_ID }}
+      AWS_COGNITO_CLIENT_SECRET: ${{ secrets.AWS_COGNITO_CLIENT_SECRET }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11  # Specify your desired Python version here
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r neo_dolfin/requirements.txt
+
+    - name: Start Flask app
+      run: |
+        cd neo_dolfin
+        python app.py &  # Run the app in the background
+      
+    - name: Wait for 30 seconds
+      run: sleep 30  # Sleep for 30 seconds
+      
+    - name: Check Flask app status
+      run: |
+        if pkill -0 -f "app.py"; then
+          echo "Flask app is still running"
+        else
+          echo "Flask app stopped"
+          exit 1
+        fi
