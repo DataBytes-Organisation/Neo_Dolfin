@@ -1,0 +1,210 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #FAFAFE !important;
+  overflow-x: hidden;
+}
+
+
+/* Header Styles */
+#titleSection {
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+#titleSubtitle{
+  font-weight: 800;
+  text-align: center;
+  font-size: 48px;
+  line-height: 58px;
+  color: #0077BB;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+#titleAlt {
+  color: #343A40;
+}
+
+#titleH1 {
+  font-weight: 800;
+  text-align: center;
+  font-size: 120px;
+  line-height: 175px;
+  color: #0077BB;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+
+/* anchor bar */
+#anchorBarList {
+  color: #FAFAFA;
+  background-color: #343A40;
+  font-weight: 800;
+  font-size: 36px;
+  max-width: 100%;
+  padding-left: 15%;
+  padding-right: 10%;
+  padding-top: 5px;
+}
+
+#anchorItem {
+  color: #FAFAFA;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#anchorItem:hover {
+  color: #0077BB;
+}
+#slashSpace{
+  padding-left: 30%;
+}
+
+
+/* First section */
+#firstSection{
+  margin-top: 100px;
+}
+
+#firstSectionBG {
+  background-image: url("/static/img/homeBlob1.svg");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  padding-top: 25px;
+  height: 500px;
+  margin-left: 8%;
+}
+
+#firstSectionHeading {
+  color: #fafafa;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 58px;
+  padding-left: 5%;
+  padding-top: 2%;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+#firstSectionParagraph {
+  color: #fafafa;
+  font-size: 20px;
+  line-height: 29px;
+  padding-left: 5%;
+  padding-right: 25%;
+  padding-top: 5%;
+}
+
+#firstSectionImg {
+  margin-left: 15%;
+}
+
+
+/* Second section */
+#secondSection {
+  background-image: url("/static/img/homeBlob2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 490px;
+  background-size: 40%;
+}
+
+#secondSectionHeading {
+  color: #fafafa;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 58px;
+  text-align: center;
+  padding-left: 410px;
+  padding-top: 70px;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+#secondSectionParagraph {
+  color: #fafafa;
+  font-size: 20px;
+  line-height: 29px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-left: 100px;
+  width: 30%;
+}
+
+
+/* Third Section */
+#thirdSection {
+  padding-top: 200px;
+  margin-left: 25%;
+}
+
+#thirdSectionHeading {
+  color: #343a40;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 58px;
+  margin-bottom: 25px;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+#thirdSectionParagraph {
+  color: #343a40;
+  font-size: 20px;
+  line-height: 29px;
+  width: 30%;
+}
+
+
+/* Bottom area */
+#bottomSection {
+  background-image: url("/static/img/homeBlobBtm.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1190px;
+}
+
+#bottomSectionText {
+  padding-top: 80px;
+}
+
+#bottomSectionHeading {
+  color: #FAFAFA;
+  font-weight: 800;
+  font-size: 84px;
+  line-height: 58px;
+  text-align: center;
+  padding-top: 360px;
+  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+}
+
+#bottomSectionSpan {
+  color: #0077BB;
+}
+
+
+/* Bottom Section Button */
+#btnDiv {
+  text-align: center;
+  padding-top: 25px;
+}
+
+#signUpBtn {
+  background-color: #0077bb;
+  border-color: #0077bb;
+  border-radius: 80px;
+  border-style: solid;
+  border-width: 8px;
+  color: #FAFAFA;
+  font-size: 24px;
+  font-weight: 800;
+  width: 130px;
+  margin-top: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#signUpBtn:hover {
+  background-color: #BAFBFF;
+  border-color: #BAFBFF;
+  color: #343a40;
+}
