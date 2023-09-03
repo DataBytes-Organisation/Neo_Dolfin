@@ -17,6 +17,7 @@ import logging
 import requests
 import datetime
 from services.basiq_service import BasiqService
+from io import StringIO
 
 #import dash
 #import dash_core_components as dcc#
@@ -27,6 +28,7 @@ load_dotenv()  # Load environment variables from .env
 
 from classes import *
 from functions import * 
+from services.basiq_service import BasiqService
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -46,6 +48,7 @@ AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
 
 client = boto3.client('cognito-idp', region_name=AWS_REGION)
 s3_client = boto3.client('s3')
+basiq_service = BasiqService()
 
 
 # DASH APP
@@ -307,8 +310,16 @@ def auth_home():
             # If the user directory does not exist, create that object in the S3 bucket and load the dummy data as a dataframe
             if not success:
                 print("Creating object")
-                with open(dummy_csv_filename, "rb") as f:
-                    s3_client.upload_fileobj(f, bucket_name, "raw_data_" + session.get('username') + ".csv")
+                access_token = basiq_service.get_access_token()
+                user_transaction_data = basiq_service.get_all_transaction_data_for_user(access_token)
+                Transactions = pd.json_normalize(user_transaction_data, record_path=['data'])
+                df = pd.DataFrame(Transactions)
+
+                csv_buffer = StringIO()
+                df.to_csv(csv_buffer)
+                s3_resource = boto3.resource('s3')
+                s3_resource.Object(bucket_name, "raw_data_" + session.get('username') + ".csv").put(Body=csv_buffer.getvalue())
+
                 print("Object successfully created")
                 #s3_client.put_object(Body = dummy_csv_filename, Bucket = bucket_name, Key = session.get('username') + "/" + dummy_csv_filename + current_time)
                 df = pd.read_csv('static/dummies.csv').to_json()
