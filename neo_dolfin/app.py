@@ -14,7 +14,9 @@ import hmac
 import base64
 import qrcode
 import logging 
-from services import BasiqService 
+import requests
+import datetime
+from services.basiq_service import BasiqService
 
 #import dash
 #import dash_core_components as dcc#
@@ -31,7 +33,7 @@ app.static_folder = 'static'
 
 # Default S3 storage values
 bucket_name = 'neodolfin-transaction-data-storage-01'
-dummy_csv_filename = 'dummies.csv'
+dummy_csv_filename = 'static/dummies.csv'
 
 #df = pd.read_csv('static/dummies.csv')
 
@@ -43,6 +45,7 @@ AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
 
 client = boto3.client('cognito-idp', region_name=AWS_REGION)
 s3_client = boto3.client('s3')
+
 
 # DASH APP
 # Initialize Dash app
@@ -271,37 +274,59 @@ def signupmfadevice():
 # APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
 def auth_home(): 
+
+    #if not is_token_valid():
+     #   return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if not is_token_valid():
         success = True
         current_time = datetime.datetime.now().strftime("%m%d%Y%H%M%S")
+        session['username'] = "dandaman" #CHANGE
+        
+        # Create default bucket if not exist
+        try:
+            resp = s3_client.head_bucket(Bucket=bucket_name)
+            if resp['ResponseMetadata']['HTTPStatusCode'] == 200:
+                print("Bucket found")
+            else:
+                raise Exception("Get bucket failed")
+        except Exception:
+            print("Default bucket does not exist. Creating bucket")
+            s3_client.create_bucket(Bucket = bucket_name, CreateBucketConfiguration={'LocationConstraint': 'ap-southeast-2'})
 
         # Check if user has a directory in the S3 bucket
         try:
-            s3_client.get_object(Bucket = bucket_name, Key = session.get('username'))
+            df_csv = s3_client.get_object(Bucket = bucket_name, Key = session.get('username') + ".csv")
+            df = df_csv['Body'].read()
+            session['user_data'] = df
         except Exception:
-            print("No folder exists for user: " + session.get('username'))
+            print("No folder exists for user: " + session.get('username') + ".csv")
             success = False
             
             # If the user directory does not exist, create that object in the S3 bucket and load the dummy data as a dataframe
             if not success:
-                s3_client.put_object(Body = dummy_csv_filename, Bucket = bucket_name, Key = session.get('username') + "/" + dummy_csv_filename + current_time)
-                df = pd.read_csv('static/dummies.csv')
+                print("Creating object")
+                with open(dummy_csv_filename, "rb") as f:
+                    s3_client.upload_fileobj(f, bucket_name, session.get('username') + ".csv")
+                print("Object successfully created")
+                #s3_client.put_object(Body = dummy_csv_filename, Bucket = bucket_name, Key = session.get('username') + "/" + dummy_csv_filename + current_time)
+                df = pd.read_csv('static/dummies.csv').to_json()
+                session['user_data'] = df
 
             #If success, get the latest object and read it into a dataframe
             if success:
                 # modified from https://stackoverflow.com/questions/45375999/how-to-download-the-latest-file-of-an-s3-bucket-using-boto3
                 get_lateset_object = lambda obj: int(obj['LastModified'].strftime('%S'))
-                objects = s3_client.list_objects(Bucket = bucket_name, Prefix = session.get('username'))['Contents']         
+                objects = s3_client.list_objects(Bucket = bucket_name, Prefix = session.get('username' ))['Contents']         
                 latest_object = [obj['Key'] for obj in sorted(objects, key = get_latest_object)][0]
                 df = pd.read_csv(s3.get_object(Bucket = bucket_name, Key = latest_object).get('Body'))
-
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
+                session['user_data'] = df
         return render_template("home.html")
 
 # APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
-def auth_news(): 
+def auth_news():
+    print(session['user_data']) 
+    print("IN NEWS")
     if not is_token_valid():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():

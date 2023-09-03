@@ -14,5 +14,5 @@ class IBasiqService(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_headers(access_token):
+    def get_headers(self, access_token):
         raise NotImplementedError
