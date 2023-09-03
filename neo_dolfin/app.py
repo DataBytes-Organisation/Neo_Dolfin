@@ -293,10 +293,11 @@ def auth_home():
         except Exception:
             print("Default bucket does not exist. Creating bucket")
             s3_client.create_bucket(Bucket = bucket_name, CreateBucketConfiguration={'LocationConstraint': 'ap-southeast-2'})
+            s3_client.create_bucket(Bucket = bucket_name + '-processed', CreateBucketConfiguration={'LocationConstraint': 'ap-southeast-2'})
 
         # Check if user has a directory in the S3 bucket
         try:
-            df_csv = s3_client.get_object(Bucket = bucket_name, Key = session.get('username') + ".csv")
+            df_csv = s3_client.get_object(Bucket = bucket_name, Key = "raw_data_" + session.get('username') + ".csv")
             df = df_csv['Body'].read()
             session['user_data'] = df
         except Exception:
@@ -307,7 +308,7 @@ def auth_home():
             if not success:
                 print("Creating object")
                 with open(dummy_csv_filename, "rb") as f:
-                    s3_client.upload_fileobj(f, bucket_name, session.get('username') + ".csv")
+                    s3_client.upload_fileobj(f, bucket_name, "raw_data_" + session.get('username') + ".csv")
                 print("Object successfully created")
                 #s3_client.put_object(Body = dummy_csv_filename, Bucket = bucket_name, Key = session.get('username') + "/" + dummy_csv_filename + current_time)
                 df = pd.read_csv('static/dummies.csv').to_json()
@@ -317,7 +318,7 @@ def auth_home():
             if success:
                 # modified from https://stackoverflow.com/questions/45375999/how-to-download-the-latest-file-of-an-s3-bucket-using-boto3
                 get_lateset_object = lambda obj: int(obj['LastModified'].strftime('%S'))
-                objects = s3_client.list_objects(Bucket = bucket_name, Prefix = session.get('username' ))['Contents']         
+                objects = s3_client.list_objects(Bucket = bucket_name, Prefix = "raw_data_" + session.get('username' ))['Contents']         
                 latest_object = [obj['Key'] for obj in sorted(objects, key = get_latest_object)][0]
                 df = pd.read_csv(s3.get_object(Bucket = bucket_name, Key = latest_object).get('Body'))
                 session['user_data'] = df
