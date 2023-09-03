@@ -21,6 +21,7 @@ from services.basiq_service import BasiqService
 #import dash
 #import dash_core_components as dcc#
 #import dash_html_components as html
+#test
 
 load_dotenv()  # Load environment variables from .env
 
@@ -347,4 +348,4 @@ def auth_FAQ():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=True)
+    app.run(host='0.0.0.0',port=8000, debug=True)
