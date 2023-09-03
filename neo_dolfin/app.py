@@ -24,11 +24,12 @@ load_dotenv()  # Load environment variables from .env
 
 from classes import *
 from functions import * 
+from ai.chatbot import chatbot_logic
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
-#df = pd.read_csv('static/dummies.csv')
+df = pd.read_csv('static/transaction_ut.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -292,6 +293,21 @@ def auth_FAQ():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("FAQ.html")
+
+# CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+@app.route('/chatbot', methods=['GET', 'POST'])
+def ask():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        def ask():
+            if request.method == 'POST':
+                user_input = request.form['user_input']
+                prediction = chatbot_logic.predict_class(user_input)
+                response = chatbot_logic.get_response(prediction, chatbot_logic.intents, user_input)
+                sentiment = chatbot_logic.determine_sentiment(user_input, chatbot_logic.last_bot_reply)
+                return jsonify({'response': response, 'sentiment': sentiment})
+            return render_template("chatbot.html")
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')

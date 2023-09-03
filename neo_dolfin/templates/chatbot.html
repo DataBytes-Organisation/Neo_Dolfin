@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot</title>
+</head>
+<body>
+  <h1>Welcome to Chatbot</h1>
+  <div id="chat-box">
+  </div>
+  <input type="text" id="user_input" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="startListening()">Start Listening</button>
+
+  <script>
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    function startListening() {
+      recognition.start();
+    }
+
+    recognition.onresult = function(event) {
+      const user_input = event.results[0][0].transcript;
+      sendMessage(user_input);  // Reusing your existing function
+    };
+
+    function sendMessage(user_input) {
+      user_input = user_input || document.getElementById('user_input').value;  // If user_input is not provided, fall back to textbox value
+      fetch('/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `user_input=${user_input}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('chat-box').innerHTML += `<p>User: ${user_input}</p>`;
+        document.getElementById('chat-box').innerHTML += `<p>Bot: ${data.response}</p>`;
+        document.getElementById('user_input').value = '';
+      });
+    }
+  </script>
+</body>
+</html>
