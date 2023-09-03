@@ -292,11 +292,13 @@ def auth_FAQ():
     if is_token_valid():
         return render_template("FAQ.html")
     
-# APPLICATION TERMS OF USE PAGE - DOES NOT REQIRE AUTHENTICATION
+# APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
 def open_terms_of_use():
-    # does not require the authentication to read this page
-    return render_template("TermsofUse.html") 
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("TermsofUse.html") 
 
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
