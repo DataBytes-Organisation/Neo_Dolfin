@@ -18,7 +18,7 @@
         .svg-container {
             position: absolute;
             top: 0;
-            left: 0;
+            left: -30px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -28,11 +28,13 @@
             z-index: -1; /* Behind the content */
         }
         .card {
+            background-color: transparent; /* Set background color to transparent */
+            color: #fff;
             border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px; /* Max width */
-            margin: 0 auto; /* center */
+            border-radius: 0; /* Set border radius to 0 */
+            box-shadow: none; /* Remove box shadow */
+            max-width: 400px;
+            margin: 0 auto;
         }
         .card-body {
             padding: 20px; /* padding*/
@@ -46,18 +48,18 @@
             padding: 10px;
         }
         .btn {
-            background-color: #343A40;
+            background-color: #0077BB;
             color: #fff;
             border: none;
             border-radius: 5px;
         }
         .btn-dark {
-            background-color: #343A40;
-            border-color: #343A40; /* Avoid lightening the color when hovering */
+            background-color: #0077BB;
+            border-color: #0077BB; /* Avoid lightening the color when hovering */
         }
         .btn-dark:hover {
-            background-color: #2c3136; /* The color darkens slightly when you hover */
-            border-color: #2c3136;
+            background-color: #066ba5; /* The color darkens slightly when you hover */
+            border-color: #066ba5;
         }
     </style>
 </head>
@@ -65,13 +67,11 @@
     
     <!-- SVG container added before the main content -->
     <div class="svg-container">
-        <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Multiple black circles as background -->
-            <circle cx="500" cy="300" r="200" fill="#343A40" />
-            <circle cx="1000" cy="600" r="150" fill="#343A40" />
-            <circle cx="1500" cy="150" r="100" fill="#343A40" />
-            <!-- Add more circles as needed -->
+        
+        <svg width="589" height="960" viewBox="0 0 389 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M91.416 600.318C-77.4829 501.844 30.0213 183.721 93.4037 90.6466C156.786 -2.42753 349.216 -53.2613 374.493 91.6562C399.77 236.574 385.582 503.431 372.505 601.327C359.429 699.224 186.787 655.922 91.416 600.318Z" fill="#343A40"/>
         </svg>
+            
     </div>
     <div class="container">
         <div class="card">
