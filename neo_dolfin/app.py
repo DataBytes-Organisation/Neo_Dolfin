@@ -13,7 +13,9 @@ import hashlib
 import hmac
 import base64
 import qrcode
-import logging 
+import logging
+import ssl 
+import certifi
 
 #import dash
 #import dash_core_components as dcc#
@@ -24,11 +26,12 @@ load_dotenv()  # Load environment variables from .env
 
 from classes import *
 from functions import * 
-from ai.chatbot import chatbot_logic
+from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
+
 df = pd.read_csv('static/transaction_ut.csv')
 
 # AWS STUFF
@@ -45,20 +48,19 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 # Define the Dash layout
 #dash_app.layout = dash_layout#
 
-
 # ROUTING
 
-# LANDING PAGE
+## LANDING PAGE
 @app.route("/") #Initial landing page for application
 def landing():
     return render_template('landing.html')
 
-# TERMS OF USE PAGE
+## TERMS OF USE PAGE
 @app.route('/TermsofUse') #Terms of Use for application
 def TermsofUse():
     return render_template('TermsofUse.html')
 
-# SIGN IN PAGE
+## SIGN IN PAGE
 @app.route('/signin', methods=['GET', 'POST']) #Initial sign in page
 def signin():
     form = SignInForm()
@@ -120,7 +122,7 @@ def signin():
 
     return render_template('signin.html', form=form)
 
-# SIGN IN USING MFA PAGE
+## SIGN IN USING MFA PAGE
 @app.route('/signinmfa', methods=['GET', 'POST']) # Sign in using MFA one time password
 def signinmfa():
     form=SignInMFAForm()
@@ -156,7 +158,7 @@ def signinmfa():
             return render_template('signinmfa.html', form=form, error=e)
     return render_template('signinmfa.html', form=form)
 
-# USER SIGN UP PAGE
+## USER SIGN UP PAGE
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
@@ -198,7 +200,7 @@ def signup():
 
     return render_template('signup.html', form=form)
 
-# SIGN-UP EMAIL CONFIRMATION PAGE
+## SIGN-UP EMAIL CONFIRMATION PAGE
 @app.route('/signupconf', methods=['GET', 'POST'])
 def signupconf():
     form = SignUpConfForm()
@@ -238,7 +240,7 @@ def resendconfemail():
             # Handle other sign-up errors
             return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
 
-# REGISTER USER AUTHENTICATION DEVICE PAGE    
+## REGISTER USER AUTHENTICATION DEVICE PAGE    
 @app.route('/signupmfad', methods=['GET', 'POST'])
 def signupmfadevice():
     form = SignUpMFADForm()
@@ -264,7 +266,7 @@ def signupmfadevice():
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
     return render_template('signupmfad.html', form=form)
 
-# APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
 def auth_home(): 
     if not is_token_valid():
@@ -278,7 +280,7 @@ def auth_home():
     if is_token_valid():
         return render_template("home.html")
 
-# APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
+## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
@@ -286,7 +288,7 @@ def auth_news():
     if is_token_valid():
         return render_template("news.html")
 
-# APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
@@ -294,22 +296,24 @@ def auth_FAQ():
     if is_token_valid():
         return render_template("FAQ.html")
 
-# CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])
-def ask():
+def chatbot():
     if not is_token_valid():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
-        def ask():
-            if request.method == 'POST':
-                user_input = request.form['user_input']
-                prediction = chatbot_logic.predict_class(user_input)
-                response = chatbot_logic.get_response(prediction, chatbot_logic.intents, user_input)
-                sentiment = chatbot_logic.determine_sentiment(user_input, chatbot_logic.last_bot_reply)
-                return jsonify({'response': response, 'sentiment': sentiment})
-            return render_template("chatbot.html")
+    if request.method == "GET":
+        return render_template("chatbot.html")
+    chatbot_logic = initialize_chatbot_logic()
+    if request.method == 'POST':
+        user_input = request.form['user_input']
+        prediction = chatbot_logic.predict_class(user_input)
+        response = chatbot_logic.get_response(prediction, chatbot_logic.intents, user_input)
+        sentiment = chatbot_logic.determine_sentiment(user_input, chatbot_logic.last_bot_reply)
+        return jsonify({'response': response, 'sentiment': sentiment})
+    
+    return render_template("chatbot.html")
 
-# Define a Flask route for the Dash app's page
+## Define a Flask route for the Dash app's page
 #@app.route('/dash/')
 #def dash_page():
 #    return dash_app.index()
