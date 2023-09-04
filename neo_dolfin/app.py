@@ -279,12 +279,11 @@ def signupmfadevice():
 @app.route('/home/')
 def auth_home(): 
 
-    #if not is_token_valid():
-     #   return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
         success = True
         current_time = datetime.datetime.now().strftime("%m%d%Y%H%M%S")
-        session['username'] = "dandaman" #CHANGE
         
         # Create default bucket if not exist
         try:
