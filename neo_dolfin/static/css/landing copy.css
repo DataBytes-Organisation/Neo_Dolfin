@@ -101,126 +101,15 @@ body {
     width: 20%;
 }
 
-@media (max-width: 1200px) {
-
-        h3.landing-subheading {
-            font-size: 35px;
-        }
-    
-        h1.landing-heading {
-            font-size: 110px;
-        }
-    
-        #logoImg {
-            width: 20%;
-        }
-    
-        .landing-blob {
-            background-size: 90%;
-        }
-
-        .btn-primary {
-            font-size: 40px;
-            border-radius: 80px;
-        }
-
-        .sec-button {
-            font-size: 30px;
-        }
-    
-}
-
-
-@media (max-width: 992px) {
-    h3.landing-subheading {
-        font-size: 40px;
-    }
-
-    h1.landing-heading {
-        font-size: 60px;
-    }
-
-    #logoImg {
-        width: 12%;
-    }
-
-    .landing-blob {
-        background-size: 70%;
-    }
-
-    .btn-primary {
-        font-size: 40px;
-    }
-    .sec-button {
-        font-size: 25px;
-    }
-}
-
-@media screen and (max-width: 769px) {
-    .landing-blob {
-        background-size: 70%;
-    }
-
-    .btn-primary {
-        font-size: 30px;
-    }
-    .sec-button {
-        font-size: 25px;
-    }
-
-}
-
-@media screen and (max-width: 480px) {
-    h3.landing-subheading {
-        font-size: 30px;
-    }
-
-    h1.landing-heading {
-        font-size: 45px;
-    }
-
-    .landing-blob {
-        background-size: 70%;
-    }
-
-    .btn-primary {
-        font-size: 20px;
-    }
-    .sec-button {
-        font-size: 20px;
-    }
-
-}
-
-@media screen and (max-width: 380px) {
-    h3.landing-subheading {
-        font-size: 25px;
-    }
-
-    h1.landing-heading {
-        font-size: 35px;
-    }
-
-    .landing-blob {
-        background-size: 70%;
-    }
-
-    .btn-primary {
-        font-size: 12px;
-    }
-    .sec-button {
-        font-size: 18px;
-    }
-}
 
 
 /* <----- Footer CSS START -----> */
-.footer {
-    padding-top: 20px;
-}
+
+
 .footer-content {
+
     width: 100%;
-    min-height: 15vh;
+    min-height: 20vh;
     background-color: #343a40;
 }
 
@@ -242,4 +131,16 @@ body {
     display: flex;
     justify-content: center;
     color: white;
+}
+
+@media screen and (max-width: 992px) {
+    h3.landing-subheading {
+        font-size: 2em;
+    }
+    h1.landing-heading {
+        font-size: 5em;
+    }
+    #logoImg {
+        width: 1em;
+    }
 }

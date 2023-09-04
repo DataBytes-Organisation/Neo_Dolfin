@@ -52,11 +52,6 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 def landing():
     return render_template('landing.html')
 
-# TERMS OF USE PAGE
-@app.route('/TermsofUse') #Terms of Use for application
-def TermsofUse():
-    return render_template('TermsofUse.html')
-
 # SIGN IN PAGE
 @app.route('/signin', methods=['GET', 'POST']) #Initial sign in page
 def signin():
