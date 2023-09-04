@@ -3,10 +3,15 @@
 * {
     font-family: 'Inter', sans-serif;
 }
+/* Define a base font size for the entire document */
+html {
+    font-size: 10px;
+}
 
 body {
     background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     max-height: 100vh !important;
+    font-size: 1.6rem;
 }
 
 /* <----- Landing Page CSS Start -----> */
@@ -21,14 +26,17 @@ body {
     .landing-subheading {
         font-weight: bold;
         color: #0077BB;
-        font-size: 40px;
+        font-size: clamp(3rem,3.2vw,4rem);
+        /* font-size: 40px; */
         
     }
 
     .landing-heading {
         color: #0077BB;
         font-weight: bold;
-        font-size: 130px;
+        font-size: 13rem;
+        /* font-size: 130px; */
+        font-size: clamp(10rem, 9vw, 13rem);
         line-height: 0.8;
     }
 
@@ -47,7 +55,8 @@ body {
         background-image: url("/static/img/blob.png");
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 27em;
+        min-height: 32em;
+        background-size: clamp(100%, 90%, 80%);
         display: flex;
         align-content: center;
         justify-content: center;
@@ -101,43 +110,14 @@ body {
     width: 20%;
 }
 
-@media (max-width: 1200px) {
-
-        h3.landing-subheading {
-            font-size: 35px;
-        }
-    
-        h1.landing-heading {
-            font-size: 110px;
-        }
-    
-        #logoImg {
-            width: 20%;
-        }
-    
-        .landing-blob {
-            background-size: 90%;
-        }
-
-        .btn-primary {
-            font-size: 40px;
-            border-radius: 80px;
-        }
-
-        .sec-button {
-            font-size: 30px;
-        }
-    
-}
-
 
 @media (max-width: 992px) {
     h3.landing-subheading {
-        font-size: 40px;
+        font-size: 4rem;
     }
 
     h1.landing-heading {
-        font-size: 60px;
+        font-size: 6rem;
     }
 
     #logoImg {
@@ -149,34 +129,34 @@ body {
     }
 
     .btn-primary {
-        font-size: 40px;
+        font-size: 4rem;
     }
     .sec-button {
-        font-size: 25px;
+        font-size: 2.5rem;
     }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
     .landing-blob {
         background-size: 70%;
     }
 
     .btn-primary {
-        font-size: 30px;
+        font-size: 3rem;
     }
     .sec-button {
-        font-size: 25px;
+        font-size: 2.5rem;
     }
 
 }
 
 @media screen and (max-width: 480px) {
     h3.landing-subheading {
-        font-size: 30px;
+        font-size: 3rem;
     }
 
     h1.landing-heading {
-        font-size: 45px;
+        font-size: 4.5rem;
     }
 
     .landing-blob {
@@ -184,21 +164,21 @@ body {
     }
 
     .btn-primary {
-        font-size: 20px;
+        font-size: 2rem;
     }
     .sec-button {
-        font-size: 20px;
+        font-size: 2rem;
     }
 
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 320px) {
     h3.landing-subheading {
-        font-size: 25px;
+        font-size: 2.5rem;
     }
 
     h1.landing-heading {
-        font-size: 35px;
+        font-size: 3.5rem;
     }
 
     .landing-blob {
@@ -206,10 +186,10 @@ body {
     }
 
     .btn-primary {
-        font-size: 12px;
+        font-size: 1.2rem;
     }
     .sec-button {
-        font-size: 18px;
+        font-size: 1.8rem;
     }
 }
 
