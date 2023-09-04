@@ -273,8 +273,8 @@ def auth_home():
                 # df should be set to dummy data. 
             # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
                 # LOAD LAST CSV OBJECT INTO df VAR.
-    #     return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    # if is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
         return render_template("home.html")
 
 # APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
