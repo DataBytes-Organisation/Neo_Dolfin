@@ -281,15 +281,16 @@ def auth_home():
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("news.html")
+    if is_token_valid():
+        return render_template("news.html")   
+        
 
 # APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return render_template("faq.html")
     if is_token_valid():
         return render_template("FAQ.html")
     
