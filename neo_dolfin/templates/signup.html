@@ -61,6 +61,13 @@
             background-color: #066ba5; /* The color darkens slightly when you hover */
             border-color: #066ba5;
         }
+        .btn.btn-dark.btn-block {
+    width: auto; /* Allow the button to expand to fit its content */
+    min-width: 140px; /* Set a maximum width for the button */
+    margin-left: auto; /* Push the button to the right */
+    display: block; /* Make the button a block-level element to take full width */
+    text-align: center; /* Center-align the button text */
+}
     </style>
 </head>
 <body>
@@ -76,7 +83,7 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <h1 style="font-size: 38px" class="card-title text-center"><b>Sign Up</b></h1>
+                <h1 style="font-size: 42px" class="card-title text-center"><b>Sign Up</b></h1>
                 <form method="POST" action="/signup">
                     {{ form.csrf_token }}
                     <div class="mb-3">
