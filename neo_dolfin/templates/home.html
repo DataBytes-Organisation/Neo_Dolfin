@@ -4,166 +4,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>DolFin - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
 </head>
 
-
 <body>
-
-  <!--
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
--->
-  <div id="header-section">
-    <h2 id="header-subtitle" style="text-align: center;color: #0077BB;">Join <span style="color: #343A40;">DolFin</span>
-      Today and</h2>
-    <h1 id="header-title" style="text-align: center;  color: #0077BB;">Start Saving</h1>
+  <div id="titleSection">
+    <h2 id="titleSubtitle">Join <span id="titleAlt">DolFin</span> Today and </h2>
+    <h1 id="titleH1">Start Saving</h1>
   </div>
 
-  <ul id="navigationBarList" style="display: flex; align-items: center;">
-    <li style="flex: 1;"></li>
-    <li><a href="#section1" class="nav-item" style="color: #D9D9D9;">Section1</a></li>
-    <li>/</li>
-    <li><a href="#section2" class="nav-item" style="color: #D9D9D9;">Section2</a></li>
-    <li>/</li>
-    <li><a href="#section3" class="nav-item" style="color: #D9D9D9; padding-right: 80px;">Section3</a></li>
-  </ul>
-
-  <div style="padding-top: 20px;">
-    <svg width="720" height="524" viewBox="0 0 720 524" fill="none" xmlns="http://www.w3.org/2000/svg"
-      transform="translate(40)">
-      <path
-        d="M38.0016 26.4634C97.5016 -17.0366 542.002 0.463364 656.002 26.4634C770.002 52.4634 705.502 474.963 656.002 500.463C606.502 525.963 79.0016 536.463 38.0016 500.463C-2.99846 464.463 -21.4984 69.9634 38.0016 26.4634Z"
-        fill="#343A40" />
-      <text x="30%" y="20%" fill="#D9D9D9" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="64" font-weight = "800">
-        DolFin!
-      </text>
-      <text x="30%" y="40%" fill="white" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="24" font-weight = "500">
-        DolFin is a Fintech solution
-      </text>
-      <text x="30%" y="50%" fill="white" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="24" font-weight = "500">
-        that aims to address
-      </text>
-      <text x="30%" y="60%" fill="white" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="24" font-weight = "500">
-        the issue of people
-      </text>
-      <text x="30%" y="70%" fill="white" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="24" font-weight = "500">
-        struggling to keep track
-      </text>
-      <text x="30%" y="80%" fill="white" text-anchor="start" dominant-baseline="middle" font = "Inter" font-size="24" font-weight = "500">
-        of their finance
-      </text>
-    </svg>
-
-    <svg width="329" height="411" viewBox="0 0 329 411" fill="none" xmlns="http://www.w3.org/2000/svg"
-      transform="translate(140)">
-      <ellipse class="ellipse-svg" cx="215" cy="303.5" rx="114" ry="107.5" fill="#0077BB" fill-opacity="0.933333" />
-      <ellipse class="ellipse-svg" cx="271.5" cy="54" rx="57.5" ry="54" fill="#0077BB" fill-opacity="0.933333" />
-      <ellipse class="ellipse-svg" cx="79.5" cy="129" rx="79.5" ry="75" fill="#0077BB" fill-opacity="0.933333" />
-    </svg>
-
+  <div id="anchorBarList" class="container">
+    <div class="row">
+      <div class="col-sm">
+        <a id="anchorItem" href="#firstSection">Section 1</a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" href="#secondSection">Section 2 </a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" href="#thirdSection">Section 3</a>
+      </div>
+    </div>
   </div>
 
-  <div class="center">
-    <svg id="section2" width="1214" height="702" viewBox="0 0 1214 702" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M369.109 135.32C1018.22 -121.889 1107.36 28.8105 1161.8 245.229C1180.25 318.542 1192.09 394.597 1199.69 463.124C1212.47 578.423 1095.6 663.965 981.179 644.839C856.381 623.978 686.064 608.55 482.18 622.545C36.4758 653.138 -280.004 392.53 369.109 135.32Z"
-        fill="#343A40" />
-      <text x="50%" y="20%" fill="#D9D9D9" text-anchor="start" dominant-baseline="middle" font = Inter font-size ="128" font-weight = "800">
-        DolFin!
-      </text>
-      <text x="30%" y="50%" fill="white" text-anchor="middle" dominant-baseline="middle" font = Inter font-size ="24" font-weight = "500">
-        DolFin reduces the difficulties/costs associated
-      </text>
-      <text x="30%" y="60%" fill="white" text-anchor="middle" dominant-baseline="middle" font = Inter font-size ="24" font-weight = "500">
-        with obtaining financial advice.
-      </text>
-    </svg>
+  <div id="firstSection" class="container">
+    <div class="row">
+      <div id="firstSectionBG" class="col">
+        <h2 id="firstSectionHeading">Title</h2>
+        <p id="firstSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+          molestie vivamus interdum elementum nisi.</p>
+      </div>
+      <div class="col">
+        <img id="firstSectionImg" src="/static/img/homeBubbles.svg" alt="Decorative bubbles">
+      </div>
+    </div>
   </div>
 
-
-  <div style="padding-left: 40px;">
-    <p style='color: #1E1E1E; font: Inter; font-size: 128px ; line-height: 
-    154.91px; font-weight: 800;'>DolFin! </p>
-    <tspan style='color: #1E1E1E; font: Inter; font-weight: 500; font-size: 24px; line-height: 29.05px; padding-left: 10px;'> Dolfin is
-      the best solution to manage your finance</tspan>
+  <div id="secondSection">
+    <h2 id="secondSectionHeading">Title</h2>
+    <p id="secondSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie
+      vivamus interdum elementum nisi.</p>
   </div>
 
-  <div class="full-width" style="position: relative;">
-    <div>
-      <svg id="section3" width="1403" height="965" viewBox="0 0 1403 965" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M1403 0C1403 0 1002.95 82.6246 805.902 341.862C608.857 601.099 191.771 341.362 43.0719 648.238C-105.627 955.114 178.42 962.611 178.42 962.611C178.42 962.611 403.08 983.603 746.975 901.136C1090.87 818.669 1403 851.156 1403 800.177C1403 749.197 1403 402.837 1403 402.837V0Z"
-          fill="#343A40" />
-        <text x="50%" y="70%" fill="#D9D9D9" text-anchor="middle" dominant-baseline="middle" font-size="128px" font="Inter"
-          font-weight = "800" >
-          JOIN <tspan fill="#0077BB">DOLFIN</tspan> TODAY
-        </text>
-        <a href="neo_dolfin\templates\signup.html">
-          <rect x="42%" y="85%" width="200" height="50" rx="8" fill="#0077BB" />
-          <text x="49%" y="88%" fill="#FAFAFE"  text-anchor="middle" dominant-baseline="middle" font-size="40px" font-weight = "800">
-            Sign Up
-          </text>
-      </svg>
+  <div id="bottomSection">
+    <div id="thirdSection">
+      <h2 id="thirdSectionHeading">Title</h2>
+      <p id="thirdSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+        molestie vivamus interdum elementum nisi.</p>
+    </div>
+    <div id="bottomSectionText">
+      <h2 id="bottomSectionHeading">Join <span id="bottomSectionSpan">DolFin</span> Today</h2>
+      <div id="btnDiv">
+        <button id="signUpBtn" href="">Sign Up</butto>
+      </div>
     </div>
   </div>
 
 
-  <div class="full-width" style="margin-top: -290px; right: 0;">
-    <div>
-      <svg width="1403" height="420" viewBox="0 0 1349 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1403" height="420" fill="#343A40" />
-      </svg>
-    </div>
-  </div>
+  <!-- #<h1>WELCOME TO DOLFIN YOU ARE LOGGED IN! {{ session['username'] }}</h1> -->
 
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script>
-    // Smooth scrolling for navigation links
-    document.addEventListener("DOMContentLoaded", function () {
-      const navLinks = document.querySelectorAll('.nav-item');
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
+    $(document).ready(function () {
+      $("a").on('click', function (event) {
+        if (this.hash !== "") {
           event.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+            window.location.hash = hash;
+          });
+        }
       });
     });
   </script>
 
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-
-    #<h1>WELCOME TO DOLFIN YOU ARE LOGGED IN! {{ session['username'] }}</h1>
+</body>
 
 </html>
