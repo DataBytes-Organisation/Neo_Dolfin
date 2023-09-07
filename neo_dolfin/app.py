@@ -310,6 +310,14 @@ def open_article_template():
     if is_token_valid():
         return render_template("articleTemplate.html") 
 
+# APPLICATION Article Template PAGE 
+@app.route('/articleTemplate/')
+def open_article_template():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("articleTemplate.html") 
+
 # Define a Flask route for the Dash app's page
 #@app.route('/dash/')
 #def dash_page():
