@@ -304,7 +304,7 @@ def open_terms_of_use():
     
 # APPLICATION Article Template PAGE 
 @app.route('/articleTemplate/')
-def open_terms_of_use():
+def open_article_template():
     if not is_token_valid():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
