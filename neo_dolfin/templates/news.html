@@ -7,35 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/news.css')}}">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
       <div id="mainBody">
       
@@ -51,16 +27,16 @@
       <div id="mainNewsColumns" class="container">
         <div class="row">
           <div class="col-sm">
-            <div class="card border-0 shadow " style="width: 18rem;">
-              <a id="articleLink" href="#">
-                <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
-                <div class="card-body">
-                  <h5 id="articleTitle" class="card-title">Article 1</h5>
-                  <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                  <a id="readButton" href="#" class="btn btn-primary">Read more</a>
-                </div>
-              </a>
-            </div>
+              <div class="card border-0 shadow" style="width: 18rem;">
+                <a id="articleLink" href="#">
+                  <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
+                  <div class="card-body">
+                    <h5 id="articleTitle" class="card-title">Article 1</h5>
+                    <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a id="readButton" href="#" class="btn btn-primary">Read more</a>
+                  </div>
+                </a>
+              </div>
             <div id="columnSpace" class="card border-0 shadow" style="width: 18rem;">
               <a id="articleLink" href="#">
                 <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
