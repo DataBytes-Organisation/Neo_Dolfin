@@ -3,120 +3,64 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DolFin - Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('../static/img/bg-img.png'); /* Replace with the actual URL of your image */
-            margin: 0; /* Remove default margin */
-        }
-        .svg-container {
-            position: absolute;
-            top: 0;
-            left: -30px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none; /* Allow clicking through the SVG */
-            z-index: -1; /* Behind the content */
-        }
-        .card {
-            background-color: transparent; /* Set background color to transparent */
-            color: #fff;
-            border: none;
-            border-radius: 0; /* Set border radius to 0 */
-            box-shadow: none; /* Remove box shadow */
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .card-body {
-            padding: 20px; /* padding*/
-        }
-        .card-title {
-            margin-bottom: 20px;
-        }
-        .form-control {
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-        }
-        .btn {
-            background-color: #0077BB;
-            color: #fff;
-            border: none;
-            border-radius: 20px;
-        }
-        .btn-dark {
-            background-color: #0077BB;
-            border-color: #0077BB; /* Avoid lightening the color when hovering */
-        }
-        .btn-dark:hover {
-            background-color: #066ba5; /* The color darkens slightly when you hover */
-            border-color: #066ba5;
-        }
-        .btn.btn-dark.btn-block {
-    width: auto; /* Allow the button to expand to fit its content */
-    min-width: 140px; /* Set a maximum width for the button */
-    min-height: 40px;
-    margin-left: auto; /* Push the button to the right */
-    display: block; /* Make the button a block-level element to take full width */
-    text-align: center; /* Center-align the button text */
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/signup.css')}}">
 </head>
 <body>
-    
-    <!-- SVG container added before the main content -->
     <div class="svg-container">
-        
-        <svg width="589" height="960" viewBox="0 0 389 660" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M91.416 600.318C-77.4829 501.844 30.0213 183.721 93.4037 90.6466C156.786 -2.42753 349.216 -53.2613 374.493 91.6562C399.77 236.574 385.582 503.431 372.505 601.327C359.429 699.224 186.787 655.922 91.416 600.318Z" fill="#343A40"/>
-        </svg>
-            
+        <svg width="1200" height="650" viewBox="0 0 710 428" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M63.0423 100.667C168.46 -86.0245 511.542 31.1667 612.042 100.667C712.542 170.167 768.042 382.167 612.042 410.666C456.042 439.166 168.542 424.667 63.0423 410.666C-42.4577 396.666 3.51699 206.084 63.0423 100.667Z" fill="#343A40" />
+        </svg>         
     </div>
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <h1 style="font-size: 42px" class="card-title text-center"><b>Sign Up</b></h1>
+                <h1 id="signUpTitle" class="card-title text-center"><b>Register</b></h1>
                 <form method="POST" action="/signup">
                     {{ form.csrf_token }}
-                    <div class="mb-3">
-                        <label for="given_name" class="form-label">{{ form.given_name.label }}</label>
-                        {{ form.given_name(class="form-control") }}
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="given_name" class="form-label">{{ form.given_name.label }}</label>
+                            {{ form.given_name(class="form-control") }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="family_name" class="form-label">{{ form.family_name.label }}</label>
+                            {{ form.family_name(class="form-control") }}
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="family_name" class="form-label">{{ form.family_name.label }}</label>
-                        {{ form.family_name(class="form-control") }}
+                    
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="nickname" class="form-label">{{ form.nickname.label }}</label>
+                            {{ form.nickname(class="form-control") }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="username" class="form-label">{{ form.username.label }}</label>
+                            {{ form.username(class="form-control") }}
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="nickname" class="form-label">{{ form.nickname.label }}</label>
-                        {{ form.nickname(class="form-control") }}
+                    
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ form.password.label }}</label>
+                            {{ form.password(class="form-control") }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">{{ form.confirm_password.label }}</label>
+                            {{ form.confirm_password(class="form-control") }}
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">{{ form.username.label }}</label>
-                        {{ form.username(class="form-control") }}
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">{{ form.password.label }}</label>
-                        {{ form.password(class="form-control") }}
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm_password" class="form-label">{{ form.confirm_password.label }}</label>
-                        {{ form.confirm_password(class="form-control") }}
-                    </div>
+                    
                     <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
                 </form>
                 {% if error %}
                 <p class="mt-3 text-danger">{{ error }}</p>
                 {% endif %}
             </div>
+        </div>
+        <div class="text-center mt-3">
+            <p id="signInText">or <a id="signInLink" href="/signin">sign-in here</a></p>
         </div>
     </div>
 </body>
