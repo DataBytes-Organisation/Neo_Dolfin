@@ -281,7 +281,7 @@ def auth_home():
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
-        return render_template("news.html")
+        return redirect('/signin')
     if is_token_valid():
         return render_template("news.html")   
         
@@ -290,7 +290,7 @@ def auth_news():
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
-        return render_template("faq.html")
+        return redirect('/signin')
     if is_token_valid():
         return render_template("FAQ.html")
     
