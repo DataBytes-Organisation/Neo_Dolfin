@@ -285,17 +285,34 @@ def auth_home():
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return redirect('/signin')
     if is_token_valid():
-        return render_template("news.html")
+        return render_template("news.html")   
+        
 
 ## APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return redirect('/signin')
     if is_token_valid():
         return render_template("FAQ.html")
+    
+# APPLICATION TERMS OF USE PAGE 
+@app.route('/terms-of-use/')
+def open_terms_of_use():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("TermsofUse.html") 
+    
+# APPLICATION Article Template PAGE 
+@app.route('/articleTemplate/')
+def open_article_template():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("articleTemplate.html") 
 
 ## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])

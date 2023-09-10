@@ -109,3 +109,5 @@ Werkzeug==2.3.6
 wrapt==1.15.0
 WTForms==3.0.1
 vaderSentiment==3.3.2
+pytest==7.4.0
+
