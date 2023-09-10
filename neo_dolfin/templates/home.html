@@ -5,11 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DolFin - Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
 </head>
 
 <body>
+
+  {% include 'navbar.html' %}
+
   <div id="titleSection">
     <h2 id="titleSubtitle">Join <span id="titleAlt">DolFin</span> Today and </h2>
     <h1 id="titleH1">Start Saving</h1>
@@ -39,7 +43,8 @@
     <div class="row">
       <div id="firstSectionBG" class="col">
         <h2 id="firstSectionHeading">Title</h2>
-        <p id="firstSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie vivamus interdum elementum nisi.</p>
+        <p id="firstSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+          molestie vivamus interdum elementum nisi.</p>
       </div>
       <div class="col">
         <img id="firstSectionImg" src="/static/img/homeBubbles.svg" alt="Decorative bubbles">
@@ -49,28 +54,22 @@
 
   <div id="secondSection">
     <h2 id="secondSectionHeading">Title</h2>
-    <p id="secondSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie vivamus interdum elementum nisi.</p>
+    <p id="secondSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie
+      vivamus interdum elementum nisi.</p>
   </div>
 
   <div id="bottomSection">
     <div id="thirdSection">
       <h2 id="thirdSectionHeading">Title</h2>
-      <p id="thirdSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie vivamus interdum elementum nisi.</p>
-    </div>
-    <div id="bottomSectionText">
-      <h2 id="bottomSectionHeading">Join <span id="bottomSectionSpan">DolFin</span> Today</h2>
-      <div id="btnDiv">
-        <button id="signUpBtn" href="">Sign Up</butto>
-      </div>
+      <p id="thirdSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+        molestie vivamus interdum elementum nisi.</p>
     </div>
   </div>
 
-
-  <!-- #<h1>WELCOME TO DOLFIN YOU ARE LOGGED IN! {{ session['username'] }}</h1> -->
-
+  {% include 'footer.html' %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
+
   <script>
     $(document).ready(function () {
       $("a").on('click', function (event) {
@@ -82,11 +81,14 @@
           }, 800, function () {
             window.location.hash = hash;
           });
-        } 
+        }
       });
     });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

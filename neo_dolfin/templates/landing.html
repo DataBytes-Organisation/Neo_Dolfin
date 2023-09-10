@@ -1,61 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DolFin | Landing</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/landing.css')}}"/>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo/apple-touch-icon.png') }}">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
-    </style>
-  </head>
 
-  <body>
-      <section class="header">
-        <div class="header-content">
-          <footer class="container">
-      
-          </footer>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DolFin | Landing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/landing.css')}}" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo/apple-touch-icon.png') }}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
+  </style>
+</head>
+
+<body>
+  <section class="header">
+    <div class="header-content">
+      <footer class="container">
+
+      </footer>
+    </div>
+  </section>
+
+
+  <!-- Landing Page Container -->
+  <div class="container">
+
+    <div class="content-main row">
+      <div class="landing-content col-lg-6 col-md-12 col-sm-12">
+        <h3 class="landing-subheading">Join <span style="color: #343A40;">DolFin</span> Today and</h3>
+
+        <h1 class="landing-heading">Start<img id="logoImg"
+            src="{{ url_for('static', filename='logo/dolfin_icon_v2.png') }}" alt="favicon">Saving</h1>
+      </div>
+
+      <div class="landing-blob col-lg-6 col-md-12 col-sm-12">
+        <div class="blob-content">
+          <div class="landing-buttons">
+            <a class="btn btn-primary" href="/signup" role="button">JOIN NOW</a>
+
+            <a class="btn sec-button" href="/signin" role="button"> <span style="color: #fafafe;">or</span> log in
+              here</a>
+          </div>
+
         </div>
-      </section>
 
-
-    <!-- Landing Page Container -->
-    <div class="container">
-      <div class="content-main row">
-        <div class="landing-content col-lg-6 col-md-12 col-sm-12">
-          <h3 class="landing-subheading">Join <span style="color: #343A40;">DolFin</span> Today and</h3>
-          
-          <h1 class="landing-heading">Start <img id="logoImg" src="{{ url_for('static', filename='logo/dolfin_icon_v2.png') }}" alt="favicon">Saving</h1>
-        </div>
-        
-        <div class="landing-blob col-lg-6 col-md-12 col-sm-12">
-            <div class="blob-content">
-              <div class="landing-buttons">
-                <a class="btn btn-primary" href="/signup" role="button">JOIN NOW</a>
-
-                <a class="btn sec-button" href="/signin" role="button"> <span style="color: #fafafe;">or</span> log in here</a>
-              </div>
-              
-            </div>
-            
-        </div>
       </div>
     </div>
 
-      
-    <!-- Footer -->
-    <section class="footer">
-      <div class="footer-content">
-        <footer class="container">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
 
-        </footer>
-      </div>
-    </section>
-      
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-  </body>
 </html>
