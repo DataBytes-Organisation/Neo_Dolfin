@@ -15,7 +15,7 @@ import base64
 import qrcode
 import logging
 import ssl 
-import certifi
+#import certifi
 
 #import dash
 #import dash_core_components as dcc#
@@ -26,7 +26,8 @@ load_dotenv()  # Load environment variables from .env
 
 from classes import *
 from functions import * 
-from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
+# from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
+from ai.chatbot import chatbot_logic
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -299,19 +300,20 @@ def auth_FAQ():
 ## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if request.method == "GET":
-        return render_template("chatbot.html")
-    chatbot_logic = initialize_chatbot_logic()
-    if request.method == 'POST':
-        user_input = request.form['user_input']
-        prediction = chatbot_logic.predict_class(user_input)
-        response = chatbot_logic.get_response(prediction, chatbot_logic.intents, user_input)
-        sentiment = chatbot_logic.determine_sentiment(user_input, chatbot_logic.last_bot_reply)
-        return jsonify({'response': response, 'sentiment': sentiment})
+    # if not is_token_valid():
+    #     return redirect('/signin')  # Redirect to sign-in page if the token is expired
     
-    return render_template("chatbot.html")
+    if request.method == 'GET':
+        return render_template('chatbot.html')
+    elif request.method == 'POST':
+        user_input = request.get_json().get("message")
+        prediction = chatbot_logic.predict_class(user_input)
+        sentiment = chatbot_logic.process_sentiment(user_input)
+        response = chatbot_logic.get_response(prediction, chatbot_logic.intents)
+        message={"answer" :response}
+        return jsonify(message)
+
+    return render_template('chatbot.html')
 
 ## Define a Flask route for the Dash app's page
 #@app.route('/dash/')
