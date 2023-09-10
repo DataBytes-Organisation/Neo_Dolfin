@@ -28,7 +28,6 @@ body {
         color: #0077BB;
         font-size: clamp(3rem,3.2vw,4rem);
         /* font-size: 40px; */
-        
     }
 
     .landing-heading {
