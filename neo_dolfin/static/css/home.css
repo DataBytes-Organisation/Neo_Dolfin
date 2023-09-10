@@ -105,7 +105,7 @@ body {
   background-image: url("/static/img/homeBlob2.svg");
   background-repeat: no-repeat;
   background-position: center;
-  height: 490px;
+  height: 450px;
   background-size: 40%;
 }
 
@@ -134,7 +134,7 @@ body {
 
 /* Third Section */
 #thirdSection {
-  padding-top: 200px;
+  padding-top: 180px;
   margin-left: 25%;
 }
 
@@ -161,50 +161,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 1190px;
-}
-
-#bottomSectionText {
-  padding-top: 80px;
-}
-
-#bottomSectionHeading {
-  color: #FAFAFA;
-  font-weight: 800;
-  font-size: 84px;
-  line-height: 58px;
-  text-align: center;
-  padding-top: 360px;
-  text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
-}
-
-#bottomSectionSpan {
-  color: #0077BB;
-}
-
-
-/* Bottom Section Button */
-#btnDiv {
-  text-align: center;
-  padding-top: 25px;
-}
-
-#signUpBtn {
-  background-color: #0077bb;
-  border-color: #0077bb;
-  border-radius: 80px;
-  border-style: solid;
-  border-width: 8px;
-  color: #FAFAFA;
-  font-size: 24px;
-  font-weight: 800;
-  width: 130px;
-  margin-top: 5px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#signUpBtn:hover {
-  background-color: #BAFBFF;
-  border-color: #BAFBFF;
-  color: #343a40;
+  height: 800px;
+  padding-top: 6%;
+  margin-top: -100px;
 }
