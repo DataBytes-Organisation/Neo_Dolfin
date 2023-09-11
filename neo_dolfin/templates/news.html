@@ -12,6 +12,8 @@
     </style>
   </head>
   <body>
+    <!-- IMPLEMENT NAV BAR HERE -->
+    {% include 'navbar.html' %}
 
       <div id="mainBody">
       
@@ -27,35 +29,35 @@
       <div id="mainNewsColumns" class="container">
         <div class="row">
           <div class="col-sm">
-              <div class="card border-0 shadow" style="width: 18rem;">
-                <a id="articleLink" href="#">
-                  <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
-                  <div class="card-body">
-                    <h5 id="articleTitle" class="card-title">Article 1</h5>
-                    <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a id="readButton" href="#" class="btn btn-primary">Read more</a>
-                  </div>
-                </a>
-              </div>
+            <div class="card border-0 shadow " style="width: 18rem;">
+              <a id="articleLink" href="/articleTemplate/">
+                <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
+                <div class="card-body">
+                  <h5 id="articleTitle" class="card-title">Article 1</h5>
+                  <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <a id="readButton" href="/articleTemplate/" class="btn btn-primary">Read more</a>
+                </div>
+              </a>
+            </div>
             <div id="columnSpace" class="card border-0 shadow" style="width: 18rem;">
-              <a id="articleLink" href="#">
+              <a id="articleLink" href="/articleTemplate/">
                 <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
                 <div class="card-body">
                   <h5 id="articleTitle" class="card-title">Article 3</h5>
                   <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                  <a id="readButton" href="#" class="btn btn-primary">Read more</a>
+                  <a id="readButton" href="/articleTemplate/" class="btn btn-primary">Read more</a>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-sm">
             <div class="card border-0 shadow" style="width: 18rem;">
-              <a id="articleLink" href="#">
+              <a id="articleLink" href="/articleTemplate/">
                 <img class="card-img-top rounded-top" src="/static/img/fillerSquare.jpg">
                 <div class="card-body">
                   <h5 id="articleTitle" class="card-title">Article 2</h5>
                   <p id="articleText" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                  <a id="readButton" href="#" class="btn btn-primary">Read more</a>
+                  <a id="readButton" href="/articleTemplate/" class="btn btn-primary">Read more</a>
                 </div>
               </a>
             </div>
@@ -73,6 +75,7 @@
           </div>
         </div>
       </div>
+      {% include 'footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
   </body>
