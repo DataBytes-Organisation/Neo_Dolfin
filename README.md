@@ -1,5 +1,5 @@
 # NE0 DolFin 
-Updated: 31/07/2023
+Updated: 29/08/2023
 
 ## Branch Management
 ### Authorised Code Owners:
@@ -87,12 +87,30 @@ aws_secret_access_key=<>
 ```
 * Verify with the command: ```aws configure list```
 
-### WINDOWS 
+### WINDOWS
+#Method 1
 *  * Ensure that you have an AWS Credentials file in your root directory 
 	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
 	* Move into that directory via: ```cd %userprofile%\.aws ```
 	* After that, open the configure file via the command: ```nano credentials```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
 * Ensure that your AWS credentials file is in the correct format. The format is given below:
+```
+[default]
+aws_access_key_id=<>
+aws_secret_access_key=<>
+```
+* Verify with the command: ```aws configure list```
+
+
+#Method 2 - Use the proceedure below if you don't have the AWS CLI installed Or a ```cd %userprofile%\.aws ``` directory and credentials file does not exist
+*  * Install the latest version of the AWS CLI for Windows from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+*  * Ensure that you have an AWS Credentials file in your root directory (%userprofile%/.aws/configure)
+	* If you do not have a configure file, use the AWS CLI from the command prompt via running the command ```aws configure``` to configure an AWS Profile.
+	* Press Enter to accept the default options for AWS Access Key ID, AWS Secret Access Key, Default region name, Default output format.
+ 	* Change directory into your user profile directory ```cd %userprofile% ``` 
+	* Make a directory called .aws via the following command: ```mkdir .aws ```
+   	* Move into that directory via: ```cd .aws ```
+	* Create the 'configure' file (with no extension - ie: configure) using notepad, Visual Studio Code or another text editor.  Make sure the code matches the below, save the file and close the text editor
 ```
 [default]
 aws_access_key_id=<>
@@ -112,6 +130,14 @@ aws_secret_access_key=<>
   * Install the required libraries into the *venv* env using the following terminal command: ```pip install -r requirements.txt``` 
   * To run the flask application, use the following terminal command: ```python app.py``` 
   * Navigate to ```127.0.0.1``` in your web browser. 
+
+### {NEW} Testing
+We have testing scripts enabled for this application. 
+* Make sure to install the pytest-flask module, it is currently listed in the ```requirements.txt ```
+* To run, follow the steps for local deployment, but instead of the ```python app.py``` command, please use the ```pytest``` command. 
+
+**PLEASE RUN THE PYTEST AND ATTACH THE LOG TEXT/SCREENSHOT TO YOUR PULL REQUEST**
+***Warnings are OKAY, Fails will result in the PULL request not being reviewed.*** 
 
 ## EC2 Deployment 
 ***WORK IN PROGRESS***

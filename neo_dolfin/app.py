@@ -13,18 +13,46 @@ import hashlib
 import hmac
 import base64
 import qrcode
-import logging 
+import logging
+import ssl 
+import nltk
+#import certifi
 
 #import dash
-#import dash_core_components as dcc
+#import dash_core_components as dcc#
 #import dash_html_components as html
+#test
 
 load_dotenv()  # Load environment variables from .env
+
+from classes import *
+from functions import * 
+# from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
+from ai.chatbot import chatbot_logic
+
+# Chatbot Logic req files for VENV
+script_dir = os.path.dirname(os.path.abspath(__file__))
+venv_dir = os.path.join(script_dir, 'venv')  # Assumes venv is at the parent directory
+nltk_data_path = os.path.join(venv_dir, 'nltk_data')
+
+# Configure SSL for older versions of Python (if needed)
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+# Download NLTK data into the custom directory
+nltk.data.path.append(nltk_data_path)
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
-df = pd.read_csv('static/dummies.csv')
+
+df = pd.read_csv('static/transaction_ut.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -37,72 +65,22 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 # DASH APP
 # Initialize Dash app
 #dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dash/')  # Set the route to '/dash/'
-#
-# TODO: UPDATE DASH APP WITH USER DATA
 # Define the Dash layout
 #dash_app.layout = dash_layout#
 
-#FUNCTIONS
-def is_token_valid(): #Confirm whether access token exists and has not expired, token provided by AWS Cognito, stored in local session
-    access_token = session.get('access_token')
-    expiration_timestamp = session.get('token_expiration')
-
-    if not access_token or not expiration_timestamp:
-        return False
-
-    current_timestamp = int(time.time())
-    if current_timestamp >= expiration_timestamp:
-        # Token has expired
-        return False
-
-    # Token is still valid
-    return True
- 
-def calculate_secret_hash(client_id, client_secret, username): #Calculate secret hash, as per AWS API AWS>Documentation>Amazon Cognito?Developer Guide
-    message = username + client_id
-    dig = hmac.new(str(client_secret).encode('utf-8'),
-                   msg=message.encode('utf-8'), digestmod=hashlib.sha256).digest()
-    return base64.b64encode(dig).decode()
-
-
-#CLASSES
-class SignInForm(FlaskForm): #Used on signin.html
-    username = StringField('E-Mail', validators=[DataRequired(), Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignInMFAForm(FlaskForm): #Used on signinmfa.html
-    otp = PasswordField('One Time Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
-
-class SignUpForm(FlaskForm): #Used on signup.html
-    given_name = StringField('Given_name',validators=[DataRequired()])
-    family_name = StringField('Family_name',validators=[DataRequired()])
-    nickname = StringField('Nickname',validators=[DataRequired()])
-    username = StringField('E-Mail', validators=[DataRequired(),  Email(message="This field requires a valid email address")])
-    password = PasswordField('Password', validators=[DataRequired(), Regexp("(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$",
-                                                                            message="At least 8 characters, Minimum 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character and only contains symbols from the alphabet")])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
-    submit = SubmitField('Sign Up')
-
-class SignUpConfForm(FlaskForm): #Used on signup.html
-    signupconf = PasswordField('Confirmation Code', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-class SignUpMFADForm(FlaskForm): #Used on signupmfad.html
-    signupmfadevicename = StringField('MFA Device Name', validators=[DataRequired()])
-    signupmfadevicecode = StringField('MFA Device Code', validators=[DataRequired()])
-    submit = SubmitField('Register Device')
-
-
 # ROUTING
 
-# LANDING PAGE
+## LANDING PAGE
 @app.route("/") #Initial landing page for application
 def landing():
     return render_template('landing.html')
 
-# SIGN IN PAGE
+## TERMS OF USE PAGE
+@app.route('/TermsofUse') #Terms of Use for application
+def TermsofUse():
+    return render_template('TermsofUse.html')
+
+## SIGN IN PAGE
 @app.route('/signin', methods=['GET', 'POST']) #Initial sign in page
 def signin():
     form = SignInForm()
@@ -164,7 +142,7 @@ def signin():
 
     return render_template('signin.html', form=form)
 
-# SIGN IN USING MFA PAGE
+## SIGN IN USING MFA PAGE
 @app.route('/signinmfa', methods=['GET', 'POST']) # Sign in using MFA one time password
 def signinmfa():
     form=SignInMFAForm()
@@ -200,7 +178,7 @@ def signinmfa():
             return render_template('signinmfa.html', form=form, error=e)
     return render_template('signinmfa.html', form=form)
 
-# USER SIGN UP PAGE
+## USER SIGN UP PAGE
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
@@ -242,7 +220,7 @@ def signup():
 
     return render_template('signup.html', form=form)
 
-# SIGN-UP EMAIL CONFIRMATION PAGE
+## SIGN-UP EMAIL CONFIRMATION PAGE
 @app.route('/signupconf', methods=['GET', 'POST'])
 def signupconf():
     form = SignUpConfForm()
@@ -275,14 +253,14 @@ def resendconfemail():
             ClientId=AWS_COGNITO_APP_CLIENT_ID,
                 SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
                 Username=session.get('username'))
-        return render_template('signupconf.html', form=form)
+        return redirect('signupconf.html', form=form)
     except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"Sign-up Resend Confirmation Email error: {e}")
             # Handle other sign-up errors
             return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
 
-# REGISTER USER AUTHENTICATION DEVICE PAGE    
+## REGISTER USER AUTHENTICATION DEVICE PAGE    
 @app.route('/signupmfad', methods=['GET', 'POST'])
 def signupmfadevice():
     form = SignUpMFADForm()
@@ -300,14 +278,15 @@ def signupmfadevice():
                 Session=awssession,
                 UserCode=form.signupmfadevicecode.data,
                 FriendlyDeviceName=form.signupmfadevicename.data)
+            return redirect('/signin')
         except Exception as e:
             # Log the error for debugging purposes
             logging.error(f"MFA Device Sign-up error: {e}")
             # Handle other sign-up errors
             return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('/home/.html', form=form)
+    return render_template('signupmfad.html', form=form)
 
-# APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
 def auth_home(): 
     if not is_token_valid():
@@ -321,27 +300,59 @@ def auth_home():
     if is_token_valid():
         return render_template("home.html")
 
-# APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
+## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
 def auth_news(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return redirect('/signin')
     if is_token_valid():
-        return render_template("news.html")
+        return render_template("news.html")   
 
-# APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
 def auth_FAQ(): 
     if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+        return redirect('/signin')
     if is_token_valid():
         return render_template("FAQ.html")
+    
+# APPLICATION TERMS OF USE PAGE 
+@app.route('/terms-of-use/')
+def open_terms_of_use():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("TermsofUse.html") 
+    
+# APPLICATION Article Template PAGE 
+@app.route('/articleTemplate/')
+def open_article_template():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("articleTemplate.html") 
 
-# Define a Flask route for the Dash app's page
+## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+@app.route('/chatbot', methods=['GET', 'POST'])
+def chatbot():
+    if not is_token_valid():
+         return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if request.method == 'GET':
+        return render_template('chatbot.html')
+    elif request.method == 'POST':
+        user_input = request.get_json().get("message")
+        prediction = chatbot_logic.predict_class(user_input)
+        sentiment = chatbot_logic.process_sentiment(user_input)
+        response = chatbot_logic.get_response(prediction, chatbot_logic.intents)
+        message={"answer" :response}
+        return jsonify(message)
+    return render_template('chatbot.html')
+
+## Define a Flask route for the Dash app's page
 #@app.route('/dash/')
 #def dash_page():
 #    return dash_app.index()
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=True)
+    app.run(host='0.0.0.0',port=8000, debug=True)

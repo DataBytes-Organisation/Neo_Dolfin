@@ -1,0 +1,121 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+
+body {
+    background-image: url("/static/img/bg-img.png");
+    height: 100vh !important;
+}
+
+.mfa-form {
+    background-image: url("/static/img/mfa-blob.png");
+    background-repeat: no-repeat;
+    background-size: 800px auto;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.mfa-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.mfa-heading {
+    color: #fafafe;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 60px;
+    padding-bottom: 10px;
+    text-shadow: black 1px 0px 40px;
+}
+.mfa-label {
+    color: #fafafe;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: bolder;
+}
+
+
+#signupconf {
+    border: 0px solid black;
+    border-radius: 20px;
+    width: 21em;
+    height: 2.2em;
+    text-align: center; 
+}
+
+.btn-primary {
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #0077BB;
+    margin: 10px;
+    width: 160px;
+    height: 60px;
+    text-transform: uppercase;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    border-radius: 30px;
+    color: #fafafe;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+#submit {
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #0077BB;
+    margin: 10px;
+    width: 160px;
+    height: 60px;
+    text-transform: uppercase;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    border-radius: 30px;
+    color: #fafafe;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: 0px solid black;
+
+}
+
+.mfa-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+
+}
+
+.mfa-subheading{
+    color: #fafafe;
+    font-family: 'Inter', sans-serif !important;
+    padding-bottom: 20px;
+    margin: 0;
+    padding: 5px;
+}
+
+#submit:hover {
+    background-color: #BAFBFF;
+    color: #343a40;
+}
+
+.btn-primary:hover {
+    background-color: #BAFBFF;
+    color: #343a40;
+}
+
+.mfa-error {
+    color: yellow;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: bold;
+}

@@ -1,50 +1,94 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DolFin - Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='logo/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='logo/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='logo/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='logo/site.webmanifest') }}">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="{{ url_for('static', filename='logo/apple-touch-icon.png') }}" width="30" height="30" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
-    <h1>U R LOGGED IN! {{ session['username'] }}</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DolFin - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
+</head>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
-    <footer><p>Footer</p></footer>
-  </body>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div id="titleSection">
+    <h2 id="titleSubtitle">Join <span id="titleAlt">DolFin</span> Today and </h2>
+    <h1 id="titleH1">Start Saving</h1>
+  </div>
+
+  <div id="anchorBarList" class="container">
+    <div class="row">
+      <div class="col-sm">
+        <a id="anchorItem" href="#firstSection">Section 1</a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" href="#secondSection">Section 2 </a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" href="#thirdSection">Section 3</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="firstSection" class="container">
+    <div class="row">
+      <div id="firstSectionBG" class="col">
+        <h2 id="firstSectionHeading">Title</h2>
+        <p id="firstSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+          molestie vivamus interdum elementum nisi.</p>
+      </div>
+      <div class="col">
+        <img id="firstSectionImg" src="/static/img/homeBubbles.svg" alt="Decorative bubbles">
+      </div>
+    </div>
+  </div>
+
+  <div id="secondSection">
+    <h2 id="secondSectionHeading">Title</h2>
+    <p id="secondSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada molestie
+      vivamus interdum elementum nisi.</p>
+  </div>
+
+  <div id="bottomSection">
+    <div id="thirdSection">
+      <h2 id="thirdSectionHeading">Title</h2>
+      <p id="thirdSectionParagraph">Lorem ipsum dolor sit amet consectetur. Enim euismod gravida proin malesuada
+        molestie vivamus interdum elementum nisi.</p>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("a").on('click', function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+            window.location.hash = hash;
+          });
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
