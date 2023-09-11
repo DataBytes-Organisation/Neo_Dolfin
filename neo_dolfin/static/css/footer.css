@@ -11,7 +11,7 @@
 
 .content-left {
     width: 50%;
-    padding-left: 10px;
+    padding-right: 10%;
 }
 
 .content-right {
@@ -52,4 +52,21 @@ hr {
 .footer-content-ul {
     list-style: none;
     padding-left: 7rem;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.terms-link {
+    text-decoration: none !important;
+    color: #FAFAFE;
+}
+
+.terms-link:hover {
+    text-decoration: none !important;
+    color: #0077BB;
 }
