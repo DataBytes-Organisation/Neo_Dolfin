@@ -15,6 +15,7 @@ import base64
 import qrcode
 import logging
 import ssl 
+import nltk
 #import certifi
 
 #import dash
@@ -28,6 +29,24 @@ from classes import *
 from functions import * 
 # from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
 from ai.chatbot import chatbot_logic
+
+# Chatbot Logic req files for VENV
+script_dir = os.path.dirname(os.path.abspath(__file__))
+venv_dir = os.path.join(script_dir, 'venv')  # Assumes venv is at the parent directory
+nltk_data_path = os.path.join(venv_dir, 'nltk_data')
+
+# Configure SSL for older versions of Python (if needed)
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+# Download NLTK data into the custom directory
+nltk.data.path.append(nltk_data_path)
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -288,7 +307,6 @@ def auth_news():
         return redirect('/signin')
     if is_token_valid():
         return render_template("news.html")   
-        
 
 ## APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/FAQ/')
@@ -317,9 +335,8 @@ def open_article_template():
 ## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
-    # if not is_token_valid():
-    #     return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    
+    if not is_token_valid():
+         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if request.method == 'GET':
         return render_template('chatbot.html')
     elif request.method == 'POST':
@@ -329,7 +346,6 @@ def chatbot():
         response = chatbot_logic.get_response(prediction, chatbot_logic.intents)
         message={"answer" :response}
         return jsonify(message)
-
     return render_template('chatbot.html')
 
 ## Define a Flask route for the Dash app's page
