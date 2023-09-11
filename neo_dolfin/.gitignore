@@ -1,4 +1,5 @@
 # Ignore virtual environment
+venv\Lib\
 venv/
 
 # Ignore .env file

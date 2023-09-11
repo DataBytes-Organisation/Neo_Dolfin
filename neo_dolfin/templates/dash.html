@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Pie Chart Example</title>
+    <title>Dash</title>
     <!-- Include Plotly.js library -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}"/>
-    #HELLO SOUHA
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='dash.css')}}" />
 </head>
 
 <style>
@@ -16,81 +18,303 @@
 </style>
 
 <body>
-
-    <h1 style="text-align: center; font-size: 80px; color: blue;">Dashboard</h1>
+    <div id="headerdash-section">
+        <h1 id="headerdash-title" style="text-align: center;  color: #0077BB">Dashboard</h1>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col inline-block">
-                <h2>Welcome back</h2>
+                <h2 id="welcomedash">Welcome back, {{ username }}</h2>
+                <svg width="765" height="305" viewBox="0 0 765 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_11_150)">
+                        <rect x="13" y="15" width="725" height="265" rx="30" fill="#343A40" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_d_11_150" x="0" y="0" width="765" height="305" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                result="effect1_dropShadow_11_150" />
+                            <feOffset dx="7" dy="5" />
+                            <feGaussianBlur stdDeviation="10.5" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_150" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_150" result="shape" />
+                        </filter>
+                    </defs>
+                    <text x="5%" y="20%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        Balance: <tspan>
+                            <tspan id="balance"></tspan>
+                    </text>
+                    <text x="5%" y="40%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        Expenses of <tspan id="previous-month-name"></tspan>: <tspan id="previous-month-balance">
+                        </tspan>
+                    </text>
+                    <text x="5%" y="60%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        <tspan>Return: <tspan id="return-status"></tspan>
+                            <tspan x="200" dy="1.2em" id="return-status-line2"></tspan>
+                        </tspan>
+                    </text>
+                </svg>
             </div>
             <div class="col inline-block">
                 <div id="piechart"></div>
             </div>
         </div>
+        <div id="line-chart" style="width: 100%; height: 400px;"></div>
+        <!--  <svg width="457" height="125" viewBox="0 0 457 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_11_164)">
+                <rect x="13" y="15" width="417" height="85" rx="30" fill="#343A40" />
+            </g>
+            <defs>
+                <filter id="filter0_d_11_164" x="0" y="0" width="457" height="125" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_11_164" />
+                    <feOffset dx="7" dy="5" />
+                    <feGaussianBlur stdDeviation="10.5" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_164" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_164" result="shape" />
+                </filter>
+            </defs>
+            <text x="5%" y="40%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                font-size="40" font-weight="800">
+                Talk to our chatbot
+            </text>
+        </svg>-->
+
     </div>
 
 
     <script>
-        var mockData = [
-            { label: "Rent", value: 1795 },
-            { label: "Food", value: 1113 },
-            { label: "Entertainment", value: 296 },
-            // ... Add more mock data points
-        ];
-    
-        var layout = {
-            title: "Spending Categories",
-        };
-    
-        var plotData = {
-            values: mockData.map(item => item.value),
-            labels: mockData.map(item => item.label),
-            type: "pie"
-        };
-    
-        Plotly.newPlot("piechart", [plotData], layout);
-    </script>
+        //variables used for the data calculation of the dashborad
+        var previousMonthTotal = 0.00; // Initialize the total balance for the previous month
+        var previousMonthBalance = null;// Initialize the balance for the previous month
 
-     <!-- Include JavaScript logic for pie chart -->
-    <!-- Include JavaScript logic for pie chart -->
- <!--  <script>
-        fetch('/get_data')
-            .then(response => response.json())
+
+        var monthsData = []; // Array to store months for the line chart
+        var balanceData = []; // Array to store balances for the line chart
+        var flagMonth = 0;//flag to Check if we have moved to a new month for drawing the line chart monthly balance
+        var currentMonthLine = null;//Check if we have moved to a new month for drawing the line chart monthly balance 
+
+        // Fetch data from the CSV file
+        fetch('/static/transaction_ut.csv')
+            .then(response => response.text())
             .then(data => {
+                data = data.trim();
+                // Parse the CSV data into an array of objects
+                var rows = data.split('\n');
+                var spendingData = {};
+
+                var balance = 0.00;
+
+                for (var i = 1; i < rows.length; i++) {
+                    //var cols = rows[i].split(',');
+                    var cols = rows[i].split(',');
+
+                    // Extract the date from the "postDate" column (assuming it's in the format yyyy-MM-dd)
+                    var postDate = cols[13].split('T')[0];
+                    var postMonth = new Date(postDate).getMonth() + 1; // Get the month (0-indexed)
+                    var postYear = new Date(postDate).getFullYear();//Get the year
+                    var currentYear = new Date().getFullYear(); // Get the current year
+
+                    // Get the current month (0-indexed)
+                    var currentDate = new Date();
+                    var currentMonth = currentDate.getMonth();
+
+                    //posting the balance of the previous month in the field Balance
+                    if (postMonth === currentMonth && previousMonthBalance === null) {
+                        previousMonthBalance = parseFloat(cols[6]); // Assuming balance is in the 7th column
+                        document.getElementById("balance").textContent = previousMonthBalance;
+                    }
+
+
+
+                    // line chart graph
+                    // Check if we have moved to a new month for the line chart
+                    if (postMonth !== currentMonthLine) {
+                        flagMonth = 0;
+
+                    }
+                    if (flagMonth == 0) {
+                        // Push the month and balance data into the arrays
+                        monthsData.push(postDate);
+                        balanceData.push(parseFloat(cols[6]));
+                        flagMonth = 1;
+                        currentMonthLine = postMonth;
+                    }
+
+
+
+                    // pie chart for all the expensesof the previous month
+                    // the expensives are negative values in the csv file
+                    if (postMonth === currentMonth && postYear === currentYear) {
+                        //      balance += parseFloat(cols[2]);
+                        var value = parseFloat(cols[4]);
+
+                        if (cols.length > 10 && parseFloat(cols[4]) < 0) {
+                            var label = cols[8].trim();
+                            var value = parseFloat(cols[4]);
+
+                            if (label.length > 20) {
+                                label = label.replace(/(.{15})/g, "$1<br>");
+                            }
+
+                            // Check if the label already exists in the spendingData
+                            if (spendingData[label]) {
+                                // If it exists, add the value to the existing total
+                                spendingData[label] += Math.abs(value);
+                            } else {
+                                // If it doesn't exist, create a new entry
+                                spendingData[label] = Math.abs(value);
+                            }
+                        }
+                        // add all the expensives together
+                        previousMonthTotal += value;
+
+                    }
+                }
+
+
+
+                // Convert the spendingData object into arrays for plotting
+                var labels = Object.keys(spendingData);
+                var values = labels.map(function (label) {
+                    return spendingData[label];
+                });
+
+                // Create the pie chart
                 var layout = {
-                    title: "Spending Categories",
+                    title: "Spending Categories over the month",
+                    width: 500, // Set the width (in pixels)
+                    height: 500 // Set the height (in pixels)
                 };
 
                 var plotData = {
-                    values: data.map(item => item.value),
-                    labels: data.map(item => item.label),
+                    values: values,
+                    labels: labels,
                     type: "pie"
                 };
 
                 Plotly.newPlot("piechart", [plotData], layout);
+                // displaying the balance of the previous month in the field closing balance "previous month" 
+                document.getElementById("previous-month-balance").textContent = previousMonthTotal;
+
+                // Create the line chart
+                createLineChart(monthsData, balanceData);
+
+                // Calculate if there has been a positive return over a year
+                var currentYear1 = new Date().getFullYear();
+                var isPositiveReturn = false; // Initialize as false
+                var balanceIncreased = false; // Initialize as false
+
+                // Check if there are at least two months of data for comparison
+                if (monthsData.length >= 2) {
+                    var currentMonthBalance1 = balanceData[balanceData.length - 1]; // Get the balance for the current month
+                    var previousMonthBalance1 = balanceData[balanceData.length - 2]; // Get the balance for the previous month
+
+                    // Check if the current month's balance increased from the previous month
+                    if (currentMonthBalance1 > previousMonthBalance1) {
+                        balanceIncreased = true;
+                    }
+
+                    // Check if the current year matches the year of the last month in data
+                    if (currentYear1 === new Date(monthsData[monthsData.length - 1]).getFullYear()) {
+                        isPositiveReturn = true;
+                    }
+                }
+
+                // Display the result on the screen
+                var returnStatusElement = document.getElementById("return-status");
+                if (isPositiveReturn && balanceIncreased) {
+                    returnStatusElement.textContent = "Positive Return for the Year with Increased Balance";
+                    returnStatusElement.style.color = "green"; // Set text color to green for positive return
+                } else if (isPositiveReturn) {
+                    returnStatusElement.textContent = "Positive Return";
+                    returnStatusElement.style.color = "blue"; // Set text color to blue for positive return without increased balance
+                } else {
+                    returnStatusElement.textContent = "No Positive Return";
+                    returnStatusElement.style.color = "red"; // Set text color to red for no positive return
+                }
+                document.getElementById("return-status-line2").textContent = "For the month";
             })
+
             .catch(error => console.error(error));
-    </script>-->
+
+
+
+
+        // Function to create the line chart
+        function createLineChart(xData, yData) {
+            var lineChart = {
+                x: xData,
+                y: yData,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Balance',
+                line: {
+                    shape: 'linear',
+                    color: 'blue',
+                },
+                marker: {
+                    size: 8,
+                    color: 'blue',
+                },
+            };
+
+            var lineLayout = {
+                title: 'Monthly Balance',
+                xaxis: {
+                    title: 'Month',
+                    showgrid: true,
+                    tickvals: xData,  // Specify the tick values
+                    ticktext: xData,  // Specify the tick labels
+                },
+                yaxis: {
+                    title: 'Balance',
+                },
+                margin: {
+                    t: 30,
+                },
+            };
+
+            var lineChartConfig = [lineChart];
+
+            Plotly.newPlot('line-chart', lineChartConfig, lineLayout);
+        }
+
+
+        // Get the current date
+        var currentDate = new Date();
+
+        // Calculate the previous month
+        var previousMonth = new Date(currentDate);
+        previousMonth.setMonth(previousMonth.getMonth() - 1);
+
+        // Create an array of month names
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        // Get the name of the previous month
+        var previousMonthName = monthNames[previousMonth.getMonth()];
+
+        // Set the previous month name in the <span> element
+
+        document.getElementById("previous-month-name").textContent = previousMonthName;
+
+    </script>
 
 
 </body>
+
 </html>
-
-<!--<div class="container">
-    <div class="row">
-        <div class="col">
-            <h2>Welcome back</h2>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Rest of your HTML layout -->
-
- <!--   <div class="row">
-        <div class="col">
-            <div id="piechart"></div>
-        </div>
-    </div>
-</div>
