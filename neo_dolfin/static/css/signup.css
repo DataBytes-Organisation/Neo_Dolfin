@@ -91,3 +91,29 @@ body {
     display: block;
     text-align: center;
 }
+
+.given-name-lab {
+    visibility: hidden;
+    position: relative;
+}
+
+.given-name-lab::before {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Given Name";
+}
+
+.last-name-lab {
+    visibility: hidden;
+    position: relative;
+}
+
+.last-name-lab::before {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Last Name";
+}

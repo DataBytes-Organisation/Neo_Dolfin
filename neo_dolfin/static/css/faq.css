@@ -1,29 +1,61 @@
 /* ACCORDION */
 /* Div containing all accordions */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
+
 #accordionMain{
     padding-top: 50px !important;
     padding-bottom: 200px !important;
+    animation: slide 1s ease-in-out 1 both;
 }
 
-#accordionHeading{
+@keyframes slide{
+    from{
+        transform: translateY(100%)
+    }
+    to{
+        transform: translateY(0%)
+    }
+}
+
+.accordion-header{
     padding-bottom: 0%;
+    border: 0px solid white;
+    border-radius: 100%;
+    font-weight: bold;
 }
 
+#accordionItems {
+    border-radius: 15px;
+}   
+
+#accordionItems:active {
+    border-top: 15px;
+    border-bottom: 0px;
+    border-color: #343A40;
+}
 #accordionButton{
     color: #FAFAFE !important;
     background-color: #343A40 !important;
     font-size: 36px;
-    font-weight: bolder;
+    font-weight: lighter;
     padding: 15px;
     border-radius: 15px;
     box-shadow: none;
     margin: 0;
 }
 
+#accordionButton:hover{
+    color: #343a40;
+    background-color: #BAFBFF;
+}
+
+.according-para {
+    color: #FAFAFE;
+}
+
 #accordionBody {
-    margin-top: -12px;
     color: #FAFAFE !important;
-    background-color: #343A40 !important;
+    background-color: #494f55 !important;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -36,6 +68,5 @@
 .accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-dash-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>");
 }
-
 
 
