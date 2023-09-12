@@ -58,7 +58,7 @@ class Chatbox {
         }
 
         if(this.first) {
-            let first_message = { name: "DolFine", message: "Hello <br>" + currentUser + ",<br> How can I help you?" };
+            let first_message = { name: "DolFine", message: "Hello " + currentUser + ",<br> How can I help you?" };
             this.messages.push(first_message);
             console.log("This is the first text!");
             var html = '';
