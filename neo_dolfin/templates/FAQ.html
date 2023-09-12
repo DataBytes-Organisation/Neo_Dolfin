@@ -1,92 +1,109 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/faq.css')}}">
 
-  </head>
-  <body>
-    {% include 'navbar.html' %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/faq.css')}}">
+
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+
+  <div id="mainBody">
+
+    <div id="headerSection" class="p-5">
+      <h1 id="headerTitle" class="display-1 text-center">Frequently Asked Questions</h1>
+    </div>
+
+    <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="12" fill="#343A40" />
+    </svg>
+
+    <div id="accordionMain" class="row d-flex justify-content-center">
+      <div id="FlushAccordion" class="accordion accordion-flush d-grid gap-4 pt-5 w-50 ">
 
 
-            <div id="mainBody">
-            
-              <div id="headerSection" class="p-5">
-                <h1 id="headerTitle" class="display-1 text-center">Frequently Asked Questions</h1>
-              </div>
-            
-              <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="12" fill="#343A40" />
-              </svg>
-            
-              <div id="accordionMain" class="row d-flex justify-content-center">
-                <div id="FlushAccordion" class="accordion accordion-flush d-grid gap-4 pt-5 w-50 ">
-                  
-                  
-                  <!-- FAQ 1 -->
-                  <div id="accordionItems" class="accordion-item">
-                    <h2 class="accordion-header " id="accordionHeading">
-                      <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        What is DolFin?
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
-                      data-bs-parent="#FlushAccordion">
-                      <div id="accordionBody" class="accordion-body">DolFin is a Fintech solution that aims to address the issue of people struggling to keep track of their finances, the difficulties and costs associated with obtaining finanical advice, banks acting monopolistically and traditional banking not serving the people equally.</div>
-                    </div>
-                  </div>
-                  
-                  <!-- FAQ 2 -->
-                  <div id="accordionItems" class="accordion-item">
-                    <h2 class="accordion-header " id="accordionHeading">
-                      <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOTwo">
-                        How can DolFin help me?
-                      </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
-                      data-bs-parent="#FlushAccordion">
-                      <div id="accordionBody" class="accordion-body">DolFin uses open banking data to display your financial accounts, providing you with high-level summaries, detailed reports, and graphs/visual diagrams on desktop and mobile platforms. Our main goal at DolFin is to help you get on top of your finances.<br><br>DolFin also provides customized advice using an AI prediction model and chatbot. The AI prediction model allows for your financial information to be securely analysed to provide savings predictions and comparisions to others in similar situations. </div>
-                    </div>
-                  </div>
-                  
-                  <!-- FAQ 3 -->
-                  <div id="accordionItems" class="accordion-item">
-                    <h2 class="accordion-header " id="accordionHeading">
-                      <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Can I use DolFin on my phone?
-                      </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
-                      data-bs-parent="#FlushAccordion">
-                      <div id="accordionBody" class="accordion-body">DolFin is designed for both desktop and mobile and can be accessed on these platforms.</div>
-                    </div>
-                  </div>
-                  <div id="accordionItems" class="accordion-item">
-                    <h2 class="accordion-header " id="accordionHeading">
-                      <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                        Do I need to pay to use DolFin?
-                      </button>
-                    </h2>
-                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
-                      data-bs-parent="#FlushAccordion">
-                      <div id="accordionBody" class="accordion-body">DolFin is a completely free and easy way for you to keep track of your finances. Join DolFin today and start saving!</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <!-- FAQ 1 -->
+        <div id="accordionItems" class="accordion-item">
+          <h2 class="accordion-header " id="accordionHeading">
+            <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              What is DolFin?
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
+            data-bs-parent="#FlushAccordion">
+            <div id="accordionBody" class="accordion-body">DolFin is a Fintech solution that aims to address the issue
+              of people struggling to keep track of their finances, the difficulties and costs associated with obtaining
+              finanical advice, banks acting monopolistically and traditional banking not serving the people equally.
             </div>
+          </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
-    {% include 'footer.html' %}
+        <!-- FAQ 2 -->
+        <div id="accordionItems" class="accordion-item">
+          <h2 class="accordion-header " id="accordionHeading">
+            <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOTwo">
+              How can DolFin help me?
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
+            data-bs-parent="#FlushAccordion">
+            <div id="accordionBody" class="accordion-body">DolFin uses open banking data to display your financial
+              accounts, providing you with high-level summaries, detailed reports, and graphs/visual diagrams on desktop
+              and mobile platforms. Our main goal at DolFin is to help you get on top of your finances.<br><br>DolFin
+              also provides customized advice using an AI prediction model and chatbot. The AI prediction model allows
+              for your financial information to be securely analysed to provide savings predictions and comparisions to
+              others in similar situations. </div>
+          </div>
+        </div>
 
-  </body>
+        <!-- FAQ 3 -->
+        <div id="accordionItems" class="accordion-item">
+          <h2 class="accordion-header " id="accordionHeading">
+            <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Can I use DolFin on my phone?
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
+            data-bs-parent="#FlushAccordion">
+            <div id="accordionBody" class="accordion-body">DolFin is designed for both desktop and mobile and can be
+              accessed on these platforms.</div>
+          </div>
+        </div>
+        <div id="accordionItems" class="accordion-item">
+          <h2 class="accordion-header " id="accordionHeading">
+            <button id="accordionButton" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              Do I need to pay to use DolFin?
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="accordionHeading"
+            data-bs-parent="#FlushAccordion">
+            <div id="accordionBody" class="accordion-body">DolFin is a completely free and easy way for you to keep
+              track of your finances. Join DolFin today and start saving!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <!-- IMPLEMENT CHATBOT HERE -->
+  {% include 'chatbotWidget.html' %}
+
+  {% include 'footer.html' %}
+
+</body>
+
 </html>
