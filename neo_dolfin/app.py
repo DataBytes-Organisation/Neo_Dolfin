@@ -326,7 +326,7 @@ def open_terms_of_use():
     
 # APPLICATION TERMS OF USE-AI PAGE 
 @app.route('/terms-of-use-ai/')
-def open_terms_of_use():
+def open_terms_of_use_AI():
     if not is_token_valid():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():

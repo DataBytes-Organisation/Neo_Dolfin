@@ -70,3 +70,13 @@ hr {
     text-decoration: none !important;
     color: #0077BB;
 }
+
+.termsai-link {
+    text-decoration: none !important;
+    color: #FAFAFE;
+}
+
+.termsai-link:hover {
+    text-decoration: none !important;
+    color: #0077BB;
+}
