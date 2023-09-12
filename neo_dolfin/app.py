@@ -95,7 +95,6 @@ def signin():
                     'SECRET_HASH': calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)},
                 ClientId=AWS_COGNITO_APP_CLIENT_ID)
             # Log the response for debugging
-            print(response)
             logging.debug(f"Initiate Auth Response: {response}") 
             # If user has a registered authentication device lead them to page to enter code
             if response['ChallengeName'] == 'SOFTWARE_TOKEN_MFA': #User has to log in with MFA
@@ -260,6 +259,21 @@ def resendconfemail():
             # Handle other sign-up errors
             return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
 
+# ROUTE TO LOG USER OUT FROM AWS AND CLEAR LOCAL CACHE
+@app.route('/signout', methods=['GET','POST'] )
+def signout():
+    try:
+        #Clear session / access token at AWS side
+        response = client.global_sign_out(
+            AccessToken=session.get('access_token')
+        )
+        #Clear local session info for application
+        session.clear()
+        return render_template('landing.html')
+    except Exception as e:
+        # Log the error for debugging purposes
+        logging.error(f"AWS Cognito sign-out error: {e}")
+
 ## REGISTER USER AUTHENTICATION DEVICE PAGE    
 @app.route('/signupmfad', methods=['GET', 'POST'])
 def signupmfadevice():
@@ -324,6 +338,14 @@ def open_terms_of_use():
     if is_token_valid():
         return render_template("TermsofUse.html") 
     
+# APPLICATION TERMS OF USE-AI PAGE 
+@app.route('/terms-of-use-ai/')
+def open_terms_of_use_AI():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("TermsofUse-AI.html") 
+    
 # APPLICATION Article Template PAGE 
 @app.route('/articleTemplate/')
 def open_article_template():
@@ -331,6 +353,48 @@ def open_article_template():
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
         return render_template("articleTemplate.html") 
+    
+# APPLICATION USER SPECIFIC  PROFILE PAGE
+@app.route('/profile')
+def profile():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        response = client.get_user(
+            AccessToken=session.get('access_token')
+        )
+        form = UserInfoForm(
+            given_name=response['UserAttributes'][3]['Value'],
+            family_name=response['UserAttributes'][4]['Value'],
+            nickname=response['UserAttributes'][2]['Value'],
+            username=response['UserAttributes'][5]['Value']
+        )
+        return render_template("profile.html", form=form) 
+    
+# APPLICATION USER RESET PASSWORD PAGE
+@app.route('/resetpw', methods=['GET', 'POST'])
+def resetpw():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        form = ResetPWForm()
+        if form.validate_on_submit():
+            try:
+                response = client.change_password(
+                    PreviousPassword=form.oldpassword.data,
+                    ProposedPassword=form.newpassword.data,
+                    AccessToken=session.get('access_token')
+                    )
+                # If sign-up is successful, redirect back to profile page
+                return redirect('/profile')
+                    
+            except Exception as e:
+                # Log the error for debugging purposes
+                logging.error(f"Password Reset Error: {e}")
+                # Handle other sign-up errors
+                return render_template('resetpw.html', form=form, error='An error occurred. Please try again.')
+
+        return render_template('resetpw.html', form=form)
 
 ## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])

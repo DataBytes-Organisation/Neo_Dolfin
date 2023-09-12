@@ -13,3 +13,8 @@ qr.png
 test/__pycache__
 __pycache__
 .DS_store
+
+# my chages
+test.html
+changes.txt
+snippets.txt
