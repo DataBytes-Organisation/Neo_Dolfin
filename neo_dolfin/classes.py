@@ -31,3 +31,16 @@ class SignUpMFADForm(FlaskForm): #Used on signupmfad.html
     signupmfadevicename = StringField('MFA Device Name', validators=[DataRequired()])
     signupmfadevicecode = StringField('MFA Device Code', validators=[DataRequired()])
     submit = SubmitField('Register Device')
+
+class UserInfoForm(FlaskForm): #Used on profile.html to display AWS Cognito information about user, read-only
+    given_name = StringField('Given_name', render_kw={'readonly': True})
+    family_name = StringField('Family_name', render_kw={'readonly': True})
+    nickname = StringField('Nickname', render_kw={'readonly': True})
+    username = StringField('E-Mail', render_kw={'readonly': True})
+    
+class ResetPWForm(FlaskForm): #Used on resetpw.html
+    oldpassword = PasswordField('Old Password', validators=[DataRequired()])
+    newpassword = PasswordField('New Password', validators=[DataRequired(), Regexp("(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$",
+                                                                            message="At least 8 characters, Minimum 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character and only contains symbols from the alphabet")])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('newpassword', message='Passwords must match')])
+    submit = SubmitField('Reset')
