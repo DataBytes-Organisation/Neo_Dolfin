@@ -11,7 +11,7 @@
 
 <body>
 
-	{% include 'navbar.html' %}
+	{% include 'components/navbar.html' %}
 
 
 	<div >
@@ -20,9 +20,7 @@
 				<div class="col">
 					<h1 id="articleTitle">User Profile</h1>
 				</div>
-				<div class="col-sm-6 text-sm-start text-md-end">
-					<h2 id="articleDate">01/09/2023</h2>
-				</div>
+
 			</div>
             <svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
                 <rect fill="#343A40" height="12" width="100%"></rect></svg>
@@ -62,7 +60,10 @@
 				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>			
 			</div>
 		</br>
-		</div>{% include 'footer.html' %} 
+		<!-- IMPLEMENT CHATBOT HERE -->
+		{% include 'components/chatbotWidget.html' %}
+		</div>
+		{% include 'components/footer.html' %}
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> 
 
 	</div>
