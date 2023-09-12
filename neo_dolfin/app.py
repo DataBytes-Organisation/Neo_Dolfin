@@ -324,6 +324,14 @@ def open_terms_of_use():
     if is_token_valid():
         return render_template("TermsofUse.html") 
     
+# APPLICATION TERMS OF USE-AI PAGE 
+@app.route('/terms-of-use-ai/')
+def open_terms_of_use():
+    if not is_token_valid():
+        return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    if is_token_valid():
+        return render_template("TermsofUse-AI.html") 
+    
 # APPLICATION Article Template PAGE 
 @app.route('/articleTemplate/')
 def open_article_template():
