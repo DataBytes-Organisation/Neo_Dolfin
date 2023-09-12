@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>DolFin - User Profile Information</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	{% include 'navbar.html' %}
+
+
+	<div >
+		<div class="container" id="mainTitleArea">
+			<div class="row">
+				<div class="col">
+					<h1 id="articleTitle">User Profile</h1>
+				</div>
+				<div class="col-sm-6 text-sm-start text-md-end">
+					<h2 id="articleDate">01/09/2023</h2>
+				</div>
+			</div>
+            <svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#343A40" height="12" width="100%"></rect></svg>
+		</div>
+		<div class="container" id="firstSection">
+			<div class="row">
+				<div class="col">
+					<p id="p1">User Information</p>
+				</div>
+				<form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="Given Name" class="form-label">{{ form.given_name.label(class="given-name-lab")}}</label>
+                            {{ form.given_name(class="form-control") }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="family_name" class="form-label" id="family_name">{{ form.family_name.label (class="last-name-lab") }}</label>
+                            {{ form.family_name(class="form-control") }}
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="nickname" class="form-label">{{ form.nickname.label }}</label>
+                            {{ form.nickname(class="form-control") }}
+                        </div>
+                        <div class="col mb-3">
+                            <label for="username" class="form-label">{{ form.username.label }}</label>
+                            {{ form.username(class="form-control") }}
+                        </div>
+                    </div>
+                </form>
+			</div>
+			<div>
+				<p id="p2">Reset Password</p>
+				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>			
+			</div>
+		</br>
+		</div>{% include 'footer.html' %} 
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> 
+
+	</div>
+</body>
+</html>
