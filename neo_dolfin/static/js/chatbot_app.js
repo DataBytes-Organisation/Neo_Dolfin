@@ -132,3 +132,32 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
+
+
+// chatbot cloud
+
+// hide the clound text
+function autoAppearChatCloud() {
+    console.log("appearing")
+    document.getElementById("chatbot-cloud").style.visibility = "visible";
+}
+
+// appear the cloud text
+function autoDiasppearChatCloud() {
+    console.log("Diappearing")
+    document.getElementById("chatbot-cloud").style.visibility = "hidden";
+}
+
+setInterval(autoAppearChatCloud, 10000)
+setInterval(autoDiasppearChatCloud, 17000)
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const chatbotCloud = document.getElementById("chatbot-cloud");
+    const chatbotButton = document.getElementsByClassName("chatbox__button")[0];
+    // console.log(chatbotButton[0])
+    chatbotButton.addEventListener("click", function () {
+        chatbotCloud.style.display = "none";
+    });
+});
