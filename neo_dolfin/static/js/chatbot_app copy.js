@@ -9,7 +9,6 @@ class Chatbox {
         }
 
         this.state = false;
-        this.first = true;
         this.messages = [];
     }
 
@@ -18,12 +17,9 @@ class Chatbox {
 
         openButton.addEventListener('click', () => this.toggleState(chatBox))
 
-        // openButton.addEventListener('click', () => this.newChat(chatBox))
-
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
 
         voiceButton.addEventListener('click', () => this.onVoiceButton(chatBox))
-
 
         const node = chatBox.querySelector('input');
         node.addEventListener("keyup", ({key}) => {
@@ -31,20 +27,6 @@ class Chatbox {
                 this.onSendButton(chatBox)
             }
         })
-    }
-
-    
-    newChat(chatbox) {
-        this.state = !this.state;
-    
-        // show or hides the box
-        if(this.state) {
-            console.log("This is a new chat!")
-            chatbox.classList.add('chatbox--active')
-        } else {
-            // chatbox.classList.remove('chatbox--active')
-            console.log("This chat is closed!")
-        }
     }
 
     toggleState(chatbox) {
@@ -56,18 +38,6 @@ class Chatbox {
         } else {
             chatbox.classList.remove('chatbox--active')
         }
-
-        if(this.first) {
-            let first_message = { name: "DolFine", message: "Hello <br>" + currentUser + ",<br> How can I help you?" };
-            this.messages.push(first_message);
-            console.log("This is the first text!");
-            var html = '';
-            html += '<div class="messages__item messages__item--visitor">' + first_message.message + '</div>'
-
-        const chatmessage = chatbox.querySelector('.chatbox__messages');
-        chatmessage.innerHTML = html;
-        }
-
     }
 
     onSendButton(chatbox) {
@@ -75,9 +45,6 @@ class Chatbox {
         let text1 = textField.value
         if (text1 === "") {
             return;
-        }
-        else {
-            this.first = false;
         }
 
         let msg1 = { name: "User", message: text1 }
@@ -165,25 +132,24 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
-// chatbox.newChat();
 
 
 // chatbot cloud
 
 // hide the clound text
 function autoAppearChatCloud() {
-    // console.log("appearing")
+    console.log("appearing")
     document.getElementById("chatbot-cloud").style.visibility = "visible";
 }
 
 // appear the cloud text
 function autoDiasppearChatCloud() {
-    // console.log("Diappearing")
+    console.log("Diappearing")
     document.getElementById("chatbot-cloud").style.visibility = "hidden";
 }
 
 setInterval(autoAppearChatCloud, 10000)
-setInterval(autoDiasppearChatCloud, 20000)
+setInterval(autoDiasppearChatCloud, 17000)
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -199,3 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // greet the first message 
 
 const openChatButton = document.querySelector('.chatbox__button');
+
+function newChat() {
+    console.log("This is a new chat!")
+}

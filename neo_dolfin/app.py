@@ -312,6 +312,7 @@ def auth_home():
                 # LOAD LAST CSV OBJECT INTO df VAR.
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
+        # print(request)
         return render_template("home.html")
 
 ## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
@@ -404,6 +405,7 @@ def chatbot():
     if request.method == 'GET':
         return render_template('chatbot.html')
     elif request.method == 'POST':
+        
         user_input = request.get_json().get("message")
         prediction = chatbot_logic.predict_class(user_input)
         sentiment = chatbot_logic.process_sentiment(user_input)
@@ -416,6 +418,8 @@ def chatbot():
 #@app.route('/dash/')
 #def dash_page():
 #    return dash_app.index()
+
+
 
 # Run the Flask app
 if __name__ == '__main__':
