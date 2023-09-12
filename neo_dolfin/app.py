@@ -405,7 +405,6 @@ def chatbot():
     if request.method == 'GET':
         return render_template('chatbot.html')
     elif request.method == 'POST':
-        
         user_input = request.get_json().get("message")
         prediction = chatbot_logic.predict_class(user_input)
         sentiment = chatbot_logic.process_sentiment(user_input)
