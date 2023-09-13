@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Chatbot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>DolFin Chatbot</title>
 </head>
+
 <body>
-  <h1>Welcome to Chatbot</h1>
-  <div id="chat-box">
-  </div>
-  <input type="text" id="user_input" placeholder="Type your message...">
-  <button onclick="sendMessage()">Send</button>
-  <button onclick="startListening()">Start Listening</button>
+    <div class="container p-4">
+        <h2 class="heading">DolFine chatbot</h2>
+    </div>
+    <div class="container" style="position:fixed; bottom:0px; right: 0px">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="static\img\favicon-32x32.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Chatbot</h4>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                    <button class="chatbox__send--footer voice__button">Voice</button>
+                </div>
 
-  <script>
-    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-    recognition.lang = 'en-US';
+            </div>
+            <div class="chatbox__button">
+                <button><img src="static\img\chat_724715.png" /></button>
+            </div>
+        </div>
+    </div>
 
-    function startListening() {
-      recognition.start();
-    }
-
-    recognition.onresult = function(event) {
-      const user_input = event.results[0][0].transcript;
-      sendMessage(user_input);  // Reusing your existing function
-    };
-
-    function sendMessage(user_input) {
-      user_input = user_input || document.getElementById('user_input').value;  // If user_input is not provided, fall back to textbox value
-      fetch('/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `user_input=${user_input}`
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('chat-box').innerHTML += `<p>User: ${user_input}</p>`;
-        document.getElementById('chat-box').innerHTML += `<p>Bot: ${data.response}</p>`;
-        document.getElementById('user_input').value = '';
-      });
-    }
-  </script>
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    </script>
+    <script src="../static/chatbot_app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

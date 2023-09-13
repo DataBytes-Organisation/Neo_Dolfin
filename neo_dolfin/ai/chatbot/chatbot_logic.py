@@ -10,6 +10,8 @@ import speech_recognition as sr
 from keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 from textblob import TextBlob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
 
 # Initialize a variable to store the last bot reply
 last_bot_reply = ""
@@ -20,6 +22,7 @@ negative_count = 0
 neutral_count = 0
 total_count = 0
 negative_conversations = []
+
 
 # Get the current directory where the script is located
 current_directory = os.path.dirname(__file__)
@@ -65,6 +68,7 @@ def predict_class(sentence):
 
 # print random response from appropriate responses for label
 def get_response(intents_list, intents_json):
+    global last_bot_reply
     tag = intents_list[0]['intent']
     probability = float(intents_list[0]['probability'])
     list_of_intents = intents_json['intents']
@@ -76,6 +80,7 @@ def get_response(intents_list, intents_json):
             if i['tag'] == tag:
                 result = random.choice(i['responses'])
                 break
+    last_bot_reply = result
     return result
 
 # Capture the user's speech input
@@ -99,67 +104,95 @@ def listen_to_user():
             return ""
 
 # Determine sentiment of user's reply
-def determine_sentiment(message):
-    global positive_count, negative_count, neutral_count, total_count
-    analysis = TextBlob(message)
-    total_count += 1
+def determine_sentiment(message, last_bot_reply):
+    global positive_count, negative_count, neutral_count, total_count, negative_conversations
+    analyzer = SentimentIntensityAnalyzer()
     sentiment = "neutral"
     
-    if analysis.sentiment.polarity > 0:
+    sentiment_scores = analyzer.polarity_scores(message)
+    compound_score = sentiment_scores["compound"]
+    
+    if compound_score >= 0.05:
         positive_count += 1
         sentiment = 'positive'
-    elif analysis.sentiment.polarity < 0:
+    elif compound_score <= -0.05:
         negative_count += 1
         sentiment = 'negative'
+        negative_conversation = f"Bot: {last_bot_reply}\nYou: {message}"
+        negative_conversations.append(negative_conversation)
     else:
         neutral_count += 1
     
     return sentiment
 
-# Define a function to initialize and run the chatbot logic
-def initialize_chatbot_logic():
-    global last_bot_reply, positive_count, negative_count, neutral_count, total_count
+def process_sentiment(message):
+    global total_count, last_bot_reply
+    total_count += 1
+    sentiment = determine_sentiment(message, last_bot_reply)
+    # print(f"Sentiment: {sentiment}")
 
-    # Reset chatbot variables
-    last_bot_reply = ""
-    positive_count = 0
-    negative_count = 0
-    neutral_count = 0
-    total_count = 0
+    # if total_count > 0:
+    #     print(f"Positive: {(positive_count/total_count)*100}%")
+    #     print(f"Negative: {(negative_count/total_count)*100}%")
+    #     print(f"Neutral: {(neutral_count/total_count)*100}%")
+
+    if sentiment == 'negative' and (negative_count/total_count)*100 >= 50:
+        # print("Storing negative conversation for review.")
+        negative_conversations.append({
+            'User': message,
+            'Bot': last_bot_reply
+        })
+    
+        with open('negative_conversations.txt', 'a') as f:
+            f.write(f"Bot: {last_bot_reply}\n")
+            f.write(f"User: {message}\n")
+            f.write("---\n")
+    
+
+# Define a function to initialize and run the chatbot logic
+# def initialize_chatbot_logic():
+#     global last_bot_reply, positive_count, negative_count, neutral_count, total_count
+
+#     # Reset chatbot variables
+#     last_bot_reply = ""
+#     positive_count = 0
+#     negative_count = 0
+#     neutral_count = 0
+#     total_count = 0
 
     # Create an infinite loop that prompts for input
-    print("Chatbot live. Say or type 'end' to stop the conversation.")
-    while True:
-        message = chat_input_method()
-        if message.lower() == "end":
-            print("Bot: Goodbye! Have a nice day!")
-            break
-        elif message != "":
-            ints = predict_class(message)
-            res = get_response(ints, intents)
+    # print("Chatbot live. Say or type 'end' to stop the conversation.")
+    # while True:
+    #     message = chat_input_method()
+    #     if message.lower() == "end":
+    #         print("Bot: Goodbye! Have a nice day!")
+    #         break
+    #     elif message != "":
+    #         ints = predict_class(message)
+    #         res = get_response(ints, intents)
 
-            sentiment = determine_sentiment(message)
-            print(f"Sentiment: {sentiment}")
-            # Calculate sentiment percentages
-            if total_count > 0:
-                print(f"Positive: {(positive_count/total_count)*100}%")
-                print(f"Negative: {(negative_count/total_count)*100}%")
-                print(f"Neutral: {(neutral_count/total_count)*100}%")
+    #         sentiment = determine_sentiment(message)
+    #         print(f"Sentiment: {sentiment}")
+    #         # Calculate sentiment percentages
+    #         if total_count > 0:
+    #             print(f"Positive: {(positive_count/total_count)*100}%")
+    #             print(f"Negative: {(negative_count/total_count)*100}%")
+    #             print(f"Neutral: {(neutral_count/total_count)*100}%")
             
-            if sentiment == 'negative' and (negative_count/total_count)*100 >= 50:
-                print("Storing negative conversation for review.")
-                with open('negative_conversations.txt', 'a') as f:
-                    f.write(f"Bot: {last_bot_reply}\n")
-                    f.write(f"User: {message}\n")
-                    f.write("---\n")
+    #         if sentiment == 'negative' and (negative_count/total_count)*100 >= 50:
+    #             print("Storing negative conversation for review.")
+    #             with open('negative_conversations.txt', 'a') as f:
+    #                 f.write(f"Bot: {last_bot_reply}\n")
+    #                 f.write(f"User: {message}\n")
+    #                 f.write("---\n")
 
-            # Overwrite the last_bot_reply with the current response of the bot
-            last_bot_reply = res
+    #         # Overwrite the last_bot_reply with the current response of the bot
+    #         last_bot_reply = res
 
-            if res.startswith("I'm sorry"):
-                print("Bot:", res)
-            else:
-                print("Bot:", res)
+    #         if res.startswith("I'm sorry"):
+    #             print("Bot:", res)
+    #         else:
+    #             print("Bot:", res)
 
 # Determine user input method
 #def chat_input_method():

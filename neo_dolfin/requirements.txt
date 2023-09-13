@@ -94,7 +94,7 @@ tensorboard==2.13.0
 tensorboard-data-server==0.7.1
 tensorflow==2.13.0
 tensorflow-estimator==2.13.0
-tensorflow-macos==2.13.0
+#tensorflow-macos==2.13.0
 termcolor==2.3.0
 textblob==0.17.1
 threadpoolctl==3.2.0
@@ -108,3 +108,6 @@ wcwidth==0.2.6
 Werkzeug==2.3.6
 wrapt==1.15.0
 WTForms==3.0.1
+vaderSentiment==3.3.2
+pytest==7.4.0
+
