@@ -15,9 +15,41 @@
         display: inline-block;
         vertical-align: middle;
     }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+        #headerdash-title {
+            font-size: 24px;
+        }
+
+        .col.inline-block {
+            width: 100%;
+            /* Full width for smaller screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        #headerdash-title {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 768px) {
+    #line-chart-container {
+        width: 100%;
+        height: auto; /* Allow the container to expand to fit the chart */
+    }
+
+    #line-chart {
+        width: 100%;
+        height: auto; /* Allow the chart to resize with the container */
+    }
+}
 </style>
 
 <body>
+
+    {% include 'components/navbar.html' %}
+
     <div id="headerdash-section">
         <h1 id="headerdash-title" style="text-align: center;  color: #0077BB">Dashboard</h1>
     </div>
@@ -28,7 +60,7 @@
                 <h2 id="welcomedash">Welcome back, {{ username }}</h2>
                 <svg width="765" height="305" viewBox="0 0 765 305" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_11_150)">
-                        <rect x="13" y="15" width="725" height="265" rx="30" fill="#343A40" />
+                        <rect x="13" y="15" width="725" height="300" rx="30" fill="#343A40" />
                     </g>
                     <defs>
                         <filter id="filter0_d_11_150" x="0" y="0" width="765" height="305" filterUnits="userSpaceOnUse"
@@ -58,44 +90,29 @@
                     </text>
                     <text x="5%" y="60%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
                         font-size="40" font-weight="800">
-                        <tspan>Return: <tspan id="return-status"></tspan>
+                        <tspan>Return: <tspan id="balanceDifference"></tspan>
+                            <tspan x="200" dy="1.2em" id="return-status"></tspan>
                             <tspan x="200" dy="1.2em" id="return-status-line2"></tspan>
                         </tspan>
                     </text>
+
                 </svg>
             </div>
             <div class="col inline-block">
-                <div id="piechart"></div>
+                <div id="piechart" style="margin-top: 60px;"></div>
             </div>
         </div>
-        <div id="line-chart" style="width: 100%; height: 400px;"></div>
-        <!--  <svg width="457" height="125" viewBox="0 0 457 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_11_164)">
-                <rect x="13" y="15" width="417" height="85" rx="30" fill="#343A40" />
-            </g>
-            <defs>
-                <filter id="filter0_d_11_164" x="0" y="0" width="457" height="125" filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                    <feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_11_164" />
-                    <feOffset dx="7" dy="5" />
-                    <feGaussianBlur stdDeviation="10.5" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_164" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_164" result="shape" />
-                </filter>
-            </defs>
-            <text x="5%" y="40%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
-                font-size="40" font-weight="800">
-                Talk to our chatbot
-            </text>
-        </svg>-->
+       
+        <div id="line-chart-container">
+            <div id="line-chart" style="width: 100%; height: 400px;"></div>
+        </div>
 
+        {% include 'components/chatbotWidget.html' %}
+        
     </div>
 
+    {% include 'components/footer.html' %}
+    
 
     <script>
         //variables used for the data calculation of the dashborad
@@ -138,8 +155,6 @@
                         previousMonthBalance = parseFloat(cols[6]); // Assuming balance is in the 7th column
                         document.getElementById("balance").textContent = previousMonthBalance;
                     }
-
-
 
                     // line chart graph
                     // Check if we have moved to a new month for the line chart
@@ -221,34 +236,36 @@
 
                 // Check if there are at least two months of data for comparison
                 if (monthsData.length >= 2) {
-                    var currentMonthBalance1 = balanceData[balanceData.length - 1]; // Get the balance for the current month
-                    var previousMonthBalance1 = balanceData[balanceData.length - 2]; // Get the balance for the previous month
+                    var currentMonthBalance1 = balanceData[0]; // Get the balance for the current month
+                    var previousMonthBalance1 = balanceData[1]; // Get the balance for the previous month
 
                     // Check if the current month's balance increased from the previous month
                     if (currentMonthBalance1 > previousMonthBalance1) {
                         balanceIncreased = true;
                     }
 
-                    // Check if the current year matches the year of the last month in data
-                    if (currentYear1 === new Date(monthsData[monthsData.length - 1]).getFullYear()) {
-                        isPositiveReturn = true;
-                    }
                 }
+
 
                 // Display the result on the screen
                 var returnStatusElement = document.getElementById("return-status");
-                if (isPositiveReturn && balanceIncreased) {
-                    returnStatusElement.textContent = "Positive Return for the Year with Increased Balance";
-                    returnStatusElement.style.color = "green"; // Set text color to green for positive return
-                } else if (isPositiveReturn) {
+
+                if (balanceIncreased) {
                     returnStatusElement.textContent = "Positive Return";
-                    returnStatusElement.style.color = "blue"; // Set text color to blue for positive return without increased balance
+                    returnStatusElement.style.fill = "blue"; // Set text color to blue for positive return without increased balance
+                    document.getElementById("return-status-line2").style.fill = "blue";
+                    document.getElementById("balanceDifference").style.fill = "blue";
                 } else {
                     returnStatusElement.textContent = "No Positive Return";
-                    returnStatusElement.style.color = "red"; // Set text color to red for no positive return
+                    returnStatusElement.style.fill = "red"; // Set text color to red for no positive return
+                    document.getElementById("return-status-line2").style.fill = "red";
+                    document.getElementById("balanceDifference").style.fill = "red";
                 }
                 document.getElementById("return-status-line2").textContent = "For the month";
+                document.getElementById("balanceDifference").textContent = currentMonthBalance1 - previousMonthBalance1;
+
             })
+
 
             .catch(error => console.error(error));
 

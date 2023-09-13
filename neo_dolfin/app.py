@@ -314,6 +314,14 @@ def auth_home():
     if is_token_valid():
         return render_template("home.html")
 
+@app.route('/dash/')
+def auth_dash(): 
+    #if not is_token_valid():
+     #   return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    #if is_token_valid():
+    return render_template("dash.html")
+
+
 ## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
 def auth_news(): 
