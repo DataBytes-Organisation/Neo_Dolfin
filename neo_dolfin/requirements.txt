@@ -1,11 +1,14 @@
+aioboto3
+asgiref==3.7.2
+asyncio==3.4.3
 blinker==1.6.2
-boto3==1.28.30
-botocore==1.31.30
+boto3
+#botocore==1.31.30
 click==8.1.6
 colorama==0.4.6
 dnspython==2.4.2
 email-validator==2.0.0.post2
-Flask==2.3.2
+Flask[async]==2.3.2
 Flask-WTF==1.1.1
 gunicorn==21.2.0
 idna==3.4
