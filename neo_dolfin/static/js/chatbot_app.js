@@ -18,8 +18,6 @@ class Chatbox {
 
         openButton.addEventListener('click', () => this.toggleState(chatBox))
 
-        // openButton.addEventListener('click', () => this.newChat(chatBox))
-
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
 
         voiceButton.addEventListener('click', () => this.onVoiceButton(chatBox))
@@ -58,7 +56,10 @@ class Chatbox {
         }
 
         if(this.first) {
-            let first_message = { name: "DolFine", message: "Hello " + currentUser + ",<br> How can I help you?" };
+            let first_message = { 
+                name: "DolFine", 
+                message: "Hello " + currentUser + ",<br> How can I help you?" 
+            };
             this.messages.push(first_message);
             console.log("This is the first text!");
             var html = '';
@@ -165,37 +166,46 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
-// chatbox.newChat();
 
 
 // chatbot cloud
 
-// hide the clound text
-function autoAppearChatCloud() {
-    // console.log("appearing")
-    document.getElementById("chatbot-cloud").style.visibility = "visible";
+class chatbotCloudClass {
+    constructor() {
+    this.args = 
+    {
+         chatbotCloud : document.getElementById("chatbot-cloud"),
+         chatbotButton : document.getElementsByClassName("chatbox__button")[0]
+    }
+    }
+
+    removeOnClick() {
+        const {chatbotCloud, chatbotButton} = this.args;
+        document.addEventListener("DOMContentLoaded", function () {
+        chatbotButton.addEventListener("click", function () {
+            chatbotCloud.style.display = "none";
+        });
+    })
+    }
+
+    appearChatCloud() {
+        // const {chatbotCloud, chatbotButton} = this.args;
+        // chatbotCloud.style.visibility = "visible";
+
+        document.getElementById("chatbot-cloud").style.visibility = "visible";
+    }
+
+    diasppearChatCloud() {
+        // const {chatbotCloud, chatbotButton} = this.args;
+        // chatbotCloud.style.visibility = "hidden";
+
+        // above line throughs an error.
+        document.getElementById("chatbot-cloud").style.visibility = "hidden";
+    }
 }
+const chatbotcloud = new chatbotCloudClass();
 
-// appear the cloud text
-function autoDiasppearChatCloud() {
-    // console.log("Diappearing")
-    document.getElementById("chatbot-cloud").style.visibility = "hidden";
-}
+chatbotcloud.removeOnClick();
 
-setInterval(autoAppearChatCloud, 10000)
-setInterval(autoDiasppearChatCloud, 20000)
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const chatbotCloud = document.getElementById("chatbot-cloud");
-    const chatbotButton = document.getElementsByClassName("chatbox__button")[0];
-    // console.log(chatbotButton[0])
-    chatbotButton.addEventListener("click", function () {
-        chatbotCloud.style.display = "none";
-    });
-});
-
-// greet the first message 
-
-const openChatButton = document.querySelector('.chatbox__button');
+setInterval(chatbotcloud.appearChatCloud, 10000) // appear after 10 seconds
+setInterval(chatbotcloud.diasppearChatCloud, 20000) //diasppear after another 10 seconds
