@@ -48,5 +48,6 @@
 
 <script>
     $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    var currentUser = "{{ session.given_name }}"; 
 </script>
 <script src="{{url_for('static', filename='js/chatbot_app.js')}}"></script>

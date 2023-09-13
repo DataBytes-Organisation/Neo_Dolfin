@@ -168,6 +168,13 @@ def signinmfa():
             # Store the token and its expiration timestamp in the session
             session['access_token'] = access_token
             session['token_expiration'] = expiration_timestamp
+
+            # Grab the user First Name so chatbot can use
+            response = client.get_user(
+            AccessToken=access_token
+            )
+            session['given_name']=response['UserAttributes'][3]['Value']
+
             return redirect('/home/')
 
         except Exception as e:
@@ -312,6 +319,7 @@ def auth_home():
                 # LOAD LAST CSV OBJECT INTO df VAR.
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
+        # print(request)
         return render_template("home.html")
 
 @app.route('/dash/')
@@ -424,6 +432,8 @@ def chatbot():
 #@app.route('/dash/')
 #def dash_page():
 #    return dash_app.index()
+
+
 
 # Run the Flask app
 if __name__ == '__main__':
