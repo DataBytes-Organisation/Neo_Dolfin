@@ -130,7 +130,12 @@ def drawPredictions():
     end = current + datetime.timedelta(days=180)
     pred = results.get_prediction(start=pd.to_datetime(start),end=pd.to_datetime(end), dynamic=False)
     pred_ci = pred.conf_int()
-    print(pred_ci)
+    #print(pred_ci)
+    #print(pred.predicted_mean)
+    pred_mean = pd.DataFrame(pred.predicted_mean)
+    pred_ci['mean_balance'] = pred_mean
+    predtrans_file = "neo_dolfin/ai/savings/Predicted_Balances.csv"
+    pred_ci.to_csv(predtrans_file, sep='\t')
     return pred
 
 def plotPredictedBal():
