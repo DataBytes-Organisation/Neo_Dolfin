@@ -2,8 +2,7 @@ import boto3
 
 #s3_resource = boto3.resource('s3')
 session = boto3.Session( 
-         aws_access_key_id='AKIA5HWF4LGQVFO37AW5', 
-         aws_secret_access_key='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')
+
 
 print("After boto3 session is configured......")
 #Then use the session to get the resource
