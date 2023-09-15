@@ -21,10 +21,12 @@ body {
     display: flex;
     flex-direction: column;
     background: #eee;
-    width: 300px;
-    height: 350px;
+    width: 350px;
+    height: 450px;
     z-index: -123456;
-    opacity: 0;  
+    opacity: 0; 
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .chatbox--active {
@@ -34,9 +36,6 @@ body {
 
 }
 
-.chatbox__button {
-    text-align: right;
-}
 
 .send__button {
     padding: 6px;
@@ -69,11 +68,11 @@ body {
     margin-right: auto;
 }
 
-.chatbox__support {
+/* .chatbox__support {
     background: #eaeaea;
     height: 450px;
     width: 350px;
-}
+} */
 
 .chatbox__header {
     background: rgb(59, 117, 203);
@@ -82,14 +81,19 @@ body {
     align-items: center;
     justify-content: center;
     padding: 15px 20px;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .chatbox__image--header {
     margin-right: 10px;
 }
 
+.chatbox_header_image {
+    height: 3rem;
+}
+
 .chatbox__heading--header {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: white;
 }
 
@@ -103,10 +107,12 @@ body {
 }
 
 .messages__item {
+    font-size: large;
     margin-top: 10px;
     background: #E0E0E0;
     padding: 8px 12px;
     max-width: 70%;
+    border-radius: 10%;
 }
 
 .messages__item--visitor,
@@ -140,13 +146,65 @@ body {
     color: rgb(59, 117, 203);
 }
 
-.chatbox__button button,
-.chatbox__button button:focus,
-.chatbox__button button:visited {
-    padding: 10px;
+.chatbox__button {
+    text-align: right;
+    border-radius: 20px;
+    flex-grow: 1;
+    margin: 0px;
+}
+
+.chatbox__button img {
+    height: auto !important;
+    width: 50px;
+}
+
+.chatbox__button button:hover {
+    background: rgb(59, 117, 203, 0.6);
+}
+
+.chatbox__button button {
+    padding: 15px;
     background: white;
     border: none;
+    border-radius: 10px;
     outline: none;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-cloud {
+    /* Neo_Dolfin\neo_dolfin\static\img\chatbot-text-cloud.png */
+    /* background-color: #3498db; */
+    background-image: url("/static/img/chatbot-text-cloud.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 400px;
+    /* max-height: 100px; */
+    color: #E0E0E0;
+    padding: 10px;
+    border-radius: 0px;
+    margin: 0px 0px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
     cursor: pointer;
 }
+
+.text-cloud p {
+    font-family: "Inter", sans-serif;
+    font-size: large;
+    word-wrap: break-word;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Adjust the number of lines as needed */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 2px;
+}
+
+#chatCloudID {
+    display: flex;
+    gap:1em;
+}
+
+

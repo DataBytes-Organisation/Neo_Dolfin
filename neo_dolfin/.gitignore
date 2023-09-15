@@ -1,4 +1,5 @@
 # Ignore virtual environment
+venv\Lib\
 venv/
 
 # Ignore .env file
@@ -16,3 +17,5 @@ __pycache__
 # my chages
 test.html
 changes.txt
+snippets.txt
+white_arrow.png
