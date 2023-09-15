@@ -4,17 +4,18 @@ from asgiref.sync import sync_to_async
 import aioboto3
 import asyncio
 import os 
+from services.interfaces.is3_service import IS3Service
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-class S3Service():
+class S3Service(IS3Service):
     ''' This is a service for getting objects from an S3 Bucket, with the option to get a specific object
         or to get the last modified. This service makes use of the aioboto3 library, which is a wrapper around the boto3
         library for access to s3 features. 
         aioboto3 provides us with the ability to perform async calls, which are required for the creation and retrieval of 
         processed data for the savings model'''
-
+    
 
     async def set_object(self, bucket_name, object_name, object_bytes):
         #async sets object of specified name in the specified bucket
