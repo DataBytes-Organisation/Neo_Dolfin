@@ -1,4 +1,5 @@
 # Ignore virtual environment
+venv\Lib\
 venv/
 
 # Ignore .env file
@@ -12,3 +13,9 @@ qr.png
 test/__pycache__
 __pycache__
 .DS_store
+
+# my chages
+test.html
+changes.txt
+snippets.txt
+white_arrow.png

@@ -5,6 +5,7 @@
     /* Add vertical scroll if content exceeds fixed height */
 }
 
+
 .fixed-elements {
     position: relative;
     /* Create a positioning context */
@@ -21,7 +22,18 @@
 .dolfin-dark-bg-color {
     background-color: rgb(52, 58, 64);
     /* Your desired background color */
+    animation: slide 1s ease-in-out 1 both;
 }
+
+@keyframes slide{
+    from{
+        transform: translateY(100%)
+    }
+    to{
+        transform: translateY(0%)
+    }
+}
+
 
 .custom-nav .nav-link:focus {
     background-color: #0077BB;

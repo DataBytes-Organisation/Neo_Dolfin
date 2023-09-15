@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>DolFin - Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash.css')}}" />
+</head>
+
+<body>
+
+    {% include 'components/navbar.html' %}
+
+    <div id="headerSection">
+        <h1 id="headerTitle" style="text-align: center;  color: #0077BB">Dashboard</h1>
+    </div>
+        <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="12" fill="#343A40" />
+        </svg>
+
+    <div class="container">
+        <div class="row">
+            <div class="col inline-block">
+                <h2 id="welcomedash">Welcome back, {{ username }}</h2>
+                <svg width="765" height="305" viewBox="0 0 765 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_11_150)">
+                        <rect x="13" y="15" width="725" height="300" rx="30" fill="#343A40" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_d_11_150" x="0" y="0" width="765" height="305" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                result="effect1_dropShadow_11_150" />
+                            <feOffset dx="7" dy="5" />
+                            <feGaussianBlur stdDeviation="10.5" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_150" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_150" result="shape" />
+                        </filter>
+                    </defs>
+                    <text x="5%" y="20%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        Balance: $<tspan>
+                            <tspan id="balance"></tspan>
+                    </text>
+                    <text x="5%" y="40%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        Expenses of <tspan id="previous-month-name"></tspan>: <tspan id="previous-month-balance">
+                        </tspan>
+                    </text>
+                    <text x="5%" y="60%" fill="#FAFAFE" text-anchor="start" dominant-baseline="middle" font="Inter"
+                        font-size="40" font-weight="800">
+                        <tspan>Return: <tspan id="balanceDifference"></tspan>
+                            <tspan x="200" dy="1.2em" id="return-status"></tspan>
+                            <tspan x="200" dy="1.2em" id="return-status-line2"></tspan>
+                        </tspan>
+                    </text>
+
+                </svg>
+            </div>
+            <div class="col inline-block">
+                <div id="piechart" style="margin-top: 60px;"></div>
+            </div>
+        </div>
+       
+        <div id="line-chart-container">
+            <div id="line-chart" style="width: 100%; height: 400px;"></div>
+        </div>
+
+        <script src="{{url_for('static', filename='js/dash.js')}}"></script>
+
+        {% include 'components/chatbotWidget.html' %}
+        
+    </div>
+
+    {% include 'components/footer.html' %}
+
+</body>
+
+</html>

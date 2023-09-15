@@ -1,0 +1,211 @@
+class Chatbox {
+    constructor() {
+        this.args = {
+            openButton: document.querySelector('.chatbox__button'),
+            chatBox: document.querySelector('.chatbox__support'),
+            sendButton: document.querySelector('.send__button'),
+            voiceButton: document.querySelector('.voice__button')
+
+        }
+
+        this.state = false;
+        this.first = true;
+        this.messages = [];
+    }
+
+    display() {
+        const {openButton, chatBox, sendButton, voiceButton} = this.args;
+
+        openButton.addEventListener('click', () => this.toggleState(chatBox))
+
+        sendButton.addEventListener('click', () => this.onSendButton(chatBox))
+
+        voiceButton.addEventListener('click', () => this.onVoiceButton(chatBox))
+
+
+        const node = chatBox.querySelector('input');
+        node.addEventListener("keyup", ({key}) => {
+            if (key === "Enter") {
+                this.onSendButton(chatBox)
+            }
+        })
+    }
+
+    
+    newChat(chatbox) {
+        this.state = !this.state;
+    
+        // show or hides the box
+        if(this.state) {
+            console.log("This is a new chat!")
+            chatbox.classList.add('chatbox--active')
+        } else {
+            // chatbox.classList.remove('chatbox--active')
+            console.log("This chat is closed!")
+        }
+    }
+
+    toggleState(chatbox) {
+        this.state = !this.state;
+
+        // show or hides the box
+        if(this.state) {
+            chatbox.classList.add('chatbox--active')
+        } else {
+            chatbox.classList.remove('chatbox--active')
+        }
+
+        if(this.first) {
+            let first_message = { 
+                name: "DolFine", 
+                message: "Hello " + currentUser + ",<br> How can I help you?" 
+            };
+            this.messages.push(first_message);
+            console.log("This is the first text!");
+            var html = '';
+            html += '<div class="messages__item messages__item--visitor">' + first_message.message + '</div>'
+
+        const chatmessage = chatbox.querySelector('.chatbox__messages');
+        chatmessage.innerHTML = html;
+        }
+
+    }
+
+    onSendButton(chatbox) {
+        var textField = chatbox.querySelector('input');
+        let text1 = textField.value
+        if (text1 === "") {
+            return;
+        }
+        else {
+            this.first = false;
+        }
+
+        let msg1 = { name: "User", message: text1 }
+        this.messages.push(msg1);
+
+        fetch($SCRIPT_ROOT + '/chatbot', {
+            method: 'POST',
+            body: JSON.stringify({ message: text1 }),
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          })
+          .then(r => r.json())
+          .then(r => {
+            let msg2 = { name: "DolFine", message: r.answer };
+            this.messages.push(msg2);
+            this.updateChatText(chatbox)
+            textField.value = ''
+
+        }).catch((error) => {
+            console.error('Error:', error);
+            this.updateChatText(chatbox)
+            textField.value = ''
+          });
+    }
+
+    onVoiceButton(chatbox) {
+        console.log("Voice button clicked");
+        var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+        recognition.lang = 'en-US';
+        
+        recognition.start();
+        
+        recognition.onresult = (event) => {
+            const text1 = event.results[0][0].transcript;
+            console.log("Recognized Text: ", text1);
+            
+            let msg1 = { name: "User", message: text1 };
+            this.messages.push(msg1);
+            console.log("User message pushed");
+    
+            fetch($SCRIPT_ROOT + '/chatbot', {
+                method: 'POST',
+                body: JSON.stringify({ message: text1 }),
+                mode: 'cors',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+              })
+              .then(r => r.json())
+              .then(r => {
+                let msg2 = { name: "DolFine", message: r.answer };
+                this.messages.push(msg2);
+                this.updateChatText(chatbox)
+                textField.value = ''
+    
+            }).catch((error) => {
+                console.error('Error:', error);
+                this.updateChatText(chatbox)
+                textField.value = ''
+              });
+        };
+    }
+    
+
+    updateChatText(chatbox) {
+        var html = '';
+        this.messages.slice().reverse().forEach(function(item, index) {
+            if (item.name === "DolFine")
+            {
+                html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+            }
+            else
+            {
+                html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
+            }
+          });
+
+        const chatmessage = chatbox.querySelector('.chatbox__messages');
+        chatmessage.innerHTML = html;
+    }
+}
+
+
+const chatbox = new Chatbox();
+chatbox.display();
+
+
+// chatbot cloud
+
+class chatbotCloudClass {
+    constructor() {
+    this.args = 
+    {
+         chatbotCloud : document.getElementById("chatbot-cloud"),
+         chatbotButton : document.getElementsByClassName("chatbox__button")[0]
+    }
+    }
+
+    removeOnClick() {
+        const {chatbotCloud, chatbotButton} = this.args;
+        document.addEventListener("DOMContentLoaded", function () {
+        chatbotButton.addEventListener("click", function () {
+            chatbotCloud.style.display = "none";
+        });
+    })
+    }
+
+    appearChatCloud() {
+        // const {chatbotCloud, chatbotButton} = this.args;
+        // chatbotCloud.style.visibility = "visible";
+
+        document.getElementById("chatbot-cloud").style.visibility = "visible";
+    }
+
+    diasppearChatCloud() {
+        // const {chatbotCloud, chatbotButton} = this.args;
+        // chatbotCloud.style.visibility = "hidden";
+
+        // above line throughs an error.
+        document.getElementById("chatbot-cloud").style.visibility = "hidden";
+    }
+}
+const chatbotcloud = new chatbotCloudClass();
+
+chatbotcloud.removeOnClick();
+
+setInterval(chatbotcloud.appearChatCloud, 10000) // appear after 10 seconds
+setInterval(chatbotcloud.diasppearChatCloud, 20000) //diasppear after another 10 seconds

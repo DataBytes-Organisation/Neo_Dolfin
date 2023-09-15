@@ -1,0 +1,283 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "Hello",
+                "Greetings",
+                "Hi",
+                "Hey"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there! How can I help you?",
+                "Hey! How can I assist you today?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you soon!",
+                "Take care!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Thanks a lot"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "Glad to help!"
+            ]
+        },
+        {
+            "tag": "recommendation",
+            "patterns": [
+                "Can you recommend something?",
+                "What do you suggest?",
+                "Any ideas?",
+                "What's good?",
+                "What's popular?",
+                "What's trending?"
+            ],
+            "responses": [
+                "Based on your previous transaction you may save upto",
+                "Based on your previous purchases, you might like product Y.",
+                "Product Z has been very popular among our customers.",
+                "Our featured product this month is A. Would you like to learn more about it?"
+            ]
+        },
+        {
+            "tag": "budget_creation",
+            "patterns": [
+                "Can you help me create a budget based on my income and expenses?"
+            ],
+            "responses": [
+                "Absolutely, I can help you create a budget. Let's start by understanding your monthly income and expenses."
+            ]
+        },
+        {
+            "tag": "transaction_history",
+            "patterns": [
+                "How do I view my transaction history?",
+                "Can you show me my recent transactions?"
+            ],
+            "responses": [
+                "You can view your transaction history in the 'Transactions' section of our online portal or mobile app. Would you like me to guide you there?"
+            ]
+        },
+        {
+            "tag": "credit_score",
+            "patterns": [
+                "How can I better understand my credit score and work to improve it?",
+                "What's my credit score?",
+                "Why is my credit score important?"
+            ],
+            "responses": [
+                "Your credit score is important because it impacts the interest rates you get on loans and credit cards. I can help you understand how it's calculated and provide tips to improve it. Would you like to continue?"
+            ]
+        },
+        {
+            "tag": "account_security",
+            "patterns": [
+                "How can I protect my personal and financial information from fraud and identity theft?",
+                "What security measures do you have in place?"
+            ],
+            "responses": [
+                "We use advanced encryption and fraud detection systems to protect your personal and financial information. I can provide more detailed tips to help you enhance your account security. Interested?"
+            ]
+        },
+        {
+            "tag": "account_closing",
+            "patterns": [
+                "What is the process for closing my account?",
+                "I want to close my account."
+            ],
+            "responses": [
+                "Closing an account with us involves a few steps. Are you sure you want to close your account? I can guide you through the process."
+            ]
+        },
+        {
+            "tag": "account_update",
+            "patterns": [
+                "How do I update my personal information or contact details?",
+                "I want to update my account information."
+            ],
+            "responses": [
+                "You can update your personal information through our online portal or mobile app. Need help with the process?"
+            ]
+        },
+        {
+            "tag": "dispute_error",
+            "patterns": [
+                "How do I dispute an error on my credit report?",
+                "There's an error on my credit report."
+            ],
+            "responses": [
+                "I'm sorry to hear about the error. I can guide you through the process of disputing an error on your credit report. Ready to proceed?"
+            ]
+        },
+        {
+            "tag": "bill_alerts",
+            "patterns": [
+                "Can you send me alerts when there are significant changes to my account or when bills are due?",
+                "I want to set up bill alerts."
+            ],
+            "responses": [
+                "Yes, you can set up alerts for bill due dates and significant account changes through our online portal or mobile app. Would you like assistance in setting these up?"
+            ]
+        },
+        {
+            "tag": "automatic_payments",
+            "patterns": [
+                "How can I set up automatic payments to ensure bills are paid on time?",
+                "I want to set up auto-pay."
+            ],
+            "responses": [
+                "You can set up automatic payments in the 'Payments' section of our online portal or mobile app. Can I guide you through the steps?"
+            ]
+        },
+        {
+            "tag": "financial_goals",
+            "patterns": [
+                "Can you help me set financial goals and track my progress towards them?",
+                "I need help with financial planning."
+            ],
+            "responses": [
+                "Absolutely! Let's start by discussing your financial goals. Do you have any specific goals in mind?"
+            ]
+        },
+        {
+            "tag": "saving_money",
+            "patterns": [
+                "What are some ways I can save money or earn more interest on my savings?",
+                "How can I boost my savings?"
+            ],
+            "responses": [
+                "There are many strategies to save money and boost your savings. One of the effective ways is to create a budget and stick to it. Would you like some more tips?"
+            ]
+        },
+        {
+            "tag": "debt_plan",
+            "patterns": [
+                "How can I set up a plan for paying off my debts, such as credit card balances or loans?",
+                "I need help with debt management."
+            ],
+            "responses": [
+                "I can definitely assist you with that. Let's start by looking at your current debts and interest rates."
+            ]
+        },
+        {
+            "tag": "expense_reduction",
+            "patterns": [
+                "Can you help me find ways to reduce unnecessary expenses and save more money?",
+                "How can I cut costs?"
+            ],
+            "responses": [
+                "Absolutely. Let's start by reviewing your expenses. Can you provide me with details about your monthly expenses?"
+            ]
+        },
+        {
+            "tag": "credit_requirements",
+            "patterns": [
+                "What are the credit score requirements for your loans or credit cards?",
+                "Do I need a specific credit score to apply for a loan or credit card?"
+            ],
+            "responses": [
+                "The credit score requirement varies based on the financial product. For example, to apply for product X, you need a credit score of Y. Can you specify the product you're interested in?"
+            ]
+        },
+        {
+            "tag": "new_account_requirements",
+            "patterns": [
+                "What are the requirements for opening a new account?",
+                "I want to open a new account."
+            ],
+            "responses": [
+                "To open a new account, you generally need to provide some personal information and meet certain eligibility requirements. Do you have a specific account type in mind?"
+            ]
+        },
+        {
+            "tag": "loan_application",
+            "patterns": [
+                "How do I apply for a loan?",
+                "I want to apply for a loan."
+            ],
+            "responses": [
+                "You can apply for a loan through our website or app. Would you like help with the application process?"
+            ]
+        },
+        {
+            "tag": "credit_card_application",
+            "patterns": [
+                "How do I apply for a credit card?",
+                "I want to apply for a credit card."
+            ],
+            "responses": [
+                "You can apply for a credit card via our online portal or mobile app. Need assistance with the application process?"
+            ]
+        },
+        {
+            "tag": "account_balance_check",
+            "patterns": [
+                "How do I check my account balance?",
+                "Can you tell me my account balance?"
+            ],
+            "responses": [
+                "You can check your account balance through our online portal or mobile app. Can I guide you to that feature?"
+            ]
+        },
+        {
+            "tag": "account_management_online",
+            "patterns": [
+                "What are the options for managing my account online?",
+                "I want to manage my account online."
+            ],
+            "responses": [
+                "Our online portal and mobile app provide several options for managing your account, such as viewing transactions, transferring money, and updating your profile. Can I help you with a specific task?"
+            ]
+        },
+        {
+            "tag": "customer_support_policy",
+            "patterns": [
+                "What is your customer support policy?",
+                "How can I contact you if I have questions or issues with my account?"
+            ],
+            "responses": [
+                "Our customer support team is available 24/7 to help you with any questions or issues. You can contact us via phone, email, or live chat. How may I assist you today?"
+            ]
+        },
+        {
+            "tag": "personalised_financial_advice",
+            "patterns": [
+                "Can you provide me with personalised financial advice based on my situation?",
+                "I need financial advice."
+            ],
+            "responses": [
+                "I can definitely provide some general advice. For detailed personalised financial advice, it would be best to consult with our financial advisors. Would you like to schedule a consultation?"
+            ]
+        },
+        {
+            "tag": "account_statements",
+            "patterns": [
+                "How do I view my transaction history or download account statements?",
+                "I want to download my account statement."
+            ],
+            "responses": [
+                "You can view your transaction history and download account statements in the 'Statements' section of our online portal or mobile app. Can I guide you there?"
+            ]
+        }
+    ]
+}
+
