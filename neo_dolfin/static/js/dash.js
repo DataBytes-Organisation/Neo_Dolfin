@@ -8,7 +8,7 @@ var flagMonth = 0;//flag to Check if we have moved to a new month for drawing th
 var currentMonthLine = null;//Check if we have moved to a new month for drawing the line chart monthly balance 
 
 // Fetch data from the CSV file
-fetch('/static/transaction_ut.csv')
+fetch('/static/data/transaction_ut.csv')
     .then(response => response.text())
     .then(data => {
         data = data.trim();

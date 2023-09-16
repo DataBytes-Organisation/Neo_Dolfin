@@ -90,3 +90,51 @@ body {
     display: block;
     text-align: center;
 }
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+    #signInTitle {
+        font-size: 20px;
+        margin-left: -150px;
+    }
+
+    #signUpText {
+        font-size: 15px;
+        margin-left: 0;
+        text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
+    }
+
+    .card-body {
+        padding: 0px;
+        max-height: 160px;
+    }
+
+    .card {
+        max-width: 250px;
+        max-height: 180px;
+    }
+
+    .card-title {
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        border-radius: 4px;
+        padding: 1px;
+        margin-top: -10px;
+    }
+
+    .btn {
+        border-radius: 16px;
+    }
+
+    .btn.btn-dark.btn-block {
+        min-width: 60px;
+        min-height: 18px;
+        font-size: 70%;
+    }
+
+    .mb-3 {
+        font-size: 70%;
+    }
+}
