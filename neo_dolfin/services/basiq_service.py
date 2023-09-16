@@ -1,10 +1,16 @@
 import boto3 as boto3
-from constants import BASE_URL, BASIQ_ID, API_KEY
-from services.interfaces.ibasiq_service import IBasiqService
+from dotenv import load_dotenv
+import os
+from services.Interfaces.ibasiq_service import IBasiqService
 import requests
 import json
+import datetime
 
 # Methods adapted from Trimester 1 Dolfin code to suit our use case
+load_dotenv()  # Load environment variables from .env
+BASE_URL = os.environ.get('BASE_URL')
+BASIQ_ID = os.environ.get('BASIQ_ID')
+API_KEY = os.environ.get('API_KEY')
 
 s3 = boto3.client('s3')
 

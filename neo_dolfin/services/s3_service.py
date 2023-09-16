@@ -4,7 +4,7 @@ from asgiref.sync import sync_to_async
 import aioboto3
 import asyncio
 import os 
-from services.interfaces.is3_service import IS3Service
+from services.Interfaces.is3_service import IS3Service
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
