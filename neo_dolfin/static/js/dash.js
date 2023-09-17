@@ -15,7 +15,6 @@ fetch('/static/data/transaction_ut.csv')
         // Parse the CSV data into an array of objects
         var rows = data.split('\n');
         var spendingData = {};
-
         var balance = 0.00;
 
         for (var i = 1; i < rows.length; i++) {
@@ -52,8 +51,6 @@ fetch('/static/data/transaction_ut.csv')
                 currentMonthLine = postMonth;
             }
 
-
-
             // pie chart for all the expensesof the previous month
             // the expensives are negative values in the csv file
             if (postMonth === currentMonth && postYear === currentYear) {
@@ -82,9 +79,6 @@ fetch('/static/data/transaction_ut.csv')
 
             }
         }
-
-
-
         // Convert the spendingData object into arrays for plotting
         var labels = Object.keys(spendingData);
         var values = labels.map(function (label) {
@@ -127,8 +121,6 @@ fetch('/static/data/transaction_ut.csv')
             }
 
         }
-
-
         // Display the result on the screen
         var returnStatusElement = document.getElementById("return-status");
 
@@ -147,9 +139,54 @@ fetch('/static/data/transaction_ut.csv')
         document.getElementById("balanceDifference").textContent = currentMonthBalance1 - previousMonthBalance1;
 
     })
-
-
     .catch(error => console.error(error));
+
+// Fetch data from the CSV file
+fetch('/static/data/Predicted_Balances.csv')
+    .then(response => response.text())
+    .then(data1 => {
+        data1 = data1.trim();
+        // Parse the CSV data into an array of objects
+        var rows1 = data1.split('\n');
+        var monthlyData = {}; // Object to store monthly data
+
+        // Loop through the rows and extract the necessary data
+        for (var i = 1; i < rows1.length; i++) {
+            var cols = rows1[i].split(','); // Split by tab character
+            var postDate = cols[0]; // Date with balance
+            var dateSegments = postDate.split('\t'); // Split date by tab
+            var balance = parseFloat(dateSegments[dateSegments.length - 1]); // Balance is in the last segment
+
+            // Extract the year and month from the date (assuming yyyy-MM-dd format)
+            var [year, month, _] = dateSegments[0].split('-');
+
+            // Create a unique key for the month (e.g., "2023-03")
+            var monthYear = year + '-' + month;
+
+            // If the monthYear doesn't exist in monthlyData, initialize it
+            if (!monthlyData[monthYear]) {
+                monthlyData[monthYear] = [];
+            }
+
+            // Push the mean balance into the corresponding month
+            monthlyData[monthYear].push(balance);
+        }
+
+        // Calculate the mean balance for each month
+        var sortedMonthYears = Object.keys(monthlyData).sort();
+        var sortedBalances = sortedMonthYears.map(monthYear => {
+            var monthlyBalances = monthlyData[monthYear];
+            var sum = monthlyBalances.reduce((acc, val) => acc + val, 0);
+            var meanBalance = sum / monthlyBalances.length;
+            return meanBalance + 22109.56
+        });
+
+        // Create the line chart
+        createLineChart2(sortedMonthYears, sortedBalances, 'line-chart-2'); // Pass a unique ID for the new chart
+
+    })
+    .catch(error => console.error(error));
+
 
 
 
@@ -193,6 +230,43 @@ function createLineChart(xData, yData) {
     Plotly.newPlot('line-chart', lineChartConfig, lineLayout);
 }
 
+function createLineChart2(xData1, yData1) {
+    var lineChart = {
+        x: xData1,
+        y: yData1,
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Balance',
+        line: {
+            shape: 'linear',
+            color: 'green',
+        },
+        marker: {
+            size: 8,
+            color: 'green',
+        },
+    };
+
+    var lineLayout = {
+        title: 'Predicted Balance',
+        xaxis: {
+            title: 'Monthly',
+            showgrid: true,
+            tickvals: xData1,  // Specify the tick values
+            ticktext: xData1,  // Specify the tick labels
+        },
+        yaxis: {
+            title: 'Predicted Balance',
+        },
+        margin: {
+            t: 30,
+        },
+    };
+
+    var lineChartConfig = [lineChart];
+
+    Plotly.newPlot('line-chart2', lineChartConfig, lineLayout);
+}
 
 // Get the current date
 var currentDate = new Date();
@@ -208,5 +282,4 @@ var monthNames = ["January", "February", "March", "April", "May", "June", "July"
 var previousMonthName = monthNames[previousMonth.getMonth()];
 
 // Set the previous month name in the <span> element
-
 document.getElementById("previous-month-name").textContent = previousMonthName;
