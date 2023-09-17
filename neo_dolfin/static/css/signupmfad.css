@@ -9,24 +9,12 @@ body {
     overflow-x: hidden;
 }
 
-#signInTitle {
+#signUpmfadTitle {
     font-size: 55px;
-    margin-left: -300px;
+    margin-left: -140px;
     text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
 }
 
-#signUpText {
-    font-size: 28px;
-    margin-left: -350px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
-}
-
-#signUpLink {
-    color: #0077BB;
-    text-decoration: none;
-}
 
 .svg-container {
     position: absolute;
@@ -52,17 +40,24 @@ body {
 }
 
 .card-body {
-    padding: 20px;
+    padding-bottom: 20;
+    
 }
 
 .card-title {
     margin-bottom: 20px;
 }
 
+form {
+    width: 550px; 
+    margin-left: -100px;
+}
+
 .form-control {
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 10px;
+    width: 100%;
 }
 
 .btn {
@@ -89,52 +84,4 @@ body {
     margin-left: auto;
     display: block;
     text-align: center;
-}
-
-/* Adjustments for smaller screens */
-@media screen and (max-width: 600px) {
-    #signInTitle {
-        font-size: 20px;
-        margin-left: -150px;
-    }
-
-    #signUpText {
-        font-size: 15px;
-        margin-left: 0;
-        text-shadow: 0px 8px 35px rgba(0, 0, 0, 0.16);
-    }
-
-    .card-body {
-        padding: 0px;
-        max-height: 160px;
-    }
-
-    .card {
-        max-width: 250px;
-        max-height: 180px;
-    }
-
-    .card-title {
-        margin-bottom: 5px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-        padding: 1px;
-        margin-top: -10px;
-    }
-
-    .btn {
-        border-radius: 16px;
-    }
-
-    .btn.btn-dark.btn-block {
-        min-width: 60px;
-        min-height: 18px;
-        font-size: 70%;
-    }
-
-    .mb-3 {
-        font-size: 70%;
-    }
 }

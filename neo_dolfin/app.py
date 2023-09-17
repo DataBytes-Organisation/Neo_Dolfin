@@ -17,6 +17,10 @@ import logging
 import ssl 
 import nltk
 #import certifi
+import requests
+import datetime
+from services.basiq_service import BasiqService
+from io import StringIO
 
 #import dash
 #import dash_core_components as dcc#
@@ -24,10 +28,8 @@ import nltk
 #test
 
 load_dotenv()  # Load environment variables from .env
-
 from classes import *
 from functions import * 
-# from ai.chatbot.chatbot_logic import predict_class, get_response, determine_sentiment, listen_to_user, initialize_chatbot_logic
 from ai.chatbot import chatbot_logic
 
 # Chatbot Logic req files for VENV
@@ -47,12 +49,20 @@ else:
 nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
+from services.basiq_service import BasiqService
+from services.s3_service import S3Service
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
 
-df = pd.read_csv('static/transaction_ut.csv')
+# Default S3 storage values
+bucket_name = 'neodolfin-transaction-data-storage-01'
+dummy_csv_filename = 'static/data/transaction_ut.csv'
+
+df1 = pd.read_csv('static/data/transaction_ut.csv')
+df2 = pd.read_csv('static/data/modified_transactions_data.csv')
+df3 = pd.read_csv('static/data/Predicted_Balances.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -60,13 +70,11 @@ AWS_COGNITO_USER_POOL_ID = os.environ.get('AWS_COGNITO_USER_POOL_ID')
 AWS_COGNITO_APP_CLIENT_ID = os.environ.get('AWS_COGNITO_APP_CLIENT_ID')#
 AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
 
+## AWS S3 Service + Basiq API 
 client = boto3.client('cognito-idp', region_name=AWS_REGION)
-
-# DASH APP
-# Initialize Dash app
-#dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dash/')  # Set the route to '/dash/'
-# Define the Dash layout
-#dash_app.layout = dash_layout#
+s3_client = boto3.client('s3')
+basiq_service = BasiqService()
+s3_service = S3Service()
 
 # ROUTING
 
@@ -309,17 +317,11 @@ def signupmfadevice():
 
 ## APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
-def auth_home(): 
+async def auth_home(): 
     if not is_token_valid():
-        # INSERT BOTO3 REQUEST HERE
-        # CHECK IF USERNAME.FOLDER EXISTS 
-            # IF NOT, MAKE A DIRECTORY AND UPLOAD THE DUMMY DATA
-                # df should be set to dummy data. 
-            # IF YES, GET LIST OF CSV OBJECTS IN USER DIRECTORY 
-                # LOAD LAST CSV OBJECT INTO df VAR.
         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if is_token_valid():
-        # print(request)
+        #s3connection(bucket_name, s3_client, basiq_service, s3_service)
         return render_template("home.html")
 
 @app.route('/dash/')
@@ -332,7 +334,7 @@ def auth_dash():
 
 ## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
 @app.route('/news/')
-def auth_news(): 
+def auth_news():
     if not is_token_valid():
         return redirect('/signin')
     if is_token_valid():

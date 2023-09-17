@@ -6,12 +6,12 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 from operator import itemgetter
-import  csv
+import csv
 import itertools
 import datetime
 
 #read input file 
-transfile = "neo_dolfin/ai/savings/modified_transactions_data.csv"
+transfile = "neo_dolfin/static/modified_transactions_data.csv"
 df = pd.read_csv(transfile)
 print("File read into df")
 print(df.head(5))
@@ -121,8 +121,6 @@ def modelfit(pdqfit, spdqfit):
     print(results.summary().tables[1])
     return results
 
-  
-
 def drawPredictions():
     results = modelfit(pdqfit,spdqfit)  
     current = datetime.date.today() 
@@ -134,13 +132,6 @@ def drawPredictions():
     #print(pred.predicted_mean)
     pred_mean = pd.DataFrame(pred.predicted_mean)
     pred_ci['mean_balance'] = pred_mean
-    predtrans_file = "neo_dolfin/ai/savings/Predicted_Balances.csv"
+    predtrans_file = "neo_dolfin/static/Predicted_Balances.csv"
     pred_ci.to_csv(predtrans_file, sep='\t')
     return pred
-
-def plotPredictedBal():
-    pred = drawPredictions()
-    pred.predicted_mean.plot( label='One-step ahead Forecast', alpha=.7)
-    plt.legend()
-    plt.show()
-plotPredictedBal()
