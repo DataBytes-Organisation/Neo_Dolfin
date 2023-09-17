@@ -58,7 +58,7 @@ class Chatbox {
         if(this.first) {
             let first_message = { 
                 name: "DolFine", 
-                message: "Hello " + currentUser + ",<br> How can I help you?" 
+                message: "The AI model used by DolFin is not indicative of the actual future financial position of a user. You should not rely on this analysis and you should seek independent financial advice before making any financial decision. You hereby agree that you will not hold DolFin liable for any damages, losses, or costs arising from your reliance on the AI model's predictions. <br><br> Hello " + currentUser + ",<br> How can I help you?" 
             };
             this.messages.push(first_message);
             console.log("This is the first text!");
