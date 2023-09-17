@@ -33,6 +33,14 @@
     margin: 0;
 }
 
+.custom-truncate-four-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Adjust the number of lines as needed */
+    -webkit-box-orient: vertical;
+    overflow-y: auto;
+}
+
 .outer-content {
     display: flex;
     justify-content: center;
@@ -64,7 +72,10 @@ hr {
 .terms-link {
     text-decoration: none !important;
     color: #FAFAFE;
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
+
+
 
 .terms-link:hover {
     text-decoration: none !important;
@@ -74,9 +85,11 @@ hr {
 .termsai-link {
     text-decoration: none !important;
     color: #FAFAFE;
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 .termsai-link:hover {
     text-decoration: none !important;
     color: #0077BB;
 }
+
