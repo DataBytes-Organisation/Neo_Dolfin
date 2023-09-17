@@ -31,6 +31,26 @@
   </div>
 
   <div id="mainNewsColumns" class="container">
+    <nav id="archiveNavbar" class="navbar bg-dark border-bottom border-body rounded-2 justify-content-around"
+      data-bs-theme="dark">
+      <!-- Navbar content -->
+      <div id="archiveColumnNavbar" class="navbar-brand p-2">Archive</div>
+      <div id="archiveItems">
+        <ul class="navbar-nav list-group-horizontal" style="list-style: none; display: flex;
+            justify-content: space-around;">
+          <li class="nav-item">
+            <a class="btn" id="archiveName" onclick="filterSelection('sept')">Sept</a>
+          </li>
+          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('all')">All</a>
+          </li>
+          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('july')">July</a>
+          </li>
+          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('june')">June</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
     <div class="row" style="min-height: 700px;">
       <div class="col-sm">
         <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="sept">
