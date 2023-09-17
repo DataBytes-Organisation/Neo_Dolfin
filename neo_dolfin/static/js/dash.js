@@ -110,6 +110,7 @@ fetch('/static/data/transaction_ut.csv')
 
         // Create the line chart
         createLineChart(monthsData, balanceData);
+        createLineChart2(monthsData, balanceData);
 
         // Calculate if there has been a positive return over a year
         var currentYear1 = new Date().getFullYear();
@@ -193,6 +194,43 @@ function createLineChart(xData, yData) {
     Plotly.newPlot('line-chart', lineChartConfig, lineLayout);
 }
 
+function createLineChart(xData, yData) {
+    var lineChart2 = {
+        x: xData,
+        y: yData,
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Balance',
+        line: {
+            shape: 'linear',
+            color: 'green',
+        },
+        marker: {
+            size: 8,
+            color: 'green',
+        },
+    };
+
+    var lineLayout = {
+        title: 'Monthly Balance',
+        xaxis: {
+            title: 'Month',
+            showgrid: true,
+            tickvals: xData,  // Specify the tick values
+            ticktext: xData,  // Specify the tick labels
+        },
+        yaxis: {
+            title: 'Balance',
+        },
+        margin: {
+            t: 30,
+        },
+    };
+
+    var lineChartConfig = [lineChart2];
+
+    Plotly.newPlot('line-chart2', lineChartConfig, lineLayout);
+}
 
 // Get the current date
 var currentDate = new Date();
