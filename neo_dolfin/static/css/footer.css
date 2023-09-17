@@ -39,6 +39,15 @@
     /* Adjust the number of lines as needed */
     -webkit-box-orient: vertical;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.custom-truncate-four-lines2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .outer-content {
@@ -72,7 +81,7 @@ hr {
 .terms-link {
     text-decoration: none !important;
     color: #FAFAFE;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(1.1rem, 1.5vw, 2rem);
 }
 
 
@@ -85,7 +94,7 @@ hr {
 .termsai-link {
     text-decoration: none !important;
     color: #FAFAFE;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size:clamp(1.1rem, 1.5vw, 2rem);
 }
 
 .termsai-link:hover {
