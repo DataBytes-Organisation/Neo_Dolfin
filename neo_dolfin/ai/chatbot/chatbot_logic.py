@@ -1,5 +1,4 @@
 # chatbot_logic.py
-
 import os
 import random
 import json
@@ -11,7 +10,11 @@ from keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 from textblob import TextBlob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import sqlite3
+from ai.chatbot.query_bankdata import *
 
+# Establish a new SQLite database connection
+conn = sqlite3.connect('transactions_ut.db')
 
 # Initialize a variable to store the last bot reply
 last_bot_reply = ""
@@ -22,7 +25,6 @@ negative_count = 0
 neutral_count = 0
 total_count = 0
 negative_conversations = []
-
 
 # Get the current directory where the script is located
 current_directory = os.path.dirname(__file__)
@@ -65,23 +67,6 @@ def predict_class(sentence):
                for i in range(len(res)) if res[i] > ERROR_THRESHOLD]
     results.sort(key=lambda x: x['probability'], reverse=True)
     return results
-
-# print random response from appropriate responses for label
-def get_response(intents_list, intents_json):
-    global last_bot_reply
-    tag = intents_list[0]['intent']
-    probability = float(intents_list[0]['probability'])
-    list_of_intents = intents_json['intents']
-    result = ""
-    if probability < 0.2:  # Adjust the threshold as needed
-        result = "I'm sorry, but I'm not sure how to help with that. Could you please provide more information?"
-    else:
-        for i in list_of_intents:
-            if i['tag'] == tag:
-                result = random.choice(i['responses'])
-                break
-    last_bot_reply = result
-    return result
 
 # Capture the user's speech input
 def listen_to_user():
@@ -147,7 +132,100 @@ def process_sentiment(message):
             f.write(f"Bot: {last_bot_reply}\n")
             f.write(f"User: {message}\n")
             f.write("---\n")
-    
+
+def extract_month_year(message):
+
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    month_dict = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+                  "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
+    month_list = []
+    year_list = []
+
+    # Match abbreviated and full month names
+    month_matches = re.findall(
+        r'\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\b', message, re.IGNORECASE)
+    for match in month_matches:
+        abbreviated_month = match[:3].capitalize()
+        month_list.append(month_dict[abbreviated_month])
+
+    # Match years
+    year_matches = re.findall(r'\b\d{4}\b', message)
+    year_list = [int(year) for year in year_matches]
+    return month_list, year_list
+
+# print random response from appropriate responses for label
+
+def get_response(intents_list, intents_json, message):
+    global last_bot_ans
+    conn = sqlite3.connect('transactions_ut.db')
+    tag = intents_list[0]['intent']
+    probability = float(intents_list[0]['probability'])
+    list_of_intents = intents_json['intents']
+    result = ""
+
+    if probability < 0.2:
+        result = "I'm sorry, but I'm not sure how to help with that. Could you please provide more information?"
+    else:
+        for i in list_of_intents:
+            if i['tag'] == tag:
+                if tag == "check_balance":
+                    months, years = extract_month_year(message)
+                    if len(months) == 1 and len(years) == 1:
+                        month = months[0]
+                        year = years[0]
+                        balance = get_last_balance_for_month_year(
+                            conn, month, year)
+                        if balance:
+                            result = f"Your balance for {month} {year} was {balance}."
+                        else:
+                            result = "Data not found for the specified month and year."
+                    else:
+                        result = "Couldn't extract a single month and year from your message."
+
+                elif tag == "check_spending" or tag == "check_income":
+                    month_list, year_list = extract_month_year(message)
+                    # if len(month_list) == 2 and len(year_list) == 2:
+
+                    #     plot_total_amount_for_range(
+
+                    #         conn, 'debit' if tag == "check_spending" else 'credit', month_list[0], year_list[0], month_list[1], year_list[1])
+
+                    #     result = "Here's the data you requested."
+                    if len(month_list) == 1 and len(year_list) == 1:
+                        amount, final_balance = get_total_amount_for_month_year(
+                            conn, 'debit' if tag == "check_spending" else 'credit', month_list[0], year_list[0])
+                        if amount:
+                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {month_list[0]} {year_list[0]} was {amount} and your balance at the end of the month was {final_balance}."
+                        else:
+                            result = "Data not found for the specified month and year."
+
+                    elif len(month_list) == 0 and len(year_list) == 1:
+                        plot_total_amount_for_year(
+                            conn, 'debit' if tag == "check_spending" else 'credit', year_list[0])
+                        result = "Here's the data you requested."
+                    else:
+                        result = "Couldn't extract the required month and year information from your message."
+
+                elif tag == "highest_spending":
+                    months, years = extract_month_year(message)
+                    if len(months) == 1 and len(years) == 1:
+                        month = months[0]
+                        year = years[0]
+                        highest_spending = get_highest_spending_last_period(
+                            conn, 'month', month, year)
+                        if highest_spending:
+                            result = highest_spending
+                        else:
+                            result = "Data not found for the specified month and year."
+                    else:
+                        result = "Couldn't extract a single month and year from your message."
+                else:
+                    result = random.choice(i['responses'])
+                break
+ 
+    last_bot_ans = result
+    return result
 
 # Define a function to initialize and run the chatbot logic
 # def initialize_chatbot_logic():
