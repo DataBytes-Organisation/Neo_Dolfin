@@ -159,6 +159,7 @@ def extract_month_year(message):
 
 def get_response(intents_list, intents_json, message):
     global last_bot_ans
+    conn = sqlite3.connect('transactions_ut.db')
     tag = intents_list[0]['intent']
     probability = float(intents_list[0]['probability'])
     list_of_intents = intents_json['intents']

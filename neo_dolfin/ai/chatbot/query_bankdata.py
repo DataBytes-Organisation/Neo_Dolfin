@@ -148,10 +148,10 @@ def get_highest_spending_last_period(conn, period, num, year=None):
     return formatted_output
 
 # Test the functions
-print(get_total_amount_for_month_year(conn, 'credit', 6, 2023))
-print(get_total_amount_for_month_year(conn, 'debit', 6, 2023))
-print(get_last_balance_for_month_year(conn, 6, 2023))
+#print(get_total_amount_for_month_year(conn, 'credit', 6, 2023))
+#print(get_total_amount_for_month_year(conn, 'debit', 6, 2023))
+#print(get_last_balance_for_month_year(conn, 6, 2023))
 
-plot_total_amount_for_year(conn, 'debit', 2022)  # Uncomment this line when running locally to see the plot
+#plot_total_amount_for_year(conn, 'debit', 2022)  # Uncomment this line when running locally to see the plot
 # plot_total_amount_for_range(conn, 'credit', 4, 2022, 11, 2022)  # Uncomment this line when running locally to see the plot
 # print(get_highest_spending_last_period(conn, 'month', 7, 2023))
