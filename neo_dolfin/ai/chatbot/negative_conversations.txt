@@ -2,5 +2,5 @@ Bot: Glad to help!
 User: dumb and idiot bot you know nothing
 ---
 Bot: No problem!
-User: get lost idiot
+User: get lost idiot  
 ---
