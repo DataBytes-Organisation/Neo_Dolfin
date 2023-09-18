@@ -229,16 +229,6 @@
             ]
         },
         {
-            "tag": "account_balance_check",
-            "patterns": [
-                "How do I check my account balance?",
-                "Can you tell me my account balance?"
-            ],
-            "responses": [
-                "You can check your account balance through our online portal or mobile app. Can I guide you to that feature?"
-            ]
-        },
-        {
             "tag": "account_management_online",
             "patterns": [
                 "What are the options for managing my account online?",
@@ -277,6 +267,32 @@
             "responses": [
                 "You can view your transaction history and download account statements in the 'Statements' section of our online portal or mobile app. Can I guide you there?"
             ]
+        }, 
+        {
+
+            "tag": "check_balance",
+            "patterns": ["What's my balance?", "How much do I have?", "Check my balance", "What was my balance in [month] [year]?"],
+            "responses": []
+
+        },
+        {
+
+            "tag": "check_spending",
+            "patterns": ["How much did I spend?", "Check my spending", "What was my spending in [month] [year]?", "What was my spending from [month] [year] to [month] [year]?", "What was my spending in [year]?"],
+            "responses": []
+
+        },
+        {
+
+            "tag": "check_income",
+            "patterns": ["Check my income", "What was my income in [month] [year]?", "What was my income from [month] [year] to [month] [year]?", "What was my income in [year]?"],
+            "responses": []
+
+        },
+        {
+            "tag": "highest_spending",
+            "patterns": ["What's the most I've spent?", "Highest spending", "What was my highest spending in [month] [year]?"],
+            "responses": []
         }
     ]
 }

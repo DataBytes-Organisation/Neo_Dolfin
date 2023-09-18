@@ -415,15 +415,15 @@ def resetpw():
 ## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
-    if not is_token_valid():
-         return redirect('/signin')  # Redirect to sign-in page if the token is expired
+    #if not is_token_valid():
+    #     return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if request.method == 'GET':
         return render_template('chatbot.html')
     elif request.method == 'POST':
         user_input = request.get_json().get("message")
         prediction = chatbot_logic.predict_class(user_input)
         sentiment = chatbot_logic.process_sentiment(user_input)
-        response = chatbot_logic.get_response(prediction, chatbot_logic.intents)
+        response = chatbot_logic.get_response(prediction, chatbot_logic.intents, user_input)
         message={"answer" :response}
         return jsonify(message)
     return render_template('chatbot.html')
