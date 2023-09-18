@@ -22,19 +22,19 @@
   <div id="anchorBarList" class="container">
     <div class="row">
       <div class="col-sm">
-        <a id="anchorItem" href="#firstSection">Your Finance Future</a>
+        <a id="anchorItem" class="item_sec_nav" href="#firstSection">Your Finance Future</a>
       </div>
       <div class="col-sm">
         <p id="slashSpace">/</p>
       </div>
       <div class="col-sm">
-        <a id="anchorItem" href="#secondSection">Personalized Dashboard</a>
+        <a id="anchorItem" class="item_sec_nav" href="#secondSection">Personalized Dashboard</a>
       </div>
       <div class="col-sm">
         <p id="slashSpace">/</p>
       </div>
       <div class="col-sm">
-        <a id="anchorItem" href="#thirdSection">Why Choose Us</a>
+        <a id="anchorItem" class="item_sec_nav" href="#thirdSection">Why Choose Us</a>
       </div>
     </div>
   </div>
@@ -42,22 +42,26 @@
   <div id="firstSection" class="container">
     <div class="row">
       <div id="firstSectionBG" class="col">
-        <h2 id="firstSectionHeading">Empowering Your Financial Future</h2>
-        <p id="firstSectionParagraph">DolFin's cutting-edge algorithms analyze your historical spending patterns to
-          provide real-time alerts when you
-          overspend.<br> Take control of your finances effortlessly.</p>
+        <div class="first-sec-content">
+          <h2 id="firstSectionHeading">Empowering Your Financial Future</h2>
+          <p id="firstSectionParagraph">DolFin's cutting-edge algorithms analyze your historical spending patterns to
+            provide real-time alerts when you
+            overspend.<br> Take control of your finances effortlessly.</p>
+        </div>
       </div>
-      <div class="col">
+      <div id="img-removal" class="col">
         <img id="firstSectionImg" src="/static/img/homeBubbles.svg" alt="Decorative bubbles">
       </div>
     </div>
   </div>
-
+<br><br><br>
   <div id="secondSection">
-    <h2 id="secondSectionHeading">Personalized<br>Dashboard</h2>
-    <p id="secondSectionParagraph">Access a tailor-made dashboard that visualizes your income, expenses, and savings,
-      putting your financial world at your
-      fingertips.</p>
+    <div class="second-section-content">
+      <h2 id="secondSectionHeading">Personalized<br>Dashboard</h2>
+      <p id="secondSectionParagraph">Access a tailor-made dashboard that visualizes your income, expenses, and savings,
+        putting your financial world at your
+        fingertips.</p>
+    </div>
   </div>
 
   <div id="bottomSection">
@@ -101,6 +105,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
+
 </body>
 
 </html>
