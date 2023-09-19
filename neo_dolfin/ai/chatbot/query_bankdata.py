@@ -2,11 +2,12 @@ import pandas as pd
 import re
 import sqlite3
 import plotly.graph_objects as go
+import os
 
 # Data Cleaning
+file_path = '/Users/shane.d/Documents/GitHub/Neo_Dolfin/neo_dolfin/static/data/transaction_ut.csv'
 
-# Load the CSV file into a DataFrame
-file_path = '/Users/shane.d/Documents/GitHub/Neo_Dolfin/neo_dolfin/static/transaction_ut.csv'  # Update this path based on where your CSV file is stored
+# Now you can use csv_file_path to read the CSV file using pandas
 df = pd.read_csv(file_path)
 
 # Drop unnecessary columns
