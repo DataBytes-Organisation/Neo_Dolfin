@@ -4,48 +4,6 @@ import sqlite3
 import plotly.graph_objects as go
 import os
 
-# Data Cleaning
-file_path = '/Users/shane.d/Documents/GitHub/Neo_Dolfin/neo_dolfin/static/data/transaction_ut.csv'
-
-# Now you can use csv_file_path to read the CSV file using pandas
-df = pd.read_csv(file_path)
-
-# Drop unnecessary columns
-df.drop(['enrich', 'links'], axis=1, inplace=True)
-
-# Convert 'transactionDate' to datetime format for easy manipulation
-df['transactionDate'] = pd.to_datetime(df['transactionDate'], format='%d/%m/%Y')
-
-# Create new columns for day, month, and year
-df['day'] = df['transactionDate'].dt.day
-df['month'] = df['transactionDate'].dt.month
-df['year'] = df['transactionDate'].dt.year
-
-# Function to clean the 'subClass' column
-def clean_subClass(row):
-    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-        return 'cash-withdrawal'
-    if row['subClass'] == '{\\title\\":\\"\\"':
-        return 'bank-fee'
-    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-    if match:
-        extracted_subClass = match.group(1)
-        if extracted_subClass == 'Unknown':
-            return row['description']
-        return extracted_subClass
-    return row['subClass']
-
-# Clean the 'subClass' column
-df['subClass'] = df.apply(clean_subClass, axis=1)
-
-# Update specific 'subClass' values
-df['subClass'] = df['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x)
-
-# SQLite Database Setup
-# Create a new SQLite database in memory and import the cleaned DataFrame
-conn = sqlite3.connect("transactions_ut.db")
-df.to_sql("transactions", conn, if_exists="replace", index=False)
-
 # Querying Functions
 # Function to get the true ending balance for a specific month and year
 def get_last_balance_for_month_year(conn, month, year):

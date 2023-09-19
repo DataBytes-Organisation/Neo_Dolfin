@@ -19,6 +19,9 @@ import nltk
 #import certifi
 import requests
 import datetime
+import re
+import sqlite3
+import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
 
@@ -63,6 +66,7 @@ dummy_csv_filename = 'static/data/transaction_ut.csv'
 df1 = pd.read_csv('static/data/transaction_ut.csv')
 df2 = pd.read_csv('static/data/modified_transactions_data.csv')
 df3 = pd.read_csv('static/data/Predicted_Balances.csv')
+df4 = pd.read_csv('static/data/transaction_ut.csv')
 
 # AWS STUFF
 AWS_REGION = os.environ.get('AWS_REGION')
@@ -75,6 +79,43 @@ client = boto3.client('cognito-idp', region_name=AWS_REGION)
 s3_client = boto3.client('s3')
 basiq_service = BasiqService()
 s3_service = S3Service()
+
+
+# Drop unnecessary columns
+df4.drop(['enrich', 'links'], axis=1, inplace=True)
+
+# Convert 'transactionDate' to datetime format for easy manipulation
+df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y')
+
+# Create new columns for day, month, and year
+df4['day'] = df4['transactionDate'].dt.day
+df4['month'] = df4['transactionDate'].dt.month
+df4['year'] = df4['transactionDate'].dt.year
+
+# Function to clean the 'subClass' column
+def clean_subClass(row):
+    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
+        return 'cash-withdrawal'
+    if row['subClass'] == '{\\title\\":\\"\\"':
+        return 'bank-fee'
+    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
+    if match:
+        extracted_subClass = match.group(1)
+        if extracted_subClass == 'Unknown':
+            return row['description']
+        return extracted_subClass
+    return row['subClass']
+
+# Clean the 'subClass' column
+df4['subClass'] = df4.apply(clean_subClass, axis=1)
+
+# Update specific 'subClass' values
+df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x)
+
+# SQLite Database Setup
+# Create a new SQLite database in memory and import the cleaned DataFrame
+conn = sqlite3.connect("transactions_ut.db")
+df4.to_sql("transactions", conn, if_exists="replace", index=False)
 
 # ROUTING
 
