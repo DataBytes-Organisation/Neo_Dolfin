@@ -20,30 +20,43 @@
                 fill="#343A40" />
         </svg>
     </div>
-
+        <!-- Main Content Container -->
     <div class="container">
+
+        <!-- Login Card for MFA Device Authenticator Setup -->
         <div class="card">
             <div class="card-body">
+
                 <h1 id="signUpmfadTitle" class="card-title text-center"><b>Add Authenticator</b></h1>
+                
+                <!-- Form to Add MFA Device Authenticator -->
                 <form method="POST" action="/signupmfad">
                     {{ form.csrf_token }}
+
+                     <!-- Row for QR Code and Input Fields -->
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <img src="{{ url_for('static', filename='img/qr.png') }}" alt="QR Code" style="max-width: 125%; height: 125%; ">
                         </div>
+
+                        <!-- Device Name Input -->
                         <div class="col-md-5">
                             <label for="username" class="form-label">Device name</label>
                             {{ form.signupmfadevicename(class="form-control") }}
                         </div>
+
+                        <!-- Authenticator Code Input -->
                         <div class="col-md-5">
                             <label for="password" class="form-label">Authenticator code</label>
                             {{ form.signupmfadevicecode(class="form-control") }}
                         </div>
                     </div>
+
+                    <!-- Sign In Button -->
                     <button type="submit" class="btn btn-dark btn-block"><b>Sign In</b></button>
                 </form>
                
-
+                    <!-- Error Message -->
                 {% if error %}
                 <p class="mt-3 text-danger">{{ error }}</p>
                 {% endif %}

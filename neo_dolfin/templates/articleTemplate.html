@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<title>DolFin - Article</title>
+	<!-- Linking to the Bootstrap, Main & Article CSS file -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
@@ -16,6 +17,7 @@
 
 
 	<div>
+		<!-- Main Title Area DiV Container including Title, Date & time -->
 		<div class="container" id="mainTitleArea">
 			<div class="row">
 				<div class="col">
@@ -29,6 +31,8 @@
 				<rect fill="#343A40" height="12" width="100%"></rect>
 			</svg>
 		</div>
+
+		<!-- First Article Section with Image and Article -->
 		<div class="container" id="firstSection">
 			<div class="row">
 				<div class="col">
@@ -46,6 +50,8 @@
 					faucibus risus at, porta aliquet elit. Suspendisse mollis nulla dolor, nec eleifend urna malesuada
 					sit amet. Sed vel elit dui. Curabitur fermentum, mi id porta rutrum, justo leo gravida ipsum, at
 					maximus elit ante nec tortor.</p>
+
+				<!-- Second Article Section with Heading and Article in paragraph -->
 				<div class="container" id="secondSection">
 					<div class="row">
 						<div class="col-md-6 text-sm-start" id="quoteBackground">
@@ -67,7 +73,11 @@
 						ipsum, at maximus elit ante nec tortor.</p>
 				</div>
 			</div>
-		</div>{% include 'components/footer.html' %}
+		</div>
+
+		<!-- Including the footer component and Bootstrap Js File -->
+		
+		{% include 'components/footer.html' %}
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 	</div>

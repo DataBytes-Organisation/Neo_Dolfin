@@ -11,14 +11,16 @@
 </head>
 
 <body>
-
+<!--Includes Navbar-->
   {% include 'components/navbar.html' %}
 
+  <!-- Main title-->
   <div id="titleSection">
     <h2 id="titleSubtitle">Join <span id="titleAlt">DolFin</span> Today and </h2>
     <h1 id="titleH1">Start Saving</h1>
   </div>
-
+      
+      <!-- Navigation bar for multiple sections on the page. -->
   <div id="anchorBarList" class="container">
     <div class="row">
       <div class="col-sm">
@@ -39,6 +41,7 @@
     </div>
   </div>
 
+          <!-- Main First section with displaying an image on the side of the content. -->
   <div id="firstSection" class="container">
     <div class="row">
       <div id="firstSectionBG" class="col">
@@ -55,6 +58,8 @@
     </div>
   </div>
 <br><br><br>
+
+      <!-- Main Second section -->
   <div id="secondSection">
     <div class="second-section-content">
       <h2 id="secondSectionHeading">Personalized<br>Dashboard</h2>
@@ -64,6 +69,7 @@
     </div>
   </div>
 
+        <!-- Third content section, highlighting the reasons to choose the product. -->
   <div id="bottomSection">
     <div id="thirdSection">
       <h2 id="thirdSectionHeading">Why Choose Us</h2>
@@ -79,10 +85,14 @@
     </div>
   </div>
 
+
+  <!-- Footer -->
   {% include 'components/footer.html' %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+  <!-- JavaScript for smooth scrolling to sections. -->
   <script>
     $(document).ready(function () {
       $("a").on('click', function (event) {
@@ -101,6 +111,8 @@
 
   <!-- IMPLEMENT CHATBOT HERE -->
   {% include 'components/chatbotWidget.html' %}
+
+  <!-- Imports the Bootstrap 5.3.1 JavaScript from a CDN for interactivity. -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

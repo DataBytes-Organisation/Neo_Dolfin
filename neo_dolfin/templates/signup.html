@@ -14,14 +14,20 @@
     <div class="svg-container">
         <svg width="1200" height="650" viewBox="0 0 710 428" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M63.0423 100.667C168.46 -86.0245 511.542 31.1667 612.042 100.667C712.542 170.167 768.042 382.167 612.042 410.666C456.042 439.166 168.542 424.667 63.0423 410.666C-42.4577 396.666 3.51699 206.084 63.0423 100.667Z" fill="#343A40" />
-        </svg>         
+        </svg>    
+
     </div>
+    <!-- Main Container -->
     <div class="container">
+        <!-- Registration Card -->
         <div class="card">
             <div class="card-body">
                 <h1 id="signUpTitle" class="card-title text-center"><b>Register</b></h1>
+                <!-- Registration Form -->
                 <form method="POST" action="/signup">
                     {{ form.csrf_token }}
+
+                    <!-- Given Name and Family Name Fields -->
                     <div class="row">
                         <div class="col mb-3">
                             <label for="given_name" class="form-label">{{ form.given_name.label(class="given-name-lab")}}</label>
@@ -32,7 +38,8 @@
                             {{ form.family_name(class="form-control") }}
                         </div>
                     </div>
-                    
+
+                    <!-- Nickname and Username Fields -->
                     <div class="row">
                         <div class="col mb-3">
                             <label for="nickname" class="form-label">{{ form.nickname.label }}</label>
@@ -43,7 +50,8 @@
                             {{ form.username(class="form-control") }}
                         </div>
                     </div>
-                    
+
+                    <!-- Password and Confirm Password Fields -->
                     <div class="row">
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ form.password.label }}</label>
@@ -54,14 +62,19 @@
                             {{ form.confirm_password(class="form-control") }}
                         </div>
                     </div>
-                    
+
+                    <!-- Sign Up Button -->
                     <button type="submit" class="btn btn-dark btn-block" style="font-weight: bold;">Sign Up</button>
                 </form>
+
+                <!-- Error Message Display (if any) -->
                 {% if error %}
                 <p class="mt-3 text-danger">{{ error }}</p>
                 {% endif %}
             </div>
         </div>
+
+         <!-- Sign In Redirect Text -->
         <div class="text-center mt-3">
             <p id="signInText">or <a id="signInLink" href="/signin">sign-in here</a></p>
         </div>

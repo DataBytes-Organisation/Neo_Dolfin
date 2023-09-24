@@ -9,16 +9,22 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/signUPmfa.css')}}"/>
 </head>
 <body>
+    <!-- Main container for the content -->
     <div class="container">        
         <div class="mfa-form row">
             <div class="mfa-content col-md-12">
 
+                <!-- Heading for the confirmation page -->
                 <h1 class="mfa-heading">E-mail <br>Confirmation</h1>
+
+                <!-- Form to accept the email confirmation code -->
                 <form method="POST" action="/signupconf">
                 {{ form.csrf_token }}
                 <h2 class="mfa-subheading">Enter your code: </h2>
                 <!-- <span class="mfa-label">{{ form.signupconf.label }}</span> <br> -->
                 <span class="mfa-input">{{ form.signupconf() }}</span>
+                
+                 <!-- Button controls for submitting and resending confirmation -->
                 <div class="mfa-buttons">
                     <a role="button">{{ form.submit() }}</a>
                     <a class="btn btn-primary" href="/signupconf/resendconfemail" role="button">RESEND</a>

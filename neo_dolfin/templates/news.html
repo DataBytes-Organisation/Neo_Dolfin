@@ -20,7 +20,9 @@
 
 
   <div id="mainBody">
-
+  
+    <!-- Main Header section with title and Divider-->
+  
     <div id="headerSection" class="p-5">
       <h1 id="headerTitle" class="display-1 text-center ">Latest News</h1>
     </div>
@@ -30,12 +32,20 @@
     </svg>
   </div>
 
+<!-- Container for the main news columns and archive navigation -->
+
+
   <div id="mainNewsColumns" class="container">
     <nav id="archiveNavbar" class="navbar bg-dark border-bottom border-body rounded-2 justify-content-around"
       data-bs-theme="dark">
-      <!-- Navbar content -->
+
+      <!-- Archive Navbar content -->
+
       <div id="archiveColumnNavbar" class="navbar-brand p-2">Archive</div>
       <div id="archiveItems">
+
+        <!-- Archive filter options -->
+
         <ul class="navbar-nav list-group-horizontal" style="list-style: none; display: flex;
             justify-content: space-around;">
           <li class="nav-item">
@@ -50,9 +60,15 @@
       </div>
 
     </nav>
+                  
+    <!-- News articles section -->
 
     <div class="row" style="min-height: 700px;">
+
+      <!-- First Column for news articles linking to /ArticleTemplate for external content-->
+
       <div class="col-sm">
+
         <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="sept">
 
           <a id="articleLink" href="/articleTemplate/">
@@ -60,6 +76,7 @@
               <img class="card-img-top rounded-top img-fluid" src="/static/img/article1_cover.jpg"
                 alt="https://images.unsplash.com/photo-1553729459-efe14ef6055d">
             </div>
+
             <div class="card-body" style="height: 200px;">
               <h5 id="articleTitle" class="card-title">Top 5 common bad saving habits</h5>
               <p id="articleText" class="card-text card-text-custom-truncate">When it comes to saving money, it is
@@ -114,6 +131,9 @@
           </a>
         </div>
       </div>
+
+              <!-- Second column of news articles -->
+
       <div class="col-sm">
         <div class="card border-0 shadow hide-card-default" data-category="sept" style="width: 22rem;">
           <a id="articleLink" href="/articleTemplate/">
@@ -147,9 +167,15 @@
         </div>
       </div>
 
+      <!-- Archive column on the side -->
+
       <div id="archiveColumn" class="col-sm">
         <h2 class="float-right">Archive</h2>
         <div id="archiveItems">
+
+          <!-- Archive links to filter the news articles -->
+          
+
           <a class="btn" id="archiveName" onclick="filterSelection('all')">All</a>
           <hr class="hr" />
           <a class="btn" id="archiveName" onclick="filterSelection('sept')">Sept</a>

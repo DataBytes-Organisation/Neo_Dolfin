@@ -14,8 +14,10 @@
 </head>
 
 <body>
-
+    <!-- navigation bar component -->
     {% include 'components/navbar.html' %}
+
+    <!-- Header section with a divider -->
 
     <div id="headerSection">
         <h1 id="headerTitle" style="text-align: center;  color: #0077BB">Dashboard</h1>
@@ -23,11 +25,14 @@
         <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="100%" height="12" fill="#343A40" />
         </svg>
-
+    
+    <!-- Main DIV -->
     <div class="container">
         <div class="row">
             <div class="col inline-block">
                 <h2 id="welcomedash">Welcome back, {{ username }}</h2>
+                
+                 <!-- SVG container with user details like Balance, Expenses, and Return -->
                 <svg width="765" height="305" viewBox="0 0 765 305" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_11_150)">
                         <rect x="13" y="15" width="725" height="300" rx="30" fill="#343A40" />
@@ -68,30 +73,36 @@
 
                 </svg>
             </div>
+             <!-- Column holds a pie chart(external js) -->
             <div class="col inline-block">
                 <div id="piechart" style="margin-top: 60px;"></div>
             </div>
         </div>
-       
+
+       <!-- Holds a Line chart(external js) -->
         <div id="line-chart-container">
             <div id="line-chart" style="width: 100%; height: 400px;"></div>
         </div>
     
         <div><p></p></div>
 
+        <!-- Holds another Line chart(external js) -->
         <div id="line-chart-container">
             <div id="line-chart2" style="width: 100%; height: 400px;"></div>
         </div>
 
         <script src="{{url_for('static', filename='js/dash.js')}}"></script>
+
+         <!-- Spacer/divider -->
         <div>
             <p> </p>    
             <p> </p>  
         </div>
+        <!-- Include chatbot widget component -->
         {% include 'components/chatbotWidget.html' %}
         
     </div>
-
+    <!-- Include footer  component -->
     {% include 'components/footer.html' %}
 
 </body>

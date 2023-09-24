@@ -11,36 +11,48 @@
 </head>
 
 <body>
-
+ <!-- Navbar -->
 	{% include 'components/navbar.html' %}
 
-
+<!-- Main Container -->
 	<div>
+		<!-- Title Section -->
 		<div class="container" id="mainTitleArea">
 			<div class="row">
+				  <!-- Title for the user profile page -->
 				<div class="col">
 					<h1 id="articleTitle">User Profile</h1>
 				</div>
 
 			</div>
+
+			<!--  divider -->
 			<svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
 				<rect fill="#343A40" height="12" width="100%"></rect>
 			</svg>
 		</div>
+
+		<!-- User Info Section -->
 		<div class="container" id="firstSection">
 			<div class="row">
 				<div class="col">
 					<p id="p1">User Information</p>
 				</div>
+
+				 <!-- User Info Form -->
 				<form method="POST">
 					{{ form.csrf_token }}
 					<div class="row">
 						<div class="col mb-3">
+
+							<!--  Name field -->
+
 							<label for="Given Name" class="form-label">{{
 								form.given_name.label(class="given-name-lab")}}</label>
 							{{ form.given_name(class="form-control") }}
 						</div>
 						<div class="col mb-3">
+							<!-- Family Name field -->
 							<label for="family_name" class="form-label" id="family_name">{{ form.family_name.label
 								(class="last-name-lab") }}</label>
 							{{ form.family_name(class="form-control") }}
@@ -49,16 +61,21 @@
 
 					<div class="row">
 						<div class="col mb-3">
+							<!-- Nickname field -->
+
 							<label for="nickname" class="form-label">{{ form.nickname.label }}</label>
 							{{ form.nickname(class="form-control") }}
 						</div>
 						<div class="col mb-3">
+							 <!-- Username field -->
+
 							<label for="username" class="form-label">{{ form.username.label }}</label>
 							{{ form.username(class="form-control") }}
 						</div>
 					</div>
 				</form>
 			</div>
+			   <!-- Reset Password Section -->
 			<div>
 				<p id="p2">Reset Password</p>
 				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>

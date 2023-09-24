@@ -10,10 +10,15 @@
 </head>
 
 <body>
+    <!-- Container for the Title -->
     <div class="container p-4">
         <h2 class="heading">DolFine chatbot</h2>
     </div>
+
+    <!-- Fixing Chatbot container at the bottom right of the screen -->
     <div class="container" style="position:fixed; bottom:0px; right: 0px">
+
+        <!-- Main chatbox container -->
         <div class="chatbox">
             <div class="chatbox__support">
                 <div class="chatbox__header">
@@ -24,9 +29,13 @@
                         <h4 class="chatbox__heading--header">Chatbot</h4>
                     </div>
                 </div>
+
+                <!-- chat messages  -->
                 <div class="chatbox__messages">
                     <div></div>
                 </div>
+
+                <!-- Chatbox input placeholder where user can type and send messages -->
                 <div class="chatbox__footer">
                     <input type="text" placeholder="Write a message...">
                     <button class="chatbox__send--footer send__button">Send</button>
@@ -34,12 +43,14 @@
                 </div>
 
             </div>
+
+            <!-- Button for opening/closing the chatbox -->
             <div class="chatbox__button">
                 <button><img src="static\img\chat_724715.png" /></button>
             </div>
         </div>
     </div>
-
+    <!-- Setting up script and Javascript related files -->
     <script>
         $SCRIPT_ROOT = {{ request.script_root | tojson }};
     </script>

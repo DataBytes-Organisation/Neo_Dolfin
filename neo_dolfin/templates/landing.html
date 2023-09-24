@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+  <!-- Header section, -->
   <section class="header">
     <div class="header-content">
       <footer class="container">
@@ -34,12 +36,13 @@
         <h1 class="landing-heading">Start <img id="logoImg"
             src="{{ url_for('static', filename='logo/dolfinlogoborder.png') }}" alt="favicon">Saving</h1>
       </div>
+        <!-- Section for call-to-action buttons. -->
 
       <div class="landing-blob col-lg-6 col-md-12 col-sm-12">
         <div class="blob-content">
           <div class="landing-buttons">
             <a class="btn btn-primary" href="/signup" role="button">JOIN NOW</a>
-
+            <!-- 'Log in' button linking to the signin page. -->
             <a class="btn sec-button" href="/signin" role="button"> <span style="color: #fafafe;">or</span> log in
               here</a>
           </div>
@@ -48,7 +51,7 @@
 
       </div>
     </div>
-
+  <!-- Bootstrap JS library to enable certain interactive elements and effects. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"></script>

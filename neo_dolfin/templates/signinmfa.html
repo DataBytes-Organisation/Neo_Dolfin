@@ -18,18 +18,30 @@
 </head>
 
 <body>
+    <!-- Main Container -->
     <div class="container">
+
+        <!-- MFA Form Row -->
         <div class="mfa-form row">
+
+            <!-- MFA Content Column -->
             <div class="mfa-content col-md-12">
+                
+                 <!-- MFA Headings -->
                 <div class="headings">
                     <h1 class="mfa-heading">Two-Factor <br> Authentication</h1>
                     <h2 class="mfa-subheading">Enter your code:</h2>
+
+                    <!-- MFA Form Container -->
                     <div class="form">
                         <form method="POST" action="/signinmfa">
                             {{ form.csrf_token }}
+                            <!-- OTP Input -->
                             {{ form.otp() }}
                             {{ form.submit() }}
                         </form>
+
+                         <!-- Error Message Display  -->
                         {% if error %}
                         <p>{{ error }}</p>
                         {% endif %}

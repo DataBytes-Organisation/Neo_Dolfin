@@ -11,27 +11,38 @@
       </style>
 </head>
 <body>
+     <!-- SVG  background -->
     <div class="svg-container">
         <svg width="1200" height="650" viewBox="0 0 710 428" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M63.0423 100.667C168.46 -86.0245 511.542 31.1667 612.042 100.667C712.542 170.167 768.042 382.167 612.042 410.666C456.042 439.166 168.542 424.667 63.0423 410.666C-42.4577 396.666 3.51699 206.084 63.0423 100.667Z" fill="#343A40" />
         </svg>         
     </div>
+     <!-- Main content container -->
     <div class="container">
+        <!-- Reset Password card -->
         <div class="card">
+            <!-- Card Body -->
             <div class="card-body">
                 <h1 id="signUpTitle" class="card-title text-center"><b>Reset Password</b></h1>
+                <!-- Reset Password Form -->
                 <form method="POST" action="/resetpw">
                     {{ form.csrf_token }}
                     <div class="row">
                         <div class="mb-3">
+
+                            <!-- Old Password Field -->
                             <label for="oldpassword" class="form-label">{{ form.oldpassword.label }}</label>
                             {{ form.oldpassword(class="form-control") }}
                         </div>
                         <div class="mb-3">
+
+                             <!-- New Password Field -->
                             <label for="newpassword" class="form-label">{{ form.newpassword.label }}</label>
                             {{ form.newpassword(class="form-control") }}
                         </div>
                         <div class="mb-3">
+
+                             <!-- Confirm Password Field -->
                             <label for="confirm_password" class="form-label">{{ form.confirm_password.label }}</label>
                             {{ form.confirm_password(class="form-control") }}
                         </div>
@@ -39,6 +50,8 @@
 
                     <button type="submit" class="btn btn-dark btn-block" style="font-weight: bold;">Reset</button>
                 </form>
+
+                <!-- Error Message generator -->
                 {% if error %}
                 <p class="mt-3 text-danger">{{ error }}</p>
                 {% endif %}

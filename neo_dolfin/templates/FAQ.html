@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <!--Navigation Bar-->
   {% include 'components/navbar.html' %}
 
   <div id="mainBody">
+    <!-- Main FAQ header section with title and Divider-->
 
     <div id="headerSection" class="p-5">
       <h1 id="headerTitle" class="display-1 text-center">Frequently Asked Questions</h1>
@@ -24,7 +26,8 @@
     <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="100%" height="12" fill="#343A40" />
     </svg>
-
+    
+                <!-- Main accordion for FAQs -->
     <div id="accordionMain" class="row d-flex justify-content-center">
       <div id="FlushAccordion" class="accordion accordion-flush d-grid gap-4 pt-5 w-50 ">
 
@@ -99,6 +102,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
+
+    
   <!-- IMPLEMENT CHATBOT HERE -->
   {% include 'components/chatbotWidget.html' %}
 
