@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
@@ -50,7 +50,7 @@ nltk.download('wordnet', download_dir=nltk_data_path)
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/user_database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Dataframes
@@ -67,6 +67,12 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
+
+try:
+    with app.app_context():
+        db.create_all()
+except Exception as e:
+    print("Error creating database:", str(e))
 
 # SQLite User Data Database Setup
 df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
@@ -104,10 +110,50 @@ basiq_service = BasiqService()
 def landing():
     return render_template('landing.html')
 
-## TERMS OF USE PAGE
-@app.route('/TermsofUse') #Terms of Use for application
-def TermsofUse():
-    return render_template('TermsofUse.html')
+## LOGIN
+from flask import session
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Retrieve the user from the database
+        user = User.query.filter_by(username=username).first()
+
+        if user and user.password == password:
+            # Successful login, set a session variable to indicate that the user is logged in
+            session['user_id'] = user.id
+            return redirect('/home/')
+
+        return 'Login failed. Please check your credentials.'
+
+    return render_template('login.html')  # Create a login form in the HTML template
+
+## REGISTER
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        # Check if the username or email already exists in the database
+        existing_user = User.query.filter_by(username=username).first()
+        existing_email = User.query.filter_by(email=email).first()
+
+        if existing_user or existing_email:
+            return 'Username or email already exists. Please choose a different one.'
+
+        # Create a new user and add it to the database
+        new_user = User(username=username, email=email, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect('/login')
+
+    return render_template('register.html')  # Create a registration form in the HTML template
 
 @app.route('/home/')
 def auth_dash(): 
@@ -164,6 +210,4 @@ def chatbot():
 
 # Run the Flask app
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(host='0.0.0.0',port=8000, debug=True)
