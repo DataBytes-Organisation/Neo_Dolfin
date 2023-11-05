@@ -2,17 +2,15 @@ from flask import Flask, render_template, redirect, url_for, request, session, j
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, inspect
+from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
 import pandas as pd
-import logging
 import time 
 import os 
 from dotenv import load_dotenv
-import hashlib
-import hmac
-import base64
-import qrcode
 import logging
 import ssl 
 import nltk
@@ -25,14 +23,10 @@ import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
 
-#import dash
-#import dash_core_components as dcc#
-#import dash_html_components as html
-#test
-
 load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
+from services.basiq_service import BasiqService
 from ai.chatbot import chatbot_logic
 
 # Chatbot Logic req files for VENV
@@ -52,45 +46,40 @@ else:
 nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
-from services.basiq_service import BasiqService
-from services.s3_service import S3Service
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
 app.static_folder = 'static'
+app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Default S3 storage values
-bucket_name = 'neodolfin-transaction-data-storage-01'
-dummy_csv_filename = 'static/data/transaction_ut.csv'
-
+# Dataframes
 df1 = pd.read_csv('static/data/transaction_ut.csv')
 df2 = pd.read_csv('static/data/modified_transactions_data.csv')
 df3 = pd.read_csv('static/data/Predicted_Balances.csv')
 df4 = pd.read_csv('static/data/transaction_ut.csv')
 
-# AWS STUFF
-AWS_REGION = os.environ.get('AWS_REGION')
-AWS_COGNITO_USER_POOL_ID = os.environ.get('AWS_COGNITO_USER_POOL_ID')
-AWS_COGNITO_APP_CLIENT_ID = os.environ.get('AWS_COGNITO_APP_CLIENT_ID')#
-AWS_COGNITO_CLIENT_SECRET = os.environ.get('AWS_COGNITO_CLIENT_SECRET')
+# SQL User Credential Database Configure
+db = SQLAlchemy(app)
 
-## AWS S3 Service + Basiq API 
-client = boto3.client('cognito-idp', region_name=AWS_REGION)
-s3_client = boto3.client('s3')
-basiq_service = BasiqService()
-s3_service = S3Service()
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
 
+try:
+    with app.app_context():
+        db.create_all()
+except Exception as e:
+    print("Error creating database:", str(e))
 
-# Drop unnecessary columns
-df4.drop(['enrich', 'links'], axis=1, inplace=True)
-
-# Convert 'transactionDate' to datetime format for easy manipulation
-df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y')
-
-# Create new columns for day, month, and year
-df4['day'] = df4['transactionDate'].dt.day
-df4['month'] = df4['transactionDate'].dt.month
-df4['year'] = df4['transactionDate'].dt.year
+# SQLite User Data Database Setup
+df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
+df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
+df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
+df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
+df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
 
 # Function to clean the 'subClass' column
 def clean_subClass(row):
@@ -106,361 +95,108 @@ def clean_subClass(row):
         return extracted_subClass
     return row['subClass']
 
-# Clean the 'subClass' column
-df4['subClass'] = df4.apply(clean_subClass, axis=1)
-
-# Update specific 'subClass' values
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x)
-
-# SQLite Database Setup
-# Create a new SQLite database in memory and import the cleaned DataFrame
-conn = sqlite3.connect("transactions_ut.db")
+df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
+df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+conn = sqlite3.connect("transactions_ut.db") # Create a new SQLite database in memory and import the cleaned DataFrame
 df4.to_sql("transactions", conn, if_exists="replace", index=False)
+
+## Basiq API 
+basiq_service = BasiqService()
 
 # ROUTING
 
 ## LANDING PAGE
-@app.route("/") #Initial landing page for application
+@app.route("/",methods = ['GET','POST']) #Initial landing page for application
 def landing():
     return render_template('landing.html')
 
-## TERMS OF USE PAGE
-@app.route('/TermsofUse') #Terms of Use for application
-def TermsofUse():
-    return render_template('TermsofUse.html')
+## LOGIN
+from flask import session
 
-## SIGN IN PAGE
-@app.route('/signin', methods=['GET', 'POST']) #Initial sign in page
-def signin():
-    form = SignInForm()
-    if form.validate_on_submit():
-        try:
-            # Initiate sign in process
-            response = client.initiate_auth(
-                AuthFlow='USER_PASSWORD_AUTH',
-                AuthParameters={
-                    'USERNAME': form.username.data,
-                    'PASSWORD': form.password.data,
-                    'SECRET_HASH': calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)},
-                ClientId=AWS_COGNITO_APP_CLIENT_ID)
-            # Log the response for debugging
-            logging.debug(f"Initiate Auth Response: {response}") 
-            # If user has a registered authentication device lead them to page to enter code
-            if response['ChallengeName'] == 'SOFTWARE_TOKEN_MFA': #User has to log in with MFA
-                session['siresponse'] = response['Session']
-                session['username'] = form.username.data
-                return redirect('/signinmfa') #Send to enter MFA OTP
-            
-            # If user has not registered a MFA device / autheticator lead them to page to do so
-            elif response['ChallengeName'] == 'MFA_SETUP': #User has to setup MFA device to log in
-                response=client.associate_software_token(Session=response['Session'])
-                session['username'] = form.username.data
-                session['sicode'] = response['SecretCode']
-                session['siresponse'] = response['Session']
-                return redirect('/signupmfad') #Send to register MFA device
-            
-            # If Cognito pool does not use MFA then allow user to sign in
-            else:      
-                # Extract the JWT token and its expiration time from the response
-                access_token = response['AuthenticationResult']['AccessToken']
-                expires_in = response['AuthenticationResult']['ExpiresIn']
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
-                # Calculate the absolute expiration timestamp for the token
-                expiration_timestamp = int(time.time()) + expires_in
+        # Retrieve the user from the database
+        user = User.query.filter_by(username=username).first()
 
-                # Store the token and its expiration timestamp in the session
-                session['access_token'] = access_token
-                session['token_expiration'] = expiration_timestamp
-                session['username'] = form.username.data
-                logging.info(f"User {form.username.data} signed in successfully.")
-                return redirect('/home/')
-
-        # If user has not confirmed their email they must do so    
-        except client.exceptions.UserNotConfirmedException:
-            # Handle case where the user has not confirmed their email account
-            logging.warning(f"User {form.username.data} attempted to sign in, but email is not confirmed.")
-            return redirect('/signupconf')
-        
-        # General error handling catch for remaining exceptions from sign-in initiation
-        except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"Sign-in error: {e}")
-            # Handle authentication failure
-            return render_template('signin.html', form=form, error='Invalid credentials. Please try again.')
-
-    return render_template('signin.html', form=form)
-
-## SIGN IN USING MFA PAGE
-@app.route('/signinmfa', methods=['GET', 'POST']) # Sign in using MFA one time password
-def signinmfa():
-    form=SignInMFAForm()
-    if form.validate_on_submit():
-        try:
-            response=client.respond_to_auth_challenge(
-                ClientId=AWS_COGNITO_APP_CLIENT_ID,
-                ChallengeName='SOFTWARE_TOKEN_MFA',
-                Session=session.get('siresponse'),
-                ChallengeResponses={
-                    'USERNAME': session.get('username'),
-                    'SECRET_HASH': calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
-                    'SOFTWARE_TOKEN_MFA_CODE':form.otp.data
-                    }
-            )
-            
-            # Extract the JWT token and its expiration time from the response
-            access_token = response['AuthenticationResult']['AccessToken']
-            expires_in = response['AuthenticationResult']['ExpiresIn']
-
-            # Calculate the absolute expiration timestamp for the token
-            expiration_timestamp = int(time.time()) + expires_in
-
-            # Store the token and its expiration timestamp in the session
-            session['access_token'] = access_token
-            session['token_expiration'] = expiration_timestamp
-
-            # Grab the user First Name so chatbot can use
-            response = client.get_user(
-            AccessToken=access_token
-            )
-            session['given_name']=response['UserAttributes'][3]['Value']
-
+        if user and user.password == password:
+            # Successful login, set a session variable to indicate that the user is logged in
+            session['user_id'] = user.id
             return redirect('/home/')
 
-        except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"Sign-in with MFA error: {e}")
-            # Handle other sign-up errors
-            return render_template('signinmfa.html', form=form, error=e)
-    return render_template('signinmfa.html', form=form)
+        return 'Login failed. Please check your credentials.'
 
-## USER SIGN UP PAGE
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = SignUpForm()
-    if form.validate_on_submit():
-        try:
-            response = client.sign_up(
-                ClientId=AWS_COGNITO_APP_CLIENT_ID,
-                Username=form.username.data,
-                Password=form.password.data,
-                UserAttributes = [
-                    {
-                    'Name': 'given_name',
-                    'Value': form.given_name.data
-                    },
-                    {
-                    'Name': 'family_name',
-                    'Value': form.family_name.data
-                    },
-                    {
-                    'Name': 'nickname',
-                    'Value': form.nickname.data
-                    }
-                ],
-                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, form.username.data)
-                )
-            # If sign-up is successful, redirect to a different page (e.g., a success page or the sign-in page).
-            session['username'] = form.username.data
-            return redirect('/signupconf')
-        
-        except client.exceptions.UsernameExistsException:
-            # Handle case where the username already exists
-            return render_template('signup.html', form=form, error='Username already exists. Please choose a different one.')
-        
-        except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"Sign-up error: {e}")
-            # Handle other sign-up errors
-            return render_template('signup.html', form=form, error='An error occurred. Please try again.')
+    return render_template('login.html')  # Create a login form in the HTML template
 
-    return render_template('signup.html', form=form)
+## REGISTER
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
 
-## SIGN-UP EMAIL CONFIRMATION PAGE
-@app.route('/signupconf', methods=['GET', 'POST'])
-def signupconf():
-    form = SignUpConfForm()
-    if form.validate_on_submit():
-        try:
-            response = client.confirm_sign_up(
-                ClientId=AWS_COGNITO_APP_CLIENT_ID,
-                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
-                Username=session.get('username'),
-                ConfirmationCode=form.signupconf.data
-                )
-            # If sign-up is successful, redirect to a different page (e.g., a success page or the sign-in page).
-            return redirect('/signin')
-        except client.exceptions.ExpiredCodeException:
-            # Handle case where the sign up code has expired
-            return render_template('signupconf.html', form=form, error='Code has expired, please generate a new one')
-        except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"Sign-up error: {e}")
-            # Handle other sign-up errors
-            return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
-    return render_template('signupconf.html', form=form)
+        # Check if the username or email already exists in the database
+        existing_user = User.query.filter_by(username=username).first()
+        existing_email = User.query.filter_by(email=email).first()
 
-# ROUTE TO INTITIATE SIGN-UP EMAIL CONFIRMATION BEING SENT AGAIN
-@app.route('/signupconf/resendconfemail', methods=['GET', 'POST'])
-def resendconfemail():
-    form = SignUpConfForm()
-    try:
-        response = client.resend_confirmation_code(
-            ClientId=AWS_COGNITO_APP_CLIENT_ID,
-                SecretHash=calculate_secret_hash(AWS_COGNITO_APP_CLIENT_ID, AWS_COGNITO_CLIENT_SECRET, session.get('username')),
-                Username=session.get('username'))
-        return redirect('signupconf.html', form=form)
-    except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"Sign-up Resend Confirmation Email error: {e}")
-            # Handle other sign-up errors
-            return render_template('signupconf.html', form=form, error='An error occurred. Please try again.')
+        if existing_user or existing_email:
+            return 'Username or email already exists. Please choose a different one.'
 
-# ROUTE TO LOG USER OUT FROM AWS AND CLEAR LOCAL CACHE
-@app.route('/signout', methods=['GET','POST'] )
-def signout():
-    try:
-        #Clear session / access token at AWS side
-        response = client.global_sign_out(
-            AccessToken=session.get('access_token')
-        )
-        #Clear local session info for application
-        session.clear()
-        return render_template('landing.html')
-    except Exception as e:
-        # Log the error for debugging purposes
-        logging.error(f"AWS Cognito sign-out error: {e}")
+        # Create a new user and add it to the database
+        new_user = User(username=username, email=email, password=password)
+        db.session.add(new_user)
+        db.session.commit()
 
-## REGISTER USER AUTHENTICATION DEVICE PAGE    
-@app.route('/signupmfad', methods=['GET', 'POST'])
-def signupmfadevice():
-    form = SignUpMFADForm()
-    awssession=session.get('siresponse')
-    username=session.get('username')
-    awssecretcode=session.get('sicode')
+        return redirect('/login')
 
-    #Generate user specific QR code
-    qr_img = qrcode.make(
-        f"otpauth://totp/{username}?secret={awssecretcode}&issuer=DolFin")
-    qr_img.save("static/img/qr.png")
-    if form.validate_on_submit():
-        try:
-            response = client.verify_software_token(
-                Session=awssession,
-                UserCode=form.signupmfadevicecode.data,
-                FriendlyDeviceName=form.signupmfadevicename.data)
-            return redirect('/signin')
-        except Exception as e:
-            # Log the error for debugging purposes
-            logging.error(f"MFA Device Sign-up error: {e}")
-            # Handle other sign-up errors
-            return render_template('signupmfad.html', form=form, error='There was an error registering your device. Please try again.')
-    return render_template('signupmfad.html', form=form)
+    return render_template('register.html')  # Create a registration form in the HTML template
 
-## APPLICATION HOME PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
 @app.route('/home/')
-async def auth_home(): 
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
-        #s3connection(bucket_name, s3_client, basiq_service, s3_service)
-        return render_template("home.html")
-
-@app.route('/dash/')
 def auth_dash(): 
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("dash.html")
 
-
-## APPLICATION NEWS PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS    
+## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-    if not is_token_valid():
-        return redirect('/signin')
-    if is_token_valid():
         return render_template("news.html")   
 
-## APPLICATION FAQ PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
+## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-    if not is_token_valid():
-        return redirect('/signin')
-    if is_token_valid():
         return render_template("FAQ.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
 def open_terms_of_use():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("TermsofUse.html") 
     
 # APPLICATION TERMS OF USE-AI PAGE 
 @app.route('/terms-of-use-ai/')
 def open_terms_of_use_AI():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("TermsofUse-AI.html") 
     
 # APPLICATION Article Template PAGE 
 @app.route('/articleTemplate/')
 def open_article_template():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
         return render_template("articleTemplate.html") 
     
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
-        response = client.get_user(
-            AccessToken=session.get('access_token')
-        )
-        form = UserInfoForm(
-            given_name=response['UserAttributes'][3]['Value'],
-            family_name=response['UserAttributes'][4]['Value'],
-            nickname=response['UserAttributes'][2]['Value'],
-            username=response['UserAttributes'][5]['Value']
-        )
-        return render_template("profile.html", form=form) 
+        return render_template("profile.html") 
     
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
-    if not is_token_valid():
-        return redirect('/signin')  # Redirect to sign-in page if the token is expired
-    if is_token_valid():
-        form = ResetPWForm()
-        if form.validate_on_submit():
-            try:
-                response = client.change_password(
-                    PreviousPassword=form.oldpassword.data,
-                    ProposedPassword=form.newpassword.data,
-                    AccessToken=session.get('access_token')
-                    )
-                # If sign-up is successful, redirect back to profile page
-                return redirect('/profile')
-                    
-            except Exception as e:
-                # Log the error for debugging purposes
-                logging.error(f"Password Reset Error: {e}")
-                # Handle other sign-up errors
-                return render_template('resetpw.html', form=form, error='An error occurred. Please try again.')
+        return render_template('resetpw.html')
 
-        return render_template('resetpw.html', form=form)
-
-## CHATBOT PAGE - REQUIRES USER TO BE SIGNED IN TO ACCESS
-
+## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
-    if not is_token_valid():
-         return redirect('/signin')  # Redirect to sign-in page if the token is expired
     if request.method == 'GET':
         return render_template('chatbot.html')
     elif request.method == 'POST':
@@ -471,13 +207,6 @@ def chatbot():
         message={"answer" :response}
         return jsonify(message)
     return render_template('chatbot.html')
-
-## Define a Flask route for the Dash app's page
-#@app.route('/dash/')
-#def dash_page():
-#    return dash_app.index()
-
-
 
 # Run the Flask app
 if __name__ == '__main__':

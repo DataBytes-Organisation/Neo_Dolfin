@@ -4,8 +4,6 @@ Updated: 29/08/2023
 ## Branch Management
 ### Authorised Code Owners:
 * Shane Dzartov (@SDzartov)
-* Jackson Thompson (@thompsonjac)
-* Christopher Russo (@CRussoDeakin)
 
 ### GitHub Management 
 #### Branch Structure
@@ -71,52 +69,7 @@ git push origin your-branch-name --force
 * IDE, like *Visual Studio Code*
 * Python Version == **3.11**
 * AWS CLI installed on your local machine.
-
-## {NEW} MFA CONFIG SET UP
-* In order for the SignIn route to function post MFA, you must ensure that your AWS CLI is installed and you have a configure file:
-
-### MAC OS
-* Ensure that you have an AWS Credentials file in your root directory 
-	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
-	* After that, open the configure file via the command: ```nano ~/.aws/credentials.```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
-* Ensure that your AWS credentials file is in the correct format. The format is given below:
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
-
-### WINDOWS
-#Method 1
-*  * Ensure that you have an AWS Credentials file in your root directory 
-	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
-	* Move into that directory via: ```cd %userprofile%\.aws ```
-	* After that, open the configure file via the command: ```nano credentials```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
-* Ensure that your AWS credentials file is in the correct format. The format is given below:
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
-
-
-#Method 2 - Use the proceedure below if you don't have the AWS CLI installed Or a ```cd %userprofile%\.aws ``` directory and credentials file does not exist
-*  * Install the latest version of the AWS CLI for Windows from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-*  * Ensure that you have an AWS Credentials file in your root directory (%userprofile%/.aws/configure)
-	* If you do not have a configure file, use the AWS CLI from the command prompt via running the command ```aws configure``` to configure an AWS Profile.
-	* Press Enter to accept the default options for AWS Access Key ID, AWS Secret Access Key, Default region name, Default output format.
- 	* Change directory into your user profile directory ```cd %userprofile% ``` 
-	* Make a directory called .aws via the following command: ```mkdir .aws ```
-   	* Move into that directory via: ```cd .aws ```
-	* Create the 'configure' file (with no extension - ie: configure) using notepad, Visual Studio Code or another text editor.  Make sure the code matches the below, save the file and close the text editor
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
+* GitHub Desktop (RECOMMENDED)
 
 ### Deploy to ***Localhost***
 * Pull this repo and select this branch, if you are unconfident in your GIT bash skills, please download GitHub Desktop: https://desktop.github.com/
@@ -139,5 +92,5 @@ We have testing scripts enabled for this application.
 **PLEASE RUN THE PYTEST AND ATTACH THE LOG TEXT/SCREENSHOT TO YOUR PULL REQUEST**
 ***Warnings are OKAY, Fails will result in the PULL request not being reviewed.*** 
 
-## EC2 Deployment 
+## GCP Deployment 
 ***WORK IN PROGRESS***
