@@ -159,6 +159,10 @@ def register():
 def auth_dash(): 
         return render_template("dash.html")
 
+@app.route('/dash/')
+def auth_dash2(): 
+        return render_template("dash2.html")
+
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
