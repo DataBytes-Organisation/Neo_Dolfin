@@ -182,9 +182,24 @@ def auth_dash2():
         # Line chart datasets
         dfx4 = df2.to_json(orient='records')
         dfx5 = df3.to_json(orient='records')
-        print(dfx5)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5)
+        cursor.execute('SELECT balance FROM transactions LIMIT 1')
+        query = cursor.fetchone()
+        curr_bal = query[0]
+        print(curr_bal)
+
+        cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
+        query = cursor.fetchone()
+        curr_range = query[0]
+        print(curr_range)
+
+        cursor.execute('SELECT amount,direction,class,day,month,year FROM transactions LIMIT 1')
+        query = cursor.fetchall()
+        dfx8= pd.DataFrame(query,columns=['amount','direction','class','day','month','year'])
+        jfx8 = dfx8.to_json(orient='records')
+        print(jfx8)
+
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8)
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
