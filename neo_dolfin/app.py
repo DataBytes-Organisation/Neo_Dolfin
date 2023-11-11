@@ -110,9 +110,6 @@ basiq_service = BasiqService()
 def landing():
     return render_template('landing.html')
 
-## LOGIN
-from flask import session
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -161,7 +158,33 @@ def auth_dash():
 
 @app.route('/dash/')
 def auth_dash2(): 
-        return render_template("dash2.html")
+        con = sqlite3.connect("transactions_ut.db")
+        cursor = con.cursor() 
+
+        # Get class for pie chart
+        cursor.execute('SELECT class FROM transactions')
+        query = cursor.fetchall()
+        dfx1 = pd.DataFrame(query,columns=['class'])
+        jfx1 = dfx1.to_json(orient='records')
+
+        # Get subclass for doughnut chart
+        cursor.execute('SELECT subclass FROM transactions')
+        query = cursor.fetchall()
+        dfx2 = pd.DataFrame(query,columns=['subclass'])
+        jfx2 = dfx2.to_json(orient='records')
+
+        # Get transaction values for bar chart
+        cursor.execute('SELECT amount,direction FROM transactions')
+        query = cursor.fetchall()
+        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
+        jfx3 = dfx3.to_json(orient='records')
+
+        # Line chart datasets
+        dfx4 = df2.to_json(orient='records')
+        dfx5 = df3.to_json(orient='records')
+        print(dfx5)
+
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5)
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
@@ -214,4 +237,4 @@ def chatbot():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8000, debug=True)
+    app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
