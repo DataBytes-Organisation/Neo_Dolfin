@@ -18,20 +18,23 @@
     {% include 'components/navbar.html' %}  
 
     <div>
-        <p> Welcome, user! </p>
+        <p> Welcome, {{ user_id }} </p>
     </div>
     
     <div> 
         <div class="container px-4 text-center">
-            <div class="row gx-5">
+            <div class="row row-cols-3">
                 <div class="col">
-                <div class="p-3">Custom column padding</div>
+                    <div class="p-3"> <p>Current Balance: <span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
+                    </div>
                 </div>
                 <div class="col">
-                <div class="p-3">Custom column padding</div>
+                    <div class="p-3"> <p> Balance Range: <span id="balanceRange">{{ jsd7 | safe }}</span> </p> 
+                    </div>
                 </div>
                 <div class="col">
-                <div class="p-3">Custom column padding</div>
+                    <div class="p-3"> <p>Last Transaction: <span id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
+                    </div>
                 </div>
             </div>
             <div class="row gx-5">
@@ -54,19 +57,48 @@
         </div>
     </div>
 
-    <div>
-        <p> Welcome, user! </p>
-    </div>
+    <br>
 
-    <div>
-        <canvas id="myChart"> </canvas>
-    </div>
-    <div>
-        <canvas id="myChart2"> </canvas>
-    </div>
+    <div class="container text-center">
+        <div class="row row-cols-2">
+            <div>
+                <canvas id="myChart"> </canvas>
+            </div>
+            <div>
+                <canvas id="myChart2"> </canvas>
+            </div>
+        
+        </div>
+      </div>
 
     <script>
-        //PIE CHART 
+
+        var currentBalance = {{ jsd6 | safe }};
+        var balanceRange = {{ jsd7 | safe }};
+        
+        document.getElementById('currentBalance').innerText = currentBalance;
+        document.getElementById('balanceRange').innerText = balanceRange;
+
+        var jsd8 = {{ jsd8 | safe }};
+        var amount = jsd8[0].amount
+        var classValue = jsd8[0].class
+        var day = jsd8[0].day
+        var month = jsd8[0].month
+        var year = jsd8[0].year
+
+        console.log("Amount:", amount);
+        console.log("Class:", classValue);
+        console.log("Day:", day);
+        console.log("Month:", month);
+        console.log("Year:", year);
+
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("classValue").innerHTML = classValue;
+        document.getElementById("day").innerHTML = day;
+        document.getElementById("month").innerHTML = month;
+        document.getElementById("year").innerHTML = year;
+
+        //PIE CHART 2
         var js1 = {{ jsd1|tojson|safe }};
         var jsd1 = JSON.parse(js1);
 
@@ -119,7 +151,7 @@
 
         var ctx2 = document.getElementById('dou1').getContext('2d');
         var pa1 = new Chart(ctx2, {
-            type: 'doughnut',
+            type: 'pie',
             data: {
                 labels: jsd2_labels,
                 datasets: [{
@@ -154,7 +186,7 @@
         }
         });
 
-        // PIE CHART
+        // PIE CHART 1
         var js3 = {{ jsd3|tojson|safe }};
         var jsd3 = JSON.parse(js3)
 
@@ -186,12 +218,12 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Account: Credit vs Debit'},
+                    text: 'Account Credit vs Account Debit'},
                 legend: {display:false}}
         }
         });
 
-        // LINE1
+        // LINE1 : Balance Data
         var js4 = {{ jsd4|tojson|safe }};
         var jsd4 = JSON.parse(js4);
 
@@ -218,7 +250,7 @@
             }
         });
 
-        // LINE2
+        // LINE2 : Savings Model 
         var js5 = {{ jsd5|tojson|safe }};
         var jsd5 = JSON.parse(js5);
 

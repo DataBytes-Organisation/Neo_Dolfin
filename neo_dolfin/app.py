@@ -121,8 +121,8 @@ def login():
 
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.id
-            return redirect('/home/')
+            session['user_id'] = user.username 
+            return redirect('/dash/')
 
         return 'Login failed. Please check your credentials.'
 
@@ -158,6 +158,7 @@ def auth_dash():
 
 @app.route('/dash/')
 def auth_dash2(): 
+        user_id = session.get('user_id')
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor() 
 
@@ -186,20 +187,19 @@ def auth_dash2():
         cursor.execute('SELECT balance FROM transactions LIMIT 1')
         query = cursor.fetchone()
         curr_bal = query[0]
-        print(curr_bal)
 
         cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
         query = cursor.fetchone()
         curr_range = query[0]
         print(curr_range)
 
-        cursor.execute('SELECT amount,direction,class,day,month,year FROM transactions LIMIT 1')
+        cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
         query = cursor.fetchall()
-        dfx8= pd.DataFrame(query,columns=['amount','direction','class','day','month','year'])
+        dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
