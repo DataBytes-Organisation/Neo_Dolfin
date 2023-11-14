@@ -68,7 +68,6 @@ git push origin your-branch-name --force
 ### Requirements:
 * IDE, like *Visual Studio Code*
 * Python Version == **3.11**
-* AWS CLI installed on your local machine.
 * GitHub Desktop (RECOMMENDED)
 
 ### Deploy to ***Localhost***
