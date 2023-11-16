@@ -110,9 +110,6 @@ basiq_service = BasiqService()
 def landing():
     return render_template('landing.html')
 
-## LOGIN
-from flask import session
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -124,8 +121,8 @@ def login():
 
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.id
-            return redirect('/home/')
+            session['user_id'] = user.username 
+            return redirect('/dash/')
 
         return 'Login failed. Please check your credentials.'
 
@@ -158,6 +155,51 @@ def register():
 @app.route('/home/')
 def auth_dash(): 
         return render_template("dash.html")
+
+@app.route('/dash/')
+def auth_dash2(): 
+        user_id = session.get('user_id')
+        con = sqlite3.connect("transactions_ut.db")
+        cursor = con.cursor() 
+
+        # Get class for pie chart
+        cursor.execute('SELECT class FROM transactions')
+        query = cursor.fetchall()
+        dfx1 = pd.DataFrame(query,columns=['class'])
+        jfx1 = dfx1.to_json(orient='records')
+
+        # Get subclass for doughnut chart
+        cursor.execute('SELECT subclass FROM transactions')
+        query = cursor.fetchall()
+        dfx2 = pd.DataFrame(query,columns=['subclass'])
+        jfx2 = dfx2.to_json(orient='records')
+
+        # Get transaction values for bar chart
+        cursor.execute('SELECT amount,direction FROM transactions')
+        query = cursor.fetchall()
+        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
+        jfx3 = dfx3.to_json(orient='records')
+
+        # Line chart datasets
+        dfx4 = df2.to_json(orient='records')
+        dfx5 = df3.to_json(orient='records')
+
+        cursor.execute('SELECT balance FROM transactions LIMIT 1')
+        query = cursor.fetchone()
+        curr_bal = query[0]
+
+        cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
+        query = cursor.fetchone()
+        curr_range = query[0]
+        print(curr_range)
+
+        cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
+        query = cursor.fetchall()
+        dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+        jfx8 = dfx8.to_json(orient='records')
+        print(jfx8)
+
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
@@ -210,4 +252,4 @@ def chatbot():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8000, debug=True)
+    app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
