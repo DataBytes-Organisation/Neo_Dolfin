@@ -77,8 +77,6 @@ git push origin your-branch-name --force
  		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
   * Initiate a new *venv* env using the following terminal command: ```python -m venv venv``` 
   * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
-  	# * Inside your IDE, create a new file inside your neo_dolfin folder called: ```.env``` (**MAKE SURE TO INCLUDE THE "." AT THE BEGINNING**) 
-  	#	* Ask one of the team leads for the credentials, that you must paste into the .env file and then save the file. 
   * Install the required libraries into the *venv* env using the following terminal command: ```pip install -r requirements.txt``` 
   * To run the flask application, use the following terminal command: ```python app.py``` 
   * Navigate to ```127.0.0.8000``` in your web browser. 
@@ -90,8 +88,6 @@ git push origin your-branch-name --force
  		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
   * Initiate a new *venv* env using the following terminal command: ```python -m venv venv2``` 
   * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
-  	# * Inside your IDE, create a new file inside your neo_dolfin folder called: ```.env``` (**MAKE SURE TO INCLUDE THE "." AT THE BEGINNING**) 
-	# * Ask one of the team leads for the credentials, that you must paste into the .env file and then save the file. 
   * Install the required libraries into the *venv* env using the following terminal command: ```pip install -r requirements.txt``` 
   * To run the flask application, use the following terminal command: ```python app.py``` 
   * Navigate to ```127.0.0.5000``` in your web browser. 
