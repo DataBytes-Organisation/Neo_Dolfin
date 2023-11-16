@@ -1,9 +1,11 @@
 # NE0 DolFin 
-Updated: 29/08/2023
+Updated: 16/11/2023
 
 ## Branch Management
 ### Authorised Code Owners:
 * Shane Dzartov (@SDzartov)
+* Jeremy Conway (Jezza12345)
+* Aidan John Stuart Wong (wongaid)
 
 ### GitHub Management 
 #### Branch Structure
