@@ -73,7 +73,7 @@ git push origin your-branch-name --force
 ### Deploy Neo_Dolfin to ***Localhost***
 * Pull this repo and select this branch, if you are unconfident in your GIT bash skills, please download GitHub Desktop: https://desktop.github.com/
 * Once you have the repo folder open in your IDE, do the following in the BELOW ORDER:
-	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/dolfin_fe/neo_dolfin```
+	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/NEO_Dolfin/neo_dolfin```
  		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
   * Initiate a new *venv* env using the following terminal command: ```python -m venv venv``` 
   * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
@@ -86,7 +86,7 @@ git push origin your-branch-name --force
 ### Deploy Dolfin_Analytica to ***Localhost***
 * Pull this repo and select this branch, if you are unconfident in your GIT bash skills, please download GitHub Desktop: https://desktop.github.com/
 * Once you have the repo folder open in your IDE, do the following in the BELOW ORDER:
-	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/dolfin_fe/neo_dolfin```
+	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/NEO_Dolfin/dolfin_analytica```
  		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
   * Initiate a new *venv* env using the following terminal command: ```python -m venv venv2``` 
   * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
