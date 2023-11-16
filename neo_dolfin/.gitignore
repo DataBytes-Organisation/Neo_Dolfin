@@ -4,6 +4,7 @@ venv/
 
 # Ignore .env file
 .env
+.idea
 
 # Ignore the qr.png file
 qr.png
