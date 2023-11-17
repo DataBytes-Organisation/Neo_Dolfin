@@ -199,17 +199,17 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, current_page='dash')
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-        return render_template("news.html")   
+        return render_template("news.html", current_page='news')   
 
 ## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-        return render_template("FAQ.html")
+        return render_template("FAQ.html", current_page='FAQ')
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
