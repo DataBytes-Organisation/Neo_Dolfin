@@ -123,7 +123,7 @@ class GeoLockChecker(object):
             # Proceed normally if user in AU or Localhost
             return self.app(environ, start_response)
         else:
-            response = Response('Sorry, you are restricted from accessing this content. It is only available in Australia.', mimetype='text/html')
+            response = Response('Sorry, you are restricted from accessing this content. It is only available in Australia.', mimetype='text/html', status=403)
             return response(environ, start_response)
         
     def is_australia_or_localhost(self, ip_addr):
