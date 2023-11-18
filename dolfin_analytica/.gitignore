@@ -1,10 +1,9 @@
 # Ignore virtual environment
-venv\Lib\
-venv/
+venv2\Lib\
+venv2/
 
 # Ignore .env file
 .env
-.idea
 
 # Ignore the qr.png file
 qr.png
