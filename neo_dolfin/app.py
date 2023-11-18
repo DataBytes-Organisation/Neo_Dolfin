@@ -263,7 +263,7 @@ def auth_dash2():
             cursor.execute('SELECT balance FROM transactions LIMIT 1')
             query = cursor.fetchone()
             curr_bal = query[0]
-
+            
             cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
             query = cursor.fetchone()
             curr_range = query[0]
@@ -331,7 +331,6 @@ def auth_dash2():
             cursor.execute('SELECT balance FROM transactions WHERE account = ? LIMIT 1', (account_value,))
             query = cursor.fetchone()
             curr_bal = query[0]
-            print(curr_bal)
 
             cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions WHERE account = ?', (account_value,))
             query = cursor.fetchone()

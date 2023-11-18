@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="p-3"> <p> <strong> Last Transaction: </strong> <br> <span id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
+                    <div class="p-3"> <p> <strong> Last Transaction: </strong> <br> <span name="lastTransaction" id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
             }
         });
 
-        // DOUGHNUT
+        // PIE CHART 3
         var js2 = {{ jsd2|tojson|safe }};
         var jsd2 = JSON.parse(js2);
 
@@ -201,11 +201,9 @@
         var creditData = jsd3.filter(obj => obj.direction === 'credit');
         var debitData = jsd3.filter(obj => obj.direction === 'debit');
 
-        // Calculate total for credit and debit separately
         var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
         var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
 
-        // Update the labels and values for the bar chart
         var jsd3_labels = ['Debit', 'Credit'];
         var jsd3_values = [creditTotal, debitTotal];
 
@@ -339,19 +337,16 @@
                     jsd3 = data.jsd3
                     jsd4 = data.jsd4
                     jsd5 = data.jsd5
-                    jsd6 = data.jsd6
-                    jsd7 = data.jsd7
+                    jsd6 = data.currentBalance
+                    jsd7 = data.balanceRange
                     jsd8 = data.jsd8
                     jsxx = data.jsxx
                     defacc = data.defacc
 
-                    document.getElementById('accountind').innerHTML = '<strong>Account:</strong> ' + defacc;
-                    
+                    console.log(jsd4)
+
                     currentBalance = jsd6
                     balanceRange = jsd7
-                    
-                    document.getElementById('currentBalance').innerText = currentBalance;
-                    document.getElementById('balanceRange').innerText = balanceRange;
 
                     jsd8 = jsd8
                     amount = jsd8[0].amount
@@ -360,26 +355,42 @@
                     month = jsd8[0].month
                     year = jsd8[0].year
 
-                    document.getElementById("amount").innerHTML = amount;
-                    document.getElementById("classValue").innerHTML = classValue;
-                    document.getElementById("day").innerHTML = day;
-                    document.getElementById("month").innerHTML = month;
-                    document.getElementById("year").innerHTML = year;
+                    document.getElementById('accountind').innerHTML = '<strong>Account:</strong> ' + defacc;
+                    document.getElementById('currentBalance').innerText = currentBalance;
+                    document.getElementById('balanceRange').innerText = balanceRange;
 
-                    //PIE CHART 2
-                    js1 = jsd1
-                    jsd1 = JSON.parse(js1);
+                    document.getElementsByName('lastTransaction').innerHTML = `
+                        <strong>Last Transaction:</strong><br>
+                        <span id="amount">${amount}</span>
+                        @
+                        <span id="classValue">${classValue}</span>
+                        on
+                        <span id="day">${day}</span>/
+                        <span id="month">${month}</span>/
+                        <span id="year">${year}</span>
+                    `;
 
-                    jsd1_labels = [...new Set(jsd1.map(item => item.class))];
-                    jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
+                    if (pie1) {
+                        pie1.destroy();
+                    }
 
-                    ctx1 = document.getElementById('pie1').getContext('2d');
+                    // Parse and update the data
+                    var js1 = jsd1
+                    var jsd1 = JSON.parse(js1);
+
+                    var jsd1_labels = [...new Set(jsd1.map(item => item.class))];
+                    var jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
+
+                    // Get the context of the canvas
+                    var ctx1 = document.getElementById('pie1').getContext('2d');
+
+                    // Create a new chart instance with updated data
                     pie1 = new Chart(ctx1, {
-                        type: 'pie',  // Specify the chart type as 'pie'
+                        type: 'pie',
                         data: {
-                            labels: jsd1_labels,  // Unique labels
+                            labels: jsd1_labels,
                             datasets: [{
-                                data: jsd1_counts,  // Counts for each label
+                                data: jsd1_counts,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
@@ -404,13 +415,18 @@
                         options: {
                             plugins: {
                                 title: {
-                                display: true,
-                                text: 'Account Transaction Types'},
-                                legend: {display:false}}
+                                    display: true,
+                                    text: 'Account Transaction Types'
+                                },
+                                legend: { display: false }
+                            }
                         }
                     });
 
-                    // DOUGHNUT
+                    if (pa1) {
+                        pa1.destroy();
+                    }
+
                     var js2 = jsd2
                     var jsd2 = JSON.parse(js2);
 
@@ -418,7 +434,7 @@
                     var jsd2_counts = jsd2_labels.map(label => jsd2.filter(item => item.subclass === label).length);
 
                     var ctx2 = document.getElementById('dou1').getContext('2d');
-                    var pa1 = new Chart(ctx2, {
+                    pa1 = new Chart(ctx2, {
                         type: 'pie',
                         data: {
                             labels: jsd2_labels,
@@ -454,7 +470,10 @@
                     }
                     });
 
-                    // PIE CHART 1
+                    if (barChart) {
+                        barChart.destroy();
+                    }
+
                     var js3 = jsd3
                     var jsd3 = JSON.parse(js3)
 
@@ -463,15 +482,13 @@
                     var creditData = jsd3.filter(obj => obj.direction === 'credit');
                     var debitData = jsd3.filter(obj => obj.direction === 'debit');
 
-                    // Calculate total for credit and debit separately
                     var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
                     var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
 
-                    // Update the labels and values for the bar chart
                     var jsd3_labels = ['Debit', 'Credit'];
                     var jsd3_values = [creditTotal, debitTotal];
 
-                    var barChart = new Chart(ctx3, {
+                    barChart = new Chart(ctx3, {
                         type: 'pie',
                         data: {
                             labels: ['Debit','Credit'],
@@ -490,8 +507,14 @@
                             legend: {display:false}}
                     }
                     });
+                  
+                    var existingChart = Chart.getChart('myChart');
 
-                    // LINE1 : Balance Data
+                    // Destroy the existing chart if it exists
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
                     var js4 = jsd4
                     var jsd4 = JSON.parse(js4);
 
@@ -523,54 +546,6 @@
                         }
                     });
 
-                    // LINE2 : Savings Model 
-                    var js5 = jsd5
-                    var jsd5 = JSON.parse(js5);
-
-                    var dates5 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[0]);
-                    var balance1 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[1]);
-                    var balance2 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[2]);
-                    var balance3 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[3]);
-                    
-                    const ctxl2 = document.getElementById('myChart2');
-                    var lineChart = new Chart(ctxl2, {
-                            type: 'line',
-                            data: {
-                                labels: dates5,
-                                datasets: [{
-                                    label: 'Downwards Trending Balance Prediction',
-                                    data: balance1,
-                                    borderColor: 'rgba(75, 192, 192, 1)',
-                                    borderWidth: 2,
-                                    fill: false
-                                }, {
-                                    label: 'Upwards Trending Balance Prediction',
-                                    data: balance2,
-                                    borderColor: 'rgba(255, 99, 132, 1)',
-                                    borderWidth: 2,
-                                    fill: false
-                                }, {
-                                    label: 'Average Balance Prediction',
-                                    data: balance3,
-                                    borderColor: 'rgba(54, 162, 235, 1)',
-                                    borderWidth: 2,
-                                    fill: false
-                                }]
-                            },
-                            options: {
-                                plugins: {
-                            title: {
-                                display: true,
-                                text: 'AI generated Balance Predictions ($)'},
-                            legend: {display:false}},
-                                scales: {
-                                    y: {
-                                        beginAtZero: false
-                                    }
-                                }
-                            }
-                        });
-                    
                 })
                 .catch(error => {
                     console.error('Error during POST request:', error);
@@ -581,7 +556,7 @@
             var li = document.createElement('li');
             var a = document.createElement('a');
             a.className = 'dropdown-item';
-            a.href = '#';
+            a.href = '';
             a.innerText = account.account;
             li.appendChild(a);
             dropdown.appendChild(li);
