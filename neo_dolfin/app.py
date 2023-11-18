@@ -97,8 +97,17 @@ def clean_subClass(row):
 
 df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
 df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
-conn = sqlite3.connect("transactions_ut.db") # Create a new SQLite database in memory and import the cleaned DataFrame
-df4.to_sql("transactions", conn, if_exists="replace", index=False)
+# Check if the SQLite database file already exists
+db_file = "transactions_ut.db"
+if not os.path.exists(db_file):
+    # If the database file doesn't exist, create a new one
+    conn = sqlite3.connect(db_file)
+    # Import the cleaned DataFrame to the SQLite database
+    df4.to_sql("transactions", conn, if_exists="replace", index=False)
+    conn.close()
+else:
+    # If the database file already exists, connect to it
+    conn = sqlite3.connect(db_file)
 
 ## Basiq API 
 basiq_service = BasiqService()
