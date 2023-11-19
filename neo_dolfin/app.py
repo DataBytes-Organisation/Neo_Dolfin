@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -97,11 +97,50 @@ def clean_subClass(row):
 
 df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
 df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
-conn = sqlite3.connect("transactions_ut.db") # Create a new SQLite database in memory and import the cleaned DataFrame
-df4.to_sql("transactions", conn, if_exists="replace", index=False)
+# Check if the SQLite database file already exists
+db_file = "transactions_ut.db"
+if not os.path.exists(db_file):
+    # If the database file doesn't exist, create a new one
+    conn = sqlite3.connect(db_file)
+    # Import the cleaned DataFrame to the SQLite database
+    df4.to_sql("transactions", conn, if_exists="replace", index=False)
+    conn.close()
+else:
+    # If the database file already exists, connect to it
+    conn = sqlite3.connect(db_file)
 
 ## Basiq API 
 basiq_service = BasiqService()
+
+# GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
+class GeoLockChecker(object):
+    def __init__(self, app):
+        self.app = app
+
+    def __call__(self, environ, start_response):
+        ip_addr = environ.get('REMOTE_ADDR', '')
+        if self.is_australia_or_localhost(ip_addr):
+            # Proceed normally if user in AU or Localhost
+            return self.app(environ, start_response)
+        else:
+            response = Response('Sorry, you are restricted from accessing this content. It is only available in Australia.', mimetype='text/html', status=403)
+            return response(environ, start_response)
+        
+    def is_australia_or_localhost(self, ip_addr):
+        if ip_addr == "127.0.0.1":
+            return 1
+        response = requests.get('http://ip-api.com/json/' + ip_addr)
+        if response.status_code == 200:
+            geo_info = response.json()
+            if(geo_info["country"] == "Australia"):
+                return 1
+            else:
+                return 0
+        else:
+            return 0
+
+
+app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
 
@@ -122,7 +161,7 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
-            return redirect('/dash/')
+            return redirect('/dash/load')
 
         return 'Login failed. Please check your credentials.'
 
@@ -200,6 +239,10 @@ def auth_dash2():
         print(jfx8)
 
         return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
+
+@app.route("/dash/load/", methods=['GET', 'POST'])
+def dashboardLoader():
+    return render_template("loadingPage.html")
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
