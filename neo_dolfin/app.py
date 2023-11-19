@@ -198,7 +198,11 @@ def auth_dash2():
         jfx3 = dfx3.to_json(orient='records')
 
         # Line chart datasets
-        dfx4 = df2.to_json(orient='records')
+        cursor.execute('SELECT balance,postDate FROM transactions')
+        query = cursor.fetchall()
+        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
+        dfx4 = dfx4.to_json(orient='records')
+        
         dfx5 = df3.to_json(orient='records')
 
         cursor.execute('SELECT balance FROM transactions LIMIT 1')
@@ -257,7 +261,11 @@ def auth_dash2():
             jfx3 = dfx3.to_json(orient='records')
 
             # Line chart datasets
-            dfx4 = df2.to_json(orient='records')
+            cursor.execute('SELECT balance,postDate FROM transactions')
+            query = cursor.fetchall()
+            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
+            dfx4 = dfx4.to_json(orient='records')
+            
             dfx5 = df3.to_json(orient='records')
 
             cursor.execute('SELECT balance FROM transactions LIMIT 1')
@@ -267,13 +275,11 @@ def auth_dash2():
             cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
             query = cursor.fetchone()
             curr_range = query[0]
-            print(curr_range)
 
             cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
             query = cursor.fetchall()
             dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
             jfx8 = dfx8.to_json(orient='records')
-            print(jfx8)
             
             updated_data = {
                 'currentBalance': curr_bal,
@@ -325,7 +331,11 @@ def auth_dash2():
             jfx3 = dfx3.to_json(orient='records')
 
             # Line chart datasets
-            dfx4 = df2.to_json(orient='records')
+            cursor.execute('SELECT balance,postDate FROM transactions WHERE account = ?', (account_value,))
+            query = cursor.fetchall()
+            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
+            dfx4 = dfx4.to_json(orient='records')
+            
             dfx5 = df3.to_json(orient='records')
 
             cursor.execute('SELECT balance FROM transactions WHERE account = ? LIMIT 1', (account_value,))

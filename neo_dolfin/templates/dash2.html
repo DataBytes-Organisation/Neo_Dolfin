@@ -234,6 +234,11 @@
         var dates = jsd4.map(entry => entry.postDate);
         var balances = jsd4.map(entry => entry.balance);
 
+        dates = dates.map(dateString => dateString.split('T')[0]);
+
+        dates.reverse()
+        balances.reverse()
+
         const ctxl1 = document.getElementById('myChart');
         var linechart = new Chart(ctxl1, {
         type: 'line',
@@ -520,6 +525,11 @@
 
                     var dates = jsd4.map(entry => entry.postDate);
                     var balances = jsd4.map(entry => entry.balance);
+
+                    dates = dates.map(dateString => dateString.split('T')[0]);
+
+                    dates.reverse()
+                    balances.reverse()
 
                     const ctxl1 = document.getElementById('myChart');
                     var linechart = new Chart(ctxl1, {
