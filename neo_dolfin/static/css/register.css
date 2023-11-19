@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+}
+.content{
+    overflow: hidden;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 14%;
+    height: 370px;
+    background: url(../img/blob.png) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+h1{
+    font-size: 50px;
+    color: #fff;    
+    font-weight: 900;
+    text-align: left;
+    margin-left: 25%;
+    margin-top: 3%;
+}
+.inp{
+    width: 40%;
+    height: 38px;
+    border-radius: 10px;
+    margin-top: 3%;
+    padding-left: 10px;
+    border: none;
+}
+.anniu{
+    width: 40%;
+    margin: 0 auto;
+    text-align: right;
+}
+.anniub{
+    width: 38%;
+    margin: 0 auto;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4%;
+}
+.btn{
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 5%;
+    border-radius: 55px;
+    background-color: #0372B2;
+    border: none;
+}
+.btnb{
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 55px;
+    background-color: #0372B2;
+    border: none;
+}
+h2{
+    text-align: left;
+    margin-left: -32%;
+    color: #fff;
+}
+h2 span{
+    color: #0372B2;
+}
+.twoinp{
+    display: flex;
+}
+.twoone{
+    width: 20%;
+    margin-left: 29%;
+}
+.twotwo{
+    width: 20%;
+    margin-left: -1%;
+}
+.inptwo{
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: none;
+}
+.left{
+    text-align: left;
+    margin-left: 8%;
+    color: #fff;
+    font-size: 12px;
+}
+form{
+    margin-top: 3%;
+}

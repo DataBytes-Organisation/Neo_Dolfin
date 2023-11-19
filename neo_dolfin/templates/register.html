@@ -2,20 +2,54 @@
 <html>
 <head>
     <title>Register</title>
+    <link rel="stylesheet" href="../static/css/register.css">
 </head>
 <body>
-    <h1>Registration</h1>
-    <form method="POST" action="/register">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <br>
-        <input type="submit" value="Register">
-    </form>
+    <div class="content">
+        <h1>Register</h1>
+        <form method="POST" action="/register">
+            <div class="twoinp">
+                <div class="twoone">
+                    <div class="left">Given Name</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+                <div class="twotwo">
+                    <div class="left">Family Name</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+            </div>
+            <div class="twoinp">
+                <div class="twoone">
+                    <div class="left">Nickname</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+                <div class="twotwo">
+                    <div class="left">Email</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+            </div>
+            <div class="twoinp">
+                <div class="twoone" style="width: 45%;margin-left: 26.8%;">
+                    <div class="left">Password</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+            </div>
+            <div class="twoinp">
+                <div class="twoone" style="width: 45%;margin-left: 26.8%;">
+                    <div class="left">Confirm Password</div>
+                    <input type="text" required  class="inptwo">
+                </div>
+            </div>
+            <div class="anniub">
+                <h2>or 
+                    <span>
+                    sign-up here
+                </span></h2>
+                <input type="submit" value="Sign Up" class="btnb">
+            </div>
+            
+        </form>
+    </div>
+   
 </body>
 </html>
