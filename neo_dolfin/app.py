@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -112,6 +112,36 @@ else:
 ## Basiq API 
 basiq_service = BasiqService()
 
+# GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
+class GeoLockChecker(object):
+    def __init__(self, app):
+        self.app = app
+
+    def __call__(self, environ, start_response):
+        ip_addr = environ.get('REMOTE_ADDR', '')
+        if self.is_australia_or_localhost(ip_addr):
+            # Proceed normally if user in AU or Localhost
+            return self.app(environ, start_response)
+        else:
+            response = Response('Sorry, you are restricted from accessing this content. It is only available in Australia.', mimetype='text/html', status=403)
+            return response(environ, start_response)
+        
+    def is_australia_or_localhost(self, ip_addr):
+        if ip_addr == "127.0.0.1":
+            return 1
+        response = requests.get('http://ip-api.com/json/' + ip_addr)
+        if response.status_code == 200:
+            geo_info = response.json()
+            if(geo_info["country"] == "Australia"):
+                return 1
+            else:
+                return 0
+        else:
+            return 0
+
+
+app.wsgi_app = GeoLockChecker(app.wsgi_app)
+
 # ROUTING
 
 ## LANDING PAGE
@@ -131,7 +161,7 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
-            return redirect('/dash')
+            return redirect('/dash/load')
 
         return 'Login failed. Please check your credentials.'
 
@@ -366,6 +396,10 @@ def auth_dash2():
             }
 
             return jsonify(updated_data)   
+
+@app.route("/dash/load/", methods=['GET', 'POST'])
+def dashboardLoader():
+    return render_template("loadingPage.html")
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
