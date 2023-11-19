@@ -68,6 +68,18 @@ class User(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
 
+class Log(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.utcnow)
+    topic = db.Column(db.String(80), nullable=False)
+    message = db.Column(db.String(255), nullable=False)
+
+    def serialize(self):
+        return {
+            'timestamp': self.timestamp,
+            'topic': self.topic,
+            'message': self.message
+        }   
+
 try:
     with app.app_context():
         db.create_all()
@@ -112,6 +124,12 @@ else:
 ## Basiq API 
 basiq_service = BasiqService()
 
+## LOGGING FUNCTION
+def log_msg(topic, message):
+    new_log = Log(topic=topic, message=message)
+    db.session.add(new_log)
+    db.session.commit()
+
 # ROUTING
 
 ## LANDING PAGE
@@ -130,12 +148,20 @@ def login():
 
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.username 
+            session['user_id'] = user.username
+            log_msg('[LOGIN]', 'User logged in: ' + user.username)
             return redirect('/dash/load')
 
+        log_msg('[LOGIN FAIL]', 'Login failed for user: ' + username)
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
+
+@app.route('/logs', methods=['GET'])
+def logs():
+    logs = Log.query.all()
+    logs = [log.serialize() for log in logs]
+    return jsonify(logs)
 
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
@@ -150,12 +176,14 @@ def register():
         existing_email = User.query.filter_by(email=email).first()
 
         if existing_user or existing_email:
+            log_msg('[REGISTER FAIL]', 'Registration failed for user: ' + username)
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
+        log_msg('[REGISTER]', 'New user registered: ' + username)
 
         return redirect('/login')
 
