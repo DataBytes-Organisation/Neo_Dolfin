@@ -161,7 +161,7 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
-            return redirect('/dash/load')
+            return redirect('/dash')
 
         return 'Login failed. Please check your credentials.'
 
@@ -397,7 +397,7 @@ def auth_dash2():
 
             return jsonify(updated_data)   
 
-@app.route("/dash/load/", methods=['GET', 'POST'])
+@app.route("/load", methods=['GET', 'POST'])
 def dashboardLoader():
     return render_template("loadingPage.html")
 
