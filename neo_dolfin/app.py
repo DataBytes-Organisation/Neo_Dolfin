@@ -161,6 +161,7 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
+            print(session['user_id'])
             return redirect('/dash/load')
 
         return 'Login failed. Please check your credentials.'
@@ -197,7 +198,7 @@ def auth_dash():
 
 @app.route('/dash/')
 def auth_dash2(): 
-        user_id = session.get('user_id')
+        #user_id = session.get('user_id')
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor() 
 
@@ -238,7 +239,7 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=session['user_id'])
 
 @app.route("/dash/load/", methods=['GET', 'POST'])
 def dashboardLoader():
@@ -292,6 +293,20 @@ def chatbot():
         message={"answer" :response}
         return jsonify(message)
     return render_template('chatbot.html')
+
+# Signout page 
+@app.route('/signout/')
+def signout_dash(): 
+        user_id = session.get('user_id')
+        #session['user_id'] = ''
+        #print(session['user_id'])
+        session.pop('user_id',None)
+        #print(session['user_id'])
+        #session.clear()
+        return render_template("signout.html")
+
+def open_terms_of_use_AI():
+        return render_template("TermsofUse-AI.html") 
 
 # Run the Flask app
 if __name__ == '__main__':
