@@ -162,7 +162,7 @@ def login():
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             print(session['user_id'])
-            return redirect('/dash/load')
+            return redirect('/dash')
 
         return 'Login failed. Please check your credentials.'
 
@@ -192,15 +192,21 @@ def register():
 
     return render_template('register.html')  # Create a registration form in the HTML template
 
-@app.route('/home/')
-def auth_dash(): 
-        return render_template("dash.html")
-
-@app.route('/dash/')
+@app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
-        #user_id = session.get('user_id')
+        user_id = session.get('user_id')
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor() 
+
+        defacc = 'ALL'
+
+        # Select Account 
+        cursor.execute('SELECT DISTINCT account FROM transactions')
+        query = cursor.fetchall()
+        dfxx = pd.DataFrame(query,columns=['account'])
+        new_record = pd.DataFrame([{'account': 'ALL'}])
+        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        jfxx = dfxx.to_json(orient='records')
 
         # Get class for pie chart
         cursor.execute('SELECT class FROM transactions')
@@ -221,7 +227,11 @@ def auth_dash2():
         jfx3 = dfx3.to_json(orient='records')
 
         # Line chart datasets
-        dfx4 = df2.to_json(orient='records')
+        cursor.execute('SELECT balance,postDate FROM transactions')
+        query = cursor.fetchall()
+        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
+        dfx4 = dfx4.to_json(orient='records')
+        
         dfx5 = df3.to_json(orient='records')
 
         cursor.execute('SELECT balance FROM transactions LIMIT 1')
@@ -239,7 +249,7 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=session['user_id'])
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id)
 
 @app.route("/dash/load/", methods=['GET', 'POST'])
 def dashboardLoader():
