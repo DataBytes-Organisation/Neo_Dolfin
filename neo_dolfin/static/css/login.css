@@ -81,7 +81,7 @@ body {
 /* Target the second .auth-link (Forgot Password?) */
 .link-container .auth-link:last-child {
     margin-left: auto; /* Pushes it more to the right */
-}D
+}
 
 
 .auth-link:hover {
@@ -115,12 +115,15 @@ body {
     margin: 0 auto;
     text-align: center; 
 }
+
+
 .container_right
 {
     position: relative;
-    max-width: 800px; 
+    max-width: 100px; 
     margin: 0 auto; 
 }
+
 .text_mid{
     
     left: 60px;
