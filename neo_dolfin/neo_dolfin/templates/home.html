@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DolFin - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
+</head>
+
+<body>
+
+  {% include 'components/navbar.html' %}
+
+  <div id="titleSection">
+    <h2 id="titleSubtitle">Join <span id="titleAlt">DolFin</span> Today and </h2>
+    <h1 id="titleH1">Start Saving</h1>
+  </div>
+
+  <div id="anchorBarList" class="container">
+    <div class="row">
+      <div class="col-sm">
+        <a id="anchorItem" class="item_sec_nav" href="#firstSection">Your Finance Future</a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" class="item_sec_nav" href="#secondSection">Personalized Dashboard</a>
+      </div>
+      <div class="col-sm">
+        <p id="slashSpace">/</p>
+      </div>
+      <div class="col-sm">
+        <a id="anchorItem" class="item_sec_nav" href="#thirdSection">Why Choose Us</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="firstSection" class="container">
+    <div class="row">
+      <div id="firstSectionBG" class="col">
+        <div class="first-sec-content">
+          <h2 id="firstSectionHeading">Empowering Your Financial Future</h2>
+          <p id="firstSectionParagraph">DolFin's cutting-edge algorithms analyze your historical spending patterns to
+            provide real-time alerts when you
+            overspend.<br> Take control of your finances effortlessly.</p>
+        </div>
+      </div>
+      <div id="img-removal" class="col">
+        <img id="firstSectionImg" src="/static/img/homeBubbles.svg" alt="Decorative bubbles">
+      </div>
+    </div>
+  </div>
+<br><br><br>
+  <div id="secondSection">
+    <div class="second-section-content">
+      <h2 id="secondSectionHeading">Personalized<br>Dashboard</h2>
+      <p id="secondSectionParagraph">Access a tailor-made dashboard that visualizes your income, expenses, and savings,
+        putting your financial world at your
+        fingertips.</p>
+    </div>
+  </div>
+
+  <div id="bottomSection">
+    <div id="thirdSection">
+      <h2 id="thirdSectionHeading">Why Choose Us</h2>
+      <p>
+      <ul id="thirdSectionParagraph">
+        <li><strong>Data Security:</strong> Top-notch protection for your financial data.
+        </li>
+        <li><strong>User-Friendly Interface:</strong>Easy navigation for all users.
+        </li>
+        <li><strong>Financial Expertise:</strong>Proven track record in finance management</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+
+  {% include 'components/footer.html' %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("a").on('click', function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+            window.location.hash = hash;
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- IMPLEMENT CHATBOT HERE -->
+  {% include 'components/chatbotWidget.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

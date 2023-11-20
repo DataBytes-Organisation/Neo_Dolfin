@@ -1,0 +1,272 @@
+/* <---- media queries -- responsiveness ---->*/
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+/* Define a base font size for the entire document */
+html {
+    font-size: 10px;
+}
+
+body {
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    max-height: 100vh !important;
+    font-size: 1.6rem;
+}
+
+/* <----- Landing Page CSS Start -----> */
+
+.content-main {
+    padding: 18% 0px 18% !important;
+    max-height: 100vh;
+}
+
+
+/* Items Inside ".content-main" --> */
+    .landing-subheading {
+        font-weight: bold;
+        color: #0077BB;
+        font-size: clamp(3rem,3.2vw,4rem);
+        /* font-size: 40px; */
+    }
+
+    .landing-heading {
+        color: #0077BB;
+        font-weight: bold;
+        font-size: 13rem;
+        /* font-size: 130px; */
+        font-size: clamp(10rem, 9vw, 13rem);
+        line-height: 0.8;
+        animation: appear1 1s ease-in-out 1 both;
+    }
+
+    @keyframes appear1{
+        from{
+            opacity: 1;
+            transform: translateX(-100%) 
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    
+
+    .landing-content {
+        text-align: center;
+    }
+
+    .row
+    {
+        align-items: center !important;
+    }
+    
+    .landing-blob
+    {
+        padding-right: 0px;
+        background-image: url("/static/img/blob.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 32em;
+        background-size: clamp(100%, 90%, 80%);
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        animation: scale 1s ease-in-out 1 both;
+    }
+
+    @keyframes scale{
+        from{
+            transform: scale(0%) 
+        }
+        to{
+            transform: scale(100%)
+        }
+    }
+    
+
+    .landing-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .btn-primary{
+        font-weight: 600;
+        border-radius: 100px;
+        font-size: 55px;
+        padding: 15px 50px; 
+        background-color: #0077BB;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        animation: scale 1s ease-out 1 both;
+    }
+
+
+    .btn-primary:hover{
+        color: #343a40;
+        background-color: #D9D9D9;
+    }
+
+    .sec-button {   
+        font-weight: bold;
+        background: none;
+        border: none;
+        font-size: 30px;
+        padding: 0px 0px;
+        padding-top: 20px;
+        color: #0077BB;
+        animation: opacity 1s ease-in 1 both;
+    }
+
+    @keyframes opacity{
+        from{
+            opacity: 0
+        }
+        to{
+            opacity: 1
+        }
+    }
+    
+
+    .sec-button:hover{
+        text-decoration: none;
+        color: #D9D9D9;
+        border-bottom: white 1px;
+        
+    }
+
+.img-txt {
+    vertical-align: -1% !important;
+}
+
+#logoImg{
+    width: 14%;
+}
+
+
+@media (max-width: 992px) {
+    h3.landing-subheading {
+        font-size: 4rem;
+    }
+
+    h1.landing-heading {
+        font-size: 6rem;
+    }
+
+    #logoImg {
+        width: 12%;
+    }
+
+    .landing-blob {
+        background-size: 70%;
+    }
+
+    .btn-primary {
+        font-size: 4rem;
+    }
+    .sec-button {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .landing-blob {
+        background-size: 70%;
+    }
+
+    .btn-primary {
+        font-size: 3rem;
+    }
+    .sec-button {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    h3.landing-subheading {
+        font-size: 3rem;
+    }
+
+    h1.landing-heading {
+        font-size: 4.5rem;
+    }
+
+    .landing-blob {
+        background-size: 70%;
+    }
+
+    .btn-primary {
+        font-size: 2rem;
+    }
+    .sec-button {
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    h3.landing-subheading {
+        font-size: 2.5rem;
+    }
+
+    h1.landing-heading {
+        font-size: 3.5rem;
+    }
+
+    .landing-blob {
+        background-size: 70%;
+    }
+
+    .btn-primary {
+        font-size: 1.2rem;
+    }
+    .sec-button {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* <----- Footer CSS START -----> */
+.footer {
+    padding-top: 20px;
+}
+.footer-content {
+    width: 100%;
+    min-height: 15vh;
+    background-color: #343a40;
+    animation: slide 1s ease-in-out 1 both;
+}
+
+@keyframes slide{
+    from{
+        transform: translateY(100%)
+    }
+    to{
+        transform: translateY(0%)
+    }
+}
+
+.footer-heading {
+    padding: 0.5em;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-para {
+
+    text-overflow: 50%;
+    text-align: center;
+    max-width: 50%;
+}
+
+.footer-test {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
