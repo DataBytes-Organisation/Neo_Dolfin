@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="../static/css/bootstrap.min.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/registration.css">
     <title>Register</title>
 </head>
 <body>
-    <h1>Registration</h1>
-    <form method="POST" action="/register">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <br>
-        <input type="submit" value="Register">
-    </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="container_left">
+                    <img src="../static/img/Title.png" alt="Sign up | DolFin" class="img-fluid Title_signup">
+                    <div class="input_area">
+                        <h1 class="Title_signup">DolFin</h1>
+                        <h2 class="Subtitle">Empowering Your Financial Journey</h2>
+                        <form method="POST" action="/register">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <input type="submit" class="btn btn-primary" value="Register">
+                        </form>
+                        <div class="or-text">OR</div>
+                        <div class="social-login">
+                            <button type="button" class="btn-google">
+                                <img src="../static/img/googl.png alt="alt ="Google" class="btn-logo"> Sign up with Google
+                            </button>
+                            <button type="button" class="btn-microsoft">
+                                <img src="../static/img/msft.png" alt="Microsoft" class="btn-logo"> Sign up with Microsoft
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <img src="../static/img/style.png" alt = "image" class ="top-right-image">
+                <div class="container_right">
+                    
+                    <div class="text_top">
+                        Your Journey Towards Smarter Financial Management Starts Here.
+                    </div>
+                    <div class="text_bg">
+                        <ul class="text_mid">
+                            <li>Unified view of all your financial accounts in one place.</li>
+                            <li>Customized advice with AI-powered predictions.</li>
+                            <li>Compare your finances with peers for better decisions.</li>
+                        </ul>
+                    </div>
+            
+                    
+                    
+                    <img src="../static/img/dolfin .png" alt="dolfin" class="img-fluid dolfin">
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="text-under-container">
+        <p>Gain complete control over your finances with<br>
+             personalized insights and real-time tracking.</p>
+    </div>
+    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>
