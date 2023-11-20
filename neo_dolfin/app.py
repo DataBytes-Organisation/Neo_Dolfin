@@ -307,13 +307,8 @@ def chatbot():
 # Signout page 
 @app.route('/signout/')
 def signout_dash(): 
-        user_id = session.get('user_id')
-        #session['user_id'] = ''
-        #print(session['user_id'])
         session.pop('user_id',None)
-        #print(session['user_id'])
-        #session.clear()
-        return render_template("signout.html")
+        return redirect('/')
 
 def open_terms_of_use_AI():
         return render_template("TermsofUse-AI.html") 
@@ -321,3 +316,4 @@ def open_terms_of_use_AI():
 # Run the Flask app
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
+
