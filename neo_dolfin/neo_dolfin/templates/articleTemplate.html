@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>DolFin - Article</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	{% include 'components/navbar.html' %}
+
+
+	<div>
+		<div class="container" id="mainTitleArea">
+			<div class="row">
+				<div class="col">
+					<h1 id="articleTitle">Article Title</h1>
+				</div>
+				<div class="col-sm-6 text-sm-start text-md-end">
+					<h2 id="articleDate">01/09/2023</h2>
+				</div>
+			</div>
+			<svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
+				<rect fill="#343A40" height="12" width="100%"></rect>
+			</svg>
+		</div>
+		<div class="container" id="firstSection">
+			<div class="row">
+				<div class="col">
+					<p id="p1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus velit, mattis
+						faucibus risus at, porta aliquet elit. Suspendisse mollis nulla dolor, nec eleifend urna
+						malesuada sit amet. Sed vel elit dui. Curabitur fermentum, mi id porta rutrum, justo leo gravida
+						ipsum, at maximus elit ante nec tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Curabitur purus velit.</p>
+				</div>
+				<div class="col-md-6"><img alt="Placeholder Image" id="articleImg" src="/static/img/fillerSquare.jpg">
+				</div>
+			</div>
+			<div>
+				<p id="p2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus velit, mattis
+					faucibus risus at, porta aliquet elit. Suspendisse mollis nulla dolor, nec eleifend urna malesuada
+					sit amet. Sed vel elit dui. Curabitur fermentum, mi id porta rutrum, justo leo gravida ipsum, at
+					maximus elit ante nec tortor.</p>
+				<div class="container" id="secondSection">
+					<div class="row">
+						<div class="col-md-6 text-sm-start" id="quoteBackground">
+							<h3 id="quoteText">"Lorem ipsim dolor sit amet,</h3>
+							<h3 id="quoteText2">consectetur adipiscing elit..."</h3>
+						</div>
+						<div class="col">
+							<p id="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus velit,
+								mattis faucibus risus at, porta aliquet elit. Suspendisse mollis nulla dolor, nec
+								eleifend urna malesuada sit amet. Sed vel elit dui. Curabitur fermentum, mi id porta
+								rutrum, justo leo gravida ipsum, at maximus elit ante nec tortor. Lorem ipsum dolor sit
+								amet, consectetur adipiscing elit. Curabitur purus velit , mattis faucibus risus at,
+								porta aliquet elit.</p>
+						</div>
+					</div>
+					<p id="p4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus velit, mattis
+						faucibus risus at, porta aliquet elit. Suspendisse mollis nulla dolor, nec eleifend urna
+						malesuada sit amet. Sed vel elit dui. Curabitur fermentum, mi id porta rutrum, justo leo gravida
+						ipsum, at maximus elit ante nec tortor.</p>
+				</div>
+			</div>
+		</div>{% include 'components/footer.html' %}
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+	</div>
+</body>
+
+</html>

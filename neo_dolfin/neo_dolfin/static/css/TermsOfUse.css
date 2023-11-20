@@ -1,0 +1,57 @@
+.card-body-fixed-height {
+    max-height: 450px;
+    /* Set the fixed height of the card body */
+    overflow-y: auto;
+    /* Add vertical scroll if content exceeds fixed height */
+}
+
+
+.fixed-elements {
+    position: relative;
+    /* Create a positioning context */
+}
+
+.fixed-button {
+    position: absolute;
+    /* Position the button absolutely within .fixed-elements */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dolfin-dark-bg-color {
+    background-color: rgb(52, 58, 64);
+    /* Your desired background color */
+    animation: slide 1s ease-in-out 1 both;
+}
+
+@keyframes slide{
+    from{
+        transform: translateY(100%)
+    }
+    to{
+        transform: translateY(0%)
+    }
+}
+
+
+.custom-nav .nav-link:focus {
+    background-color: #0077BB;
+    /* Your desired background color */
+}
+
+.custom-nav .nav-link {
+    color: white;
+    
+    /* Your desired background color */
+}
+
+.card-body.custom {
+    border: 15px solid  rgb(52, 58, 64);
+    border-radius: 0 0 25px 25px;
+    /* Adjust the value to control the roundness */
+    padding: 25px;
+    border-top: none;
+    font-size:15px;
+    /* Optional: Add padding to create space between content and border */
+}
