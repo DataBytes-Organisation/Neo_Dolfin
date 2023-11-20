@@ -5,11 +5,11 @@ body {
 }
 .display_left
 {
-    width: 800px;
+    width: 50%;
 }
 .display_right
 {
-    width: 1000px;
+    width: 50%;
 }
 .Title_login {
     width: 300px;
@@ -23,12 +23,78 @@ body {
     margin-left: 150px;
     margin-top: 100px;
 }
-.input_area
-{
+.input_area {
     position: absolute;
-    top: 400px;
-    left: 300px;
+    top: 310px;
+    left: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
 }
+
+.input_area form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_area input[type="text"],
+.input_area input[type="password"] {
+    font-family: 'Anybody', sans-serif; 
+    width: 95%; /* Adjust the width as needed */
+    padding: 10px;
+    margin: 25px 0; /* Creates gap between inputs */
+    border: 1px solid #ddd;
+    border-radius: 30px; /* Increased border-radius for rounded effect */
+}
+
+.input_area input[type="submit"] {
+    width: 40%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-top: 20px; /* Spacing above the button */
+    margin-right: 10px; 
+    border: none;
+    border-radius: 30px; /* Increased border-radius for rounded effect */
+    background-color: #382727;
+    color: white;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.auth-link {
+    font-family: 'Anybody', sans-serif;
+    font-weight: bold;
+    color: white; /* Adjust the color as needed */
+    text-decoration: none; /* Removes underline */
+    cursor: pointer;
+    font-size: 0.5em;
+    margin: 0 5px; /* Adjust for spacing around the links */
+}
+
+.link-container .auth-link:first-child {
+    margin-right: 100px; /* Pushes it more to the left */
+}
+
+/* Target the second .auth-link (Forgot Password?) */
+.link-container .auth-link:last-child {
+    margin-left: auto; /* Pushes it more to the right */
+}D
+
+
+.auth-link:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+.link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px; /* Adjust as needed */
+}
+
 .text_bg
 {
     position: absolute;
@@ -41,11 +107,13 @@ body {
     backdrop-filter: blur(15px);
     border-radius: 20px;
 }
+
 .container_left
 {
     position: relative;
     max-width: 800px; 
-    margin: 0 auto; 
+    margin: 0 auto;
+    text-align: center; 
 }
 .container_right
 {
@@ -127,3 +195,4 @@ font-weight: 600;
 line-height: 146.88%;
 letter-spacing: -0.8px;
 }
+

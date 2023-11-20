@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/"></script>
     <link rel="stylesheet" href="../static/css/login.css">
     <title>Login</title>
@@ -21,13 +21,19 @@
                     <img src="../static/img/title.png" alt="Title_login" class="Title_login">
                     <img src="../static/img/style.png" alt="style" class="style">
                     <div class="input_area">
-                        <form method="POST" action="/login">
-                            <label for="username">Username:</label>
-                            <input type="text" name="username" required>
+                        <form method="POST" action="/login">                           
+                            <input type="text" name="username" placeholder="Username" required>
+                            <br>                            
+                            <input type="password" name="password" placeholder="Password" required>
                             <br>
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" required>
-                            <br>
+                            <div class="link-container">
+                                <a href="./register" class="auth-link">
+                                    <div>New to DolFin?</div>
+                                    <div>Register Here</div>
+                                </a>
+                                                                                               
+                                <a href="#" class="auth-link">Forgot Password?</a>
+                            </div>
                             <input type="submit" value="Login">
                         </form>
                   
