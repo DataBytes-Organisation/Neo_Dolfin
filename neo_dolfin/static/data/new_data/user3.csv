@@ -1,0 +1,501 @@
+type,id,status,description,amount,account,balance,direction,class,institution,postDate,subClass_title,subClass_code
+transaction,8b31a0fb-38f8-452f-aad7-238f3a0826c7,posted,Transfer to xx0511 CommBank app,-189.00,19390e17-d34e-4349-b57b-43721ecca116,395.64,debit,transfer,AU00000,2023-11-21T00:00:00Z,,
+transaction,3568a4d3-37a9-4eb9-ad62-1fcff4700eca,posted,Transfer to xx5603 CommBank app k,1.00,19390e17-d34e-4349-b57b-43721ecca116,584.64,credit,transfer,AU00000,2023-11-20T00:00:00Z,Department Stores,426
+transaction,59fbe9be-d75b-4b7d-847a-41406d9ea8ca,posted,Transfer to xx3394 CommBank app,-10.00,19390e17-d34e-4349-b57b-43721ecca116,583.64,debit,transfer,AU00000,2023-11-19T00:00:00Z,,
+transaction,0675aa38-885e-48bb-b0ac-1d0d916ecf0b,posted,Transfer from xx3887 CommBank app,132.80,19390e17-d34e-4349-b57b-43721ecca116,593.64,credit,transfer,AU00000,2023-11-18T00:00:00Z,Road Passenger Transport,462
+transaction,ec417d7d-3804-461d-ba9e-bbb7c7ab3a98,posted,Transfer to xx2385 CommBank app,7.48,19390e17-d34e-4349-b57b-43721ecca116,460.84,credit,transfer,AU00000,2023-11-17T00:00:00Z,Department Stores,426
+transaction,36ecdcd1-bcbb-45a7-b417-d07468fe17e8,posted,Transfer to xx5358 CommBank app,-83.00,19390e17-d34e-4349-b57b-43721ecca116,453.36,debit,transfer,AU00000,2023-11-16T00:00:00Z,,
+transaction,638149c8-a2ff-4c45-85f5-ed3ca1ee2f8c,posted,Transfer to xx2611 NetBank Mums super,-50.00,19390e17-d34e-4349-b57b-43721ecca116,536.36,debit,transfer,AU00000,2023-11-15T00:00:00Z,,
+transaction,98e6af88-582d-46fb-927d-30a0f7f2767b,posted,Transfer to xx3428 CommBank app,-5.00,19390e17-d34e-4349-b57b-43721ecca116,586.36,debit,transfer,AU00000,2023-11-14T00:00:00Z,,
+transaction,b728723e-ee1d-42b8-aaa0-142da3d7a716,posted,Transfer to xx1344 NetBank,500.00,19390e17-d34e-4349-b57b-43721ecca116,591.36,credit,transfer,AU00000,2023-11-13T00:00:00Z,Department Stores,426
+transaction,bc26ed24-9aa9-4554-b28a-53213ab4ce6c,posted,Transfer to xx1312 CommBank app,-67.00,19390e17-d34e-4349-b57b-43721ecca116,91.36,debit,transfer,AU00000,2023-11-12T00:00:00Z,,
+transaction,b17f204a-a72f-43e3-928e-94d841928ef1,posted,Transfer to xx0594 CommBank app g,2.00,19390e17-d34e-4349-b57b-43721ecca116,158.36,credit,transfer,AU00000,2023-11-11T00:00:00Z,Department Stores,426
+transaction,4e348e45-51bc-4871-ba15-4008bc53ef07,posted,Transfer from xx6103 CommBank app,29.00,19390e17-d34e-4349-b57b-43721ecca116,156.36,credit,transfer,AU00000,2023-11-10T00:00:00Z,Road Passenger Transport,462
+transaction,c43b513b-405f-4813-9316-6d6e0d84ec2c,posted,Transfer to xx9458 CommBank app,-12.50,19390e17-d34e-4349-b57b-43721ecca116,127.36,debit,transfer,AU00000,2023-11-09T00:00:00Z,,
+transaction,16246f17-d7e1-4622-a0b9-d342bb254513,posted,Transfer to xx7904 CommBank app,-391.00,19390e17-d34e-4349-b57b-43721ecca116,139.86,debit,transfer,AU00000,2023-11-08T00:00:00Z,,
+transaction,73241ac5-d274-4c91-9576-44ab7d0d39e6,posted,Transfer to xx2813 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,530.86,credit,transfer,AU00000,2023-11-07T00:00:00Z,Department Stores,426
+transaction,568c5791-4bc1-400a-a4a6-86f008aa04b7,posted,Transfer to xx1048 CommBank app,-38.00,19390e17-d34e-4349-b57b-43721ecca116,530.86,debit,transfer,AU00000,2023-11-06T00:00:00Z,,
+transaction,3a02db51-07c1-4724-b3a5-e7405fb98a3f,posted,Transfer to xx8006 CommBank app Bill,-494.00,19390e17-d34e-4349-b57b-43721ecca116,568.86,debit,transfer,AU00000,2023-11-05T00:00:00Z,,
+transaction,9efd619c-0675-4872-a379-6b5ccb2f6615,posted,Transfer to xx6593 CommBank app,-15.00,19390e17-d34e-4349-b57b-43721ecca116,1062.86,debit,transfer,AU00000,2023-11-04T00:00:00Z,,
+transaction,6c8eb65a-810b-4549-860e-108997a19783,posted,Transfer to xx5815 CommBank app,-37.00,19390e17-d34e-4349-b57b-43721ecca116,1077.86,debit,transfer,AU00000,2023-11-03T00:00:00Z,,
+transaction,f050cb0b-d8f0-43fc-bf08-7e06dfdcadfe,posted,Transfer from xx2169 CommBank app,4.53,19390e17-d34e-4349-b57b-43721ecca116,1114.86,credit,transfer,AU00000,2023-11-02T00:00:00Z,Road Passenger Transport,462
+transaction,5b1e97ec-5d2b-4aef-864f-fc8c7181603e,posted,Transfer from xx0957 CommBank app,200.00,19390e17-d34e-4349-b57b-43721ecca116,1110.33,credit,transfer,AU00000,2023-11-01T00:00:00Z,Road Passenger Transport,462
+transaction,3f665090-3168-45ab-818f-2d941fa3fdbb,posted,Transfer to xx6214 CommBank app g,21.00,19390e17-d34e-4349-b57b-43721ecca116,910.33,credit,transfer,AU00000,2023-10-30T00:00:00Z,Department Stores,426
+transaction,256b8eed-3159-4107-8780-4a78ae4d4147,posted,Transfer to xx4248 CommBank app,-70.00,19390e17-d34e-4349-b57b-43721ecca116,889.33,debit,transfer,AU00000,2023-10-29T00:00:00Z,,
+transaction,1265e5b3-24c4-44e8-b13b-9a0d6c20fe5e,posted,Transfer to xx7628 CommBank app,18.00,19390e17-d34e-4349-b57b-43721ecca116,959.33,credit,transfer,AU00000,2023-10-27T00:00:00Z,Department Stores,426
+transaction,f26a0f99-2948-4a44-aa7d-2e073aa93adb,posted,Transfer to xx1170 CommBank app,-53.00,19390e17-d34e-4349-b57b-43721ecca116,941.33,debit,transfer,AU00000,2023-10-26T00:00:00Z,,
+transaction,b6dbbde4-0d7d-4f5a-ad4d-648650b942f7,posted,Transfer to xx9817 CommBank app,-44.00,19390e17-d34e-4349-b57b-43721ecca116,994.33,debit,transfer,AU00000,2023-10-25T00:00:00Z,,
+transaction,57091d30-2503-4904-a50d-abb72ba9ab3c,posted,Transfer from xx2134 CommBank app,525.00,19390e17-d34e-4349-b57b-43721ecca116,1038.33,credit,transfer,AU00000,2023-10-24T00:00:00Z,Road Passenger Transport,462
+transaction,a743138c-1b17-44f4-8b82-83233bf613ff,posted,Transfer to xx9990 CommBank app,-31.00,19390e17-d34e-4349-b57b-43721ecca116,513.33,debit,transfer,AU00000,2023-10-23T00:00:00Z,,
+transaction,9c02bac4-0f70-4ad0-8579-12e43d8f065b,posted,Transfer to xx2166 CommBank app,-477.00,19390e17-d34e-4349-b57b-43721ecca116,544.33,debit,transfer,AU00000,2023-10-22T00:00:00Z,,
+transaction,f80acf8f-1261-4481-8a41-c21cd4552f13,posted,Transfer to xx9389 CommBank app,2.00,19390e17-d34e-4349-b57b-43721ecca116,1021.33,credit,transfer,AU00000,2023-10-21T00:00:00Z,Department Stores,426
+transaction,2cd0cd46-3372-448c-8d13-c7d232648e86,posted,Transfer to xx9387 CommBank app,-80.00,19390e17-d34e-4349-b57b-43721ecca116,1019.33,debit,transfer,AU00000,2023-10-19T00:00:00Z,,
+transaction,34711cd6-b7e4-4b6f-82e3-dcedd02912d6,posted,Transfer from xx0514 CommBank app,20.89,19390e17-d34e-4349-b57b-43721ecca116,1099.33,credit,transfer,AU00000,2023-10-18T00:00:00Z,Road Passenger Transport,462
+transaction,5add4fb7-1b01-4b66-afb4-3ff65cefb52d,posted,Transfer to xx9231 CommBank app,-2.00,19390e17-d34e-4349-b57b-43721ecca116,1078.44,debit,transfer,AU00000,2023-10-17T00:00:00Z,,
+transaction,ff092365-417c-4aa8-bf4c-375526a30608,posted,Transfer from xx1618 CommBank app,200.00,19390e17-d34e-4349-b57b-43721ecca116,1080.44,credit,transfer,AU00000,2023-10-16T00:00:00Z,Road Passenger Transport,462
+transaction,a203ca41-b474-427f-b690-83a1969f35ae,posted,Transfer to xx6841 CommBank app,-184.00,19390e17-d34e-4349-b57b-43721ecca116,880.44,debit,transfer,AU00000,2023-10-15T00:00:00Z,,
+transaction,066682d2-6c6d-414f-8f18-73ae9c000c82,posted,Transfer from xx9204 CommBank app,365.00,19390e17-d34e-4349-b57b-43721ecca116,1064.44,credit,transfer,AU00000,2023-10-14T00:00:00Z,Road Passenger Transport,462
+transaction,2bf80f46-d608-4595-a8fd-3bceb127896f,posted,Transfer from xx1633 CommBank app c,15.00,19390e17-d34e-4349-b57b-43721ecca116,699.44,credit,transfer,AU00000,2023-10-13T00:00:00Z,Auxiliary Finance and Investment Services,641
+transaction,895977bb-fa0e-4306-86b9-71112e682675,posted,Transfer from xx6487 CommBank app,16.50,19390e17-d34e-4349-b57b-43721ecca116,684.44,credit,transfer,AU00000,2023-10-12T00:00:00Z,Road Passenger Transport,462
+transaction,e83ace4b-0cdb-4233-9c1f-fec100cfce54,posted,Transfer to xx7498 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,667.94,debit,transfer,AU00000,2023-10-11T00:00:00Z,,
+transaction,0f848541-5428-4bc9-a038-bda22d375026,posted,Transfer to xx9716 NetBank,-89.00,19390e17-d34e-4349-b57b-43721ecca116,675.94,debit,transfer,AU00000,2023-10-10T00:00:00Z,,
+transaction,92b79371-fd12-4af6-99c2-acbbf7164b96,posted,Transfer From SCOTT J MACDONALD CREDIT TO ACCOUNT,40.00,19390e17-d34e-4349-b57b-43721ecca116,764.94,credit,transfer,AU00000,2023-10-09T00:00:00Z,Legal and Accounting Services,693
+transaction,037de8f0-3980-4844-a93c-2b2aeca52305,posted,Transfer from xx8251 CommBank app x,146.00,19390e17-d34e-4349-b57b-43721ecca116,724.94,credit,transfer,AU00000,2023-10-08T00:00:00Z,Computer System Design and Related Services,700
+transaction,6448399c-54bc-4990-9944-bca6c16e2dbd,posted,Transfer to xx9473 NetBank,-32.00,19390e17-d34e-4349-b57b-43721ecca116,578.94,debit,transfer,AU00000,2023-10-07T00:00:00Z,,
+transaction,5b93abca-1d6b-4993-b622-6d509cea4914,posted,Transfer from xx3520 CommBank app,617.00,19390e17-d34e-4349-b57b-43721ecca116,610.94,credit,transfer,AU00000,2023-10-06T00:00:00Z,Road Passenger Transport,462
+transaction,e9b6ef4a-69eb-49f4-affb-f3145d8c938d,posted,Transfer to xx3325 CommBank app,-19.00,19390e17-d34e-4349-b57b-43721ecca116,-6.06,debit,transfer,AU00000,2023-10-05T00:00:00Z,,
+transaction,c5f6d42c-9e5f-4268-b13e-cd5daddfdb4f,posted,Transfer to xx7321 CommBank app,-165.00,19390e17-d34e-4349-b57b-43721ecca116,12.94,debit,transfer,AU00000,2023-10-04T00:00:00Z,,
+transaction,a0b25ce0-634c-4503-8315-45069970a613,posted,Transfer to xx5595 CommBank app,-22.00,19390e17-d34e-4349-b57b-43721ecca116,177.94,debit,transfer,AU00000,2023-10-03T00:00:00Z,,
+transaction,9b5191b9-71a6-41c6-b309-e1335b39c099,posted,Transfer to xx6650 CommBank app,-47.00,19390e17-d34e-4349-b57b-43721ecca116,199.94,debit,transfer,AU00000,2023-10-02T00:00:00Z,,
+transaction,2143b2d1-77fd-412b-a51b-ae52d6d361e1,posted,Transfer to xx5136 CommBank app,-48.00,19390e17-d34e-4349-b57b-43721ecca116,246.94,debit,transfer,AU00000,2023-10-01T00:00:00Z,,
+transaction,706a8141-bb42-4343-b18f-e46a4bd894e3,posted,Transfer to xx4446 CommBank app,-59.00,19390e17-d34e-4349-b57b-43721ecca116,294.94,debit,transfer,AU00000,2023-09-30T00:00:00Z,,
+transaction,7cc56cca-df74-40e2-a36d-a01f078dbb76,posted,Transfer from JOYCE TAYLOR CommBank app Joyce,260.00,19390e17-d34e-4349-b57b-43721ecca116,353.94,credit,transfer,AU00000,2023-09-29T00:00:00Z,Allied Health Services,853
+transaction,de5c92b0-b08f-43a5-8173-86995a89dc60,posted,Transfer to xx3120 CommBank app,26.00,19390e17-d34e-4349-b57b-43721ecca116,93.94,credit,transfer,AU00000,2023-09-28T00:00:00Z,Department Stores,426
+transaction,3c06f803-b251-47d6-95ca-c097e67b3de9,posted,Transfer to xx2918 CommBank app,8.00,19390e17-d34e-4349-b57b-43721ecca116,67.94,credit,transfer,AU00000,2023-09-27T00:00:00Z,Department Stores,426
+transaction,4c055303-ec4e-42d1-a592-77d73582a01f,posted,Transfer from xx7506 CommBank app,49.00,19390e17-d34e-4349-b57b-43721ecca116,59.94,credit,transfer,AU00000,2023-09-26T00:00:00Z,Road Passenger Transport,462
+transaction,5b157aa9-ec02-4138-8f69-4efc5a255289,posted,Transfer to xx4016 CommBank app,17.20,19390e17-d34e-4349-b57b-43721ecca116,10.94,credit,transfer,AU00000,2023-09-25T00:00:00Z,Department Stores,426
+transaction,def7df62-5ae5-4da2-b282-d0aba94b11d5,posted,Transfer to xx5686 CommBank app,-675.00,19390e17-d34e-4349-b57b-43721ecca116,-6.26,debit,transfer,AU00000,2023-09-24T00:00:00Z,,
+transaction,52e03ba5-4f0f-4e0a-a029-39cb3465cb63,posted,Transfer to xx6885 CommBank app,23.89,19390e17-d34e-4349-b57b-43721ecca116,668.74,credit,transfer,AU00000,2023-09-23T00:00:00Z,Department Stores,426
+transaction,ed6936d5-e271-4c23-83b6-636ce928ec68,posted,Transfer to xx4594 CommBank app,-77.00,19390e17-d34e-4349-b57b-43721ecca116,644.85,debit,transfer,AU00000,2023-09-22T00:00:00Z,,
+transaction,19bd8721-cad1-4345-aa73-dd30a62b387d,posted,Transfer from xx9656 CommBank app,26.00,19390e17-d34e-4349-b57b-43721ecca116,721.85,credit,transfer,AU00000,2023-09-21T00:00:00Z,Road Passenger Transport,462
+transaction,c5a386b9-f0cf-4943-94f8-ee23f469e509,posted,Transfer From JANET HOULLIS CREDIT TO ACCOUNT,71.00,19390e17-d34e-4349-b57b-43721ecca116,695.85,credit,transfer,AU00000,2023-09-20T00:00:00Z,Auxiliary Finance and Investment Services,641
+transaction,7e199877-17eb-484b-8bfa-9c2760f4a46d,posted,Transfer from xx7756 CommBank app,29.10,19390e17-d34e-4349-b57b-43721ecca116,624.85,credit,transfer,AU00000,2023-09-19T00:00:00Z,Road Passenger Transport,462
+transaction,11f1056c-adc2-4831-8269-d4f80b405574,posted,Transfer to xx9219 CommBank app,-281.00,19390e17-d34e-4349-b57b-43721ecca116,595.75,debit,transfer,AU00000,2023-09-18T00:00:00Z,,
+transaction,11ac6ef5-f8aa-4f47-a4f9-9330c93234c6,posted,Transfer to xx6321 NetBank,-761.00,19390e17-d34e-4349-b57b-43721ecca116,876.75,debit,transfer,AU00000,2023-09-16T00:00:00Z,,
+transaction,c739072c-d3d0-449f-a26f-66c4dfc10893,posted,Transfer to xx6432 CommBank app,-34.00,19390e17-d34e-4349-b57b-43721ecca116,1637.75,debit,transfer,AU00000,2023-09-15T00:00:00Z,,
+transaction,a2fe4fe0-22c2-48fe-b701-839197c53598,posted,Transfer from xx7756 CommBank app,1500.00,19390e17-d34e-4349-b57b-43721ecca116,1671.75,credit,transfer,AU00000,2023-09-14T00:00:00Z,Road Passenger Transport,462
+transaction,496f3a2c-6807-4475-b46b-9e50d593b0d8,posted,Transfer from xx6615 CommBank app,64.00,19390e17-d34e-4349-b57b-43721ecca116,171.75,credit,transfer,AU00000,2023-09-13T00:00:00Z,Road Passenger Transport,462
+transaction,0de3e4a6-ed66-4383-8af5-6427bbaaea4b,posted,Transfer to xx9016 CommBank app,-12.00,19390e17-d34e-4349-b57b-43721ecca116,107.75,debit,transfer,AU00000,2023-09-12T00:00:00Z,,
+transaction,1eae201c-9d08-4357-84c4-4153d8d69b06,posted,Transfer to xx6853 CommBank app,-88.00,19390e17-d34e-4349-b57b-43721ecca116,119.75,debit,transfer,AU00000,2023-09-11T00:00:00Z,,
+transaction,2e72ad54-17d9-4b4a-8136-41ac417a61c9,posted,Transfer to xx5899 CommBank app,-600.00,19390e17-d34e-4349-b57b-43721ecca116,207.75,debit,transfer,AU00000,2023-09-10T00:00:00Z,,
+transaction,d2afde78-1a47-468b-84f5-101c11272476,posted,Transfer to xx4208 CommBank app y,-30.00,19390e17-d34e-4349-b57b-43721ecca116,807.75,debit,transfer,AU00000,2023-09-09T00:00:00Z,,
+transaction,e4a54ad5-4b5d-47ee-abe8-d6e5069f657e,posted,Transfer from xx6094 CommBank app,50.00,19390e17-d34e-4349-b57b-43721ecca116,837.75,credit,transfer,AU00000,2023-09-08T00:00:00Z,Road Passenger Transport,462
+transaction,d815de8d-f346-487a-89e2-f9b39bfb59db,posted,Transfer from  NetBank,9.00,19390e17-d34e-4349-b57b-43721ecca116,787.75,credit,transfer,AU00000,2023-09-07T00:00:00Z,Road Passenger Transport,462
+transaction,48e3e407-b1bc-4929-bca6-31f51219e109,posted,Transfer to xx5665 CommBank app,-93.00,19390e17-d34e-4349-b57b-43721ecca116,778.75,debit,transfer,AU00000,2023-09-06T00:00:00Z,,
+transaction,3f8bd6b7-4df1-4eb3-b6d4-6afcfab67a79,posted,Transfer to xx0184 CommBank app,5.00,19390e17-d34e-4349-b57b-43721ecca116,871.75,credit,transfer,AU00000,2023-09-05T00:00:00Z,Department Stores,426
+transaction,5d58597c-19b1-4ca6-81e4-3ab568f538da,posted,Transfer to xx1856 CommBank app,-5.00,19390e17-d34e-4349-b57b-43721ecca116,866.75,debit,transfer,AU00000,2023-09-04T00:00:00Z,,
+transaction,a10fc8c3-1d8a-4c84-8f15-34b3f5ac8532,posted,Transfer to xx3119 CommBank app,-96.00,19390e17-d34e-4349-b57b-43721ecca116,871.75,debit,transfer,AU00000,2023-09-03T00:00:00Z,,
+transaction,f474e4a6-a7d5-4e4a-9b2a-f1c20d6cd87b,posted,Transfer from xx7779 NetBank,500.00,19390e17-d34e-4349-b57b-43721ecca116,967.75,credit,transfer,AU00000,2023-09-02T00:00:00Z,Road Passenger Transport,462
+transaction,38fa1dee-129b-4348-bc84-e2888e91e24c,posted,Transfer to xx2856 CommBank app,-6.00,19390e17-d34e-4349-b57b-43721ecca116,467.75,debit,transfer,AU00000,2023-09-01T00:00:00Z,,
+transaction,8655cf67-85be-4c4a-a250-b576bec73304,posted,Transfer to xx2203 CommBank app,-19.00,19390e17-d34e-4349-b57b-43721ecca116,473.75,debit,transfer,AU00000,2023-08-31T00:00:00Z,,
+transaction,7ac44ded-f498-422f-b1c0-d7d55225b8c8,posted,Transfer to xx2623 CommBank app,-109.00,19390e17-d34e-4349-b57b-43721ecca116,492.75,debit,transfer,AU00000,2023-08-30T00:00:00Z,,
+transaction,8cd9bd3d-8020-4ccc-bc2d-32461c61f190,posted,Transfer to xx2482 CommBank app,500.00,19390e17-d34e-4349-b57b-43721ecca116,601.75,credit,transfer,AU00000,2023-08-29T00:00:00Z,Department Stores,426
+transaction,f6f6e955-2493-4d90-8463-c30faf9d63b1,posted,Transfer to xx8524 CommBank app,-2.00,19390e17-d34e-4349-b57b-43721ecca116,101.75,debit,transfer,AU00000,2023-08-28T00:00:00Z,,
+transaction,e9848edc-f9d1-4bfb-8c46-96e11049d9fe,posted,Transfer to xx6053 CommBank app,13.00,19390e17-d34e-4349-b57b-43721ecca116,103.75,credit,transfer,AU00000,2023-08-27T00:00:00Z,Department Stores,426
+transaction,e235fc39-d8b2-40dd-a588-396096929621,posted,Transfer to xx7489 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,90.75,debit,transfer,AU00000,2023-08-26T00:00:00Z,,
+transaction,b23075b6-0e79-4d38-99bb-96732fbc487c,posted,Transfer to xx0089 CommBank app,16.00,19390e17-d34e-4349-b57b-43721ecca116,98.75,credit,transfer,AU00000,2023-08-25T00:00:00Z,Department Stores,426
+transaction,d6dfe456-41f8-44cb-8e2e-0fddde3eaa98,posted,CommBank app TFR from MELISSA ANDREWS smokes,49.00,19390e17-d34e-4349-b57b-43721ecca116,82.75,credit,transfer,AU00000,2023-08-24T00:00:00Z,Specialised Food Retailing,412
+transaction,6a74cd9d-bad0-4f56-8629-ef23cb6f026c,posted,Transfer to xx2381 CommBank app,-26.00,19390e17-d34e-4349-b57b-43721ecca116,33.75,debit,transfer,AU00000,2023-08-23T00:00:00Z,,
+transaction,7d05934f-2c16-43b2-b877-70e2bfb7165f,posted,Transfer from  CommBank app,32.00,19390e17-d34e-4349-b57b-43721ecca116,59.75,credit,transfer,AU00000,2023-08-22T00:00:00Z,Road Passenger Transport,462
+transaction,49acf28a-dc29-4e52-8981-bc2501454713,posted,Transfer to xx7422 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,27.75,debit,transfer,AU00000,2023-08-21T00:00:00Z,,
+transaction,9ff24e0a-87e2-4486-93f2-5b5ac10ebd0f,posted,Transfer to xx8860 CommBank app,18.70,19390e17-d34e-4349-b57b-43721ecca116,35.75,credit,transfer,AU00000,2023-08-20T00:00:00Z,Department Stores,426
+transaction,0b57e045-4038-4b2f-9795-e368b17ef79e,posted,Transfer to xx1182 CommBank app,-10.00,19390e17-d34e-4349-b57b-43721ecca116,17.05,debit,transfer,AU00000,2023-08-19T00:00:00Z,,
+transaction,916bbaca-7593-4480-9a2b-c0932e6d54df,posted,Transfer to xx5361 CommBank app,-20.00,19390e17-d34e-4349-b57b-43721ecca116,27.05,debit,transfer,AU00000,2023-08-18T00:00:00Z,,
+transaction,265fa668-8640-4d17-8afd-0d6c079df36f,posted,Transfer to xx4124 CommBank app,-282.00,19390e17-d34e-4349-b57b-43721ecca116,47.05,debit,transfer,AU00000,2023-08-17T00:00:00Z,,
+transaction,ccca5841-8e2a-4719-af32-7d33f7084162,posted,Transfer to xx0877 CommBank app,7.00,19390e17-d34e-4349-b57b-43721ecca116,329.05,credit,transfer,AU00000,2023-08-16T00:00:00Z,Department Stores,426
+transaction,549bf1b9-041b-4cea-9711-f166067bb200,posted,Transfer to xx1377 CommBank app,-84.00,19390e17-d34e-4349-b57b-43721ecca116,322.05,debit,transfer,AU00000,2023-08-15T00:00:00Z,,
+transaction,df639ce3-7383-4193-95f9-40284bfc04c8,posted,Transfer to xx3631 CommBank app,-20.00,19390e17-d34e-4349-b57b-43721ecca116,406.05,debit,transfer,AU00000,2023-08-14T00:00:00Z,,
+transaction,893f58d7-ce7b-42fd-9f78-02750843f55d,posted,Transfer to xx0110 CommBank app,-236.00,19390e17-d34e-4349-b57b-43721ecca116,426.05,debit,transfer,AU00000,2023-08-13T00:00:00Z,,
+transaction,3bda4992-9fd8-4225-9746-a9e1320b1b4e,posted,Transfer to xx3925 CommBank app,-87.00,19390e17-d34e-4349-b57b-43721ecca116,662.05,debit,transfer,AU00000,2023-08-12T00:00:00Z,,
+transaction,f226f87c-61e6-4e01-b7e9-6e7883563c94,posted,Transfer from xx3879 NetBank,612.00,19390e17-d34e-4349-b57b-43721ecca116,749.05,credit,transfer,AU00000,2023-08-11T00:00:00Z,Road Passenger Transport,462
+transaction,97911b3e-6eca-4596-8db0-a80f99f99c82,posted,Transfer from xx2687 CommBank app,55.00,19390e17-d34e-4349-b57b-43721ecca116,137.05,credit,transfer,AU00000,2023-08-10T00:00:00Z,Road Passenger Transport,462
+transaction,dcffed2b-fef9-4485-9c3f-5591f655c017,posted,Transfer from xx8033 CommBank app,10.71,19390e17-d34e-4349-b57b-43721ecca116,82.05,credit,transfer,AU00000,2023-08-09T00:00:00Z,Road Passenger Transport,462
+transaction,c62d421e-62bb-43d2-9358-3693780aa310,posted,Transfer to xx4907 CommBank app,1.00,19390e17-d34e-4349-b57b-43721ecca116,71.34,credit,transfer,AU00000,2023-08-08T00:00:00Z,Department Stores,426
+transaction,6257a9f6-9b0c-4fff-8ff2-8977b01e9446,posted,Transfer to xx5152 CommBank app,6.25,19390e17-d34e-4349-b57b-43721ecca116,70.34,credit,transfer,AU00000,2023-08-07T00:00:00Z,Department Stores,426
+transaction,99e7fea5-143b-42c9-a391-3272228a66c4,posted,Transfer from xx6464 CommBank app,17.00,19390e17-d34e-4349-b57b-43721ecca116,64.09,credit,transfer,AU00000,2023-08-06T00:00:00Z,Road Passenger Transport,462
+transaction,535770a0-3695-4684-b0d2-2e87d65467c7,posted,Transfer from JEFF KAHLER CommBank app Baybee,206.00,19390e17-d34e-4349-b57b-43721ecca116,47.09,credit,transfer,AU00000,2023-08-05T00:00:00Z,Unknown,0
+transaction,6bbcc0bc-8896-471e-81bf-fbf9a82042f4,posted,Transfer from xx4657 CommBank app,205.00,19390e17-d34e-4349-b57b-43721ecca116,-158.91,credit,transfer,AU00000,2023-08-04T00:00:00Z,Road Passenger Transport,462
+transaction,99333ba1-db1c-46aa-a04f-7bd12b8ecafd,posted,Transfer to xx0572 CommBank app shop,-196.00,19390e17-d34e-4349-b57b-43721ecca116,-363.91,debit,transfer,AU00000,2023-08-03T00:00:00Z,,
+transaction,fc8e0965-e35e-4c24-ab3a-c7a6dd76b16e,posted,Transfer to other Bank NetBank Kelly,-47.00,19390e17-d34e-4349-b57b-43721ecca116,-167.91,debit,transfer,AU00000,2023-08-02T00:00:00Z,,
+transaction,93ff510b-757c-4cc6-88c3-8b7f51f27ad7,posted,Transfer to xx6487 CommBank app,-38.00,19390e17-d34e-4349-b57b-43721ecca116,-120.91,debit,transfer,AU00000,2023-08-01T00:00:00Z,,
+transaction,6d98a37a-62d2-4662-aeb6-fb2eee2583b0,posted,Credit Interest,1.12,19390e17-d34e-4349-b57b-43721ecca116,-82.91,credit,interest,AU00000,2023-07-31T00:00:00Z,,
+transaction,ede708b4-5ab6-4861-998c-48068540d187,posted,Transfer to xx6309 NetBank,-9.95,19390e17-d34e-4349-b57b-43721ecca116,-84.03,debit,transfer,AU00000,2023-07-30T00:00:00Z,,
+transaction,6f951420-06ec-4720-9cb7-39c176ebd0db,posted,Transfer to xx2720 CommBank app,-70.00,19390e17-d34e-4349-b57b-43721ecca116,-74.08,debit,transfer,AU00000,2023-07-29T00:00:00Z,,
+transaction,c432cb02-831d-43be-b363-e873d63b19e9,posted,Transfer to xx4124 CommBank app,-16.00,19390e17-d34e-4349-b57b-43721ecca116,-4.08,debit,transfer,AU00000,2023-07-28T00:00:00Z,,
+transaction,843bbfef-5bb6-4dac-acc9-6247ecf0bac0,posted,Transfer to xx7375 NetBank,-22.00,19390e17-d34e-4349-b57b-43721ecca116,11.92,debit,transfer,AU00000,2023-07-27T00:00:00Z,,
+transaction,1d3cfec9-038d-490d-8c3e-1b7afcf7c308,posted,Transfer to xx0243 CommBank app,-173.00,19390e17-d34e-4349-b57b-43721ecca116,33.92,debit,transfer,AU00000,2023-07-26T00:00:00Z,,
+transaction,8e3dc143-79da-4f29-97bf-e8096fbcf9d6,posted,Transfer to xx4166 CommBank app,-174.00,19390e17-d34e-4349-b57b-43721ecca116,206.92,debit,transfer,AU00000,2023-07-25T00:00:00Z,,
+transaction,98ebcc39-0ca2-40b1-9732-76f8fd826223,posted,Transfer from xx9160 CommBank app,300.00,19390e17-d34e-4349-b57b-43721ecca116,380.92,credit,transfer,AU00000,2023-07-24T00:00:00Z,Road Passenger Transport,462
+transaction,947266ac-c8c9-4c8b-915e-3c56f93ec88a,posted,Transfer to xx2608 NetBank,-1000.00,19390e17-d34e-4349-b57b-43721ecca116,80.92,debit,transfer,AU00000,2023-07-22T00:00:00Z,,
+transaction,6e8e255f-e003-4c60-b5e3-99603d349418,posted,Transfer from xx5188 CommBank app,282.00,19390e17-d34e-4349-b57b-43721ecca116,1080.92,credit,transfer,AU00000,2023-07-21T00:00:00Z,Road Passenger Transport,462
+transaction,4dd6541c-445c-4f6c-bb2d-a6b8208689e6,posted,Transfer to xx6512 CommBank app,-21.50,19390e17-d34e-4349-b57b-43721ecca116,798.92,debit,transfer,AU00000,2023-07-20T00:00:00Z,,
+transaction,bc8d5ace-8a96-41e1-9b6c-8b794f525db0,posted,Transfer from xx5621 CommBank app,115.00,19390e17-d34e-4349-b57b-43721ecca116,820.42,credit,transfer,AU00000,2023-07-19T00:00:00Z,Road Passenger Transport,462
+transaction,629e14f3-bb94-4e3c-a0db-180e30b25319,posted,Transfer to xx4105 CommBank app,-43.00,19390e17-d34e-4349-b57b-43721ecca116,705.42,debit,transfer,AU00000,2023-07-18T00:00:00Z,,
+transaction,f278a465-671d-4d46-928d-1673ae80bd6c,posted,Transfer to xx9064 CommBank app,-32.00,19390e17-d34e-4349-b57b-43721ecca116,748.42,debit,transfer,AU00000,2023-07-17T00:00:00Z,,
+transaction,a9c833a6-bd3b-4bc5-b0ce-d9eb26a59a69,posted,Transfer to xx3204 CommBank app,-286.00,19390e17-d34e-4349-b57b-43721ecca116,780.42,debit,transfer,AU00000,2023-07-16T00:00:00Z,,
+transaction,24f6fe8b-a274-4433-af76-a850e2552b5c,posted,Transfer to xx7519 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,1066.42,credit,transfer,AU00000,2023-07-14T00:00:00Z,Department Stores,426
+transaction,2471b94a-aa94-402b-9be8-0ff2eb25caa2,posted,Transfer to xx5006 CommBank app Expenses,-7.13,19390e17-d34e-4349-b57b-43721ecca116,1066.42,debit,transfer,AU00000,2023-07-13T00:00:00Z,,
+transaction,d08b1fb8-92aa-4660-b078-9a652c19cba9,posted,Transfer to xx2277 CommBank app,-67.00,19390e17-d34e-4349-b57b-43721ecca116,1073.55,debit,transfer,AU00000,2023-07-12T00:00:00Z,,
+transaction,376a58e3-c0ee-4492-a7f5-b5c5556973e9,posted,Transfer to xx2076 CommBank app,5.00,19390e17-d34e-4349-b57b-43721ecca116,1140.55,credit,transfer,AU00000,2023-07-11T00:00:00Z,Department Stores,426
+transaction,5fc96fc3-2a75-4ce3-b34c-16cdac76d849,posted,Transfer to xx6782 CommBank app,-89.00,19390e17-d34e-4349-b57b-43721ecca116,1135.55,debit,transfer,AU00000,2023-07-10T00:00:00Z,,
+transaction,975681e5-deaf-40f2-8d34-380786a6932b,posted,Transfer to xx4438 CommBank app,-40.00,19390e17-d34e-4349-b57b-43721ecca116,1224.55,debit,transfer,AU00000,2023-07-09T00:00:00Z,,
+transaction,120bcd58-192d-4e8b-8b25-46906ebe2099,posted,Transfer to xx8669 CommBank app,-51.00,19390e17-d34e-4349-b57b-43721ecca116,1264.55,debit,transfer,AU00000,2023-07-08T00:00:00Z,,
+transaction,58ea3f44-b3db-4027-87c8-b75f8f27ca6b,posted,Transfer from xx2937 CommBank app,110.38,19390e17-d34e-4349-b57b-43721ecca116,1315.55,credit,transfer,AU00000,2023-07-07T00:00:00Z,Road Passenger Transport,462
+transaction,327e2385-5bae-40a3-884f-e2f16bada89e,posted,Transfer from xx4989 CommBank app,607.00,19390e17-d34e-4349-b57b-43721ecca116,1205.17,credit,transfer,AU00000,2023-07-06T00:00:00Z,Road Passenger Transport,462
+transaction,efe3508e-456b-4147-9e85-88b3bee04c89,posted,Transfer to xx3233 NetBank,-44.00,19390e17-d34e-4349-b57b-43721ecca116,598.17,debit,transfer,AU00000,2023-07-05T00:00:00Z,,
+transaction,5c9dcd8c-de00-4b1a-9847-b22d355c4868,posted,Transfer to xx2623 CommBank app,-77.00,19390e17-d34e-4349-b57b-43721ecca116,642.17,debit,transfer,AU00000,2023-07-04T00:00:00Z,,
+transaction,fe180fa2-49ca-48b4-916c-f1c2e9335159,posted,Transfer to xx9492 CommBank app,-16.00,19390e17-d34e-4349-b57b-43721ecca116,719.17,debit,transfer,AU00000,2023-07-03T00:00:00Z,,
+transaction,12bb1044-3c85-4b2f-8cb6-7572890cb51a,posted,Transfer to xx3456 CommBank app,-197.00,19390e17-d34e-4349-b57b-43721ecca116,735.17,debit,transfer,AU00000,2023-07-02T00:00:00Z,,
+transaction,ed5f1d2f-d191-4f9d-9c01-71dd22615838,posted,Transfer to xx3579 CommBank app,-3.00,19390e17-d34e-4349-b57b-43721ecca116,932.17,debit,transfer,AU00000,2023-06-30T00:00:00Z,,
+transaction,9a992954-7aae-4b4d-96e3-4714e18a6749,posted,Transfer to xx7642 CommBank app,10.00,19390e17-d34e-4349-b57b-43721ecca116,935.17,credit,transfer,AU00000,2023-06-29T00:00:00Z,Department Stores,426
+transaction,ad38b2d4-4fb9-4cbd-885b-a05508c24f77,posted,Transfer to xx2033 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,925.17,credit,transfer,AU00000,2023-06-28T00:00:00Z,Department Stores,426
+transaction,7eb00b9b-ba21-4baf-a106-e27a361d6cae,posted,Transfer to xx3531 CommBank app,21.96,19390e17-d34e-4349-b57b-43721ecca116,925.17,credit,transfer,AU00000,2023-06-27T00:00:00Z,Department Stores,426
+transaction,765703b1-4e88-41d7-9473-806bdfc13653,posted,Transfer from xx5481 NetBank,827.00,19390e17-d34e-4349-b57b-43721ecca116,903.21,credit,transfer,AU00000,2023-06-26T00:00:00Z,Road Passenger Transport,462
+transaction,1dfdf9cc-4395-423a-85af-00e0e29012de,posted,Transfer from xx3512 NetBank,30.65,19390e17-d34e-4349-b57b-43721ecca116,76.21,credit,transfer,AU00000,2023-06-25T00:00:00Z,Road Passenger Transport,462
+transaction,b8c60fe9-d578-40bc-bca6-041013d76fb4,posted,Transfer to xx5325 CommBank app,18.00,19390e17-d34e-4349-b57b-43721ecca116,45.56,credit,transfer,AU00000,2023-06-24T00:00:00Z,Department Stores,426
+transaction,50a08861-0b21-4236-86b3-f3ecac74c974,posted,Transfer to xx9680 CommBank app coles,23.00,19390e17-d34e-4349-b57b-43721ecca116,27.56,credit,transfer,AU00000,2023-06-23T00:00:00Z,Supermarket and Grocery Stores,411
+transaction,9c7efc4d-0141-48ff-9581-2ef8a31638f2,posted,Transfer to xx3399 CommBank app,8.00,19390e17-d34e-4349-b57b-43721ecca116,4.56,credit,transfer,AU00000,2023-06-22T00:00:00Z,Department Stores,426
+transaction,b75d02e4-db7e-4a5a-a0c5-044e8e762d8d,posted,Transfer to xx9687 CommBank app,-38.00,19390e17-d34e-4349-b57b-43721ecca116,-3.44,debit,transfer,AU00000,2023-06-21T00:00:00Z,,
+transaction,962f0f6b-b4f4-4679-874e-b6f836eba9d0,posted,Transfer to xx9451 CommBank app,-129.00,19390e17-d34e-4349-b57b-43721ecca116,34.56,debit,transfer,AU00000,2023-06-20T00:00:00Z,,
+transaction,4ac0d7ed-3796-491f-b974-7cecf935b367,posted,Transfer to xx3909 CommBank app,-60.00,19390e17-d34e-4349-b57b-43721ecca116,163.56,debit,transfer,AU00000,2023-06-19T00:00:00Z,,
+transaction,b1d3e7b5-ae52-4d6d-b2c6-2a12101dfa1e,posted,Transfer from xx9653 CommBank app,24.79,19390e17-d34e-4349-b57b-43721ecca116,223.56,credit,transfer,AU00000,2023-06-18T00:00:00Z,Road Passenger Transport,462
+transaction,86414d81-12db-40c6-831a-81521a780e76,posted,Transfer to xx2133 CommBank app,-172.00,19390e17-d34e-4349-b57b-43721ecca116,198.77,debit,transfer,AU00000,2023-06-17T00:00:00Z,,
+transaction,7c042a8e-41e7-4178-98fc-b86ea397e330,posted,Transfer to xx0956 CommBank app,-33.00,19390e17-d34e-4349-b57b-43721ecca116,370.77,debit,transfer,AU00000,2023-06-16T00:00:00Z,,
+transaction,882f244f-0a2e-446e-b4c4-f5234c86dfe9,posted,Transfer to xx8107 CommBank app CHADDACH01ZAMQLTP,-9.00,19390e17-d34e-4349-b57b-43721ecca116,403.77,debit,transfer,AU00000,2023-06-15T00:00:00Z,,
+transaction,14c93b3f-0462-4e7b-b4ed-dc41d5ededf3,posted,Transfer to xx8589 CommBank app,-31.06,19390e17-d34e-4349-b57b-43721ecca116,412.77,debit,transfer,AU00000,2023-06-14T00:00:00Z,,
+transaction,0c4a00b6-4a6a-4dfa-b909-e2762229092d,posted,Transfer to xx0354 CommBank app,400.00,19390e17-d34e-4349-b57b-43721ecca116,443.83,credit,transfer,AU00000,2023-06-13T00:00:00Z,Department Stores,426
+transaction,7230c803-ad06-4a14-b1f3-1a031d6ae987,posted,Transfer from xx1603 CommBank app pui,75.00,19390e17-d34e-4349-b57b-43721ecca116,43.83,credit,transfer,AU00000,2023-06-12T00:00:00Z,Unknown,0
+transaction,91e4109d-6026-408a-95c0-504adac326bf,posted,Transfer to xx8512 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,-31.17,debit,transfer,AU00000,2023-06-11T00:00:00Z,,
+transaction,e4d04a2f-5df5-47c5-8dc6-d201f675315e,posted,Transfer to xx5398 CommBank app,-160.00,19390e17-d34e-4349-b57b-43721ecca116,-23.17,debit,transfer,AU00000,2023-06-09T00:00:00Z,,
+transaction,ac36efe2-ae6a-4881-a1c2-4a08cfc81111,posted,Transfer to xx0666 NetBank,-80.66,19390e17-d34e-4349-b57b-43721ecca116,136.83,debit,transfer,AU00000,2023-06-08T00:00:00Z,,
+transaction,261e3040-4974-4993-a63e-50edba29d5ba,posted,Transfer to xx9299 CommBank app,-52.00,19390e17-d34e-4349-b57b-43721ecca116,217.49,debit,transfer,AU00000,2023-06-07T00:00:00Z,,
+transaction,f86a9a15-ddc2-42d3-9ba9-f60e80b24da4,posted,Transfer to xx5799 CommBank app,-93.00,19390e17-d34e-4349-b57b-43721ecca116,269.49,debit,transfer,AU00000,2023-06-06T00:00:00Z,,
+transaction,6fa66b5e-546a-4c60-bbe8-5f3ce64f389b,posted,Transfer from xx9995 CommBank app,6.13,19390e17-d34e-4349-b57b-43721ecca116,362.49,credit,transfer,AU00000,2023-06-05T00:00:00Z,Road Passenger Transport,462
+transaction,3f154011-2054-4d34-9e03-2be3e13ae8cb,posted,Transfer to xx0178 CommBank app Funds,-996.00,19390e17-d34e-4349-b57b-43721ecca116,356.36,debit,transfer,AU00000,2023-06-03T00:00:00Z,,
+transaction,e8b5672a-d65f-48bb-8841-003691a48116,posted,Transfer from xx6349 CommBank app,503.00,19390e17-d34e-4349-b57b-43721ecca116,1352.36,credit,transfer,AU00000,2023-06-02T00:00:00Z,Road Passenger Transport,462
+transaction,35b85b5b-6882-469e-9fbf-6129277727f5,posted,Transfer to xx4821 CommBank app,-18.00,19390e17-d34e-4349-b57b-43721ecca116,849.36,debit,transfer,AU00000,2023-06-01T00:00:00Z,,
+transaction,c11a90f5-e6d5-4878-81e0-37454f0d9f75,posted,Transfer to xx5361 CommBank app,-99.00,19390e17-d34e-4349-b57b-43721ecca116,867.36,debit,transfer,AU00000,2023-05-31T00:00:00Z,,
+transaction,a6be262d-a025-425e-9530-0830a582ebd1,posted,Transfer from DALE AMBRYM CommBank app shop,81.00,19390e17-d34e-4349-b57b-43721ecca116,966.36,credit,transfer,AU00000,2023-05-30T00:00:00Z,Unknown,0
+transaction,64868a6a-5ac6-4ba8-86e9-609607c8ef17,posted,Transfer from xx9250 CommBank app,170.00,19390e17-d34e-4349-b57b-43721ecca116,885.36,credit,transfer,AU00000,2023-05-29T00:00:00Z,Road Passenger Transport,462
+transaction,d326c907-4762-4f6a-926a-372ae3c35125,posted,Transfer to xx0431 CommBank app re,7.00,19390e17-d34e-4349-b57b-43721ecca116,715.36,credit,transfer,AU00000,2023-05-26T00:00:00Z,Department Stores,426
+transaction,7dd3e5ba-0533-459f-9d98-eb357762d3ec,posted,Transfer to xx3460 CommBank app,14.00,19390e17-d34e-4349-b57b-43721ecca116,708.36,credit,transfer,AU00000,2023-05-25T00:00:00Z,Department Stores,426
+transaction,5841d985-25c5-4edf-a213-79b5e618bf24,posted,Transfer from xx7478 CommBank app,50.00,19390e17-d34e-4349-b57b-43721ecca116,694.36,credit,transfer,AU00000,2023-05-24T00:00:00Z,Road Passenger Transport,462
+transaction,1d0d7e8c-da8d-419d-af2b-0f172cf66e24,posted,Transfer to xx7518 CommBank app Value Date: 25/05/2019,-26.00,19390e17-d34e-4349-b57b-43721ecca116,644.36,debit,transfer,AU00000,2023-05-23T00:00:00Z,,
+transaction,64c2b559-3635-4788-bfb1-828e2a44eb02,posted,Transfer to xx7303 CommBank app,22.36,19390e17-d34e-4349-b57b-43721ecca116,670.36,credit,transfer,AU00000,2023-05-22T00:00:00Z,Department Stores,426
+transaction,5fe642d5-2932-4ce2-8601-130b4dbcf471,posted,Transfer to xx2975 CommBank app,7.00,19390e17-d34e-4349-b57b-43721ecca116,648.00,credit,transfer,AU00000,2023-05-21T00:00:00Z,Department Stores,426
+transaction,d05d934f-9f99-4b08-b7c5-d062bc9c1161,posted,Transfer to xx5443 CommBank app,10.00,19390e17-d34e-4349-b57b-43721ecca116,641.00,credit,transfer,AU00000,2023-05-19T00:00:00Z,Department Stores,426
+transaction,961829c6-7f81-4369-9c77-b8c0c87ae17f,posted,Transfer to xx5368 CommBank app,-31.00,19390e17-d34e-4349-b57b-43721ecca116,631.00,debit,transfer,AU00000,2023-05-18T00:00:00Z,,
+transaction,2147fbdd-ede7-415b-a1c3-abe500630726,posted,Transfer to xx2517 CommBank app Value Date: 18/05/2019,-1773.00,19390e17-d34e-4349-b57b-43721ecca116,662.00,debit,transfer,AU00000,2023-05-16T00:00:00Z,,
+transaction,84a31e28-e7e1-495d-a767-b417dfd88b84,posted,Transfer from xx8136 CommBank app phone bill,41.00,19390e17-d34e-4349-b57b-43721ecca116,2435.00,credit,transfer,AU00000,2023-05-15T00:00:00Z,Road Passenger Transport,462
+transaction,7089ce53-77fc-431e-a3eb-4651371bcb11,posted,Transfer to xx4220 CommBank app,-12.98,19390e17-d34e-4349-b57b-43721ecca116,2394.00,debit,transfer,AU00000,2023-05-14T00:00:00Z,,
+transaction,68c88ffc-4434-4a15-8cd9-37a9c7617dbe,posted,Transfer From STEVENS SI ..,114.00,19390e17-d34e-4349-b57b-43721ecca116,2406.98,credit,transfer,AU00000,2023-05-13T00:00:00Z,Road Passenger Transport,462
+transaction,8be1df20-bc68-4095-8dec-412e8d2c0fa6,posted,Transfer to xx6935 CommBank app,10.78,19390e17-d34e-4349-b57b-43721ecca116,2292.98,credit,transfer,AU00000,2023-05-12T00:00:00Z,Department Stores,426
+transaction,1be4f242-2df0-4ee6-95fa-394f3bcd97d7,posted,Transfer to xx6113 CommBank app,-14.00,19390e17-d34e-4349-b57b-43721ecca116,2282.20,debit,transfer,AU00000,2023-05-11T00:00:00Z,,
+transaction,e7fc91de-3b38-472b-8716-e8399a7e1a57,posted,Transfer from xx0714 CommBank app,101.00,19390e17-d34e-4349-b57b-43721ecca116,2296.20,credit,transfer,AU00000,2023-05-10T00:00:00Z,Road Passenger Transport,462
+transaction,7aec2e1a-9834-41e7-a56d-75dfadcacec6,posted,Transfer to xx5642 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,2195.20,credit,transfer,AU00000,2023-05-09T00:00:00Z,Department Stores,426
+transaction,733e8e1a-ce99-4f42-a28a-ed78a7af8cd8,posted,Transfer from xx7738 CommBank app,394.00,19390e17-d34e-4349-b57b-43721ecca116,2195.20,credit,transfer,AU00000,2023-05-08T00:00:00Z,Road Passenger Transport,462
+transaction,816e29d3-42a8-4ff0-ab00-0b230de5bf68,posted,Transfer to xx6050 CommBank app,-5.00,19390e17-d34e-4349-b57b-43721ecca116,1801.20,debit,transfer,AU00000,2023-05-07T00:00:00Z,,
+transaction,b81030a3-ed27-4086-ae90-0a2a93ccc681,posted,Transfer to xx9457 CommBank app,4.00,19390e17-d34e-4349-b57b-43721ecca116,1806.20,credit,transfer,AU00000,2023-05-06T00:00:00Z,Department Stores,426
+transaction,a74b3ff9-537f-4f0b-bde0-ec2a7d6ad96e,posted,Transfer to xx2692 CommBank app,5.65,19390e17-d34e-4349-b57b-43721ecca116,1802.20,credit,transfer,AU00000,2023-05-05T00:00:00Z,Department Stores,426
+transaction,acec1c93-bb1e-4a50-aab6-a156ad920863,posted,Transfer to xx6672 CommBank app,3.00,19390e17-d34e-4349-b57b-43721ecca116,1796.55,credit,transfer,AU00000,2023-05-04T00:00:00Z,Department Stores,426
+transaction,a88cccdf-3924-43ce-8a1a-87e594cd199e,posted,Transfer to xx5932 CommBank app,-11.00,19390e17-d34e-4349-b57b-43721ecca116,1793.55,debit,transfer,AU00000,2023-05-03T00:00:00Z,,
+transaction,00964868-b7db-46e1-bda7-978374db05a3,posted,Transfer to xx3685 CommBank app,-197.00,19390e17-d34e-4349-b57b-43721ecca116,1804.55,debit,transfer,AU00000,2023-05-02T00:00:00Z,,
+transaction,463b145d-ec96-423b-b6af-bb3428088f19,posted,Transfer to xx8286 CommBank app,-98.00,19390e17-d34e-4349-b57b-43721ecca116,2001.55,debit,transfer,AU00000,2023-05-01T00:00:00Z,,
+transaction,6badf798-a60d-4f57-b4c0-3ef3476a9af4,posted,Transfer from xx8494 CommBank app,899.00,19390e17-d34e-4349-b57b-43721ecca116,2099.55,credit,transfer,AU00000,2023-04-30T00:00:00Z,Road Passenger Transport,462
+transaction,b1671e6e-225b-4c90-95e3-5d2c539ee23f,posted,Transfer to xx6867 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,1200.55,credit,transfer,AU00000,2023-04-29T00:00:00Z,Department Stores,426
+transaction,537854af-9e97-499c-8315-ebc9eacf6807,posted,Transfer from xx9536 CommBank app Fiona,139.00,19390e17-d34e-4349-b57b-43721ecca116,1200.55,credit,transfer,AU00000,2023-04-28T00:00:00Z,Unknown,0
+transaction,dac723b4-77e1-42d1-bb67-168b540da90a,posted,Transfer from xx5057 CommBank app,998.00,19390e17-d34e-4349-b57b-43721ecca116,1061.55,credit,transfer,AU00000,2023-04-27T00:00:00Z,Road Passenger Transport,462
+transaction,70fe6a69-1102-42da-9104-78262e0618b3,posted,Transfer to xx6085 CommBank app,26.00,19390e17-d34e-4349-b57b-43721ecca116,63.55,credit,transfer,AU00000,2023-04-26T00:00:00Z,Department Stores,426
+transaction,bb42ea5a-11c0-4c0a-bf9c-e73445e19e33,posted,Transfer to xx2776 CommBank app,-33.00,19390e17-d34e-4349-b57b-43721ecca116,37.55,debit,transfer,AU00000,2023-04-25T00:00:00Z,,
+transaction,69d78a81-df6b-4e92-b77b-0c58b04cbccd,posted,Transfer from xx8606 CommBank app,25.71,19390e17-d34e-4349-b57b-43721ecca116,70.55,credit,transfer,AU00000,2023-04-24T00:00:00Z,Road Passenger Transport,462
+transaction,252c7aa6-9d50-427d-a24b-a356b4b4ed6d,posted,Transfer to xx8008 CommBank app,-6.00,19390e17-d34e-4349-b57b-43721ecca116,44.84,debit,transfer,AU00000,2023-04-23T00:00:00Z,,
+transaction,0ed8b8ba-5f11-4749-b2f2-a9fd8a8d25fe,posted,Transfer to xx2125 CommBank app,-147.00,19390e17-d34e-4349-b57b-43721ecca116,50.84,debit,transfer,AU00000,2023-04-22T00:00:00Z,,
+transaction,87306261-e7e8-4795-889b-9054956cd338,posted,Transfer to xx0775 NetBank,12.00,19390e17-d34e-4349-b57b-43721ecca116,197.84,credit,transfer,AU00000,2023-04-21T00:00:00Z,Department Stores,426
+transaction,395f54a5-75ab-48f6-9a36-08f9947eb45e,posted,Transfer to xx8000 NetBank,-305.00,19390e17-d34e-4349-b57b-43721ecca116,185.84,debit,transfer,AU00000,2023-04-20T00:00:00Z,,
+transaction,6fdbac5a-3bdd-4384-a59d-0da38aed2673,posted,Transfer from xx9790 CommBank app,32.83,19390e17-d34e-4349-b57b-43721ecca116,490.84,credit,transfer,AU00000,2023-04-19T00:00:00Z,Road Passenger Transport,462
+transaction,1608fcaa-e307-4054-ad56-ada84e2e07f4,posted,Transfer to xx4466 CommBank app me,8.00,19390e17-d34e-4349-b57b-43721ecca116,458.01,credit,transfer,AU00000,2023-04-17T00:00:00Z,Department Stores,426
+transaction,9a435121-00c0-48b8-afa9-917bbd1d9f50,posted,Transfer from xx1837 CommBank app,60.21,19390e17-d34e-4349-b57b-43721ecca116,450.01,credit,transfer,AU00000,2023-04-16T00:00:00Z,Road Passenger Transport,462
+transaction,63c0900f-80f0-44f8-92d7-19d318a4586e,posted,Transfer to xx4766 CommBank app,15.70,19390e17-d34e-4349-b57b-43721ecca116,389.80,credit,transfer,AU00000,2023-04-15T00:00:00Z,Department Stores,426
+transaction,5f4821fe-1527-4163-8c58-8f69658ca121,posted,Transfer to xx9887 CommBank app,-35.00,19390e17-d34e-4349-b57b-43721ecca116,374.10,debit,transfer,AU00000,2023-04-14T00:00:00Z,,
+transaction,b93a459e-fe9f-4f0a-b9e4-5b1a4cb93b7f,posted,Transfer From DARION MORGILLO to PayID Phone ....,94.00,19390e17-d34e-4349-b57b-43721ecca116,409.10,credit,transfer,AU00000,2023-04-13T00:00:00Z,Road Passenger Transport,462
+transaction,0a220fff-42bf-4b49-912a-cfd6f48a8de4,posted,Transfer to xx7599 CommBank app,-37.00,19390e17-d34e-4349-b57b-43721ecca116,315.10,debit,transfer,AU00000,2023-04-12T00:00:00Z,,
+transaction,c3e43305-122c-43f1-a52f-2c6abfc7f007,posted,Transfer to CBA A/c CommBank app,-88.00,19390e17-d34e-4349-b57b-43721ecca116,352.10,debit,transfer,AU00000,2023-04-11T00:00:00Z,,
+transaction,6bc06692-69ff-4201-a364-d5d9e9e5ae4f,posted,Transfer to CBA A/c CommBank app Shop,-19.00,19390e17-d34e-4349-b57b-43721ecca116,440.10,debit,transfer,AU00000,2023-04-10T00:00:00Z,,
+transaction,91354356-eb29-4c66-98f3-979a60d18e1b,posted,Transfer to CBA A/c CommBank app Savings,8.00,19390e17-d34e-4349-b57b-43721ecca116,459.10,credit,transfer,AU00000,2023-04-08T00:00:00Z,Department Stores,426
+transaction,768813b3-539c-447d-bfb1-5925d661caf8,posted,Transfer to xx9433 CommBank app,-17.00,19390e17-d34e-4349-b57b-43721ecca116,451.10,debit,transfer,AU00000,2023-04-07T00:00:00Z,,
+transaction,1785b15b-840e-4e81-bac8-b9af3c6b7626,posted,Transfer to xx3943 CommBank app,-59.00,19390e17-d34e-4349-b57b-43721ecca116,468.10,debit,transfer,AU00000,2023-04-06T00:00:00Z,,
+transaction,7faa72a8-ae67-475f-ba99-57607605adaf,posted,Transfer to xx1013 CommBank app,-1200.00,19390e17-d34e-4349-b57b-43721ecca116,527.10,debit,transfer,AU00000,2023-04-05T00:00:00Z,,
+transaction,0528080c-5b1a-4405-a039-1dff98e8383f,posted,Transfer to xx1203 CommBank app,-35.00,19390e17-d34e-4349-b57b-43721ecca116,1727.10,debit,transfer,AU00000,2023-04-04T00:00:00Z,,
+transaction,1efa1dc8-5c51-4b86-9f53-405cae66ef69,posted,Transfer from  CommBank app,404.00,19390e17-d34e-4349-b57b-43721ecca116,1762.10,credit,transfer,AU00000,2023-04-03T00:00:00Z,Road Passenger Transport,462
+transaction,d8c07818-a6c3-4382-a13f-45a9a74aca9c,posted,Transfer from xx3095 CommBank app,503.00,19390e17-d34e-4349-b57b-43721ecca116,1358.10,credit,transfer,AU00000,2023-04-02T00:00:00Z,Road Passenger Transport,462
+transaction,089f8789-8d1a-4044-893a-5b16939866b6,posted,Transfer from xx7406 CommBank app,2.33,19390e17-d34e-4349-b57b-43721ecca116,855.10,credit,transfer,AU00000,2023-04-01T00:00:00Z,Road Passenger Transport,462
+transaction,cea26cba-03c9-4550-aa0b-6c384def1617,posted,Credit Interest,2.55,19390e17-d34e-4349-b57b-43721ecca116,852.77,credit,interest,AU00000,2023-03-31T00:00:00Z,,
+transaction,945a8103-7ee9-465c-ba49-d287d8be522e,posted,Transfer to xx6504 CommBank app,30.40,19390e17-d34e-4349-b57b-43721ecca116,850.22,credit,transfer,AU00000,2023-03-30T00:00:00Z,Department Stores,426
+transaction,5070d90e-7db4-4759-8390-8b69cc47f342,posted,Transfer to xx7855 CommBank app,-70.00,19390e17-d34e-4349-b57b-43721ecca116,819.82,debit,transfer,AU00000,2023-03-29T00:00:00Z,,
+transaction,a1876e36-b741-4fed-9921-64416a86e1ae,posted,Transfer to xx5164 CommBank app,19.00,19390e17-d34e-4349-b57b-43721ecca116,889.82,credit,transfer,AU00000,2023-03-28T00:00:00Z,Department Stores,426
+transaction,a3242f56-d7a5-426c-abfa-1ccdeb3393b2,posted,Transfer to xx6515 CommBank app,24.00,19390e17-d34e-4349-b57b-43721ecca116,870.82,credit,transfer,AU00000,2023-03-27T00:00:00Z,Department Stores,426
+transaction,9542e0fc-4b17-4a14-bba3-3e617c2060fa,posted,Transfer to xx1453 CommBank app,-35.00,19390e17-d34e-4349-b57b-43721ecca116,846.82,debit,transfer,AU00000,2023-03-24T00:00:00Z,,
+transaction,6a17cbf5-2921-4237-85b9-90f38e1de713,posted,Transfer from xx3282 CommBank app,104.00,19390e17-d34e-4349-b57b-43721ecca116,881.82,credit,transfer,AU00000,2023-03-23T00:00:00Z,Road Passenger Transport,462
+transaction,66643154-c93e-4981-8767-5f8b399acc7e,posted,Transfer to xx5625 CommBank app,12.00,19390e17-d34e-4349-b57b-43721ecca116,777.82,credit,transfer,AU00000,2023-03-21T00:00:00Z,Department Stores,426
+transaction,118d7dfc-5240-439b-b330-8fc71e8a67db,posted,Transfer to xx6332 CommBank app,11.00,19390e17-d34e-4349-b57b-43721ecca116,765.82,credit,transfer,AU00000,2023-03-20T00:00:00Z,Department Stores,426
+transaction,1b4cb923-ff58-4936-a99e-dbece8123b05,posted,Transfer from xx9908 CommBank app,37.15,19390e17-d34e-4349-b57b-43721ecca116,754.82,credit,transfer,AU00000,2023-03-19T00:00:00Z,Road Passenger Transport,462
+transaction,0d212f62-e7e9-4db0-a3d3-3f119e39d0b7,posted,Transfer From ENDRES S ..,399.00,19390e17-d34e-4349-b57b-43721ecca116,717.67,credit,transfer,AU00000,2023-03-18T00:00:00Z,Road Passenger Transport,462
+transaction,7816cf0a-03e2-467b-a152-a7cef9ef90d5,posted,Transfer to xx2293 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,318.67,credit,transfer,AU00000,2023-03-17T00:00:00Z,Department Stores,426
+transaction,197e04d7-23fd-4c11-8730-f4eb7333eaba,posted,Transfer to xx5916 CommBank app,16.90,19390e17-d34e-4349-b57b-43721ecca116,318.67,credit,transfer,AU00000,2023-03-16T00:00:00Z,Department Stores,426
+transaction,1468fba2-3d3a-412f-b260-2b43e0836ac7,posted,Transfer to xx3705 CommBank app,6.00,19390e17-d34e-4349-b57b-43721ecca116,301.77,credit,transfer,AU00000,2023-03-15T00:00:00Z,Department Stores,426
+transaction,5ffd83aa-c65f-48fe-9b06-43edcbee3041,posted,Transfer to xx2507 NetBank,10.80,19390e17-d34e-4349-b57b-43721ecca116,295.77,credit,transfer,AU00000,2023-03-14T00:00:00Z,Department Stores,426
+transaction,4a41d8d1-4e75-4e11-b261-16d5ae32d5b2,posted,Transfer to xx0354 CommBank app,-26.00,19390e17-d34e-4349-b57b-43721ecca116,284.97,debit,transfer,AU00000,2023-03-13T00:00:00Z,,
+transaction,11467fbe-2d65-4b1b-b6cb-966f8222949c,posted,Transfer from xx3255 CommBank app,205.01,19390e17-d34e-4349-b57b-43721ecca116,310.97,credit,transfer,AU00000,2023-03-12T00:00:00Z,Road Passenger Transport,462
+transaction,df38432e-b2a8-4c0e-b4ff-35e12ebb9deb,posted,Transfer from REBECCA MILLS CommBank app BecMillsx,22.00,19390e17-d34e-4349-b57b-43721ecca116,105.96,credit,transfer,AU00000,2023-03-11T00:00:00Z,Other Administrative Services,729
+transaction,33b8b3dd-816e-48d0-bac2-adac48fd20ba,posted,Transfer from DALE SUTHERLAND CommBank app happy Bday,36.00,19390e17-d34e-4349-b57b-43721ecca116,83.96,credit,transfer,AU00000,2023-03-10T00:00:00Z,Management and Related Consulting Services,696
+transaction,4f0d45a3-6ae1-4328-ae92-ba782a14cc55,posted,Transfer to xx1023 CommBank app,-10.00,19390e17-d34e-4349-b57b-43721ecca116,47.96,debit,transfer,AU00000,2023-03-09T00:00:00Z,,
+transaction,19438491-f5b0-4c3a-9169-f1c224b39782,posted,Transfer to xx2270 CommBank app,-161.00,19390e17-d34e-4349-b57b-43721ecca116,57.96,debit,transfer,AU00000,2023-03-08T00:00:00Z,,
+transaction,3527b4f6-d3a7-49fe-aadb-78760ad7c8aa,posted,Transfer to xx5727 CommBank app 200,-192.00,19390e17-d34e-4349-b57b-43721ecca116,218.96,debit,transfer,AU00000,2023-03-07T00:00:00Z,,
+transaction,3a493ee4-af27-49f5-b651-7d308dcd9077,posted,Transfer to xx4345 CommBank app,-23.00,19390e17-d34e-4349-b57b-43721ecca116,410.96,debit,transfer,AU00000,2023-03-06T00:00:00Z,,
+transaction,6de423fb-05d9-4683-8133-1634fa0c6905,posted,Transfer to xx9014 CommBank app,-54.00,19390e17-d34e-4349-b57b-43721ecca116,433.96,debit,transfer,AU00000,2023-03-05T00:00:00Z,,
+transaction,c718c88a-e167-41f9-be8b-0c1316388397,posted,Transfer from xx8519 CommBank app,505.00,19390e17-d34e-4349-b57b-43721ecca116,487.96,credit,transfer,AU00000,2023-03-04T00:00:00Z,Road Passenger Transport,462
+transaction,36f62d40-78f8-436e-b76c-e206e93b0dc9,posted,Transfer to xx6255 NetBank,-14.72,19390e17-d34e-4349-b57b-43721ecca116,-17.04,debit,transfer,AU00000,2023-03-03T00:00:00Z,,
+transaction,76e8dd62-8ec5-4320-9d06-c15cde8cdc7e,posted,Transfer from xx2081 CommBank app,103.00,19390e17-d34e-4349-b57b-43721ecca116,-2.32,credit,transfer,AU00000,2023-03-02T00:00:00Z,Road Passenger Transport,462
+transaction,c0f8438d-fb07-4dee-9158-85ce167abf17,posted,Transfer to xx7423 CommBank app,-22.00,19390e17-d34e-4349-b57b-43721ecca116,-105.32,debit,transfer,AU00000,2023-02-27T00:00:00Z,,
+transaction,62e5cbdd-16a4-4987-934e-31f8c7c9fc31,posted,Transfer to xx3022 CommBank app,-573.00,19390e17-d34e-4349-b57b-43721ecca116,-83.32,debit,transfer,AU00000,2023-02-26T00:00:00Z,,
+transaction,d4208533-6fe9-4409-a8f5-9f02ce2af956,posted,Transfer to xx1967 CommBank app,6.00,19390e17-d34e-4349-b57b-43721ecca116,489.68,credit,transfer,AU00000,2023-02-25T00:00:00Z,Department Stores,426
+transaction,8d961f91-bd98-4547-b4e4-7d4567fbc9d0,posted,Transfer from xx7165 CommBank app,75.00,19390e17-d34e-4349-b57b-43721ecca116,483.68,credit,transfer,AU00000,2023-02-24T00:00:00Z,Road Passenger Transport,462
+transaction,74215045-3ec9-44b5-ae09-22f935ae003b,posted,Transfer to xx3943 CommBank app,14.00,19390e17-d34e-4349-b57b-43721ecca116,408.68,credit,transfer,AU00000,2023-02-23T00:00:00Z,Department Stores,426
+transaction,68016b64-41be-476d-85a3-7e0f4e08d425,posted,Transfer to xx0301 CommBank app,-27.00,19390e17-d34e-4349-b57b-43721ecca116,394.68,debit,transfer,AU00000,2023-02-22T00:00:00Z,,
+transaction,863a9c3b-d83d-4588-9752-a7a2a5986bbe,posted,Transfer to xx4911 CommBank app,-78.00,19390e17-d34e-4349-b57b-43721ecca116,421.68,debit,transfer,AU00000,2023-02-21T00:00:00Z,,
+transaction,c9dc9e67-530f-4f79-b6fc-eab83afb5a73,posted,Transfer to xx3631 CommBank app,1.00,19390e17-d34e-4349-b57b-43721ecca116,499.68,credit,transfer,AU00000,2023-02-20T00:00:00Z,Department Stores,426
+transaction,1b4efa2c-eba1-4ad3-9a8a-321542435fab,posted,Transfer to xx7776 CommBank app,-80.00,19390e17-d34e-4349-b57b-43721ecca116,498.68,debit,transfer,AU00000,2023-02-19T00:00:00Z,,
+transaction,315c08c3-a290-4a1a-b2e9-f52e7bdf5a4d,posted,Transfer from xx7762 CommBank app,719.00,19390e17-d34e-4349-b57b-43721ecca116,578.68,credit,transfer,AU00000,2023-02-18T00:00:00Z,Road Passenger Transport,462
+transaction,bd93eeb4-fee4-4dfc-9963-25c43c55190f,posted,Transfer to xx7404 CommBank app,-32.00,19390e17-d34e-4349-b57b-43721ecca116,-140.32,debit,transfer,AU00000,2023-02-17T00:00:00Z,,
+transaction,5dfd5306-18c9-4a7c-8f03-f67512752c01,posted,Transfer to xx5600 CommBank app,-39.00,19390e17-d34e-4349-b57b-43721ecca116,-108.32,debit,transfer,AU00000,2023-02-15T00:00:00Z,,
+transaction,df587081-beca-4a74-94ec-0f44e4a3a3dd,posted,Transfer to xx4133 CommBank app,-85.00,19390e17-d34e-4349-b57b-43721ecca116,-69.32,debit,transfer,AU00000,2023-02-14T00:00:00Z,,
+transaction,ce059660-4ab9-45a2-b9d2-3630c682c455,posted,Transfer to xx6803 CommBank app,11.50,19390e17-d34e-4349-b57b-43721ecca116,15.68,credit,transfer,AU00000,2023-02-13T00:00:00Z,Department Stores,426
+transaction,8c61104c-df79-4fad-9177-ffef1ea04534,posted,Transfer to xx8940 CommBank app,-77.00,19390e17-d34e-4349-b57b-43721ecca116,4.18,debit,transfer,AU00000,2023-02-12T00:00:00Z,,
+transaction,e4c3d9c7-7492-45f0-b00a-42b6e631e826,posted,Transfer to xx0384 CommBank app,-388.00,19390e17-d34e-4349-b57b-43721ecca116,81.18,debit,transfer,AU00000,2023-02-11T00:00:00Z,,
+transaction,f05f4a4a-80aa-46ed-8aba-c3c66846338a,posted,Transfer to xx3965 CommBank app,10.00,19390e17-d34e-4349-b57b-43721ecca116,469.18,credit,transfer,AU00000,2023-02-10T00:00:00Z,Department Stores,426
+transaction,577deb8c-b852-4fb3-b83b-06c95b8bd23c,posted,Transfer to xx9430 NetBank,-390.00,19390e17-d34e-4349-b57b-43721ecca116,459.18,debit,transfer,AU00000,2023-02-09T00:00:00Z,,
+transaction,2531298f-23b9-471d-9fb0-c02cd235f3f6,posted,Transfer to xx5486 CommBank app,-166.00,19390e17-d34e-4349-b57b-43721ecca116,849.18,debit,transfer,AU00000,2023-02-08T00:00:00Z,,
+transaction,6720c7a2-3699-46c8-b95f-0feba8bf5e5d,posted,Transfer from xx3673 CommBank app,1000.00,19390e17-d34e-4349-b57b-43721ecca116,1015.18,credit,transfer,AU00000,2023-02-07T00:00:00Z,Road Passenger Transport,462
+transaction,2d915601-cb5e-45c7-b47b-1b4ec0d2ce28,posted,Transfer to xx9703 CommBank app,4.00,19390e17-d34e-4349-b57b-43721ecca116,15.18,credit,transfer,AU00000,2023-02-06T00:00:00Z,Department Stores,426
+transaction,f577cbb6-1c1d-44fd-8844-d40cb9f7cce0,posted,Transfer to xx8668 CommBank app,-24.00,19390e17-d34e-4349-b57b-43721ecca116,11.18,debit,transfer,AU00000,2023-02-05T00:00:00Z,,
+transaction,f82eeb27-ebd1-4026-ab98-8bedf6a54c8f,posted,Transfer to xx4304 CommBank app,-2.48,19390e17-d34e-4349-b57b-43721ecca116,35.18,debit,transfer,AU00000,2023-02-04T00:00:00Z,,
+transaction,ee79fee5-ac6d-4fcc-9767-3271eb549768,posted,Transfer from xx7726 CommBank app,104.00,19390e17-d34e-4349-b57b-43721ecca116,37.66,credit,transfer,AU00000,2023-02-03T00:00:00Z,Road Passenger Transport,462
+transaction,6b731d69-966e-4c6e-942a-6f2a9cd299f4,posted,Transfer to xx8250 CommBank app,-247.00,19390e17-d34e-4349-b57b-43721ecca116,-66.34,debit,transfer,AU00000,2023-02-02T00:00:00Z,,
+transaction,58774b29-20c0-4cad-a55e-82bb4ab6e6d1,posted,Transfer to xx7047 CommBank app,-47.00,19390e17-d34e-4349-b57b-43721ecca116,180.66,debit,transfer,AU00000,2023-02-01T00:00:00Z,,
+transaction,59249300-7ecb-47a8-9d26-8290bda6a188,posted,Transfer to xx9916 CommBank app,25.00,19390e17-d34e-4349-b57b-43721ecca116,227.66,credit,transfer,AU00000,2023-01-29T00:00:00Z,Department Stores,426
+transaction,5e4b4e1c-4898-4742-aec8-8d4797dc50fe,posted,Transfer to xx5733 CommBank app,19.00,19390e17-d34e-4349-b57b-43721ecca116,202.66,credit,transfer,AU00000,2023-01-28T00:00:00Z,Department Stores,426
+transaction,11812346-2d0e-4e1b-97bf-11e75f95c730,posted,Transfer to xx2363 NetBank Tax Jan 2019,-512.00,19390e17-d34e-4349-b57b-43721ecca116,183.66,debit,transfer,AU00000,2023-01-27T00:00:00Z,,
+transaction,34127562-1341-4026-b1c6-2a15f0a9bea3,posted,Transfer to xx3934 CommBank app,-23.00,19390e17-d34e-4349-b57b-43721ecca116,695.66,debit,transfer,AU00000,2023-01-26T00:00:00Z,,
+transaction,2661f0ff-8737-4073-928b-9efc3d85f3ee,posted,Transfer from xx7284 CommBank app Family,373.00,19390e17-d34e-4349-b57b-43721ecca116,718.66,credit,transfer,AU00000,2023-01-25T00:00:00Z,Road Passenger Transport,462
+transaction,099f054d-4cee-4a49-8025-221327cca05c,posted,Transfer to xx2179 CommBank app,15.00,19390e17-d34e-4349-b57b-43721ecca116,345.66,credit,transfer,AU00000,2023-01-24T00:00:00Z,Department Stores,426
+transaction,a75da365-7b95-4743-9f58-6b8d096d47fb,posted,Transfer to xx7056 CommBank app,-94.00,19390e17-d34e-4349-b57b-43721ecca116,330.66,debit,transfer,AU00000,2023-01-23T00:00:00Z,,
+transaction,b7cf0a33-2fa1-4706-8ac5-d55e1140fe9a,posted,Transfer to xx0011 CommBank app,5.92,19390e17-d34e-4349-b57b-43721ecca116,424.66,credit,transfer,AU00000,2023-01-22T00:00:00Z,Department Stores,426
+transaction,8e4d0236-ad1b-46f7-93a4-46817e20b44b,posted,Transfer to xx8907 CommBank app,14.47,19390e17-d34e-4349-b57b-43721ecca116,418.74,credit,transfer,AU00000,2023-01-21T00:00:00Z,Department Stores,426
+transaction,4c1629fd-a12a-4276-a669-25da666f1395,posted,Transfer from xx3731 CommBank app,109.73,19390e17-d34e-4349-b57b-43721ecca116,404.27,credit,transfer,AU00000,2023-01-20T00:00:00Z,Road Passenger Transport,462
+transaction,c9889d92-2dda-4327-b650-948bc5d205d0,posted,Transfer to xx9439 CommBank app,14.00,19390e17-d34e-4349-b57b-43721ecca116,294.54,credit,transfer,AU00000,2023-01-19T00:00:00Z,Department Stores,426
+transaction,de389268-6713-4821-8931-0bed78046246,posted,Transfer to xx0026 CommBank app,-1.00,19390e17-d34e-4349-b57b-43721ecca116,280.54,debit,transfer,AU00000,2023-01-18T00:00:00Z,,
+transaction,b1bddf0f-1898-4518-bd17-6abe1291190c,posted,Transfer from xx5593 CommBank app,20.25,19390e17-d34e-4349-b57b-43721ecca116,281.54,credit,transfer,AU00000,2023-01-17T00:00:00Z,Road Passenger Transport,462
+transaction,8747ed10-2748-47fa-ac5d-ad3f638a72cb,posted,Transfer to xx8143 NetBank,12.00,19390e17-d34e-4349-b57b-43721ecca116,261.29,credit,transfer,AU00000,2023-01-16T00:00:00Z,Department Stores,426
+transaction,d4f852fb-5611-4543-a238-c8989d4da32e,posted,Transfer to xx5236 CommBank app,-14.00,19390e17-d34e-4349-b57b-43721ecca116,249.29,debit,transfer,AU00000,2023-01-15T00:00:00Z,,
+transaction,be361c22-1442-47ea-ac5e-80c354740a3f,posted,Transfer from xx7367 CommBank app,65.00,19390e17-d34e-4349-b57b-43721ecca116,263.29,credit,transfer,AU00000,2023-01-14T00:00:00Z,Road Passenger Transport,462
+transaction,4418496b-b6f0-4f3f-bc98-49c126f22ae8,posted,Transfer to xx8318 CommBank app,-66.00,19390e17-d34e-4349-b57b-43721ecca116,198.29,debit,transfer,AU00000,2023-01-13T00:00:00Z,,
+transaction,88f5d5ab-1cc1-4fa6-b5d2-73cfc7a84ff7,posted,Transfer from xx3808 CommBank app,82.00,19390e17-d34e-4349-b57b-43721ecca116,264.29,credit,transfer,AU00000,2023-01-11T00:00:00Z,Road Passenger Transport,462
+transaction,07998202-2afd-42dd-a9e3-aa9f17ae6841,posted,Transfer from xx0868 CommBank app,20.12,19390e17-d34e-4349-b57b-43721ecca116,182.29,credit,transfer,AU00000,2023-01-10T00:00:00Z,Road Passenger Transport,462
+transaction,4189b097-20f9-4bea-8500-2acf1efe3c99,posted,Transfer to xx0672 CommBank app,-50.00,19390e17-d34e-4349-b57b-43721ecca116,162.17,debit,transfer,AU00000,2023-01-09T00:00:00Z,,
+transaction,6b763793-17c5-44f6-9794-988506446f1c,posted,Transfer to xx0697 CommBank app,-111.00,19390e17-d34e-4349-b57b-43721ecca116,212.17,debit,transfer,AU00000,2023-01-08T00:00:00Z,,
+transaction,5c4f283d-fa85-472c-92e6-40812cca7efd,posted,Transfer to xx9446 CommBank app,-18.00,19390e17-d34e-4349-b57b-43721ecca116,323.17,debit,transfer,AU00000,2023-01-07T00:00:00Z,,
+transaction,46c3d60d-3f21-4041-80c7-d697ae457cfc,posted,Transfer to xx0954 CommBank app,-3.00,19390e17-d34e-4349-b57b-43721ecca116,341.17,debit,transfer,AU00000,2023-01-06T00:00:00Z,,
+transaction,3f223818-a667-4651-a210-fbf9df124a62,posted,Transfer to xx2723 CommBank app,-44.00,19390e17-d34e-4349-b57b-43721ecca116,344.17,debit,transfer,AU00000,2023-01-05T00:00:00Z,,
+transaction,761528a4-dbb7-40aa-9b1c-c5af9b7855a9,posted,Transfer to xx0950 CommBank app,-495.00,19390e17-d34e-4349-b57b-43721ecca116,388.17,debit,transfer,AU00000,2023-01-04T00:00:00Z,,
+transaction,7955d26b-4366-4f2d-b5d3-c0a9d07ed5fd,posted,Transfer from xx3019 CommBank app,700.00,19390e17-d34e-4349-b57b-43721ecca116,883.17,credit,transfer,AU00000,2023-01-03T00:00:00Z,Road Passenger Transport,462
+transaction,1a95c5af-f567-4c2d-a68a-1e67cd33784b,posted,Transfer to xx7456 CommBank app,-308.00,19390e17-d34e-4349-b57b-43721ecca116,183.17,debit,transfer,AU00000,2023-01-02T00:00:00Z,,
+transaction,57f519c1-249d-4d0b-b563-97060ea42fcc,posted,Transfer to xx7862 CB TabletApp,-22.88,19390e17-d34e-4349-b57b-43721ecca116,491.17,debit,transfer,AU00000,2023-01-01T00:00:00Z,,
+transaction,6abdfcdd-7fab-4a68-abbf-fba7d94fdc1e,posted,Credit Interest,1.03,19390e17-d34e-4349-b57b-43721ecca116,514.05,credit,interest,AU00000,2022-12-31T00:00:00Z,,
+transaction,a3183c4a-f6db-4012-b879-f107ba7b6245,posted,Transfer from MARK FOWLER NetBank zimmerframe,52.00,19390e17-d34e-4349-b57b-43721ecca116,513.02,credit,transfer,AU00000,2022-12-30T00:00:00Z,Legal and Accounting Services,693
+transaction,f6b915e2-f798-4799-9c1c-68de0e9f16f1,posted,Transfer to xx7182 CommBank app,-230.00,19390e17-d34e-4349-b57b-43721ecca116,461.02,debit,transfer,AU00000,2022-12-29T00:00:00Z,,
+transaction,5e5869f2-7648-4a36-946d-c035cd1d4cf2,posted,Transfer to xx7431 CommBank app,24.00,19390e17-d34e-4349-b57b-43721ecca116,691.02,credit,transfer,AU00000,2022-12-28T00:00:00Z,Department Stores,426
+transaction,b4851164-c5d2-4c80-9725-d71b9dfe324e,posted,Transfer to xx4582 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,667.02,debit,transfer,AU00000,2022-12-27T00:00:00Z,,
+transaction,3f2324d1-f985-42a3-a88b-cb2350652666,posted,Transfer to xx4730 CommBank app,17.00,19390e17-d34e-4349-b57b-43721ecca116,675.02,credit,transfer,AU00000,2022-12-26T00:00:00Z,Department Stores,426
+transaction,007020f2-5218-4906-958c-fd6e9f1a77ae,posted,Transfer to xx3203 CommBank app,-126.00,19390e17-d34e-4349-b57b-43721ecca116,658.02,debit,transfer,AU00000,2022-12-23T00:00:00Z,,
+transaction,c218ce24-400d-48ab-97bd-63ae6124f02d,posted,Transfer to xx8058 NetBank,-27.00,19390e17-d34e-4349-b57b-43721ecca116,784.02,debit,transfer,AU00000,2022-12-22T00:00:00Z,,
+transaction,6e3ba4cb-af2d-410c-adc4-3da26273190c,posted,Transfer to xx6835 CommBank app,2.00,19390e17-d34e-4349-b57b-43721ecca116,811.02,credit,transfer,AU00000,2022-12-21T00:00:00Z,Department Stores,426
+transaction,25690605-5e35-4273-8e61-3933f0901247,posted,Transfer to xx6815 CommBank app,-200.00,19390e17-d34e-4349-b57b-43721ecca116,809.02,debit,transfer,AU00000,2022-12-20T00:00:00Z,,
+transaction,9d349a6d-1339-420a-9a91-9cb3e0f7ec28,posted,Transfer to xx8377 CommBank app,-200.00,19390e17-d34e-4349-b57b-43721ecca116,1009.02,debit,transfer,AU00000,2022-12-19T00:00:00Z,,
+transaction,3a945117-54ec-447c-bc2c-43489e342f4e,posted,Transfer to xx4228 CommBank app,1.00,19390e17-d34e-4349-b57b-43721ecca116,1209.02,credit,transfer,AU00000,2022-12-18T00:00:00Z,Department Stores,426
+transaction,34aabd9e-014e-43aa-b701-e95988796168,posted,Transfer to xx2179 CommBank app,-7.00,19390e17-d34e-4349-b57b-43721ecca116,1208.02,debit,transfer,AU00000,2022-12-17T00:00:00Z,,
+transaction,64e3a88d-add9-4091-9aee-7e5ee3630102,posted,Transfer to xx8210 CommBank app,-3.00,19390e17-d34e-4349-b57b-43721ecca116,1215.02,debit,transfer,AU00000,2022-12-16T00:00:00Z,,
+transaction,61790bf9-a2e5-423a-948e-9ee049a31643,posted,Transfer to xx9076 NetBank Transfer,-44.00,19390e17-d34e-4349-b57b-43721ecca116,1218.02,debit,transfer,AU00000,2022-12-15T00:00:00Z,,
+transaction,7f055c87-f5cb-449c-9299-cbce38da4292,posted,Transfer to xx1797 CommBank app,-185.00,19390e17-d34e-4349-b57b-43721ecca116,1262.02,debit,transfer,AU00000,2022-12-14T00:00:00Z,,
+transaction,edc462c1-ff62-40b3-b0b8-158685dd4390,posted,Transfer from xx2185 CommBank app Car,414.00,19390e17-d34e-4349-b57b-43721ecca116,1447.02,credit,transfer,AU00000,2022-12-13T00:00:00Z,Motor Vehicle and Transport Equipment Rental and Hiring,661
+transaction,2e8846e3-8951-4a14-b490-55bfadbf82e5,posted,Transfer from xx5376 CommBank app,192.00,19390e17-d34e-4349-b57b-43721ecca116,1033.02,credit,transfer,AU00000,2022-12-12T00:00:00Z,Road Passenger Transport,462
+transaction,3a77ef8b-819c-4157-9db2-ed77396141ad,posted,Transfer to xx1855 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,841.02,debit,transfer,AU00000,2022-12-11T00:00:00Z,,
+transaction,93894c57-59a6-4780-a8de-6348e48a74f3,posted,Transfer In MADALYN MADALYN,31.00,19390e17-d34e-4349-b57b-43721ecca116,849.02,credit,transfer,AU00000,2022-12-10T00:00:00Z,Road Passenger Transport,462
+transaction,8f8400e3-e01c-486e-9f37-83863d2bf7dd,posted,Transfer to xx3372 NetBank,8.00,19390e17-d34e-4349-b57b-43721ecca116,818.02,credit,transfer,AU00000,2022-12-09T00:00:00Z,Department Stores,426
+transaction,aaa9b433-e201-44b4-93cb-e86707b86181,posted,Transfer to xx3341 CommBank app,-291.00,19390e17-d34e-4349-b57b-43721ecca116,810.02,debit,transfer,AU00000,2022-12-08T00:00:00Z,,
+transaction,a73512d1-5090-4fd3-b085-9dea1552df2f,posted,Transfer from xx5822 CommBank app,91.57,19390e17-d34e-4349-b57b-43721ecca116,1101.02,credit,transfer,AU00000,2022-12-07T00:00:00Z,Road Passenger Transport,462
+transaction,928077ba-2feb-4af6-953b-f3a58d35728d,posted,Transfer to xx3090 CommBank app,-33.00,19390e17-d34e-4349-b57b-43721ecca116,1009.45,debit,transfer,AU00000,2022-12-06T00:00:00Z,,
+transaction,c96e3131-720b-4d20-9f59-5489b8dd7993,posted,Transfer from xx7816 CommBank app Savings,276.00,19390e17-d34e-4349-b57b-43721ecca116,1042.45,credit,transfer,AU00000,2022-12-05T00:00:00Z,Road Passenger Transport,462
+transaction,b4a0216f-be85-48f2-bba6-d89378337e57,posted,Transfer from xx3325 CommBank app,205.00,19390e17-d34e-4349-b57b-43721ecca116,766.45,credit,transfer,AU00000,2022-12-04T00:00:00Z,Road Passenger Transport,462
+transaction,b76b1bab-c6fc-423c-ab39-2a75886e7dce,posted,Transfer to xx7088 CommBank app,-76.00,19390e17-d34e-4349-b57b-43721ecca116,561.45,debit,transfer,AU00000,2022-12-03T00:00:00Z,,
+transaction,cbbe7114-2702-463d-88f7-43a60b5021f8,posted,Transfer to xx9063 CommBank app,-39.00,19390e17-d34e-4349-b57b-43721ecca116,637.45,debit,transfer,AU00000,2022-12-02T00:00:00Z,,
+transaction,548016b1-f4de-47f3-a511-6ffbae20d378,posted,Transfer to xx0776 CommBank app,-28.00,19390e17-d34e-4349-b57b-43721ecca116,676.45,debit,transfer,AU00000,2022-12-01T00:00:00Z,,
+transaction,5d27b3c3-8627-4796-8e88-b8b9f61b317b,posted,Transfer to xx6883 CommBank app,-5.00,19390e17-d34e-4349-b57b-43721ecca116,704.45,debit,transfer,AU00000,2022-11-30T00:00:00Z,,
+transaction,32c51b52-98f8-4e69-b93b-2d1d8a77d6ba,posted,Transfer to xx5597 CommBank app,-30.00,19390e17-d34e-4349-b57b-43721ecca116,709.45,debit,transfer,AU00000,2022-11-29T00:00:00Z,,
+transaction,76ab5ca1-3a57-497a-b3b8-ecb44dd755b4,posted,Transfer from xx3283 CommBank app saveings,129.00,19390e17-d34e-4349-b57b-43721ecca116,739.45,credit,transfer,AU00000,2022-11-28T00:00:00Z,Unknown,0
+transaction,4f0da901-3c24-44b4-b53d-58871c86234e,posted,Transfer from xx2292 NetBank,278.00,19390e17-d34e-4349-b57b-43721ecca116,610.45,credit,transfer,AU00000,2022-11-27T00:00:00Z,Road Passenger Transport,462
+transaction,2b088ac9-f6c7-421a-9d06-d8aff0794a1d,posted,Transfer from  CommBank app,36.00,19390e17-d34e-4349-b57b-43721ecca116,332.45,credit,transfer,AU00000,2022-11-26T00:00:00Z,Road Passenger Transport,462
+transaction,e13a6a5c-3a83-4b36-bd2a-6380fc01134b,posted,Transfer to xx3978 CommBank app,6.00,19390e17-d34e-4349-b57b-43721ecca116,296.45,credit,transfer,AU00000,2022-11-25T00:00:00Z,Department Stores,426
+transaction,92a3acf6-62c9-466b-a340-31e5e4f15f57,posted,Transfer to CBA A/c CommBank app melissa,5.00,19390e17-d34e-4349-b57b-43721ecca116,290.45,credit,transfer,AU00000,2022-11-24T00:00:00Z,Department Stores,426
+transaction,f4e13baa-b04d-43b2-ad29-7afba4798a51,posted,Transfer to xx6155 CommBank app,-126.00,19390e17-d34e-4349-b57b-43721ecca116,285.45,debit,transfer,AU00000,2022-11-23T00:00:00Z,,
+transaction,eb630081-6171-4670-a83c-6936f1dc964e,posted,Transfer to xx1275 CommBank app,-28.00,19390e17-d34e-4349-b57b-43721ecca116,411.45,debit,transfer,AU00000,2022-11-21T00:00:00Z,,
+transaction,77805a11-a889-4e2f-8158-010c2592b58a,posted,Transfer to other Bank CommBank app Hawkins 13 Value Date: 22/11/2018,-309.00,19390e17-d34e-4349-b57b-43721ecca116,439.45,debit,transfer,AU00000,2022-11-20T00:00:00Z,,
+transaction,55b7dd4d-ae6d-444b-8012-91b688d87330,posted,Transfer to xx0253 CommBank app,0.00,19390e17-d34e-4349-b57b-43721ecca116,748.45,credit,transfer,AU00000,2022-11-19T00:00:00Z,Department Stores,426
+transaction,11e69e42-680a-4cfd-a06b-624b5626f7bf,posted,Transfer to xx3621 CommBank app,-8.00,19390e17-d34e-4349-b57b-43721ecca116,748.45,debit,transfer,AU00000,2022-11-18T00:00:00Z,,
+transaction,a95479a0-4f69-4a2c-b846-7681fc4a05e4,posted,Transfer to xx0283 CommBank app matt b,3.00,19390e17-d34e-4349-b57b-43721ecca116,756.45,credit,transfer,AU00000,2022-11-17T00:00:00Z,Department Stores,426
+transaction,9c642dfb-9366-475f-99bd-ad9523ad53b0,posted,Transfer to xx5040 CommBank app,-23.00,19390e17-d34e-4349-b57b-43721ecca116,753.45,debit,transfer,AU00000,2022-11-16T00:00:00Z,,
+transaction,3d51a71c-9a00-4fb1-a60d-d695192e2b82,posted,Transfer to xx9923 CommBank app,-885.00,19390e17-d34e-4349-b57b-43721ecca116,776.45,debit,transfer,AU00000,2022-11-14T00:00:00Z,,
+transaction,265e51c0-4930-4508-a1c2-2c09d69dd3ea,posted,Transfer from xx1318 CommBank app,118.00,19390e17-d34e-4349-b57b-43721ecca116,1661.45,credit,transfer,AU00000,2022-11-13T00:00:00Z,Road Passenger Transport,462
+transaction,82df4cfe-f7d9-4c9c-9359-a6a8dd14f754,posted,Transfer to xx7920 CommBank app food,-37.00,19390e17-d34e-4349-b57b-43721ecca116,1543.45,debit,transfer,AU00000,2022-11-12T00:00:00Z,,
+transaction,ef769f17-38e5-435a-9748-b184fd96f5e9,posted,Transfer to xx8334 CommBank app,-33.00,19390e17-d34e-4349-b57b-43721ecca116,1580.45,debit,transfer,AU00000,2022-11-11T00:00:00Z,,
+transaction,0d5a4efb-3b91-4a52-920e-356f29fc75a0,posted,Transfer to xx1578 CommBank app Skill assesment,-109.00,19390e17-d34e-4349-b57b-43721ecca116,1613.45,debit,transfer,AU00000,2022-11-10T00:00:00Z,,
+transaction,5d48f5e6-7d0a-4be3-b0b3-7f6280c824c5,posted,Transfer to xx5716 CommBank app,-10.00,19390e17-d34e-4349-b57b-43721ecca116,1722.45,debit,transfer,AU00000,2022-11-09T00:00:00Z,,
+transaction,62ed4de5-55cc-40ea-a541-4e215d0a7ebd,posted,Transfer to xx0714 CommBank app,-20.65,19390e17-d34e-4349-b57b-43721ecca116,1732.45,debit,transfer,AU00000,2022-11-08T00:00:00Z,,
+transaction,7a293878-fde9-4f75-88b5-92776a4f980b,posted,Transfer from  CommBank app,108.00,19390e17-d34e-4349-b57b-43721ecca116,1753.10,credit,transfer,AU00000,2022-11-07T00:00:00Z,Road Passenger Transport,462
+transaction,0afca8ac-f6f9-45e8-8aa4-e874c211df4e,posted,Transfer to xx7041 CommBank app,-14.00,19390e17-d34e-4349-b57b-43721ecca116,1645.10,debit,transfer,AU00000,2022-11-05T00:00:00Z,,
+transaction,609b44a8-4cc6-43d3-8873-f823b7c83b92,posted,Transfer to xx9026 CommBank app,4.61,19390e17-d34e-4349-b57b-43721ecca116,1659.10,credit,transfer,AU00000,2022-11-04T00:00:00Z,Department Stores,426
+transaction,e299bc43-4051-4384-a9b6-b3808a7cddfe,posted,Transfer to xx5600 CommBank app,-202.00,19390e17-d34e-4349-b57b-43721ecca116,1654.49,debit,transfer,AU00000,2022-11-03T00:00:00Z,,
+transaction,b8a493bf-fbda-4849-939f-3344c232fd5d,posted,Transfer to xx3202 CommBank app,-12.51,19390e17-d34e-4349-b57b-43721ecca116,1856.49,debit,transfer,AU00000,2022-11-02T00:00:00Z,,
+transaction,c171d9a4-1484-4bb8-93b1-c8649654237e,posted,Transfer to xx2533 CommBank app,-3.00,19390e17-d34e-4349-b57b-43721ecca116,1869.00,debit,transfer,AU00000,2022-11-01T00:00:00Z,,
+transaction,df19173c-ad56-422b-8d24-9c6323ed1a43,posted,Transfer from LEN-LEN LIGON CommBank app tuition fee,55.00,19390e17-d34e-4349-b57b-43721ecca116,1872.00,credit,transfer,AU00000,2022-10-31T00:00:00Z,Unknown,0
+transaction,8b372218-ffa0-4d93-8471-797787f0ad02,posted,Transfer to xx6212 CommBank app,21.00,19390e17-d34e-4349-b57b-43721ecca116,1817.00,credit,transfer,AU00000,2022-10-30T00:00:00Z,Department Stores,426
+transaction,67674eec-a4cd-415e-a994-aa3bd5c78a05,posted,Transfer from xx5715 CommBank app,230.00,19390e17-d34e-4349-b57b-43721ecca116,1796.00,credit,transfer,AU00000,2022-10-29T00:00:00Z,Road Passenger Transport,462
+transaction,b2f4db21-acae-4675-bd6c-4fd2257a9e9c,posted,Transfer to xx6397 CommBank app,9.00,19390e17-d34e-4349-b57b-43721ecca116,1566.00,credit,transfer,AU00000,2022-10-28T00:00:00Z,Department Stores,426
+transaction,b2613cf1-3a62-4df6-8c79-7cc4a3c4d33e,posted,Transfer to xx0074 CommBank app,6.00,19390e17-d34e-4349-b57b-43721ecca116,1557.00,credit,transfer,AU00000,2022-10-27T00:00:00Z,Department Stores,426
+transaction,3052167b-357c-44fe-abf2-5896d78ca6ee,posted,Transfer to xx4653 NetBank Jsbajsns,7.00,19390e17-d34e-4349-b57b-43721ecca116,1551.00,credit,transfer,AU00000,2022-10-26T00:00:00Z,Department Stores,426
+transaction,6feca4db-9346-4b7f-b883-ad8bf77543da,posted,Transfer to xx2366 CommBank app,16.00,19390e17-d34e-4349-b57b-43721ecca116,1544.00,credit,transfer,AU00000,2022-10-25T00:00:00Z,Department Stores,426
+transaction,54d21c3b-1139-4e3f-ad5a-751947ab8524,posted,Transfer to xx1899 CommBank app,5.00,19390e17-d34e-4349-b57b-43721ecca116,1528.00,credit,transfer,AU00000,2022-10-24T00:00:00Z,Department Stores,426
+transaction,c5d96f55-f8bd-449b-8233-ae69c5637d18,posted,Transfer to xx9925 CommBank app,14.00,19390e17-d34e-4349-b57b-43721ecca116,1523.00,credit,transfer,AU00000,2022-10-23T00:00:00Z,Department Stores,426
+transaction,2902e757-ac79-4d56-8c71-cff0a5bb58f9,posted,Transfer to xx0779 CommBank app,-12.00,19390e17-d34e-4349-b57b-43721ecca116,1509.00,debit,transfer,AU00000,2022-10-22T00:00:00Z,,
+transaction,43114ffc-99d7-4770-b406-ba381e72fee9,posted,Transfer to xx5179 NetBank,-78.00,19390e17-d34e-4349-b57b-43721ecca116,1521.00,debit,transfer,AU00000,2022-10-21T00:00:00Z,,
+transaction,08a7b494-b07e-4daf-89c3-63bad655b5cb,posted,Transfer to xx9883 CommBank app,11.00,19390e17-d34e-4349-b57b-43721ecca116,1599.00,credit,transfer,AU00000,2022-10-20T00:00:00Z,Department Stores,426
+transaction,5f84f263-c55d-42d9-b3b5-4dfe6b6a3db1,posted,Transfer from  CommBank app,786.00,19390e17-d34e-4349-b57b-43721ecca116,1588.00,credit,transfer,AU00000,2022-10-18T00:00:00Z,Road Passenger Transport,462
+transaction,04da4d79-227b-4a90-b10a-e7067ac5cef5,posted,Transfer to xx8205 CommBank app,15.00,19390e17-d34e-4349-b57b-43721ecca116,802.00,credit,transfer,AU00000,2022-10-17T00:00:00Z,Department Stores,426
+transaction,369d63bb-0e16-4ad8-98b4-c948ab0fce51,posted,Transfer from xx8552 CommBank app,153.00,19390e17-d34e-4349-b57b-43721ecca116,787.00,credit,transfer,AU00000,2022-10-16T00:00:00Z,Road Passenger Transport,462
+transaction,406f06f0-658c-432d-ad0e-53673eab9f0d,posted,Transfer from xx1071 NetBank,216.00,19390e17-d34e-4349-b57b-43721ecca116,634.00,credit,transfer,AU00000,2022-10-15T00:00:00Z,Road Passenger Transport,462
+transaction,13edb6dc-3dfd-4189-b3cf-f6286ed9b386,posted,Transfer to xx7404 CommBank app,-5.00,19390e17-d34e-4349-b57b-43721ecca116,418.00,debit,transfer,AU00000,2022-10-14T00:00:00Z,,
+transaction,739e16a8-51df-4db6-9eef-a2a5b86bd089,posted,Transfer to xx1605 CommBank app,9.00,19390e17-d34e-4349-b57b-43721ecca116,423.00,credit,transfer,AU00000,2022-10-13T00:00:00Z,Department Stores,426
+transaction,76576397-82c6-403a-a549-b619c57ad6a5,posted,Transfer from xx8642 CommBank app,413.00,19390e17-d34e-4349-b57b-43721ecca116,414.00,credit,transfer,AU00000,2022-10-12T00:00:00Z,Road Passenger Transport,462
+transaction,6e8f5b0a-4806-4d1f-8b69-7640d32967c0,posted,Transfer In Savings M TUFI,112.00,19390e17-d34e-4349-b57b-43721ecca116,1.00,credit,transfer,AU00000,2022-10-11T00:00:00Z,Unknown,0
+transaction,80410a0b-baa5-49c2-9ed4-0f2e53fd7edb,posted,Transfer to xx8490 CommBank app,-3.70,19390e17-d34e-4349-b57b-43721ecca116,-111.00,debit,transfer,AU00000,2022-10-10T00:00:00Z,,
+transaction,d031a524-ba1c-4a6e-b815-15bf0043c793,posted,Transfer to xx6908 CommBank app,-7.00,19390e17-d34e-4349-b57b-43721ecca116,-107.30,debit,transfer,AU00000,2022-10-09T00:00:00Z,,
+transaction,4d13b937-e876-4509-a87b-e27460429762,posted,Transfer to xx4269 CommBank app,-66.00,19390e17-d34e-4349-b57b-43721ecca116,-100.30,debit,transfer,AU00000,2022-10-08T00:00:00Z,,
+transaction,4304110f-6e74-4514-aab5-597077c7a030,posted,Transfer to xx1863 CommBank app,-4.00,19390e17-d34e-4349-b57b-43721ecca116,-34.30,debit,transfer,AU00000,2022-10-07T00:00:00Z,,
+transaction,aa6f2f85-8460-45a3-b666-5607185f9f35,posted,Transfer to xx5593 CommBank app,-193.00,19390e17-d34e-4349-b57b-43721ecca116,-30.30,debit,transfer,AU00000,2022-10-06T00:00:00Z,,
+transaction,c332e32f-6e85-4012-8d93-4ac7839db042,posted,Transfer to xx0859 CommBank app,-14.00,19390e17-d34e-4349-b57b-43721ecca116,162.70,debit,transfer,AU00000,2022-10-05T00:00:00Z,,
+transaction,e0508cab-ac1c-4273-8a7a-f97a4b00d9e4,posted,Transfer to xx1784 CommBank app,-10.00,19390e17-d34e-4349-b57b-43721ecca116,176.70,debit,transfer,AU00000,2022-10-04T00:00:00Z,,
+transaction,bd21f24b-7178-4893-81e2-8e1c1126f79e,posted,Transfer to xx8223 CommBank app,-46.00,19390e17-d34e-4349-b57b-43721ecca116,186.70,debit,transfer,AU00000,2022-10-03T00:00:00Z,,
+transaction,e381d5b5-0bbb-4c7d-97a8-413f95aa8445,posted,Transfer to xx8251 CommBank app,-27.00,19390e17-d34e-4349-b57b-43721ecca116,232.70,debit,transfer,AU00000,2022-10-02T00:00:00Z,,
+transaction,3fc7459b-ce5a-4489-a7e3-abd89b7a28d1,posted,Transfer to xx5462 CommBank app,-73.00,19390e17-d34e-4349-b57b-43721ecca116,259.70,debit,transfer,AU00000,2022-10-01T00:00:00Z,,
+transaction,4be3997a-6223-4582-8fd6-e1276767eb25,posted,Transfer to xx8124 CommBank app,-39.00,19390e17-d34e-4349-b57b-43721ecca116,332.70,debit,transfer,AU00000,2022-09-30T00:00:00Z,,
+transaction,8be91ab0-7f5a-4028-8538-75693537cab4,posted,Transfer to xx5014 CommBank app,200.00,19390e17-d34e-4349-b57b-43721ecca116,371.70,credit,transfer,AU00000,2022-09-29T00:00:00Z,Department Stores,426
+transaction,094f9ca9-f742-4bde-a2dd-ec6534d3e7b0,posted,Transfer to xx9753 CommBank app,19.00,19390e17-d34e-4349-b57b-43721ecca116,171.70,credit,transfer,AU00000,2022-09-28T00:00:00Z,Department Stores,426
+transaction,5ce4e03d-1143-45cf-a23e-e8c2d51a33a2,posted,Transfer to xx5247 CommBank app,-2.00,19390e17-d34e-4349-b57b-43721ecca116,152.70,debit,transfer,AU00000,2022-09-27T00:00:00Z,,
+transaction,378fd287-0153-4be0-af74-6e8c6dfc7910,posted,Transfer to xx5937 CommBank app,-4.00,19390e17-d34e-4349-b57b-43721ecca116,154.70,debit,transfer,AU00000,2022-09-25T00:00:00Z,,
+transaction,6261dfa6-4165-4448-a825-f9302cbc53ef,posted,Transfer to xx4091 CommBank app,5.00,19390e17-d34e-4349-b57b-43721ecca116,158.70,credit,transfer,AU00000,2022-09-24T00:00:00Z,Department Stores,426
+transaction,818b1020-e4e4-4d09-9aab-14bcc26642d3,posted,Transfer from xx7909 CommBank app,34.00,19390e17-d34e-4349-b57b-43721ecca116,153.70,credit,transfer,AU00000,2022-09-23T00:00:00Z,Road Passenger Transport,462
+transaction,8b5db0cd-8a69-4c3c-a8df-61891d1189ae,posted,Transfer from  NetBank ROXYS POCKET MONEY,30.50,19390e17-d34e-4349-b57b-43721ecca116,119.70,credit,transfer,AU00000,2022-09-22T00:00:00Z,Unknown,0
+transaction,bb80150a-2280-466b-9b38-d8ab8d3544d4,posted,Transfer to xx4251 CommBank app,-4.20,19390e17-d34e-4349-b57b-43721ecca116,89.20,debit,transfer,AU00000,2022-09-21T00:00:00Z,,
+transaction,982efa98-3ba1-4d82-a1e5-35f0968e5be8,posted,Transfer to xx2932 CommBank app,17.40,19390e17-d34e-4349-b57b-43721ecca116,93.40,credit,transfer,AU00000,2022-09-20T00:00:00Z,Department Stores,426
+transaction,43562122-4581-4689-89ff-c3fa7bea1953,posted,Transfer from xx9457 CommBank app,43.15,19390e17-d34e-4349-b57b-43721ecca116,76.00,credit,transfer,AU00000,2022-09-19T00:00:00Z,Road Passenger Transport,462
+transaction,8453a92b-236a-47ee-a5a9-782a81b4d159,posted,Transfer to xx5415 CommBank app,-1.00,19390e17-d34e-4349-b57b-43721ecca116,32.85,debit,transfer,AU00000,2022-09-18T00:00:00Z,,
+transaction,6907a641-3559-4d50-9dfa-d61841702fc7,posted,Transfer to xx4152 CommBank app,-82.00,19390e17-d34e-4349-b57b-43721ecca116,33.85,debit,transfer,AU00000,2022-09-17T00:00:00Z,,
+transaction,e8f49d47-d965-420d-98bd-563bc509dd0a,posted,Transfer from xx1652 CommBank app,167.00,19390e17-d34e-4349-b57b-43721ecca116,115.85,credit,transfer,AU00000,2022-09-16T00:00:00Z,Road Passenger Transport,462
+transaction,53243b8c-420c-40ff-aa6f-e02ad643a40c,posted,Transfer to xx7779 CommBank app,-984.00,19390e17-d34e-4349-b57b-43721ecca116,-51.15,debit,transfer,AU00000,2022-09-15T00:00:00Z,,
+transaction,de8defeb-4d95-49d4-a615-5682d74a7ffb,posted,Transfer to CBA A/c NetBank Travel,-485.00,19390e17-d34e-4349-b57b-43721ecca116,932.85,debit,transfer,AU00000,2022-09-14T00:00:00Z,,
+transaction,3f6dee2d-e455-4e6b-b2f7-6697932993f4,posted,Transfer from xx0408 CommBank app,1074.87,19390e17-d34e-4349-b57b-43721ecca116,1417.85,credit,transfer,AU00000,2022-09-12T00:00:00Z,Road Passenger Transport,462
+transaction,dac9001a-0451-4f8a-8b20-ce00d7fcf4a1,posted,Transfer from xx7024 CommBank app,90.24,19390e17-d34e-4349-b57b-43721ecca116,342.98,credit,transfer,AU00000,2022-09-11T00:00:00Z,Road Passenger Transport,462
+transaction,a322e008-6252-4b99-945f-077fc4ce3c8e,posted,Transfer to xx3407 CommBank app,1000.00,19390e17-d34e-4349-b57b-43721ecca116,252.74,credit,transfer,AU00000,2022-09-10T00:00:00Z,Department Stores,426
+transaction,67efca8b-e69f-413e-96ff-b91fc144ba7e,posted,Transfer to xx1569 CommBank app,-290.00,19390e17-d34e-4349-b57b-43721ecca116,-747.26,debit,transfer,AU00000,2022-09-09T00:00:00Z,,
+transaction,9a9d4174-afe8-441e-9b7b-96b8488c29c7,posted,Transfer to xx3551 CommBank app,-491.00,19390e17-d34e-4349-b57b-43721ecca116,-457.26,debit,transfer,AU00000,2022-09-08T00:00:00Z,,
+transaction,66fcc70e-e5b7-488e-9477-717ff87b93c7,posted,Transfer to xx3664 CommBank app,-42.00,19390e17-d34e-4349-b57b-43721ecca116,33.74,debit,transfer,AU00000,2022-09-07T00:00:00Z,,
+transaction,6979fc7a-3b90-4805-b494-c5c66ca649e4,posted,Transfer to xx9755 CommBank app,-43.00,19390e17-d34e-4349-b57b-43721ecca116,75.74,debit,transfer,AU00000,2022-09-06T00:00:00Z,,
+transaction,bb82e5d0-18a9-44fe-be7b-eca154cb090d,posted,Transfer To DANIEL A EATON PayID Phone from CommBank app Bills,-94.00,19390e17-d34e-4349-b57b-43721ecca116,118.74,debit,transfer,AU00000,2022-09-05T00:00:00Z,,
+transaction,fe1a91da-b447-470e-96ea-00ab5bc927b5,posted,Transfer from xx2159 NetBank M and B Savings,105.00,19390e17-d34e-4349-b57b-43721ecca116,212.74,credit,transfer,AU00000,2022-09-04T00:00:00Z,Pharmaceutical and Other Store-Based Retailing,427
+transaction,17baa022-a616-4cb2-8e11-f24f35694764,posted,Transfer to xx7654 CommBank app,-56.00,19390e17-d34e-4349-b57b-43721ecca116,107.74,debit,transfer,AU00000,2022-09-03T00:00:00Z,,
+transaction,e6b8018e-eb95-4863-b0b3-0446548087dd,posted,Transfer to xx6308 CommBank app,-7.00,19390e17-d34e-4349-b57b-43721ecca116,163.74,debit,transfer,AU00000,2022-09-02T00:00:00Z,,
+transaction,4be0ec5d-8cf7-46bb-ac19-94f3459c512a,posted,Transfer to CBA A/c NetBank AUGUST PAYG 2018,-200.00,19390e17-d34e-4349-b57b-43721ecca116,170.74,debit,transfer,AU00000,2022-09-01T00:00:00Z,,
+transaction,7ddab27c-bd53-47fe-9e61-dfed9c60b6eb,posted,Credit Interest,1.29,19390e17-d34e-4349-b57b-43721ecca116,370.74,credit,interest,AU00000,2022-08-31T00:00:00Z,,
+transaction,4c3f0a34-2c27-4b65-980c-feecd61ed318,posted,Transfer to xx4569 Phone,6.00,19390e17-d34e-4349-b57b-43721ecca116,369.45,credit,transfer,AU00000,2022-08-30T00:00:00Z,Telecommunications Services,580
+transaction,6d40caf6-18b8-45d8-b254-98e60e1a9052,posted,Transfer to xx2531 CommBank app,-41.00,19390e17-d34e-4349-b57b-43721ecca116,363.45,debit,transfer,AU00000,2022-08-28T00:00:00Z,,
+transaction,855c7625-8920-4989-b147-18b89d1cf518,posted,Transfer to xx5200 CommBank app,-236.00,19390e17-d34e-4349-b57b-43721ecca116,404.45,debit,transfer,AU00000,2022-08-26T00:00:00Z,,
+transaction,dad082ea-38f6-4b29-874b-9e6889d92c99,posted,Transfer to xx1723 CommBank app,-74.00,19390e17-d34e-4349-b57b-43721ecca116,640.45,debit,transfer,AU00000,2022-08-25T00:00:00Z,,
+transaction,be042404-04c8-4110-aead-ecfa27b2619c,posted,Transfer to xx4333 CommBank app,-75.00,19390e17-d34e-4349-b57b-43721ecca116,714.45,debit,transfer,AU00000,2022-08-24T00:00:00Z,,
+transaction,3ddb30dc-cecc-475e-8806-8829f676d9dc,posted,Transfer to xx2145 CommBank app,-76.00,19390e17-d34e-4349-b57b-43721ecca116,789.45,debit,transfer,AU00000,2022-08-23T00:00:00Z,,
+transaction,48f2b5b3-8530-4616-9b76-7acf6cf71bc7,posted,Transfer to CBA A/c NetBank Kelly,-27.00,19390e17-d34e-4349-b57b-43721ecca116,865.45,debit,transfer,AU00000,2022-08-22T00:00:00Z,,
+transaction,7abedc8f-62be-4367-8a10-408671003a4f,posted,Transfer from xx5413 NetBank,722.00,19390e17-d34e-4349-b57b-43721ecca116,892.45,credit,transfer,AU00000,2022-08-21T00:00:00Z,Road Passenger Transport,462
+transaction,1ed3b947-65e2-40c8-8de2-3caaf8287934,posted,Transfer to xx9022 CommBank app,-39.00,19390e17-d34e-4349-b57b-43721ecca116,170.45,debit,transfer,AU00000,2022-08-20T00:00:00Z,,
+transaction,de12eeb3-ba7c-47dc-810e-29df2dd7daca,posted,Transfer to xx7166 CommBank app,-1200.00,19390e17-d34e-4349-b57b-43721ecca116,209.45,debit,transfer,AU00000,2022-08-19T00:00:00Z,,
+transaction,a949df61-51ec-47d2-be55-65bf934b4e27,posted,Transfer to xx9682 CommBank app,1400.00,19390e17-d34e-4349-b57b-43721ecca116,1409.45,credit,transfer,AU00000,2022-08-18T00:00:00Z,Department Stores,426
+transaction,1290bc29-7ed4-4366-a984-905f15618706,posted,Transfer to xx8119 CommBank app,-2.00,19390e17-d34e-4349-b57b-43721ecca116,9.45,debit,transfer,AU00000,2022-08-17T00:00:00Z,,
+transaction,f90be268-3244-450c-9a6a-c0696a8bcc56,posted,Transfer to xx8179 CommBank app,-23.00,19390e17-d34e-4349-b57b-43721ecca116,11.45,debit,transfer,AU00000,2022-08-16T00:00:00Z,,
+transaction,ce6c4e4c-a63d-4a28-b768-7901803fa07e,posted,Transfer to xx3756 CommBank app,-34.00,19390e17-d34e-4349-b57b-43721ecca116,34.45,debit,transfer,AU00000,2022-08-15T00:00:00Z,,
+transaction,ad944131-eb61-4969-8ee8-00555b355f29,posted,Transfer to xx7099 CommBank app,-177.00,19390e17-d34e-4349-b57b-43721ecca116,68.45,debit,transfer,AU00000,2022-08-14T00:00:00Z,,
+transaction,f4f87a16-c596-4981-9d88-6a99d55adc27,posted,Transfer to xx4153 CommBank app,-112.00,19390e17-d34e-4349-b57b-43721ecca116,245.45,debit,transfer,AU00000,2022-08-12T00:00:00Z,,
+transaction,e176d850-aa46-4878-8b8d-e9b84f8a91f7,posted,Transfer to xx6643 CommBank app Savings,-8.00,19390e17-d34e-4349-b57b-43721ecca116,357.45,debit,transfer,AU00000,2022-08-11T00:00:00Z,,
+transaction,a505b4ff-8fa3-4470-84e5-0ea7e223d2af,posted,Transfer from xx3120 CommBank app Value Date: 12/08/2018,159.00,19390e17-d34e-4349-b57b-43721ecca116,365.45,credit,transfer,AU00000,2022-08-10T00:00:00Z,Road Passenger Transport,462
+transaction,14ef661d-a8c7-4564-bdbe-192daaccef60,posted,Transfer to xx7137 CommBank app,-70.00,19390e17-d34e-4349-b57b-43721ecca116,206.45,debit,transfer,AU00000,2022-08-09T00:00:00Z,,
+transaction,86e78d6e-6fbe-4bac-85b9-122e4022674b,posted,Transfer to xx8516 CommBank app,-541.00,19390e17-d34e-4349-b57b-43721ecca116,276.45,debit,transfer,AU00000,2022-08-08T00:00:00Z,,
+transaction,7943ec92-2363-4a4e-aaa8-8ae7d1dd3905,posted,Transfer to xx8345 CommBank app,-292.00,19390e17-d34e-4349-b57b-43721ecca116,817.45,debit,transfer,AU00000,2022-08-07T00:00:00Z,,
+transaction,ce3dd626-6dfd-4cc6-b1be-8a9338b641f5,posted,Transfer to xx2214 CommBank app,1000.00,19390e17-d34e-4349-b57b-43721ecca116,1109.45,credit,transfer,AU00000,2022-08-06T00:00:00Z,Department Stores,426
+transaction,e5083f77-6adc-4414-a242-3d99044cb4a5,posted,Transfer to xx9670 CommBank app,-494.00,19390e17-d34e-4349-b57b-43721ecca116,109.45,debit,transfer,AU00000,2022-08-05T00:00:00Z,,
+transaction,afc86e4d-1f46-43ce-8422-a06f36b79daa,posted,Transfer to xx8119 CommBank app,-26.00,19390e17-d34e-4349-b57b-43721ecca116,603.45,debit,transfer,AU00000,2022-08-03T00:00:00Z,,
+transaction,b8ddbe40-e132-4e92-beff-241b09672d14,posted,Transfer to xx4803 CommBank app,-12.00,19390e17-d34e-4349-b57b-43721ecca116,629.45,debit,transfer,AU00000,2022-08-02T00:00:00Z,,
+transaction,85bd4952-bda9-4c77-a769-5cf452ebf02e,posted,Transfer to xx7324 CommBank app,-148.00,19390e17-d34e-4349-b57b-43721ecca116,641.45,debit,transfer,AU00000,2022-08-01T00:00:00Z,,
+transaction,faa1e8dc-607a-4ced-809f-c12de8812e04,posted,Credit Interest,1.04,19390e17-d34e-4349-b57b-43721ecca116,789.45,credit,interest,AU00000,2022-07-31T00:00:00Z,,
+transaction,9167e0e0-31cf-4d19-ad74-fb32dc29f50e,posted,Transfer from xx9263 CommBank app Shop,191.00,19390e17-d34e-4349-b57b-43721ecca116,788.41,credit,transfer,AU00000,2022-07-30T00:00:00Z,Unknown,0
+transaction,21400876-9e34-45f9-b5d7-64df2b08c422,posted,Transfer to xx6259 CommBank app,-20.00,19390e17-d34e-4349-b57b-43721ecca116,597.41,debit,transfer,AU00000,2022-07-29T00:00:00Z,,
+transaction,98802bbe-2a06-4d91-ae96-0125bc06bafa,posted,Transfer to xx9192 CommBank app,-71.00,19390e17-d34e-4349-b57b-43721ecca116,617.41,debit,transfer,AU00000,2022-07-28T00:00:00Z,,
+transaction,5a0c3bde-afd8-4e29-9888-1bc25ade99f4,posted,Transfer to xx9674 CommBank app,8.00,19390e17-d34e-4349-b57b-43721ecca116,688.41,credit,transfer,AU00000,2022-07-27T00:00:00Z,Department Stores,426
+transaction,78f925d7-12f9-43d8-b6b6-88ed8a0d9e24,posted,Transfer to xx8033 CommBank app,-204.00,19390e17-d34e-4349-b57b-43721ecca116,680.41,debit,transfer,AU00000,2022-07-25T00:00:00Z,,
+transaction,39e610c0-7893-4eb4-bc44-a81a9ff84595,posted,Transfer from xx4513 CommBank app,800.00,19390e17-d34e-4349-b57b-43721ecca116,884.41,credit,transfer,AU00000,2022-07-24T00:00:00Z,Road Passenger Transport,462
+transaction,cf8c38c6-c0ad-4cbf-a8ce-9a5a411ae375,posted,Transfer from xx9207 CommBank app,124.00,19390e17-d34e-4349-b57b-43721ecca116,84.41,credit,transfer,AU00000,2022-07-23T00:00:00Z,Road Passenger Transport,462
+transaction,d29aab87-bea7-4e98-91b2-3ad1fedaf369,posted,Transfer to xx4812 CommBank app,-28.00,19390e17-d34e-4349-b57b-43721ecca116,-39.59,debit,transfer,AU00000,2022-07-21T00:00:00Z,,
+transaction,c4014e84-978e-43b3-b3cf-a130704f3e5d,posted,Transfer to xx5368 CommBank app,-9.00,19390e17-d34e-4349-b57b-43721ecca116,-11.59,debit,transfer,AU00000,2022-07-20T00:00:00Z,,
+transaction,5985fb40-648d-47e6-bc32-f163008a7fdd,posted,Transfer to xx2633 CommBank app Transfer,-30.00,19390e17-d34e-4349-b57b-43721ecca116,-2.59,debit,transfer,AU00000,2022-07-19T00:00:00Z,,
+transaction,e4b071b6-65a6-4ece-bae3-02572c7ec530,posted,Transfer to xx0022 CommBank app,-81.00,19390e17-d34e-4349-b57b-43721ecca116,27.41,debit,transfer,AU00000,2022-07-18T00:00:00Z,,
+transaction,fadcfd4b-ff4b-43d7-be3c-8edc1ca57ef0,posted,Transfer from xx3621 CommBank app,68.00,19390e17-d34e-4349-b57b-43721ecca116,108.41,credit,transfer,AU00000,2022-07-17T00:00:00Z,Road Passenger Transport,462
+transaction,90e49324-9c5e-4c21-b85a-e8e865ed9e98,posted,Transfer to xx2587 CommBank app,-183.00,19390e17-d34e-4349-b57b-43721ecca116,40.41,debit,transfer,AU00000,2022-07-16T00:00:00Z,,
+transaction,19f456dc-e1e1-49d6-8e71-946ae3a7ce6f,posted,Transfer to xx6041 CommBank app,-34.00,19390e17-d34e-4349-b57b-43721ecca116,223.41,debit,transfer,AU00000,2022-07-15T00:00:00Z,,
+transaction,b8c54732-2d43-45ea-9d6d-989d6144ac0b,posted,Transfer to xx8338 CommBank app,-985.00,19390e17-d34e-4349-b57b-43721ecca116,257.41,debit,transfer,AU00000,2022-07-14T00:00:00Z,,
+transaction,cb7663d9-c799-4ab3-9918-b828e53d5996,posted,Transfer to xx9497 CommBank app,-100.00,19390e17-d34e-4349-b57b-43721ecca116,1242.41,debit,transfer,AU00000,2022-07-13T00:00:00Z,,
+transaction,0dee101c-956c-4a98-8bbd-a22843404d63,posted,Transfer from xx0994 NetBank Repay Loan,113.00,19390e17-d34e-4349-b57b-43721ecca116,1342.41,credit,transfer,AU00000,2022-07-12T00:00:00Z,Auxiliary Finance and Investment Services,641
+transaction,8f826277-df77-4756-b4b2-2bb7dd535d89,posted,Transfer to xx7484 CommBank app,-38.00,19390e17-d34e-4349-b57b-43721ecca116,1229.41,debit,transfer,AU00000,2022-07-11T00:00:00Z,,
+transaction,2c844fdc-b359-4134-b36b-afa4abdfff00,posted,Transfer to xx9017 CommBank app,-1289.00,19390e17-d34e-4349-b57b-43721ecca116,1267.41,debit,transfer,AU00000,2022-07-10T00:00:00Z,,
+transaction,a6d199ee-05b9-4dd8-a834-b5ba0c0b9edf,posted,Transfer to xx5780 CommBank app,-20.00,19390e17-d34e-4349-b57b-43721ecca116,2556.41,debit,transfer,AU00000,2022-07-09T00:00:00Z,,
+transaction,d0ca7be3-31c9-4224-a817-f14b76b7e80a,posted,Transfer to xx4573 CommBank app,-91.00,19390e17-d34e-4349-b57b-43721ecca116,2576.41,debit,transfer,AU00000,2022-07-08T00:00:00Z,,
+transaction,6193bbfb-3ed2-42b7-8076-6f6c5a608fd5,posted,Transfer from  NetBank PocketMoney Saving,1500.00,19390e17-d34e-4349-b57b-43721ecca116,2667.41,credit,transfer,AU00000,2022-07-07T00:00:00Z,Unknown,0
+transaction,4c16322a-cc98-430d-a705-8e12c52fef19,posted,Transfer from xx0566 CommBank app Rent,707.00,19390e17-d34e-4349-b57b-43721ecca116,1167.41,credit,transfer,AU00000,2022-07-06T00:00:00Z,Motor Vehicle and Transport Equipment Rental and Hiring,661
+transaction,d6556b2a-ff9b-494a-9013-f613a962815b,posted,Transfer In J M HORTON J M HORTON,16.00,19390e17-d34e-4349-b57b-43721ecca116,460.41,credit,transfer,AU00000,2022-07-05T00:00:00Z,Unknown,0
+transaction,70ab1c6a-710b-4922-8ad3-249930c02e57,posted,Transfer to xx5101 CommBank app,-96.50,19390e17-d34e-4349-b57b-43721ecca116,444.41,debit,transfer,AU00000,2022-07-03T00:00:00Z,,
+transaction,774de2d1-4d42-47e2-8cd6-b3cc6adfde38,posted,Transfer to xx3571 CommBank app,-265.59,19390e17-d34e-4349-b57b-43721ecca116,540.91,debit,transfer,AU00000,2022-07-01T00:00:00Z,,
+transaction,9a5373df-4b1a-4a81-a2e4-2ba3e989d23b,posted,Credit Interest,1.41,19390e17-d34e-4349-b57b-43721ecca116,806.50,credit,interest,AU00000,2022-06-30T00:00:00Z,,
+transaction,cdfa1649-495b-49f3-ae86-a2e89b01bd17,posted,Transfer to other Bank NetBank 996147360570,-45.00,19390e17-d34e-4349-b57b-43721ecca116,805.09,debit,transfer,AU00000,2022-06-29T00:00:00Z,,
+transaction,d453bd15-59d8-4545-a20e-81f90a3e056d,posted,Transfer to xx8286 CommBank app,-371.00,19390e17-d34e-4349-b57b-43721ecca116,850.09,debit,transfer,AU00000,2022-06-28T00:00:00Z,,
+transaction,708b5fd5-c222-4744-8592-ed71e7406f16,posted,Transfer to xx1146 CommBank app Value Date: 29/06/2018,-372.00,19390e17-d34e-4349-b57b-43721ecca116,1221.09,debit,transfer,AU00000,2022-06-27T00:00:00Z,,
+transaction,770900c0-d372-4c7e-a28a-132c704714d6,posted,Transfer from xx8959 CommBank app,427.00,19390e17-d34e-4349-b57b-43721ecca116,1593.09,credit,transfer,AU00000,2022-06-26T00:00:00Z,Road Passenger Transport,462
+transaction,26c0e499-07dc-4e1d-aea5-3ba0bad3689c,posted,Transfer to xx8395 CommBank app Car insurmace,-64.00,19390e17-d34e-4349-b57b-43721ecca116,1166.09,debit,transfer,AU00000,2022-06-25T00:00:00Z,,
+transaction,8d28dd01-20ee-46d1-8104-bf057cde8ce9,posted,Transfer to xx5617 CommBank app,-205.00,19390e17-d34e-4349-b57b-43721ecca116,1230.09,debit,transfer,AU00000,2022-06-24T00:00:00Z,,
+transaction,f12b602c-c0e0-421b-98d5-4f8aa083ad8e,posted,Transfer to xx8395 CommBank app Lunch,-4.00,19390e17-d34e-4349-b57b-43721ecca116,1435.09,debit,transfer,AU00000,2022-06-23T00:00:00Z,,
+transaction,3b9a9824-8f29-4050-af72-50e69c6bceb1,posted,Transfer to xx0277 CommBank app,-17.00,19390e17-d34e-4349-b57b-43721ecca116,1439.09,debit,transfer,AU00000,2022-06-22T00:00:00Z,,
+transaction,b57cac0c-525d-4eca-b165-d185bc2f30d1,posted,Transfer to xx7688 CommBank app,5.00,19390e17-d34e-4349-b57b-43721ecca116,1456.09,credit,transfer,AU00000,2022-06-21T00:00:00Z,Department Stores,426
+transaction,248de827-afb5-4a22-abb5-e5e3752b1f4f,posted,Transfer to xx9316 CommBank app,1.00,19390e17-d34e-4349-b57b-43721ecca116,1451.09,credit,transfer,AU00000,2022-06-20T00:00:00Z,Department Stores,426
+transaction,d718adea-c6c5-4688-b535-edc0c6ba58ac,posted,Transfer to CBA A/c CommBank app To pay logisticfee,-2000.00,19390e17-d34e-4349-b57b-43721ecca116,1450.09,debit,transfer,AU00000,2022-06-18T00:00:00Z,,
+transaction,4029cbd4-ba13-4f6c-9a1a-0003504108c9,posted,Transfer to xx5061 CommBank app,7.00,19390e17-d34e-4349-b57b-43721ecca116,3450.09,credit,transfer,AU00000,2022-06-16T00:00:00Z,Department Stores,426
+transaction,c7f9ee32-b0df-412d-85e8-bde3950bf1fe,posted,Transfer to xx8033 CommBank app,-84.00,19390e17-d34e-4349-b57b-43721ecca116,3443.09,debit,transfer,AU00000,2022-06-15T00:00:00Z,,
+transaction,68ad2d7c-da7e-49c3-91dd-306abafc59d8,posted,Transfer from  NetBank MummiesLouandLee,115.00,19390e17-d34e-4349-b57b-43721ecca116,3527.09,credit,transfer,AU00000,2022-06-14T00:00:00Z,Road Passenger Transport,462
+transaction,04f34cdf-0009-49d4-a6e6-a6a77bb9cb1e,posted,Transfer from xx5413 NetBank,10.00,19390e17-d34e-4349-b57b-43721ecca116,3412.09,credit,transfer,AU00000,2022-06-12T00:00:00Z,Road Passenger Transport,462
+transaction,9bfac11c-ed8f-4975-b58c-5a27720e99d0,posted,Transfer from  NetBank,100.00,19390e17-d34e-4349-b57b-43721ecca116,3402.09,credit,transfer,AU00000,2022-06-11T00:00:00Z,Road Passenger Transport,462
+transaction,b6806bee-3cfa-4062-a314-72ce713dddba,posted,Transfer to xx4139 CommBank app,-124.00,19390e17-d34e-4349-b57b-43721ecca116,3302.09,debit,transfer,AU00000,2022-06-10T00:00:00Z,,
+transaction,056383bf-a86a-4026-9e58-0b80eeeb1b73,posted,Transfer to xx0266 CommBank app,-40.00,19390e17-d34e-4349-b57b-43721ecca116,3426.09,debit,transfer,AU00000,2022-06-09T00:00:00Z,,
+transaction,67fe0f6a-45af-4b25-8b44-be655153e310,posted,Transfer from xx1866 CommBank app,59.00,19390e17-d34e-4349-b57b-43721ecca116,3466.09,credit,transfer,AU00000,2022-06-08T00:00:00Z,Road Passenger Transport,462
+transaction,4ecbb430-400d-4617-a363-f974e72cdf56,posted,Transfer from xx9790 CommBank app saving,228.00,19390e17-d34e-4349-b57b-43721ecca116,3407.09,credit,transfer,AU00000,2022-06-07T00:00:00Z,Unknown,0
+transaction,6c43dbe5-b499-48d8-8546-441b297a26bd,posted,Transfer from xx3415 CommBank app Save,10.00,19390e17-d34e-4349-b57b-43721ecca116,3179.09,credit,transfer,AU00000,2022-06-06T00:00:00Z,Unknown,0
+transaction,675d3038-aa55-4e7f-b91d-a98e641727d9,posted,Transfer to CBA A/c CommBank app biz2chq,-44.00,19390e17-d34e-4349-b57b-43721ecca116,3169.09,debit,transfer,AU00000,2022-06-05T00:00:00Z,,
+transaction,6a170db6-e22b-41bb-99e9-904adaa63933,posted,Transfer from  NetBank annie,13.00,19390e17-d34e-4349-b57b-43721ecca116,3213.09,credit,transfer,AU00000,2022-06-02T00:00:00Z,Auxiliary Finance and Investment Services,641
+transaction,91c7c84d-e3c0-407d-996e-45ddf3b294b0,posted,Transfer from xx3420 CommBank app,10.00,19390e17-d34e-4349-b57b-43721ecca116,3200.09,credit,transfer,AU00000,2022-06-01T00:00:00Z,Road Passenger Transport,462
+transaction,85415b76-5355-4a25-9b0c-5c86fe45d407,posted,Transfer to xx4466 CommBank app,-14.00,19390e17-d34e-4349-b57b-43721ecca116,3190.09,debit,transfer,AU00000,2022-05-31T00:00:00Z,,
+transaction,5cb256b1-ed28-4c4c-b151-93245459a66a,posted,Transfer from xx8930 CommBank app,331.00,19390e17-d34e-4349-b57b-43721ecca116,3204.09,credit,transfer,AU00000,2022-05-30T00:00:00Z,Road Passenger Transport,462
+transaction,4da40f06-3a4d-44ad-9050-7a159a78af53,posted,Transfer from xx5698 CommBank app,1000.00,19390e17-d34e-4349-b57b-43721ecca116,2873.09,credit,transfer,AU00000,2022-05-29T00:00:00Z,Road Passenger Transport,462
+transaction,7224c523-c658-4fe2-828b-fe13cd6a1998,posted,Transfer to xx9486 CommBank app,-1.00,19390e17-d34e-4349-b57b-43721ecca116,1873.09,debit,transfer,AU00000,2022-05-28T00:00:00Z,,
+transaction,a5c5e64a-ff6d-4cd5-9cb3-54a6336cab7e,posted,Transfer to xx3669 CommBank app,-232.00,19390e17-d34e-4349-b57b-43721ecca116,1874.09,debit,transfer,AU00000,2022-05-27T00:00:00Z,,
+transaction,682b1e4d-1a32-44fe-a757-aa6a75288671,posted,Transfer to xx5610 CommBank app,-173.00,19390e17-d34e-4349-b57b-43721ecca116,2106.09,debit,transfer,AU00000,2022-05-26T00:00:00Z,,
