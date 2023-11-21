@@ -5,7 +5,7 @@ from statsmodels.tsa.stattools import adfuller
 def read_file(path):
     df = pd.read_csv(path)
     print("File read into df")
-    print(df.head(5))
+    print(df.head(10))
     return df 
 
 # Then, resample the DataFrame with daily frequency and forward-fill missing values
