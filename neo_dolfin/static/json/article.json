@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Article 1",
+        "date": "25/09/2023",
+        "content1": " first Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque nemo earum asperiores ipsam temporibus tempore sunt fugiat eaque? Quo at aut sed quis pariatur corrupti. Deserunt in cupiditate cum.",
+        "content2": " second Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque nemo earum asperiores ipsam temporibus tempore sunt fugiat eaque? Quo at aut sed quis pariatur corrupti. Deserunt in cupiditate cum.",
+        "content3": " third Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque nemo earum asperiores ipsam temporibus tempore sunt fugiat eaque? Quo at aut sed quis pariatur corrupti. Deserunt in cupiditate cum.",
+        "content4": " fourth Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque nemo earum asperiores ipsam temporibus tempore sunt fugiat eaque? Quo at aut sed quis pariatur corrupti. Deserunt in cupiditate cum.",
+        "quote1": "FIRST SHORT QUOTE",
+        "quote2": "SECON DSHORT QUOTE"
+    },
+    {
+        "id": 2,
+        "title": "Article 2",
+        "date": "02/15/2023",
+        "content1": "Another article...",
+        "content2": "More content...",
+        "content3": "Even more content...",
+        "content4": "Final content...",
+        "quote1": "sickdog",
+        "quote2": "Aseconday.."
+    },
+    {
+        "id": 3,
+        "title": "Article 3",
+        "date": "09/15/2024",
+        "content1": "Another article...",
+        "content2": "More content...",
+        "content3": "Even more content...",
+        "content4": "Final content...",
+        "quote1": "snessfaf...",
+        "quote2": "wefweoufhowefhowe..."
+    }
+]

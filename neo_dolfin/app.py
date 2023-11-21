@@ -22,6 +22,8 @@ import sqlite3
 import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
+import json
+
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -421,11 +423,16 @@ def open_terms_of_use():
 def open_terms_of_use_AI():
         return render_template("TermsofUse-AI.html") 
     
-# APPLICATION Article Template PAGE 
-@app.route('/articleTemplate/')
-def open_article_template():
-        return render_template("articleTemplate.html") 
-    
+# APPLICATION ARTICLE TEMPLATE ROUTING 
+@app.route('/articleTemplate/<int:article_id>')
+def open_article_template(article_id):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'static', 'json', 'article.json')
+    with open(json_path) as json_file:
+        articles_data = json.load(json_file)
+    article = next((article for article in articles_data if article['id'] == article_id), None)
+    return render_template('articleTemplate.html', articles=[article])
+ 
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
