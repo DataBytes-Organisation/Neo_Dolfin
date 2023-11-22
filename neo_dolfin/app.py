@@ -57,7 +57,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 df1 = pd.read_csv('static/data/transaction_ut.csv')
 df2 = pd.read_csv('static/data/modified_transactions_data.csv')
 df3 = pd.read_csv('static/data/Predicted_Balances.csv')
-df4 = pd.read_csv('static/data/transaction_ut.csv')
+#df4 = pd.read_csv('static/data/transaction_ut.csv')
 
 # SQL User Credential Database Configure
 db = SQLAlchemy(app)
@@ -75,11 +75,11 @@ except Exception as e:
     print("Error creating database:", str(e))
 
 # SQLite User Data Database Setup
-df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
-df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
-df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
-df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
-df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
+#df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
+#df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
+#df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
+#df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
+#df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
 
 # Function to clean the 'subClass' column
 def clean_subClass(row):
@@ -95,19 +95,19 @@ def clean_subClass(row):
         return extracted_subClass
     return row['subClass']
 
-df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+# df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
+# df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
 # Check if the SQLite database file already exists
-db_file = "transactions_ut.db"
-if not os.path.exists(db_file):
+# db_file = "db/transactions_ut.db"
+# if not os.path.exists(db_file):
     # If the database file doesn't exist, create a new one
-    conn = sqlite3.connect(db_file)
+#     conn = sqlite3.connect(db_file)
     # Import the cleaned DataFrame to the SQLite database
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
-else:
+#     df4.to_sql("transactions", conn, if_exists="replace", index=False)
+#     conn.close()
+# else:
     # If the database file already exists, connect to it
-    conn = sqlite3.connect(db_file)
+#     conn = sqlite3.connect(db_file)
 
 ## Basiq API 
 basiq_service = BasiqService()
@@ -161,7 +161,27 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
+
+            # If successful, check if test user or real user.
+            con = sqlite3.connect("db/user_database.db")
+            cursor = con.cursor() 
+            # Select Account 
+            qry = 'SELECT userid, testid FROM user_test_map where userid = \'' + username + '\''
+            cursor.execute(qry)
+            row = cursor.fetchone()
+            testUser = True
+            testId = 0
+
+            if row == None:
+                 testUser = False
+            else:
+                 testId = pd.DataFrame(row,columns=['testid'])
+            # Load transactional data
+            loadDatabase(testUser, testId)                
+
+            # redirect to the dashboard.
             return redirect('/dash')
+        
 
         return 'Login failed. Please check your credentials.'
 
@@ -196,7 +216,7 @@ def auth_dash2():
 
     if request.method == 'GET':
         user_id = session.get('user_id')
-        con = sqlite3.connect("transactions_ut.db")
+        con = sqlite3.connect("db/transactions_ut.db")
         cursor = con.cursor() 
 
         defacc = 'ALL'
@@ -262,7 +282,7 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
+            con = sqlite3.connect("db/transactions_ut.db")
             cursor = con.cursor() 
             
             cursor.execute('SELECT DISTINCT account FROM transactions')
@@ -330,7 +350,7 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
+            con = sqlite3.connect("db/transactions_ut.db")
             cursor = con.cursor() 
 
             defacc = account_value
