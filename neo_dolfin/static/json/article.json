@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Unravelling Common Bad Saving Habits",
+        "date": "25/09/2023",
+        "content1": " When it comes to financial stability, the road is often obstructed by common bad saving habits that many individuals unknowingly develop. One pervasive issue is the absence of a well-structured budget. Without a clear understanding of income, expenses, and financial goals, people risk spending impulsively and struggling to allocate funds for savings. As financial guru Dave Ramsey wisely notes, 'A budget is telling your money where to go instead of wondering where it went.' Establishing and adhering to a budget is foundational to fostering successful saving habits, helping individuals take control of their financial destinies.",
+        "content2": " Procrastination emerges as another significant hurdle on the path to financial security. Delaying the initiation of a savings plan deprives individuals of the compounding power that accelerates wealth accumulation. Embracing the proverbial wisdom that 'The best time to plant a tree was 20 years ago. The second-best time is now,' is crucial. Overcoming the bad habit of procrastination requires a proactive approach, urging individuals to start saving immediately to maximise the benefits of compound interest over time.",
+        "content3": " A detrimental habit that can lead to financial turmoil is reliance on credit to sustain a lifestyle beyond one's means. Excessive use of credit cards and the accumulation of high-interest debt create a cycle that is challenging to break. Financial expert Suze Orman offers valuable advice, stating, 'A big part of financial freedom is having your heart and mind free from worry about the what-ifs of life.' Escaping the clutches of credit dependency involves developing a realistic budget, cutting unnecessary expenses, and diligently working to pay down outstanding debts.",
+        "content4": " Finally, failing to establish an emergency fund is a common pitfall that leaves individuals vulnerable to unforeseen financial challenges. Without a financial safety net, unexpected expenses can lead to debt and disrupt long-term savings goals. As Warren Buffett wisely notes, 'The most important investment you can make is in yourself.' Creating an emergency fund provides a cushion, allowing individuals to navigate financial uncertainties without compromising their overall stability. In unravelling these common bad saving habits, individuals can pave the way for a more secure and prosperous financial future.",
+        "quote1": "The most important investment ",
+        "quote2": "you can make is in yourself."
+    },
+    {
+        "id": 2,
+        "title": "Article 2",
+        "date": "02/15/2023",
+        "content1": "Another article...",
+        "content2": "More content...",
+        "content3": "Even more content...",
+        "content4": "Final content...",
+        "quote1": "Quote-first half",
+        "quote2": "Quote-second half.."
+    },
+    {
+        "id": 3,
+        "title": "Article 3",
+        "date": "09/15/2024",
+        "content1": "Another article...",
+        "content2": "More content...",
+        "content3": "Even more content...",
+        "content4": "Final content...",
+        "quote1": "Quote-first half",
+        "quote2": "Quote-second half.."
+    }
+]

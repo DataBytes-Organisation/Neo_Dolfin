@@ -6,6 +6,7 @@
     padding-top: 50px !important;
     padding-bottom: 200px !important;
     animation: slide 1s ease-in-out 1 both;
+    position: relative;
 }
 
 @keyframes slide{
@@ -35,13 +36,14 @@
 }
 #accordionButton{
     color: #FAFAFE !important;
-    background-color: #343A40 !important;
-    font-size: 36px;
+    background-color: #0077BB !important;
+    font-size: 25px;
     font-weight: lighter;
     padding: 15px;
     border-radius: 15px;
     box-shadow: none;
     margin: 0;
+    position: relative;
 }
 
 #accordionButton:hover{
@@ -54,10 +56,11 @@
 }
 
 #accordionBody {
-    color: #FAFAFE !important;
-    background-color: #494f55 !important;
+    color: #343a40 !important;
+    background-color: #FAFAFE !important;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    position: relative;
 }
 
 /* Buttons for FAQ acordion */
@@ -69,4 +72,20 @@
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-dash-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>");
 }
 
+#rectangle{
+    width:950px;
+    height:700px;
+    background: #343a40;
+    opacity: 20%;
+    display: flex;
+    align-items: end;
+    position:absolute;
+    top:32%;
+    left:24.55%;
+    z-index:-1;
+    border-radius: 25px;
+    bottom:0px;
+    overflow: hidden;
+    ;
+}
 
