@@ -165,7 +165,9 @@ def login():
             # If successful, check if test user or real user.
             con = sqlite3.connect("db/user_database.db")
             cursor = con.cursor() 
-            # Select Account 
+
+            # Check if the user is a test user and get the test CSV id.
+            #qry = 'SELECT 1 FROM user where username = \'' + 'richard' + '\''
             qry = 'SELECT userid, testid FROM user_test_map where userid = \'' + username + '\''
             cursor.execute(qry)
             row = cursor.fetchone()
@@ -175,7 +177,9 @@ def login():
             if row == None:
                  testUser = False
             else:
-                 testId = pd.DataFrame(row,columns=['testid'])
+                 testId = row[0]
+            cursor.close()
+            
             # Load transactional data
             loadDatabase(testUser, testId)                
 

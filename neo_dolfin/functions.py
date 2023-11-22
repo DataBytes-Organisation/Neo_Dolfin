@@ -100,8 +100,8 @@ async def s3connection(bucket_name, s3_client, basiq_service, s3_service):
 
 def loadDatabase(testUser,testId):
 
-    if  testUser:
-        df4 = 'static/data/new_data/user' + testId + '.csv'
+    if testUser:
+        df4 = pd.read_csv('static/data/new_data/user' + str(testId) + '.csv')
     else:
         df4 = pd.read_csv('static/data/transaction_ut.csv')
     
