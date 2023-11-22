@@ -24,7 +24,6 @@ from services.basiq_service import BasiqService
 from io import StringIO
 import json
 
-
 load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
@@ -110,6 +109,8 @@ if not os.path.exists(db_file):
 else:
     # If the database file already exists, connect to it
     conn = sqlite3.connect(db_file)
+    df4.to_sql("transactions", conn, if_exists="replace", index=False)
+    conn.close()
 
 ## Basiq API 
 basiq_service = BasiqService()
