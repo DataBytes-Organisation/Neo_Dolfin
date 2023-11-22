@@ -8,11 +8,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- changes-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js"></script>
+    <script src="../static//js//dash_extended.js" defer></script>
+      <!-- changes-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash2.css')}}" />
 </head>
 
+<style>
+    .container_pattern{
+        display: flex;
+        justify-content: space-between;
+    }
+    .chart, .image {
+        flex: 1; 
+        margin: 10px; 
+    }
+    .image img {
+      position: absolute; 
+      transition: opacity 0.5s ease-in-out; 
+      opacity: 1; 
+    }
+  </style>
 <body>
 
     {% include 'components/navbar.html' %}  
@@ -98,7 +117,11 @@
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body"> <!-- New Visualisations go here-->
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <div class="container_pattern">
+                        <div id="chartContainer" class="chart" style="height: 500px;width: 1000px;"></div>
+                        <div class="image">
+                            <img id="image" src="" style="height: 400px; width: 600px;">
+                          </div>
                 </div>
             </div>
         </div>
