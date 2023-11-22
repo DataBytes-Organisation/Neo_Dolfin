@@ -12,9 +12,11 @@
                 </div>
             </div>
             <div class="chatbox__messages">
-                <div></div>
+                <div>
+                </div>
             </div>
             <div class="chatbox__footer">
+
 
                 <input style="font-size: large; border-radius: 10px; border: none;" type="text"
                     placeholder="Write a message...">
@@ -35,11 +37,13 @@
         </div>
 
         <div class="container" id="chatCloudID">
+
+            <div class="chatbox__button">
+                <button id="hover-button"><img src="{{url_for('static', filename='img/chat_724715.png')}}" /></button>
+            </div>
+
             <div class="text-cloud" id="chatbot-cloud">
                 <p class="h5">Hello, I'm the chatbot. <br> How can I help you today?</p>
-            </div>
-            <div class="chatbox__button">
-                <button><img src="{{url_for('static', filename='img/chat_724715.png')}}" /></button>
             </div>
 
         </div>
