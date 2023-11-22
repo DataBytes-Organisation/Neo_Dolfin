@@ -26,9 +26,9 @@
         margin: 10px; 
     }
     .image img {
-      position: absolute; /* 设置绝对定位 */
-      transition: opacity 0.5s ease-in-out; /* 添加淡入淡出的过渡效果 */
-      opacity: 1; /* 初始透明度 */
+      position: absolute; 
+      transition: opacity 0.5s ease-in-out; 
+      opacity: 1; 
     }
   </style>
   <script>
@@ -36,7 +36,7 @@
       var chartDom = document.getElementById('chartContainer');
       var myChart = echarts.init(chartDom);
 
-      // 初始化图表选项
+      
       var option = {
         tooltip: {
           trigger: 'item',
@@ -170,7 +170,7 @@
   }
   setTimeout(function () {
           imageElement.style.opacity = 1;
-        }, 50); // 等待一小段时间后再设置为完全不透明，以触发淡入效果
+        }, 50); 
       });
 
 
