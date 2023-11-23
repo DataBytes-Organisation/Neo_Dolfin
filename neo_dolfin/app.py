@@ -96,8 +96,53 @@ def clean_subClass(row):
         return extracted_subClass
     return row['subClass']
 
+def subClass_titles(row): #clean titles for subclass column
+    sub_class_lower = str(row['subClass']).lower()
+
+    if sub_class_lower in ['{\\title\\":\\"civic', 'auxiliary finance and investment services', 'legal and accounting services']:
+        return 'professional services'
+    if 'payroll' in sub_class_lower:
+        return 'salary'
+    if 'ctrlink' in sub_class_lower:
+        return 'centrelink'
+    if 'withdrawal' in sub_class_lower:
+        return 'withdrawal'
+    if 'bank-fee' in sub_class_lower:
+        return 'bank fees'
+    if any(term in sub_class_lower for term in ['electricity', 'telecommunications', 'water']):
+        return 'utilities'
+    if 'education' in sub_class_lower:
+        return 'education fees'
+    if 'other' in sub_class_lower:
+        return 'other'
+    
+def clean_Description(row): #clean description column
+    description_lower = str(row['description']).lower()
+
+    if 'atm withdrawal fee' in description_lower:
+        return 'atm fee'
+    if 'homeloan' in description_lower:
+        return 'homeloan repayment'
+    if 'wdl atm' in description_lower:
+        return 'atm withdrawal'
+    if 'foreign currency' in description_lower:
+        return 'foreign transfer fee'
+    if 'tfr' in description_lower:
+        return 'account transfer'
+    if any(term in description_lower for term in ['wages', 'payroll']):
+        if 'wages' in description_lower:
+            description_lower.replace('wages', 'payroll')
+        return description_lower
+    if any(term in description_lower for term in ['tfr', 'transfer']):
+        return 'transfer'
+    if 'agl' in description_lower:
+        return 'utilities payment'
+    else:
+        return 'other'
+
 df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+df4['subClass'] = df4.apply(subClass_titles, axis = 1) #clean 'subClass' column by applying categories
+df4['description'] = df4.apply(clean_Description, axis = 1) #clean 'description' column by applying categories
 # Check if the SQLite database file already exists
 db_file = "transactions_ut.db"
 if not os.path.exists(db_file):
