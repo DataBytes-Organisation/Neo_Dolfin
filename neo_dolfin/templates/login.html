@@ -1,18 +1,90 @@
 <!DOCTYPE html>
 <html>
+
+<html lang="en">
+
+</html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/login.css')}}" />
+    <script src="../static/"></script>
+    <!-- <link rel="stylesheet" href="../static/css/login.css"> -->
     <title>Login</title>
 </head>
+
 <body>
-    <h1>Login</h1>
-    <form method="POST" action="/login">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="container pb-3">
+        <div class="row justify-content-around g-0 p-0">
+            <div class="col-sm-8 col-md-7 col-xl-5 col-2 d-flex justify-content-center">
+                <div class="container_left">
+
+                    <!-- <img src="../static/img/title.png" alt="Title_login" class="Title_login"> -->
+                    <img src="../static/img/style.png" alt="style" class="style">
+                    <div class="input_area">
+                        <form method="POST" action="/login">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            <div class="link-container">
+                                <a href="./register" class="auth-link">
+                                    <div>New to DolFin?</div>
+                                    <div>Register Here</div>
+                                </a>
+
+                                <a href="#" class="auth-link">Forgot Password?</a>
+                            </div>
+                            <input type="submit" class="btn float-right" value="Login">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-9 col-xl-6 offset-1 d-flex justify-content-center">
+
+                <div class="container_right">
+
+                    <div class="text_top">
+                        Welcome Back!
+                    </div>
+                    <div class="text_mid">
+                        Your journey towards smarter
+                        <br />financial management
+                        <br />continues here.
+                    </div>
+                    <div class="text_tips_bg">
+                        <div class="tips_title">
+                            Quick Tips:
+                        </div>
+                        <div class="tips">
+
+                            <br />Check your updated financial
+                            <br /> summaries and reports. <br />
+                            <br />Ask DolFin, your AI chatbot, for<br />
+                            the latest insights on your
+                            <br />spending and savings.<br />
+                            <br /> Explore new features and tools <br />
+                            designed to enhance your <br />
+                            financial understanding. <br />
+                        </div>
+                        <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" class="dolfin">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
+</html>
+
+
+</body>
+
 </html>
