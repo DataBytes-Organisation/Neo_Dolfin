@@ -68,6 +68,11 @@ class User(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
 
+class UserTestMap(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    userid = db.Column(db.String(80), unique=True, nullable=False)
+    testid = db.Column(db.Integer, nullable=False)
+
 try:
     with app.app_context():
         db.create_all()
@@ -82,18 +87,18 @@ except Exception as e:
 #df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
 
 # Function to clean the 'subClass' column
-def clean_subClass(row):
-    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-        return 'cash-withdrawal'
-    if row['subClass'] == '{\\title\\":\\"\\"':
-        return 'bank-fee'
-    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-    if match:
-        extracted_subClass = match.group(1)
-        if extracted_subClass == 'Unknown':
-            return row['description']
-        return extracted_subClass
-    return row['subClass']
+#def clean_subClass(row):
+#    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
+#        return 'cash-withdrawal'
+#    if row['subClass'] == '{\\title\\":\\"\\"':
+#        return 'bank-fee'
+#    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
+#    if match:
+#        extracted_subClass = match.group(1)
+#        if extracted_subClass == 'Unknown':
+#            return row['description']
+#        return extracted_subClass
+#    return row['subClass']
 
 # df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
 # df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
@@ -143,7 +148,6 @@ class GeoLockChecker(object):
 app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
-
 ## LANDING PAGE
 @app.route("/",methods = ['GET','POST']) #Initial landing page for application
 def landing():
@@ -163,25 +167,14 @@ def login():
             session['user_id'] = user.username 
 
             # If successful, check if test user or real user.
-            con = sqlite3.connect("db/user_database.db")
-            cursor = con.cursor() 
-
-            # Check if the user is a test user and get the test CSV id.
-            #qry = 'SELECT 1 FROM user where username = \'' + 'richard' + '\''
-            qry = 'SELECT userid, testid FROM user_test_map where userid = \'' + username + '\''
-            cursor.execute(qry)
-            row = cursor.fetchone()
-            testUser = True
+            row = UserTestMap.query.filter_by(userid = username).first()
             testId = 0
+            if row != None:
+                 testId = row.testid
+                 print('######### test id:', testId)
 
-            if row == None:
-                 testUser = False
-            else:
-                 testId = row[0]
-            cursor.close()
-            
             # Load transactional data
-            loadDatabase(testUser, testId)                
+            loadDatabase(testId)            
 
             # redirect to the dashboard.
             return redirect('/dash')
