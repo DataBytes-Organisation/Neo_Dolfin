@@ -50,7 +50,9 @@ nltk.download('wordnet', download_dir=nltk_data_path)
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/main.db')
+app.config['SQLALCHEMY_BINDS'] = {'audit':      'sqlite:///audit_database.db',
+                                  'user':       'sqlite:///user_database.db',}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Dataframes
@@ -63,22 +65,17 @@ df4 = pd.read_csv('static/data/transaction_ut.csv')
 db = SQLAlchemy(app)
 
 class User(db.Model):
+    __bind_key__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
 
-class Log(db.Model):
+class Audit(db.Model):
+    __bind_key__ = 'audit'
     timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.utcnow)
     topic = db.Column(db.String(80), nullable=False)
     message = db.Column(db.String(255), nullable=False)
-
-    def serialize(self):
-        return {
-            'timestamp': self.timestamp,
-            'topic': self.topic,
-            'message': self.message
-        }   
 
 try:
     with app.app_context():
@@ -124,13 +121,18 @@ else:
 ## Basiq API 
 basiq_service = BasiqService()
 
-## LOGGING FUNCTION
-def log_msg(topic, message):
-    new_log = Log(topic=topic, message=message)
-    db.session.add(new_log)
-    db.session.commit()
-
 # ROUTING
+
+def log_to_audit(topic, message):
+    # Log an entry to the audit log
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    new_audit_log = Audit(topic=topic, message=message)
+    db.session.add(new_audit_log)
+    db.session.commit()
+    # Log an entry to audit txt
+    with open('audit.txt', 'a') as f:
+        f.write(f'[{timestamp}] {topic}: {message}\n')
+
 
 ## LANDING PAGE
 @app.route("/",methods = ['GET','POST']) #Initial landing page for application
@@ -148,20 +150,14 @@ def login():
 
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.username
-            log_msg('[LOGIN]', 'User logged in: ' + user.username)
+            session['user_id'] = user.username 
+            log_to_audit('login', f'User {user.username} logged in')
             return redirect('/dash/load')
 
-        log_msg('[LOGIN FAIL]', 'Login failed for user: ' + username)
+        log_to_audit('login-fail', f'Failed login attempt for user {username}')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
-
-@app.route('/logs', methods=['GET'])
-def logs():
-    logs = Log.query.all()
-    logs = [log.serialize() for log in logs]
-    return jsonify(logs)
 
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
@@ -176,15 +172,15 @@ def register():
         existing_email = User.query.filter_by(email=email).first()
 
         if existing_user or existing_email:
-            log_msg('[REGISTER FAIL]', 'Registration failed for user: ' + username)
+            log_to_audit('register-fail', f'Failed registration attempt for user {username}')
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
-        log_msg('[REGISTER]', 'New user registered: ' + username)
 
+        log_to_audit('register', f'User {username} registered')
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
