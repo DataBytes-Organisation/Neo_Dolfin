@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -22,7 +22,6 @@ import sqlite3
 import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
-import json
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -96,99 +95,13 @@ def clean_subClass(row):
         return extracted_subClass
     return row['subClass']
 
-def subClass_titles(row): #clean titles for subclass column
-    sub_class_lower = str(row['subClass']).lower()
-
-    if sub_class_lower in ['{\\title\\":\\"civic', 'auxiliary finance and investment services', 'legal and accounting services']:
-        return 'professional services'
-    if 'payroll' in sub_class_lower:
-        return 'salary'
-    if 'ctrlink' in sub_class_lower:
-        return 'centrelink'
-    if 'withdrawal' in sub_class_lower:
-        return 'withdrawal'
-    if 'bank-fee' in sub_class_lower:
-        return 'bank fees'
-    if any(term in sub_class_lower for term in ['electricity', 'telecommunications', 'water']):
-        return 'utilities'
-    if 'education' in sub_class_lower:
-        return 'education fees'
-    if 'other' in sub_class_lower:
-        return 'other'
-    
-def clean_Description(row): #clean description column
-    description_lower = str(row['description']).lower()
-
-    if 'atm withdrawal fee' in description_lower:
-        return 'atm fee'
-    if 'homeloan' in description_lower:
-        return 'homeloan repayment'
-    if 'wdl atm' in description_lower:
-        return 'atm withdrawal'
-    if 'foreign currency' in description_lower:
-        return 'foreign transfer fee'
-    if 'tfr' in description_lower:
-        return 'account transfer'
-    if any(term in description_lower for term in ['wages', 'payroll']):
-        if 'wages' in description_lower:
-            description_lower.replace('wages', 'payroll')
-        return description_lower
-    if any(term in description_lower for term in ['tfr', 'transfer']):
-        return 'transfer'
-    if 'agl' in description_lower:
-        return 'utilities payment'
-    else:
-        return 'other'
-
 df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4.apply(subClass_titles, axis = 1) #clean 'subClass' column by applying categories
-df4['description'] = df4.apply(clean_Description, axis = 1) #clean 'description' column by applying categories
-# Check if the SQLite database file already exists
-db_file = "transactions_ut.db"
-if not os.path.exists(db_file):
-    # If the database file doesn't exist, create a new one
-    conn = sqlite3.connect(db_file)
-    # Import the cleaned DataFrame to the SQLite database
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
-else:
-    # If the database file already exists, connect to it
-    conn = sqlite3.connect(db_file)
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
+df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+conn = sqlite3.connect("transactions_ut.db") # Create a new SQLite database in memory and import the cleaned DataFrame
+df4.to_sql("transactions", conn, if_exists="replace", index=False)
 
 ## Basiq API 
 basiq_service = BasiqService()
-
-# GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
-class GeoLockChecker(object):
-    def __init__(self, app):
-        self.app = app
-
-    def __call__(self, environ, start_response):
-        ip_addr = environ.get('REMOTE_ADDR', '')
-        if self.is_australia_or_localhost(ip_addr):
-            # Proceed normally if user in AU or Localhost
-            return self.app(environ, start_response)
-        else:
-            response = Response('Sorry, you are restricted from accessing this content. It is only available in Australia.', mimetype='text/html', status=403)
-            return response(environ, start_response)
-        
-    def is_australia_or_localhost(self, ip_addr):
-        if ip_addr == "127.0.0.1":
-            return 1
-        response = requests.get('http://ip-api.com/json/' + ip_addr)
-        if response.status_code == 200:
-            geo_info = response.json()
-            if(geo_info["country"] == "Australia"):
-                return 1
-            else:
-                return 0
-        else:
-            return 0
-
-
-app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
 
@@ -209,7 +122,7 @@ def login():
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
-            return redirect('/dash')
+            return redirect('/dash/')
 
         return 'Login failed. Please check your credentials.'
 
@@ -239,23 +152,15 @@ def register():
 
     return render_template('register.html')  # Create a registration form in the HTML template
 
-@app.route('/dash',methods=['GET','POST'])
-def auth_dash2(): 
+@app.route('/home/')
+def auth_dash(): 
+        return render_template("dash.html")
 
-    if request.method == 'GET':
+@app.route('/dash/')
+def auth_dash2(): 
         user_id = session.get('user_id')
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor() 
-
-        defacc = 'ALL'
-
-        # Select Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
-        new_record = pd.DataFrame([{'account': 'ALL'}])
-        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
-        jfxx = dfxx.to_json(orient='records')
 
         # Get class for pie chart
         cursor.execute('SELECT class FROM transactions')
@@ -276,11 +181,7 @@ def auth_dash2():
         jfx3 = dfx3.to_json(orient='records')
 
         # Line chart datasets
-        cursor.execute('SELECT balance,postDate FROM transactions')
-        query = cursor.fetchall()
-        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-        dfx4 = dfx4.to_json(orient='records')
-        
+        dfx4 = df2.to_json(orient='records')
         dfx5 = df3.to_json(orient='records')
 
         cursor.execute('SELECT balance FROM transactions LIMIT 1')
@@ -298,166 +199,17 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, jsxx=jfxx, defacc=defacc)
-        
-    if request.method == "POST":
-            # Get the account value from the JSON payload
-        data = request.get_json()
-        account_value = data.get('account', None)
-        print(account_value)
-
-        if account_value == 'ALL':
-            
-            defacc = account_value
-            user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
-            
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
-            jfxx = dfxx.to_json(orient='records')
-
-            # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions')
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
-
-            # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions')
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
-
-            # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions')
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
-
-            # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions')
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
-            
-            dfx5 = df3.to_json(orient='records')
-
-            cursor.execute('SELECT balance FROM transactions LIMIT 1')
-            query = cursor.fetchone()
-            curr_bal = query[0]
-            
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
-            query = cursor.fetchone()
-            curr_range = query[0]
-
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
-            jfx8 = dfx8.to_json(orient='records')
-            
-            updated_data = {
-                'currentBalance': curr_bal,
-                'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
-                'jsd4': dfx4,
-                'jsd5': dfx5,
-                'jsd8': jfx8,
-                'user_id': user_id,
-                'jsxx': jfxx,
-                'defacc': defacc,
-            }
-
-            return jsonify(updated_data)
-            
-        if account_value != 'ALL':
-
-            user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
-
-            defacc = account_value
-
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
-            jfxx = dfxx.to_json(orient='records')
-
-            # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
-
-            # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
-
-            # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
-
-            # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
-            
-            dfx5 = df3.to_json(orient='records')
-
-            cursor.execute('SELECT balance FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchone()
-            curr_bal = query[0]
-
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchone()
-            curr_range = query[0]
-
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
-            jfx8 = dfx8.to_json(orient='records')
-
-            updated_data = {
-                'currentBalance': curr_bal,
-                'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
-                'jsd4': dfx4,
-                'jsd5': dfx5,
-                'jsd8': jfx8,
-                'user_id': user_id,
-                'jsxx': jfxx,
-                'defacc': defacc,
-            }
-
-            return jsonify(updated_data)   
-
-@app.route("/load", methods=['GET', 'POST'])
-def dashboardLoader():
-    return render_template("loadingPage.html")
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, current_page='dash')
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-        return render_template("news.html")   
+        return render_template("news.html", current_page='news')   
 
 ## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-        return render_template("FAQ.html")
+        return render_template("FAQ.html", current_page='FAQ')
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
@@ -469,16 +221,11 @@ def open_terms_of_use():
 def open_terms_of_use_AI():
         return render_template("TermsofUse-AI.html") 
     
-# APPLICATION ARTICLE TEMPLATE ROUTING 
-@app.route('/articleTemplate/<int:article_id>')
-def open_article_template(article_id):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'static', 'json', 'article.json')
-    with open(json_path) as json_file:
-        articles_data = json.load(json_file)
-    article = next((article for article in articles_data if article['id'] == article_id), None)
-    return render_template('articleTemplate.html', articles=[article])
- 
+# APPLICATION Article Template PAGE 
+@app.route('/articleTemplate/')
+def open_article_template():
+        return render_template("articleTemplate.html") 
+    
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
