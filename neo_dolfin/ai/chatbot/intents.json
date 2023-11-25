@@ -353,68 +353,6 @@
             ]
         },
         {
-            "tag": "loan_repayment",
-            "patterns": [
-                "How do I repay my loan?",
-                "I want to repay my loan.",
-                "What are the loan repayment options?",
-                "Tell me about loan repayment options.",
-                "Loan repayment"
-            ],
-            "responses": [
-                "You can repay your loan through our website or app. Would you like help with the repayment process?"
-            ]
-        },
-        {
-            "tag": "credit_card_benefits",
-            "patterns": [
-                "Tell me about the perks of my credit card.",
-                "What are the benefits of my credit card?",
-                "What benefits do I get from a credit card?",
-                "What are the credit card benefits?"
-                
-            ],
-            "responses": [
-                "Our credit card offers perks such as cashback on many platforms, travel rewards, and purchase protection. Would you like to learn more about the benefits?"
-            ]
-        },
-        {
-            "tag": "lost_stolen_card",
-            "patterns": [
-                "My card has been lost or stolen. Can I have some assistance?",
-                "I lost my credit card.",
-                "My credit card is missing.",
-                "My card has been stolen.",
-                "Stolen card",
-                "Lost card"
-            ],
-            "responses": [
-                "I'm very sorry to hear that. Please contact our customer support immediately at [phone number] or live service."
-            ]
-        },
-        {
-            "tag": "customer_feedback",
-            "patterns": [
-                "How can I provide feedback about your services?",
-                "I want to share my experience with your company.",
-                "I want to give feedback on your performance."
-            ],
-            "responses": [
-                "DolFin values your feedback! You can share your thoughts through our website or contact our customer support."
-            ]
-        },
-        {
-            "tag": "interest_rate",
-            "patterns": [
-                "What is the current interest rate on my savings account?",
-                "Tell me the interest rate of my savings account.",
-                "Current interest rate"
-            ],
-            "responses": [
-                "The current interest rate on your savings account is [rate]%."
-            ]
-        },
-        {
             "tag": "highest_spending",
             "patterns": ["What's the most I've spent?", "Highest spending", "What was my highest spending in [month] [year]?"],
             "responses": []
