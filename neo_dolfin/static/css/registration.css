@@ -1,0 +1,93 @@
+body {
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    max-height: 100vh !important;
+    font-size: 1.6rem;
+}
+.display_left
+{
+    width: 800px;
+
+}
+.display_right
+{
+    width: 1000px;
+
+
+}
+.signup_bg {
+    width: auto;
+    height: 755px;
+    opacity: 0.7; 
+    margin-top: 25px;
+    margin-left: 240px;
+}
+.Title_signup {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.style {
+    width: 1200px;
+    height:auto;
+    opacity: 0.9; 
+    margin-top: -80px;
+    margin-left:-100px;
+}
+.text_bg
+{
+    position: absolute;
+    top: 270px;
+    left: 0;
+    width: 750px;
+    height: 450px;
+    background-color: rgba(238, 236, 236, 0.7); 
+    display: flex;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+}
+.container_right
+{
+    position: relative;
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.container_left
+{
+    position: relative;
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+.text_mid{
+    color: #000;
+    font-family: Anek Gujarati;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.text_top
+{
+    position: absolute;
+    top: 150px;
+    color: #FFF;
+font-family: Arimo Hebrew Subset Italic;
+font-size: 30px;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+}
+.dolfin
+{
+    position: absolute;
+    top: 600px;
+    left: 600px;
+    width: 250px;
+    display: flex;
+
+}
+.input_area {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+}
