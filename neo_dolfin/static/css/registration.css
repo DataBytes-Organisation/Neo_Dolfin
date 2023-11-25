@@ -169,6 +169,10 @@ input[type="submit"] {
     margin-left: 90px; 
 }
 
+input:not(:placeholder-shown) {
+    color: #000;
+}
+
 .or-text {
     text-align: center;
     margin-top: 20px;
@@ -213,6 +217,38 @@ input[type="submit"] {
 .btn-google, .btn-microsoft {
     padding-left: 40px; 
 }
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #0077BA;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #0077BA;
+}
+
 
 /* Responsive Media Queries */
 
