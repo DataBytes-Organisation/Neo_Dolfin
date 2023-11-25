@@ -143,23 +143,36 @@ class Chatbox {
               });
         };
     }
-    
+
+
 
     updateChatText(chatbox) {
         var html = '';
+        const l = '<div class="messages__item messages__item--visitor"><small class="loading">... </small></div>'
+        const chatmessage = chatbox.querySelector('.chatbox__messages');
+
         this.messages.slice().reverse().forEach(function(item, index) {
             if (item.name === "DolFine")
             {
                 html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+
+                setTimeout(() => {
+                    // chatmessage.;
+                   chatmessage.innerHTML = html;
+
+                }, 1300);
+                chatmessage.innerHTML = l;       
+
             }
             else
             {
                 html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
+                chatmessage.innerHTML = html;
             }
           });
 
-        const chatmessage = chatbox.querySelector('.chatbox__messages');
-        chatmessage.innerHTML = html;
+        
+        
     }
 }
 
@@ -170,42 +183,42 @@ chatbox.display();
 
 // chatbot cloud
 
-class chatbotCloudClass {
-    constructor() {
-    this.args = 
-    {
-         chatbotCloud : document.getElementById("chatbot-cloud"),
-         chatbotButton : document.getElementsByClassName("chatbox__button")[0]
-    }
-    }
+// class chatbotCloudClass {
+//     constructor() {
+//     this.args = 
+//     {
+//          chatbotCloud : document.getElementById("chatbot-cloud"),
+//          chatbotButton : document.getElementsByClassName("chatbox__button")[0]
+//     }
+//     }
 
-    removeOnClick() {
-        const {chatbotCloud, chatbotButton} = this.args;
-        document.addEventListener("DOMContentLoaded", function () {
-        chatbotButton.addEventListener("click", function () {
-            chatbotCloud.style.display = "none";
-        });
-    })
-    }
+//     removeOnClick() {
+//         const {chatbotCloud, chatbotButton} = this.args;
+//         document.addEventListener("DOMContentLoaded", function () {
+//         chatbotButton.addEventListener("click", function () {
+//             chatbotCloud.style.display = "none";
+//         });
+//     })
+//     }
 
-    appearChatCloud() {
-        // const {chatbotCloud, chatbotButton} = this.args;
-        // chatbotCloud.style.visibility = "visible";
+//     appearChatCloud() {
+//         // const {chatbotCloud, chatbotButton} = this.args;
+//         // chatbotCloud.style.visibility = "visible";
 
-        document.getElementById("chatbot-cloud").style.visibility = "visible";
-    }
+//         document.getElementById("chatbot-cloud").style.visibility = "visible";
+//     }
 
-    diasppearChatCloud() {
-        // const {chatbotCloud, chatbotButton} = this.args;
-        // chatbotCloud.style.visibility = "hidden";
+//     diasppearChatCloud() {
+//         // const {chatbotCloud, chatbotButton} = this.args;
+//         // chatbotCloud.style.visibility = "hidden";
 
-        // above line throughs an error.
-        document.getElementById("chatbot-cloud").style.visibility = "hidden";
-    }
-}
-const chatbotcloud = new chatbotCloudClass();
+//         // above line throughs an error.
+//         document.getElementById("chatbot-cloud").style.visibility = "hidden";
+//     }
+// }
+// const chatbotcloud = new chatbotCloudClass();
 
-chatbotcloud.removeOnClick();
+// chatbotcloud.removeOnClick();
 
-setInterval(chatbotcloud.appearChatCloud, 10000) // appear after 10 seconds
-setInterval(chatbotcloud.diasppearChatCloud, 20000) //diasppear after another 10 seconds
+// setInterval(chatbotcloud.appearChatCloud, 10000) // appear after 10 seconds
+// setInterval(chatbotcloud.diasppearChatCloud, 20000) //diasppear after another 10 seconds
