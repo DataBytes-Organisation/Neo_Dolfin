@@ -26,7 +26,7 @@ neutral_count = 0
 total_count = 0
 negative_conversations = []
 
-# Get the current directory where the script is locatedasd
+# Get the current directory where the script is located
 current_directory = os.path.dirname(__file__)
 
 # Combine the current directory with the filename 'intents.json'
