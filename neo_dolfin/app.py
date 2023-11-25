@@ -480,9 +480,36 @@ def open_article_template(article_id):
     return render_template('articleTemplate.html', articles=[article])
  
 # APPLICATION USER SPECIFIC  PROFILE PAGE
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
-        return render_template("profile.html") 
+
+    #request userid/username of current logged in user
+    if request.method =='GET':
+        user_id = session.get('user_id')
+
+    #specify the database path otherwise it tries to create a new/empty database
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+    #connect to the database 
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    #query to db based on username of current logged in user 
+    cursor.execute("SELECT email FROM user WHERE username = ?", (session['user_id'],))
+    email = cursor.fetchall()
+    cursor.execute("SELECT username FROM user WHERE username = ?", (session['user_id'],))
+    username = cursor.fetchall()
+    conn.close()
+
+    #clean the fetched results to remove additional symbols and display as plain text 
+    email_tuple = email
+    username_tuple = username
+
+    email_address = email_tuple[0][0]
+    username_symbol = username_tuple[0][0]
+
+    email = email_address.replace("[('", "").replace("',)]", "")
+    username = username_symbol.replace("[('", "").replace("',)]", "")
+
+    return render_template("profile.html", email=email, username=username, user_id=user_id) 
     
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
