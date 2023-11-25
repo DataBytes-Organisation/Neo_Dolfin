@@ -1,5 +1,9 @@
 /* Navbar */
 
+.navbar {
+    padding: 8px 10px; /* You can adjust these values as needed */
+}
+
 .nav-logo {
     width: 4.65rem;
     padding-right: 8px;
