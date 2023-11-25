@@ -22,6 +22,7 @@ import sqlite3
 import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
+import json
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -95,8 +96,53 @@ def clean_subClass(row):
         return extracted_subClass
     return row['subClass']
 
+def subClass_titles(row): #clean titles for subclass column
+    sub_class_lower = str(row['subClass']).lower()
+
+    if sub_class_lower in ['{\\title\\":\\"civic', 'auxiliary finance and investment services', 'legal and accounting services']:
+        return 'professional services'
+    if 'payroll' in sub_class_lower:
+        return 'salary'
+    if 'ctrlink' in sub_class_lower:
+        return 'centrelink'
+    if 'withdrawal' in sub_class_lower:
+        return 'withdrawal'
+    if 'bank-fee' in sub_class_lower:
+        return 'bank fees'
+    if any(term in sub_class_lower for term in ['electricity', 'telecommunications', 'water']):
+        return 'utilities'
+    if 'education' in sub_class_lower:
+        return 'education fees'
+    if 'other' in sub_class_lower:
+        return 'other'
+    
+def clean_Description(row): #clean description column
+    description_lower = str(row['description']).lower()
+
+    if 'atm withdrawal fee' in description_lower:
+        return 'atm fee'
+    if 'homeloan' in description_lower:
+        return 'homeloan repayment'
+    if 'wdl atm' in description_lower:
+        return 'atm withdrawal'
+    if 'foreign currency' in description_lower:
+        return 'foreign transfer fee'
+    if 'tfr' in description_lower:
+        return 'account transfer'
+    if any(term in description_lower for term in ['wages', 'payroll']):
+        if 'wages' in description_lower:
+            description_lower.replace('wages', 'payroll')
+        return description_lower
+    if any(term in description_lower for term in ['tfr', 'transfer']):
+        return 'transfer'
+    if 'agl' in description_lower:
+        return 'utilities payment'
+    else:
+        return 'other'
+
 df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+df4['subClass'] = df4.apply(subClass_titles, axis = 1) #clean 'subClass' column by applying categories
+df4['description'] = df4.apply(clean_Description, axis = 1) #clean 'description' column by applying categories
 # Check if the SQLite database file already exists
 db_file = "transactions_ut.db"
 if not os.path.exists(db_file):
@@ -108,6 +154,8 @@ if not os.path.exists(db_file):
 else:
     # If the database file already exists, connect to it
     conn = sqlite3.connect(db_file)
+    df4.to_sql("transactions", conn, if_exists="replace", index=False)
+    conn.close()
 
 ## Basiq API 
 basiq_service = BasiqService()
@@ -421,15 +469,47 @@ def open_terms_of_use():
 def open_terms_of_use_AI():
         return render_template("TermsofUse-AI.html") 
     
-# APPLICATION Article Template PAGE 
-@app.route('/articleTemplate/')
-def open_article_template():
-        return render_template("articleTemplate.html") 
-    
+# APPLICATION ARTICLE TEMPLATE ROUTING 
+@app.route('/articleTemplate/<int:article_id>')
+def open_article_template(article_id):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, 'static', 'json', 'article.json')
+    with open(json_path) as json_file:
+        articles_data = json.load(json_file)
+    article = next((article for article in articles_data if article['id'] == article_id), None)
+    return render_template('articleTemplate.html', articles=[article])
+ 
 # APPLICATION USER SPECIFIC  PROFILE PAGE
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
-        return render_template("profile.html") 
+
+    #request userid/username of current logged in user
+    if request.method =='GET':
+        user_id = session.get('user_id')
+
+    #specify the database path otherwise it tries to create a new/empty database
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+    #connect to the database 
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    #query to db based on username of current logged in user 
+    cursor.execute("SELECT email FROM user WHERE username = ?", (session['user_id'],))
+    email = cursor.fetchall()
+    cursor.execute("SELECT username FROM user WHERE username = ?", (session['user_id'],))
+    username = cursor.fetchall()
+    conn.close()
+
+    #clean the fetched results to remove additional symbols and display as plain text 
+    email_tuple = email
+    username_tuple = username
+
+    email_address = email_tuple[0][0]
+    username_symbol = username_tuple[0][0]
+
+    email = email_address.replace("[('", "").replace("',)]", "")
+    username = username_symbol.replace("[('", "").replace("',)]", "")
+
+    return render_template("profile.html", email=email, username=username, user_id=user_id) 
     
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])

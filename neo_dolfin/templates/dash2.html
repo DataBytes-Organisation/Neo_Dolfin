@@ -8,11 +8,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- changes-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js"></script>
+    <script src="../static//js//dash_extended.js" defer></script>
+      <!-- changes-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash2.css')}}" />
 </head>
 
+<style>
+    .container_pattern{
+        display: flex;
+        justify-content: space-between;
+    }
+    .chart, .image {
+        flex: 1; 
+        margin: 10px; 
+    }
+    .image img {
+      position: absolute; 
+      transition: opacity 0.5s ease-in-out; 
+      opacity: 1; 
+    }
+  </style>
 <body>
 
     {% include 'components/navbar.html' %}  
@@ -48,23 +67,6 @@
                     </div>
                 </div>
             </div>
-            <div class="container px-4 text-center">
-                <div class="row row-cols-3">
-                    <div class="col">
-
-                        
-                        <div class="p-3"> <p>Current Balance: <span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="p-3"> <p> Balance Range: <span id="balanceRange">{{ jsd7 | safe }}</span> </p> 
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="p-3"> <p>Last Transaction: <span id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
-                        </div>
-                    </div>
-                </div>
             <div class="row gx-5">
                 <div class="col">
                     <div class="p-3">
@@ -77,7 +79,6 @@
                         </div>
 
                     </div>
-
                 <div class="col">
                     <div class="p-3">
                         <canvas id="dou1"></canvas>
@@ -98,7 +99,11 @@
             </p>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body"> <!-- New Visualisations go here-->
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <div class="container_pattern">
+                        <div id="chartContainer" class="chart" style="height: 500px;width: 1000px;"></div>
+                        <div class="image">
+                            <img id="image" src="" style="height: 400px; width: 600px;">
+                          </div>
                 </div>
             </div>
         </div>
