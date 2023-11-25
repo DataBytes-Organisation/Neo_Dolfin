@@ -1,0 +1,21 @@
+# Ignore virtual environment
+venv2\Lib\
+venv2/
+
+# Ignore .env file
+.env
+
+# Ignore the qr.png file
+qr.png
+
+# pycache
+.pytest_cache
+test/__pycache__
+__pycache__
+.DS_store
+
+# my chages
+test.html
+changes.txt
+snippets.txt
+white_arrow.png

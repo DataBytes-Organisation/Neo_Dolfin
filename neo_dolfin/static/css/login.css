@@ -1,0 +1,267 @@
+body {
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23464df3' fill-opacity='0.16'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    max-height: 100vh !important;
+    /* max-width: 100vw !important; */
+    font-size: 1.6rem;
+}
+
+.Title_login {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.style
+{
+    width: clamp(500px, 650px, 650px);
+    margin-left: 150px;
+    margin-top: 100px;
+}
+.input_area {
+    position:relative;
+    bottom: 430px;
+    left: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.input_area input[type="text"],
+.input_area input[type="password"] {
+    font-family: 'Anybody', sans-serif; 
+    width: 95%; /* Adjust the width as needed */
+    padding: 10px;
+    margin: 25px 0; /* Creates gap between inputs */
+    border: 1px solid #ddd;
+    border-radius: 30px; /* Increased border-radius for rounded effect */
+}
+
+.input_area input[type="submit"] {
+    width: 40%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-top: 20px; /* Spacing above the button */
+    margin-right: 10px; 
+    border: none;
+    border-radius: 30px; /* Increased border-radius for rounded effect */
+    background-color: #382727;
+    color: white;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.auth-link {
+    font-family: 'Anybody', sans-serif;
+    font-weight: bold;
+    color: white; /* Adjust the color as needed */
+    text-decoration: none; /* Removes underline */
+    cursor: pointer;
+    font-size: 0.5em;
+    margin: 0 5px; /* Adjust for spacing around the links */
+}
+
+.link-container .auth-link:first-child {
+    margin-right: 100px; /* Pushes it more to the left */
+}
+
+/* Target the second .auth-link (Forgot Password?) */
+.link-container .auth-link:last-child {
+    margin-left: auto; /* Pushes it more to the right */
+}
+
+
+.auth-link:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+.link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px; /* Adjust as needed */
+}
+
+.container_right
+{
+    position: relative;
+    top: 6.25rem;
+    left: 5rem;
+    /* width: 800px; */
+    width: 800rem;
+    height: 48.75rem;
+    background-color: rgb(212, 227, 242);
+    display: flex;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    margin-bottom: 200px;
+    margin-right: 0px;
+    
+    /* margin-right: 50px; */
+    /* padding-right: 50px; */
+    /* padding-top: 10%; */
+    /* margin-bottom: 100px; */
+}
+
+.container_left
+{
+    position: relative;
+    width: 800px; 
+    margin-right: 0px;
+    padding: 0px;
+    text-align: center; 
+}
+
+.text_mid{
+    
+    left: 60px;
+    top: 130px;
+    position: absolute;
+    color: #787878;
+    font-family: Archivo;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.text_top
+{
+    left: 60px;
+    top: 70px;
+    position: absolute;
+    color: #000;
+    font-family: Archivo;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 87.04%;
+}
+.dolfin
+{
+    position: relative;
+    top: 6rem;
+    left: 20rem;
+    width: 10.625rem;
+    height: 10.625rem;
+    display: flex;
+
+}
+.text_tips_bg
+{
+    position: relative;
+    top:18.75rem;
+    left:3.125rem;
+    width: 33rem;
+    height: 27.5rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    backdrop-filter: blur(.935rem);
+    border-radius: 1.25rem;
+}
+.tips_title
+{
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    width: 650px;
+    color: #000;
+font-family: Archivo;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 146.88%;
+letter-spacing: -0.8px;
+}
+
+.tips
+{
+    width: 350px;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    width: 650px;
+    color: #000;
+font-family: Archivo;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 146.88%;
+letter-spacing: -0.8px;
+}
+
+
+/* responsiveness */
+/* 
+@media (max-width: 1724px) {
+
+    .text_tips_bg {
+            width: 34rem;
+        }
+
+    .container_right {
+        width: 43.75rem;
+    }
+
+    .dolfin {
+        width: 10rem;
+        height: 10rem;
+        left:21.875rem;
+    }
+}
+
+@media (max-width: 1620px) {
+    .container_right {
+        max-width: 38.75rem;
+    }
+
+    .text_tips_bg {
+        width: 33rem;
+    }
+
+    .dolfin {
+        width: 9.375rem;
+        height: 9.375rem;
+        left: 20.625rem;
+    }
+
+} */
+
+@media screen and (max-width: 1400px) {
+    
+    .text_tips_bg {
+        width: 28rem;
+
+    }
+
+    .dolfin {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 1200px){
+   
+    .text_tips_bg {
+        width: 38rem;
+    }
+    
+    .dolfin {
+        display: flex;
+        left: 23rem;
+    }
+}
+
+@media screen and (max-width: 990px) {
+
+    .text_tips_bg {
+        width: 27rem;
+    }
+
+    .dolfin {
+        display: none;
+       
+    }
+}

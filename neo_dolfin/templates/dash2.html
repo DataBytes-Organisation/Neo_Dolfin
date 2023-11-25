@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DolFin - Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- changes-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js"></script>
+    <script src="../static//js//dash_extended.js" defer></script>
+      <!-- changes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash2.css')}}" />
+</head>
+
+<style>
+    .container_pattern{
+        display: flex;
+        justify-content: space-between;
+    }
+    .chart, .image {
+        flex: 1; 
+        margin: 10px; 
+    }
+    .image img {
+      position: absolute; 
+      transition: opacity 0.5s ease-in-out; 
+      opacity: 1; 
+    }
+  </style>
+<body>
+
+    {% include 'components/navbar.html' %}  
+
+    <div class="container mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <p><strong>Welcome</strong>, {{ user_id }}</p>
+            <p id="accountind"><strong>Account:</strong> {{ defacc | safe }}</p>
+            <div class="btn-group dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Accounts
+                  </button>
+                <ul class="dropdown-menu" id="accountDropdown">
+                    <!-- Dropdown menu links will be dynamically added here using JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div> 
+        <div class="container px-4 text-center">
+            <div class="row row-cols-3">
+                <div class="col">
+                    <div class="p-3"> <p> <strong> Current Balance: </strong> <br> $<span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3"> <p> <strong> Balance Change YoY: </strong> <br> +<span id="balanceRange">{{ jsd7 | safe }}</span> </p> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3"> <p> <strong> Last Transaction: </strong> <br> <span name="lastTransaction" id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <canvas id="bar1"></canvas>
+                    </div>
+                </div>
+                    <div class="col">
+                        <div class="p-3">
+                            <canvas id="pie1"></canvas>
+                        </div>
+
+                    </div>
+                <div class="col">
+                    <div class="p-3">
+                        <canvas id="dou1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <div class="text-center">
+            <p class="d-inline-flex gap-1">
+                <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Additional Visualisations
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body"> <!-- New Visualisations go here-->
+                    <div class="container_pattern">
+                        <div id="chartContainer" class="chart" style="height: 500px;width: 1000px;"></div>
+                        <div class="image">
+                            <img id="image" src="" style="height: 400px; width: 600px;">
+                          </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container text-center">
+        <div class="row row-cols-2">
+            <div>
+                <canvas id="myChart"> </canvas>
+            </div>
+            <div>
+                <canvas id="myChart2"> </canvas>
+            </div>
+        
+        </div>
+      </div>
+
+    <script>
+
+        var currentBalance = {{ jsd6 | safe }};
+        var balanceRange = {{ jsd7 | safe }};
+        
+        document.getElementById('currentBalance').innerText = currentBalance;
+        document.getElementById('balanceRange').innerText = balanceRange;
+
+        var jsd8 = {{ jsd8 | safe }};
+        var amount = jsd8[0].amount
+        var classValue = jsd8[0].class
+        var day = jsd8[0].day
+        var month = jsd8[0].month
+        var year = jsd8[0].year
+
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("classValue").innerHTML = classValue;
+        document.getElementById("day").innerHTML = day;
+        document.getElementById("month").innerHTML = month;
+        document.getElementById("year").innerHTML = year;
+
+        //PIE CHART 2
+        var js1 = {{ jsd1|tojson|safe }};
+        var jsd1 = JSON.parse(js1);
+
+        var jsd1_labels = [...new Set(jsd1.map(item => item.class))];
+        var jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
+
+        var ctx1 = document.getElementById('pie1').getContext('2d');
+        var pie1 = new Chart(ctx1, {
+            type: 'pie',  // Specify the chart type as 'pie'
+            data: {
+                labels: jsd1_labels,  // Unique labels
+                datasets: [{
+                    data: jsd1_counts,  // Counts for each label
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                        // Add more colors if needed
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                        // Add more colors if needed
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: 'Account Transaction Types'},
+                    legend: {display:false}}
+            }
+        });
+
+        // PIE CHART 3
+        var js2 = {{ jsd2|tojson|safe }};
+        var jsd2 = JSON.parse(js2);
+
+        var jsd2_labels = [...new Set(jsd2.map(item => item.subclass))];
+        var jsd2_counts = jsd2_labels.map(label => jsd2.filter(item => item.subclass === label).length);
+
+        var ctx2 = document.getElementById('dou1').getContext('2d');
+        var pa1 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: jsd2_labels,
+                datasets: [{
+                    data: jsd2_counts,
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                    // Add more colors if needed
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                    // Add more colors if needed
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Account Transaction Payees'},
+                    legend: {display:false}}
+        }
+        });
+
+        // PIE CHART 1
+        var js3 = {{ jsd3|tojson|safe }};
+        var jsd3 = JSON.parse(js3)
+
+        var ctx3 = document.getElementById('bar1').getContext('2d');
+
+        var creditData = jsd3.filter(obj => obj.direction === 'credit');
+        var debitData = jsd3.filter(obj => obj.direction === 'debit');
+
+        var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
+        var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
+
+        var jsd3_labels = ['Debit', 'Credit'];
+        var jsd3_values = [creditTotal, debitTotal];
+
+        var barChart = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Debit','Credit'],
+                datasets: [{
+                    data: jsd3_values,
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Account Credit vs Account Debit'},
+                legend: {display:false}}
+        }
+        });
+
+        // LINE1 : Balance Data
+        var js4 = {{ jsd4|tojson|safe }};
+        var jsd4 = JSON.parse(js4);
+
+        var dates = jsd4.map(entry => entry.postDate);
+        var balances = jsd4.map(entry => entry.balance);
+
+        dates = dates.map(dateString => dateString.split('T')[0]);
+
+        dates.reverse()
+        balances.reverse()
+
+        const ctxl1 = document.getElementById('myChart');
+        var linechart = new Chart(ctxl1, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: '($) Balance',
+                data: balances,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Account Balance History ($)'},
+                legend: {display:false}},
+            scales: {
+            y: {
+                beginAtZero: true
+                    }   
+                }
+            }
+        });
+
+        // LINE2 : Savings Model 
+        var js5 = {{ jsd5|tojson|safe }};
+        var jsd5 = JSON.parse(js5);
+
+        var dates5 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[0]);
+        var balance1 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[1]);
+        var balance2 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[2]);
+        var balance3 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[3]);
+        
+        const ctxl2 = document.getElementById('myChart2');
+        var lineChart = new Chart(ctxl2, {
+                type: 'line',
+                data: {
+                    labels: dates5,
+                    datasets: [{
+                        label: 'Downwards Trending Balance Prediction',
+                        data: balance1,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Upwards Trending Balance Prediction',
+                        data: balance2,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }, {
+                        label: 'Average Balance Prediction',
+                        data: balance3,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    plugins: {
+                title: {
+                    display: true,
+                    text: 'AI generated Balance Predictions ($)'},
+                legend: {display:false}},
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        
+        // ACCOUNT DROPDOWN
+        var jsxxArray = {{ jsxx | safe }};
+        var dropdown = document.getElementById('accountDropdown');
+        // Event delegation: Listen for click events on the dropdown and delegate to the clicked <a> element
+        dropdown.addEventListener('click', function(event) {
+            var target = event.target;
+
+            // Check if the clicked element is an <a> element with the 'dropdown-item' class
+            if (target.tagName === 'A' && target.classList.contains('dropdown-item')) {
+                // Get the account value from the clicked <a> element
+                var accountValue = target.innerText;
+
+                // Trigger a POST request with the accountValue
+                fetch(window.location.href, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ account: accountValue }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data
+                    console.log('POST request successful:', data);
+                    
+                    jsd1 = data.jsd1
+                    jsd2 = data.jsd2
+                    jsd3 = data.jsd3
+                    jsd4 = data.jsd4
+                    jsd5 = data.jsd5
+                    jsd6 = data.currentBalance
+                    jsd7 = data.balanceRange
+                    jsd8 = data.jsd8
+                    jsxx = data.jsxx
+                    defacc = data.defacc
+
+                    console.log(jsd4)
+
+                    currentBalance = jsd6
+                    balanceRange = jsd7
+
+                    jsd8 = jsd8
+                    amount = jsd8[0].amount
+                    classValue = jsd8[0].class
+                    day = jsd8[0].day
+                    month = jsd8[0].month
+                    year = jsd8[0].year
+
+                    document.getElementById('accountind').innerHTML = '<strong>Account:</strong> ' + defacc;
+                    document.getElementById('currentBalance').innerText = currentBalance;
+                    document.getElementById('balanceRange').innerText = balanceRange;
+
+                    document.getElementsByName('lastTransaction').innerHTML = `
+                        <strong>Last Transaction:</strong><br>
+                        <span id="amount">${amount}</span>
+                        @
+                        <span id="classValue">${classValue}</span>
+                        on
+                        <span id="day">${day}</span>/
+                        <span id="month">${month}</span>/
+                        <span id="year">${year}</span>
+                    `;
+
+                    if (pie1) {
+                        pie1.destroy();
+                    }
+
+                    // Parse and update the data
+                    var js1 = jsd1
+                    var jsd1 = JSON.parse(js1);
+
+                    var jsd1_labels = [...new Set(jsd1.map(item => item.class))];
+                    var jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
+
+                    // Get the context of the canvas
+                    var ctx1 = document.getElementById('pie1').getContext('2d');
+
+                    // Create a new chart instance with updated data
+                    pie1 = new Chart(ctx1, {
+                        type: 'pie',
+                        data: {
+                            labels: jsd1_labels,
+                            datasets: [{
+                                data: jsd1_counts,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                    // Add more colors if needed
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                    // Add more colors if needed
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Account Transaction Types'
+                                },
+                                legend: { display: false }
+                            }
+                        }
+                    });
+
+                    if (pa1) {
+                        pa1.destroy();
+                    }
+
+                    var js2 = jsd2
+                    var jsd2 = JSON.parse(js2);
+
+                    var jsd2_labels = [...new Set(jsd2.map(item => item.subclass))];
+                    var jsd2_counts = jsd2_labels.map(label => jsd2.filter(item => item.subclass === label).length);
+
+                    var ctx2 = document.getElementById('dou1').getContext('2d');
+                    pa1 = new Chart(ctx2, {
+                        type: 'pie',
+                        data: {
+                            labels: jsd2_labels,
+                            datasets: [{
+                                data: jsd2_counts,
+                                backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                                // Add more colors if needed
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                                // Add more colors if needed
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Account Transaction Payees'},
+                                legend: {display:false}}
+                    }
+                    });
+
+                    if (barChart) {
+                        barChart.destroy();
+                    }
+
+                    var js3 = jsd3
+                    var jsd3 = JSON.parse(js3)
+
+                    var ctx3 = document.getElementById('bar1').getContext('2d');
+
+                    var creditData = jsd3.filter(obj => obj.direction === 'credit');
+                    var debitData = jsd3.filter(obj => obj.direction === 'debit');
+
+                    var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
+                    var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
+
+                    var jsd3_labels = ['Debit', 'Credit'];
+                    var jsd3_values = [creditTotal, debitTotal];
+
+                    barChart = new Chart(ctx3, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Debit','Credit'],
+                            datasets: [{
+                                data: jsd3_values,
+                                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+                                borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Account Credit vs Account Debit'},
+                            legend: {display:false}}
+                    }
+                    });
+                  
+                    var existingChart = Chart.getChart('myChart');
+
+                    // Destroy the existing chart if it exists
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                    var js4 = jsd4
+                    var jsd4 = JSON.parse(js4);
+
+                    var dates = jsd4.map(entry => entry.postDate);
+                    var balances = jsd4.map(entry => entry.balance);
+
+                    dates = dates.map(dateString => dateString.split('T')[0]);
+
+                    dates.reverse()
+                    balances.reverse()
+
+                    const ctxl1 = document.getElementById('myChart');
+                    var linechart = new Chart(ctxl1, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: '($) Balance',
+                            data: balances,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Account Balance History ($)'},
+                            legend: {display:false}},
+                        scales: {
+                        y: {
+                            beginAtZero: true
+                                }   
+                            }
+                        }
+                    });
+
+                })
+                .catch(error => {
+                    console.error('Error during POST request:', error);
+                });
+            }
+        });
+        jsxxArray.forEach(function(account) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.className = 'dropdown-item';
+            a.href = '#';
+            a.innerText = account.account;
+            li.appendChild(a);
+            dropdown.appendChild(li);
+        });
+
+    </script>
+
+    {% include 'components/chatbotWidget.html' %}
+    {% include 'components/footer.html' %}
+</body>
+</html>
