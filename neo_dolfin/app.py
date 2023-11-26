@@ -73,6 +73,12 @@ class UserTestMap(db.Model):
     userid = db.Column(db.String(80), unique=True, nullable=False)
     testid = db.Column(db.Integer, nullable=False)
 
+class UserAuditLog(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.now)
+    username = db.Column(db.String(80), nullable=False)
+    action = db.Column(db.String(80), nullable=False)
+    message = db.Column(db.String(255), nullable=False)
+
 try:
     with app.app_context():
         db.create_all()
@@ -147,6 +153,15 @@ class GeoLockChecker(object):
 
 app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
+def add_user_audit_log(username, action, message):
+    new_log = UserAuditLog(username=username, action=action, message=message)
+    print(new_log)
+    db.session.add(new_log)
+    db.session.commit() 
+    with open("audit.txt", 'a') as file:
+        file.write(f"[{new_log.timestamp}] [user-{action}]  Username: {username}:  {message}\n")
+
+
 # ROUTING
 ## LANDING PAGE
 @app.route("/",methods = ['GET','POST']) #Initial landing page for application
@@ -177,9 +192,11 @@ def login():
             loadDatabase(testId)            
 
             # redirect to the dashboard.
+            add_user_audit_log(username, 'login-success', 'User logged in successfully.')
             return redirect('/dash')
         
 
+        add_user_audit_log(username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
@@ -197,13 +214,14 @@ def register():
         existing_email = User.query.filter_by(email=email).first()
 
         if existing_user or existing_email:
+            add_user_audit_log(username, 'register-fail', 'User registration failed.')
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
-
+        add_user_audit_log(username, 'register-success', 'User registered successfully.')
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
