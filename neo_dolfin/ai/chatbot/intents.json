@@ -354,9 +354,68 @@
         },
         {
             "tag": "highest_spending",
-            "patterns": ["What's the most I've spent?", "Highest spending", "What was my highest spending in [month] [year]?"],
+            "patterns": [
+                "What's the most I've spent?",
+                "Highest spending",
+                "What was my highest spending in [month] [year]?"],
             "responses": []
+        },
+        {
+            "tag": "retirement_plan",
+            "patterns": [
+                "I want to plan my retirement.",
+                "Can we set up a retiring plan?",
+                "I want a plan for when I retire."
+            ],
+            "responses": [
+                "Absolutely! To get started, let's gather some key information. Could you please provide details about your expected retirement age and any specific financial goals you have for your retirement? This will help us tailor a retirement plan that aligns with your needs."
+            ]
+        },
+        {
+            "tag": "mobile_app_features",
+            "patterns": [
+                "What are some unique features in the mobile app?",
+                "Can you tell me about the mobile application?"
+            ],
+            "responses": [
+                "Our mobile app allows users to view their transactions, manage their accounts, setting up bill alerts to get notified in real-time, allows contactless payments and much more. You can download DolFin on your phone through this [link]!"
+            ] 
+        },
+        {
+            "tag": "fraudulent_activity",
+            "patterns": [
+                "I suspect fraudulent activity on my account",
+                "Report suspicious transactions",
+                "Fraud detection help."
+            ],
+            "responses": [
+                "I'm sorry to hear that you suspect fraudulent activity on your account. Your account security is our top priority. To report suspicious transactions, please contact our customer support immediately at [phone number] or use our live chat service."
+            ]
+        },
+        {
+            "tag": "financial_literacy_tips",
+            "patterns": [
+                "Provide financial literacy tips",
+                "I want to improve my financial knowledge."
+            ],
+            "responses": [
+                "Here are a few tips to get started in improving your financial literacy:\n1. Create a budget to track your income and expenses.\n2. Save a portion of your income regularly.\n3. Understand the basics of investing and consider long-term goals.\n4. Review and understand your credit report.\n5. Stay informed about financial news and trends.\nWould you like to learn more?"
+            ]
+        },
+        {
+            "tag": "cryptocurrency_information",
+            "patterns": [
+                "Tell me about cryptocurrencies",
+                "I'm interested in investing in crypto.",
+                "I want to invest in cryptocurrency",
+                "Investment bitcoin"
+            ],
+            "responses": [
+                "Cryptocurrencies are digital or virtual currencies that use cryptography for security, However, if you're interested in investing in cryptocurrencies, it's essential to understand the basics and risks.\nHere are some key points:\n1. Cryptocurrencies operate on blockchain technology.\n2. Prices can be highly volatile and fluctuate often.\n3. Research different cryptocurrencies before investing.\n4. Use reputable cryptocurrency exchanges for transactions.\n5. Be aware of security risks and store your assets securely.\nWould you like to learn more?"
+            ]
         }
+
+
     ]
 }
 
