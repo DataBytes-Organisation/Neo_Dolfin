@@ -16,6 +16,7 @@ import ssl
 import nltk
 #import certifi
 import requests
+import bcrypt
 import datetime
 import re
 import sqlite3
@@ -162,7 +163,8 @@ def login():
         # Retrieve the user from the database
         user = User.query.filter_by(username=username).first()
 
-        if user and user.password == password:
+        # Check if the user exists and the password is correct with stored hash
+        if user and bcrypt.checkpw(password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
 
@@ -191,6 +193,9 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+
+        # Hash password
+        password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         # Check if the username or email already exists in the database
         existing_user = User.query.filter_by(username=username).first()
