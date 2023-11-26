@@ -192,6 +192,27 @@ app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
 
+# Added By String
+@app.context_processor
+# transfer user to template
+def inject_user():
+    if 'user' in session:
+        user = session['user']
+        return dict(user=user)
+    return dict()
+
+def check_auth():
+    # skip
+    if request.path == '/login' or request.path == '/register':
+        return
+    # check
+    if session.get('user') is None:
+        redirect('/login')
+
+@app.before_request
+def before_request():
+    check_auth()
+
 ## LANDING PAGE
 @app.route("/",methods = ['GET','POST']) #Initial landing page for application
 def landing():
@@ -205,10 +226,13 @@ def login():
 
         # Retrieve the user from the database
         user = User.query.filter_by(username=username).first()
-
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
+            # Added By String
+            # mount to session and hide password
+            user.password = None
+            session['user'] = user
             return redirect('/dash')
 
         return 'Login failed. Please check your credentials.'
