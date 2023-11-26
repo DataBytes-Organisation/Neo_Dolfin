@@ -67,6 +67,10 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
+    address1 = db.Column(db.String(120), nullable=False)
+    address2 = db.Column(db.String(120), nullable=False)
+    suburb = db.Column(db.String(80), nullable=False)
+    postcode = db.Column(db.Integer, nullable=False)
 
 class UserTestMap(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -191,6 +195,10 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        address1 = request.form['address1']
+        address2 = request.form['address2']
+        suburb = request.form['suburb']
+        postcode = int(request.form['postcode'])
 
         # Check if the username or email already exists in the database
         existing_user = User.query.filter_by(username=username).first()
@@ -199,8 +207,11 @@ def register():
         if existing_user or existing_email:
             return 'Username or email already exists. Please choose a different one.'
 
+        if postcode < 1000 or postcode > 9999:
+            return 'Postcode is invalid. Please enter a valid postcode.'
+
         # Create a new user and add it to the database
-        new_user = User(username=username, email=email, password=password)
+        new_user = User(username=username, email=email, password=password, address1=address1, address2=address2, suburb=suburb, postcode=postcode)
         db.session.add(new_user)
         db.session.commit()
 
