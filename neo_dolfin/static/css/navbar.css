@@ -1,5 +1,9 @@
 /* Navbar */
 
+.navbar {
+    padding: 8px 10px; /* You can adjust these values as needed */
+}
+
 .nav-logo {
     width: 4.65rem;
     padding-right: 8px;
@@ -57,3 +61,15 @@
     left: -25% !important;
     margin-top: var(--bs-dropdown-spacer);
 }
+
+/* Active state for the entire list item */
+.nav-item.active {
+    background-color: #0077BB;
+    border-radius: 2px; /* Add rounded corners */
+}
+.nav-item.active {
+    padding: 8px 15px; /* Adjust padding as needed */
+}
+
+
+

@@ -1,11 +1,11 @@
 # NE0 DolFin 
-Updated: 29/08/2023
+Updated: 16/11/2023
 
 ## Branch Management
 ### Authorised Code Owners:
 * Shane Dzartov (@SDzartov)
-* Jackson Thompson (@thompsonjac)
-* Christopher Russo (@CRussoDeakin)
+* Jeremy Conway (Jezza12345)
+* Aidan John Stuart Wong (wongaid)
 
 ### GitHub Management 
 #### Branch Structure
@@ -70,66 +70,30 @@ git push origin your-branch-name --force
 ### Requirements:
 * IDE, like *Visual Studio Code*
 * Python Version == **3.11**
-* AWS CLI installed on your local machine.
+* GitHub Desktop (RECOMMENDED)
 
-## {NEW} MFA CONFIG SET UP
-* In order for the SignIn route to function post MFA, you must ensure that your AWS CLI is installed and you have a configure file:
-
-### MAC OS
-* Ensure that you have an AWS Credentials file in your root directory 
-	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
-	* After that, open the configure file via the command: ```nano ~/.aws/credentials.```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
-* Ensure that your AWS credentials file is in the correct format. The format is given below:
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
-
-### WINDOWS
-#Method 1
-*  * Ensure that you have an AWS Credentials file in your root directory 
-	* If you have not done this, use the AWS CLI and run the command ```aws configure``` to configure an AWS Profile.
-	* Move into that directory via: ```cd %userprofile%\.aws ```
-	* After that, open the configure file via the command: ```nano credentials```. Make sure the code matches the below example and press ```CNTRL+O``` , ```ENTER``` , ```CNTRL+X ```
-* Ensure that your AWS credentials file is in the correct format. The format is given below:
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
-
-
-#Method 2 - Use the proceedure below if you don't have the AWS CLI installed Or a ```cd %userprofile%\.aws ``` directory and credentials file does not exist
-*  * Install the latest version of the AWS CLI for Windows from: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-*  * Ensure that you have an AWS Credentials file in your root directory (%userprofile%/.aws/configure)
-	* If you do not have a configure file, use the AWS CLI from the command prompt via running the command ```aws configure``` to configure an AWS Profile.
-	* Press Enter to accept the default options for AWS Access Key ID, AWS Secret Access Key, Default region name, Default output format.
- 	* Change directory into your user profile directory ```cd %userprofile% ``` 
-	* Make a directory called .aws via the following command: ```mkdir .aws ```
-   	* Move into that directory via: ```cd .aws ```
-	* Create the 'configure' file (with no extension - ie: configure) using notepad, Visual Studio Code or another text editor.  Make sure the code matches the below, save the file and close the text editor
-```
-[default]
-aws_access_key_id=<>
-aws_secret_access_key=<>
-```
-* Verify with the command: ```aws configure list```
-
-### Deploy to ***Localhost***
+### Deploy Neo_Dolfin to ***Localhost***
 * Pull this repo and select this branch, if you are unconfident in your GIT bash skills, please download GitHub Desktop: https://desktop.github.com/
 * Once you have the repo folder open in your IDE, do the following in the BELOW ORDER:
-	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/dolfin_fe/neo_dolfin```
+	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/NEO_Dolfin/neo_dolfin```
  		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
   * Initiate a new *venv* env using the following terminal command: ```python -m venv venv``` 
   * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
-  * Inside your IDE, create a new file inside your neo_dolfin folder called: ```.env``` (**MAKE SURE TO INCLUDE THE "." AT THE BEGINNING**) 
-	* Ask one of the team leads for the credentials, that you must paste into the .env file and then save the file. 
   * Install the required libraries into the *venv* env using the following terminal command: ```pip install -r requirements.txt``` 
   * To run the flask application, use the following terminal command: ```python app.py``` 
-  * Navigate to ```127.0.0.1``` in your web browser. 
+  * Navigate to ```127.0.0.8000``` in your web browser. 
+
+### Deploy Dolfin_Analytica to ***Localhost***
+* Pull this repo and select this branch, if you are unconfident in your GIT bash skills, please download GitHub Desktop: https://desktop.github.com/
+* Once you have the repo folder open in your IDE, do the following in the BELOW ORDER:
+	* Open a terminal window and move into the neo_dolfin directory via the terminal command: ```cd <path/to>/GitHub/NEO_Dolfin/dolfin_analytica```
+ 		* (**NOTE: INSERT YOUR PATH AS REQUIRED, YOUR PATH MAY DIFFER**)  
+  * Initiate a new *venv* env using the following terminal command: ```python -m venv venv2``` 
+  * Activate the *venv* env using the following terminal command: ```venv\scripts\activate```
+  * Install the required libraries into the *venv* env using the following terminal command: ```pip install -r requirements.txt``` 
+  * To run the flask application, use the following terminal command: ```python app.py``` 
+  * Navigate to ```127.0.0.5000``` in your web browser. 
+
 
 ### {NEW} Testing
 We have testing scripts enabled for this application. 
@@ -139,5 +103,5 @@ We have testing scripts enabled for this application.
 **PLEASE RUN THE PYTEST AND ATTACH THE LOG TEXT/SCREENSHOT TO YOUR PULL REQUEST**
 ***Warnings are OKAY, Fails will result in the PULL request not being reviewed.*** 
 
-## EC2 Deployment 
+## GCP Deployment 
 ***WORK IN PROGRESS***
