@@ -196,9 +196,9 @@ app.wsgi_app = GeoLockChecker(app.wsgi_app)
 @app.context_processor
 # transfer user to template
 def inject_user():
-    if 'user' in session:
-        user = session['user']
-        return dict(user=user)
+    if 'username' in session:
+        username = session['username']
+        return dict(username=username)
     return dict()
 
 def check_auth():
@@ -226,13 +226,16 @@ def login():
 
         # Retrieve the user from the database
         user = User.query.filter_by(username=username).first()
+        print(type(user))
+        print(user)
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             # Added By String
             # mount to session and hide password
             user.password = None
-            session['user'] = user
+            session['username'] = user.username
+            print(session)
             return redirect('/dash')
 
         return 'Login failed. Please check your credentials.'
