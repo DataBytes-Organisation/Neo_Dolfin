@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -20,11 +20,8 @@ import re
 import sqlite3
 from services.basiq_service import BasiqService
 from io import StringIO
-<<<<<<< HEAD
-=======
 import pymysql
 import requests
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -82,42 +79,12 @@ class UserTestMap(db.Model):
     userid = db.Column(db.String(80), unique=True, nullable=False)
     testid = db.Column(db.Integer, nullable=False)
 
-<<<<<<< HEAD
-# SQLite User Data Database Setup
-df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
-df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
-df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
-df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
-df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
-
-# Function to clean the 'subClass' column
-def clean_subClass(row):
-    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-        return 'cash-withdrawal'
-    if row['subClass'] == '{\\title\\":\\"\\"':
-        return 'bank-fee'
-    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-    if match:
-        extracted_subClass = match.group(1)
-        if extracted_subClass == 'Unknown':
-            return row['description']
-        return extracted_subClass
-    return row['subClass']
-
-df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
-conn = sqlite3.connect("transactions_ut.db") # Create a new SQLite database in memory and import the cleaned DataFrame
-df4.to_sql("transactions", conn, if_exists="replace", index=False)
-=======
 with app.app_context():
      db.create_all()
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 
 ## Basiq API 
 basiq_service = BasiqService()
 
-<<<<<<< HEAD
-=======
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
 class GeoLockChecker(object):
     def __init__(self, app):
@@ -146,34 +113,12 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 # ROUTING
 ## LANDING PAGE
 @app.route("/",methods = ['GET']) #Initial landing page for application
 def landing():
     return render_template('landing.html')
 
-<<<<<<< HEAD
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        # Retrieve the user from the database
-        user = User.query.filter_by(username=username).first()
-
-        if user and user.password == password:
-            # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.username 
-            return redirect('/dash/')
-
-        return 'Login failed. Please check your credentials.'
-
-    return render_template('login.html')  # Create a login form in the HTML template
-
-=======
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -205,11 +150,6 @@ def register():
 
     return render_template('register.html')  # Create a registration form in the HTML template
 
-<<<<<<< HEAD
-@app.route('/home/')
-def auth_dash(): 
-        return render_template("dash.html")
-=======
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -243,13 +183,21 @@ def login():
 
 @app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 
-@app.route('/dash/')
-def auth_dash2(): 
+    if request.method == 'GET':
         user_id = session.get('user_id')
         con = sqlite3.connect("db/transactions_ut.db")
         cursor = con.cursor() 
+
+        defacc = 'ALL'
+
+        # Select Account 
+        cursor.execute('SELECT DISTINCT account FROM transactions')
+        query = cursor.fetchall()
+        dfxx = pd.DataFrame(query,columns=['account'])
+        new_record = pd.DataFrame([{'account': 'ALL'}])
+        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        jfxx = dfxx.to_json(orient='records')
 
         # Get class for pie chart
         cursor.execute('SELECT class FROM transactions')
@@ -270,7 +218,11 @@ def auth_dash2():
         jfx3 = dfx3.to_json(orient='records')
 
         # Line chart datasets
-        dfx4 = df2.to_json(orient='records')
+        cursor.execute('SELECT balance,postDate FROM transactions')
+        query = cursor.fetchall()
+        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
+        dfx4 = dfx4.to_json(orient='records')
+        
         dfx5 = df3.to_json(orient='records')
 
         cursor.execute('SELECT balance FROM transactions LIMIT 1')
@@ -288,9 +240,6 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-<<<<<<< HEAD
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, current_page='dash')
-=======
         return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, jsxx=jfxx, defacc=defacc)
         
     if request.method == "POST":
@@ -441,17 +390,16 @@ def auth_dash2():
 @app.route("/load", methods=['GET', 'POST'])
 def dashboardLoader():
     return render_template("loadingPage.html")
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-        return render_template("news.html", current_page='news')   
+        return render_template("news.html")   
 
 ## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-        return render_template("FAQ.html", current_page='FAQ')
+        return render_template("FAQ.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
