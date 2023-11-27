@@ -47,24 +47,14 @@
                   <textarea class="dashboard-textbox-box" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
                   <div class="wordCount" id="wordCount1">0 words</div>
                 </div>
-                
-                <h4>How did you feel we did?</h4>
-                <br>
-                <div class="faces" id="faces1">
-                  <span class="face" onclick="changeColor(this, 'faces1', 1)" id="face1_1">1</span>
-                  <span class="face" onclick="changeColor(this, 'faces1', 2)" id="face1_2">2</span>
-                  <span class="face" onclick="changeColor(this, 'faces1', 3)" id="face1_3">3</span>
-                  <span class="face" onclick="changeColor(this, 'faces1', 4)" id="face1_4">4</span>
-                  <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
-                </div>
 
                 <h4>How satisfied are you with the Dolfin app's user interface and navigation?</h4>
                 <div class="faces" id="faces2">
-                  <span class="face" onclick="changeColor(this, 'faces2', 1)" id="face2_1">1</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 2)" id="face2_2">2</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 3)" id="face2_3">3</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 4)" id="face2_4">4</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 5)" id="face2_5">5</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 1)" id="face2_1">Very unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 2)" id="face2_2">Unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 3)" id="face2_3">Neutral</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 4)" id="face2_4">Satisfied</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 5)" id="face2_5">Very satisfied</span>
               </div>
 
                 <h4>How easy was it to access and interpret the predicted yearly balance and expenditure categories displayed on the dashboard?</h4>
@@ -116,7 +106,15 @@
                   <textarea class="dashboard-textbox-box5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box5', 'wordCount5')"></textarea>
                   <div class="wordCount" id="wordCount5">0 words</div>
                 </div>
-
+                <h4>How did you feel we did (1-poor to 5-excllent)?</h4>
+                <br>
+                <div class="faces" id="faces1">
+                  <span class="face" onclick="changeColor(this, 'faces1', 1)" id="face1_1">1</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 2)" id="face1_2">2</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 3)" id="face1_3">3</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 4)" id="face1_4">4</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
+                </div>
                 <div class="final-submit-button">
                     <button type="submit" class="submitting-button">Submit</button>
                 </div>
