@@ -1,7 +1,7 @@
 .popup {
     display: flex;
     justify-content: center;
-    background-color: rgba(1, 119, 187, 0.9);
+    background-color: rgba(1, 119, 187, 0.74);
     border: 0.5px solid black;
     margin-top: 20px;
     border-radius: 30px;
