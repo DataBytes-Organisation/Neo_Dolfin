@@ -8,8 +8,8 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
-import pandas as pd
 import time 
+import pandas as pd 
 import os 
 from dotenv import load_dotenv
 import ssl 
@@ -21,6 +21,7 @@ import sqlite3
 from services.basiq_service import BasiqService
 from io import StringIO
 import pymysql
+#
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -439,6 +440,6 @@ def chatbot():
         return jsonify(message)
     return render_template('chatbot.html')
 
-# Run the Flask app
+# Run the Flask appp
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
