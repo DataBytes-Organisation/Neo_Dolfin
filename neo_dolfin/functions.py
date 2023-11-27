@@ -152,4 +152,3 @@ def loadDatabase(testId):
     else:
         # If the database file already exists, connect to it
         conn = sqlite3.connect(db_file)
-
