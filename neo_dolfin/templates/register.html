@@ -14,11 +14,10 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="container" style="max-width: 85%; overflow: hidden;">
+        <div class="row justify-content-around g-0 p-0">
+            <div class="col-7 col-lg-7 col-md-8 d-flex justify-content-center" align="center">
                 <div class="container_left">
-                    <img src="../static/img/Title.png" alt="Sign up | DolFin" class="img-fluid Title_signup">
                     <div class="input_area">
                         <h1 class="Title_signup">DolFin</h1>
                         <h2 class="Subtitle">Empowering Your Financial Journey</h2>
@@ -83,33 +82,45 @@
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <img src="../static/img/sign up/cover_style.png" alt="image" class="top-right-image">
-                <div class="container_right">
+            <div class="col-5 col-lg-5 col-md-5 d-flex justify-content-center">
 
-                    <div class="text_top">
-                        Your Journey Towards Smarter Financial Management Starts Here.
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-12" style="position: relative;">
+                            <img src="../static/img/sign up/cover_style.png" alt="image" style="visibility: visible;"
+                                class="top-right-image">
+                        </div> -->
+                        <div class="col-12">
+                            <div class="text_top">
+                                Your Journey Towards Smarter Financial Management Starts Here.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="text_bg">
+                                <ul class="text_mid">
+                                    <li>Unified view of all your financial accounts in one place.</li>
+                                    <li>Customized advice with AI-powered predictions.</li>
+                                    <li>Compare your finances with peers for better decisions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" class="img-fluid dolfin">
+                        </div>
                     </div>
-                    <div class="text_bg">
-                        <ul class="text_mid">
-                            <li>Unified view of all your financial accounts in one place.</li>
-                            <li>Customized advice with AI-powered predictions.</li>
-                            <li>Compare your finances with peers for better decisions.</li>
-                        </ul>
-                    </div>
-                    <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" class="img-fluid dolfin">
                 </div>
 
             </div>
 
         </div>
     </div>
-    <div class="text-under-container">
+    <!-- <div class="text-under-container">
         <p>Gain complete control over your finances with<br>
             personalized insights and real-time tracking.</p>
-    </div>
+    </div> -->
     <script src="{{url_for('static', filename='js/register.js')}}"></script>
 
 
