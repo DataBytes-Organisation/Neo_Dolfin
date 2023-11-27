@@ -399,7 +399,7 @@
                 "I want to improve my financial knowledge."
             ],
             "responses": [
-                "Here are a few tips to get started in improving your financial literacy:\n1. Create a budget to track your income and expenses.\n2. Save a portion of your income regularly.\n3. Understand the basics of investing and consider long-term goals.\n4. Review and understand your credit report.\n5. Stay informed about financial news and trends.\nWould you like to learn more?"
+                "Improving your financial literacy is very important to make wise economical decisions. You can access our guide on finance terminology using [this link]."
             ]
         },
         {
@@ -411,8 +411,17 @@
                 "Investment bitcoin"
             ],
             "responses": [
-                "Cryptocurrencies are digital or virtual currencies that use cryptography for security, However, if you're interested in investing in cryptocurrencies, it's essential to understand the basics and risks.\nHere are some key points:\n1. Cryptocurrencies operate on blockchain technology.\n2. Prices can be highly volatile and fluctuate often.\n3. Research different cryptocurrencies before investing.\n4. Use reputable cryptocurrency exchanges for transactions.\n5. Be aware of security risks and store your assets securely.\nWould you like to learn more?"
+                "Cryptocurrencies are digital or virtual currencies that use cryptography for security, However, if you're interested in investing in cryptocurrencies, it is essential to understand the basics. You can access our cryptocurrency guide using [this link]. Safe trading!"
             ]
+        },
+        {
+            "tag": "average_spending",
+            "patterns": [
+                "How much have I spent on average in [month] [year]?",
+                "Check spending per day for [month] [year].",
+                "Daily spend for [month] in [year]."
+            ],
+            "responses": []
         }
 
 

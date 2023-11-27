@@ -14,7 +14,7 @@ import sqlite3
 from ai.chatbot.query_bankdata import *
 
 # Establish a new SQLite database connection
-conn = sqlite3.connect('transactions_ut.db')
+conn = sqlite3.connect('db/transactions_ut.db')
 
 # Initialize a variable to store the last bot reply
 last_bot_reply = ""
@@ -154,11 +154,21 @@ def extract_month_year(message):
     year_list = [int(year) for year in year_matches]
     return month_list, year_list
 
+def get_month_day_count(month, year):
+    # list of months in a year (without a leap year). month[1] = first month.
+    month_day_count = [42, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    # Adjust for leap year
+    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+        month_day_count[2] = 29
+
+    return month_day_count[month]
+
 # print random response from appropriate responses for label
 
 def get_response(intents_list, intents_json, message):
     global last_bot_ans
-    conn = sqlite3.connect('transactions_ut.db')
+    conn = sqlite3.connect('db/transactions_ut.db')
     tag = intents_list[0]['intent']
     probability = float(intents_list[0]['probability'])
     list_of_intents = intents_json['intents']
@@ -196,7 +206,7 @@ def get_response(intents_list, intents_json, message):
                         amount, final_balance = get_total_amount_for_month_year(
                             conn, 'debit' if tag == "check_spending" else 'credit', month_list[0], year_list[0])
                         if amount:
-                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {month_list[0]} {year_list[0]} was {amount} and your balance at the end of the month was {final_balance}."
+                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {month_list[0]} {year_list[0]} was ${amount} and your balance at the end of the month was ${final_balance}."
                         else:
                             result = "Data not found for the specified month and year."
 
@@ -218,6 +228,29 @@ def get_response(intents_list, intents_json, message):
                             result = highest_spending
                         else:
                             result = "Data not found for the specified month and year."
+                    else:
+                        result = "Couldn't extract a single month and year from your message."
+
+                elif tag == "average_spending": #divide amount spent in a specific year, or a specific month of a year by the number of days in that specific year/month. Prints average spent amount per day.
+                    months, years = extract_month_year(message)
+                    if len(months) == 1 and len(years) == 1: #if both month and year is given
+                        month = months[0]
+                        year = years[0]
+                        month_day_count = get_month_day_count(month, year)
+                        total_spending = get_total_negative_amount_for_month_year(conn, month, year)
+                        if total_spending: 
+                            average_spending = total_spending / month_day_count
+                            result = f"Your average spending for {month} {year} was ${average_spending * -1:.2f} per day." #make positive
+                    
+                    elif len(months) == 0 and len(years) == 1: #if only year is given
+                        year = years[0]
+                        total_spending = get_total_negative_amount_for_year(conn, year)
+                        if total_spending: 
+                            average_spending = total_spending / 365
+                            result = f"Your average spending for {year} was ${average_spending * -1:.2f} per day."
+                        else:
+                            result = "Data not found for the specified month and year."
+                    
                     else:
                         result = "Couldn't extract a single month and year from your message."
                 else:
