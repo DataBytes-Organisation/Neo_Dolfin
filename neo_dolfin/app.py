@@ -111,7 +111,7 @@ class GeoLockChecker(object):
                 return 0
         else:
             return 0
-app.wsgi_app = GeoLockChecker(app.wsgi_app)
+#app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
 ## LANDING PAGE
