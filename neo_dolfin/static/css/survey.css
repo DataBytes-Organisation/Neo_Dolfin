@@ -1,20 +1,21 @@
-.popup{
+.popup {
     display: flex;
     justify-content: center;
-    background-color: rgb(1, 119, 187,0.9);
+    background-color: rgba(1, 119, 187, 0.9);
     border: 0.5px solid black;
     margin-top: 20px;
     border-radius: 30px;
 }
 
-.dashboard-question{
+.dashboard-question {
     display: flex;
     justify-content: left;
     padding-left: 30px;
 }
 
-label{
+label {
     padding: 0px 10px 0px 10px;
+    font-size: 24px;
 }
 
 .faces {
@@ -24,45 +25,42 @@ label{
 
 .face {
     cursor: pointer;
-    padding: 10px; 
+    padding: 10px;
     border: 1px solid #ccc;
-    margin: 0px -80px 0px -80px;
     color: white;
+    z-index: 1; 
 }
 
 .face:hover {
     background-color: rgba(225, 225, 225, 0.5);
 }
 
-.top-header{
+.top-header {
     padding-top: 10px;
 }
 
-label{
-    font-size: 24px;
-}
-
-.final-submit-button{
+.final-submit-button {
     padding-top: 30px;
     display: flex;
     justify-content: center;
 }
 
-.submitting-button{
+.submitting-button {
     color: black;
     background-color: white;
     padding: 5px;
 }
 
-h4{
+h4 {
     text-decoration: underline;
     color: black;
     padding-top: 15px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
 }
 
-#wordCount, #wordCount2 {
-    margin-right: 20px; /* Adjust the margin */
-    color: grey;
+.wordCount {
+    margin-right: 20px;
+    color: white;
 }
-
-

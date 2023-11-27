@@ -1,6 +1,6 @@
-function showHideTextArea() {
-    var noRadioButton = document.getElementById('dashboard-question-no');
-    var textAreaContainer = document.getElementById('textAreaContainer');
+function showHideTextArea(radioButtonId, containerId) {
+    var noRadioButton = document.getElementById(radioButtonId);
+    var textAreaContainer = document.getElementById(containerId);
 
     if (noRadioButton.checked) {
         textAreaContainer.style.display = 'block';
@@ -9,17 +9,31 @@ function showHideTextArea() {
     }
 }
 
-// script.js
-function changeColor(element) {
-    // Convert HTMLCollection to an array
-    var faces = Array.from(document.getElementsByClassName('face'));
+function changeColor(element, questionId, satisfactionLevel) {
+    console.log('Question ID: ' + questionId);
+    console.log('Selected satisfaction level: ' + satisfactionLevel);
 
-    // Reset background color for all elements
+    var faces = document.querySelectorAll('#' + questionId + ' .face');
     faces.forEach(function (face) {
-        face.style.backgroundColor = ''; // Reset to default or you can specify another color
+        face.style.backgroundColor = '';
     });
 
-    // Change background color for the clicked element
     element.style.backgroundColor = 'rgba(225, 225, 225, 0.5)';
 }
+
+function countWords(textboxClass, wordCountId) {
+    var textarea = document.querySelector('.' + textboxClass);
+    var wordCountElement = document.getElementById(wordCountId);
+    var text = textarea.value.trim();
+    var words = text.split(/\s+/);
+
+    if (words.length > 100) {
+        var truncatedText = words.slice(0, 100).join(' ');
+        textarea.value = truncatedText;
+        words = truncatedText.split(/\s+/);
+    }
+
+    wordCountElement.textContent = words.length + ' words';
+}
+
 
