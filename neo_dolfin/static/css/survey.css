@@ -1,0 +1,68 @@
+.popup{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(1, 119, 187,0.9);
+    border: 0.5px solid black;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.dashboard-question{
+    display: flex;
+    justify-content: left;
+    padding-left: 30px;
+}
+
+label{
+    padding: 0px 10px 0px 10px;
+}
+
+.faces {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.face {
+    cursor: pointer;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    margin: 0px -80px 0px -80px;
+    color: white;
+}
+
+.face:hover {
+    background-color: rgba(225, 225, 225, 0.5);
+}
+
+.top-header{
+    padding-top: 10px;
+}
+
+label{
+    font-size: 24px;
+}
+
+.final-submit-button{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.submitting-button{
+    color: black;
+    background-color: white;
+    padding: 5px;
+}
+
+h4{
+    text-decoration: underline;
+    color: black;
+    padding-top: 15px;
+}
+
+#wordCount, #wordCount2 {
+    margin-right: 20px; /* Adjust the margin */
+    color: grey;
+}
+
+
