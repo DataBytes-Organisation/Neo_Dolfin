@@ -21,7 +21,7 @@ import sqlite3
 from services.basiq_service import BasiqService
 from io import StringIO
 import pymysql
-#
+import requests
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
