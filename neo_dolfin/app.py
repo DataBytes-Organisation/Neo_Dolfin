@@ -202,11 +202,15 @@ def inject_user():
     return dict()
 
 def check_auth():
+    # print('————check')
     # skip
+    if request.path.startswith('/static'):
+        return
     if request.path == '/login' or request.path == '/register':
         return
     # check
-    if session.get('user') is None:
+    # print('@session[username]', session.get('username'))
+    if session.get('username') is None:
         redirect('/login')
 
 @app.before_request
@@ -226,16 +230,16 @@ def login():
 
         # Retrieve the user from the database
         user = User.query.filter_by(username=username).first()
-        print(type(user))
-        print(user)
+        # print(type(user))
+        # print(user)
         if user and user.password == password:
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             # Added By String
             # mount to session and hide password
-            user.password = None
+            # user.password = None
             session['username'] = user.username
-            print(session)
+            # print(session)
             return redirect('/dash')
 
         return 'Login failed. Please check your credentials.'
