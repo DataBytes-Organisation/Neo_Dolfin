@@ -107,6 +107,33 @@ def get_highest_spending_last_period(conn, period, num, year=None):
     cursor.close()
     return formatted_output
 
+
+##
+def get_total_positive_amount_for_month_year(conn, month, year):
+    cursor = conn.cursor()
+    cursor.execute("SELECT SUM(amount) FROM transactions WHERE amount > 0 AND month = ? AND year = ?", (month, year))
+    result = cursor.fetchone()
+    total_positive_amount = result[0] if result[0] is not None else 0
+    return total_positive_amount
+
+
+def get_total_negative_amount_for_month_year(conn, month, year):
+    cursor = conn.cursor()
+    cursor.execute("SELECT SUM(amount) FROM transactions WHERE amount < 0 AND month = ? AND year = ?", (month, year))
+    result = cursor.fetchone()
+    total_negative_amount = result[0] if result[0] is not None else 0
+    return total_negative_amount
+
+
+def get_total_negative_amount_for_year(conn, year):
+    cursor = conn.cursor()
+    cursor.execute("SELECT SUM(amount) FROM transactions WHERE amount < 0 AND year = ?", (year,))
+    result = cursor.fetchone()
+    total_negative_amount = result[0] if result[0] is not None else 0
+    return total_negative_amount
+##
+
+
 # Test the functions
 #print(get_total_amount_for_month_year(conn, 'credit', 6, 2023))
 #print(get_total_amount_for_month_year(conn, 'debit', 6, 2023))
