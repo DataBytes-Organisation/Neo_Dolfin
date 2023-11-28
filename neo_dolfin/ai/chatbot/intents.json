@@ -272,21 +272,52 @@
         {
 
             "tag": "check_balance",
-            "patterns": ["What's my balance?", "How much do I have?", "Check my balance", "What was my balance in [month] [year]?"],
+            "patterns": [
+                "What's my balance?", 
+                "How much do I have?", "Check my balance", 
+                "What was my balance in [month] [year]?",
+                "Could you tell me my current balance?",
+                "What is my account balance right now?",
+                "I need to know my balance as of today.",
+                "Please show me my latest account balance.",
+                "Can you update me on my current account balance?"
+            ],
             "responses": []
 
         },
         {
 
             "tag": "check_spending",
-            "patterns": ["How much did I spend?", "Check my spending", "What was my spending in [month] [year]?", "What was my spending from [month] [year] to [month] [year]?", "What was my spending in [year]?"],
+            "patterns": [
+                "How much did I spend?", 
+                "Check my spending", 
+                "What was my spending in [month] [year]?", 
+                "What was my spending from [month] [year] to [month] [year]?", 
+                "What was my spending in [year]?",
+                "I'd like to review my recent spending, please.",
+                "Can you show me how much I've spent this month?",
+                "I need a summary of my expenditures for the last quarter.",
+                "Please provide a detailed report of my spending.",
+                "What have been my total expenditures for the past six months?"
+            ],
             "responses": []
 
         },
         {
 
             "tag": "check_income",
-            "patterns": ["Check my income", "What was my income in [month] [year]?", "What was my income from [month] [year] to [month] [year]?", "What was my income in [year]?"],
+            "patterns": [
+                "Check my income", 
+                "What was my income in [month] [year]?", 
+                "What was my income from [month] [year] to [month] [year]?", 
+                "What was my income in [year]?",
+                "Please inform me about my total income this month.",
+                "Can you provide a breakdown of my income for the last year?",
+                "I'd like to see a summary of my earnings for the past quarter.",
+                "What was my total income for the previous financial year?",
+                "Can you display my income trends over the past few months?"
+            ],
+                
             "responses": []
 
         },
