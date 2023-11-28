@@ -13,7 +13,10 @@ core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
 
+## Operations specifically for interacting with the Dolfin Database
 
+
+# create "dolfin" database, that is capable of holding user data specific to the dolfin app that can then be passed on to the BASIQ API - not yet implemented in APP.PY
 def init_dolfin_db():
     try:
         with sqlite3.connect("../../db/dolfin_db.db") as conn:
@@ -65,7 +68,7 @@ def register_user(email, mobile, first_name, middle_name, last_name, password):
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 
-
+# retrive basiq_id (that will be need for most user-specific calls to the API) based on the user ID (for the dolfin app) that has been passed.
 def get_basiq_id(user_id):
     try:
         with sqlite3.connect("../../db/dolfin_db.db") as conn:
@@ -101,7 +104,7 @@ def get_user_info(user_id):
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 
-
+# add basiq 
 def register_basiq_id(user_id):
     try:
         new_basiq_id = json.loads(core_instance.create_user_by_dict(get_user_info(user_id), access_token)).get('id')
@@ -115,8 +118,8 @@ def register_basiq_id(user_id):
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 
-
-def link_bank_account(user_id):
+# Creates authorisation link to user - can be presented as a popup or sent as an email
+def create_link_bank_account(user_id):
     try:
         with sqlite3.connect("../../db/dolfin_db.db") as conn:
             cursor = conn.cursor()
@@ -130,9 +133,9 @@ def link_bank_account(user_id):
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 
-
-def request_transactions(user_id):
-    tran_data = json.loads(data_instance.get_transactions(get_basiq_id(user_id), access_token))
+# returns dataframe with the transactions
+def request_transactions_df(user_id):
+    tran_data = json.loads(data_instance.get_transaction_list(get_basiq_id(user_id), access_token))
     transaction_list = tran_data['data']
     transactions = []
     for transaction in transaction_list:
@@ -196,5 +199,3 @@ def clear_transactions():
         return "Transactions table cleared successfully."
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
-
-
