@@ -54,6 +54,7 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
+## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
