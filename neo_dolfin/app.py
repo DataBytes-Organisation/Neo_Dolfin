@@ -16,6 +16,7 @@ import ssl
 import nltk
 #import certifi
 import requests
+from api.optimized_api import optimized_API
 import bcrypt
 import datetime
 import re
@@ -129,9 +130,6 @@ except Exception as e:
     # If the database file already exists, connect to it
 #     conn = sqlite3.connect(db_file)
 
-## Basiq API 
-basiq_service = BasiqService()
-
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
 class GeoLockChecker(object):
     def __init__(self, app):
@@ -160,6 +158,8 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
+
+
 # Handles the logging of an authentication or registration event to a txt output and a log database
 def add_user_audit_log(username, action, message):
     new_log = UserAuditLog(username=username, action=action, message=message)
@@ -169,12 +169,18 @@ def add_user_audit_log(username, action, message):
     with open("audit.txt", 'a') as file:
         file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
-
 # ROUTING
 ## LANDING PAGE
 @app.route("/",methods = ['GET']) #Initial landing page for application
 def landing():
     return render_template('landing.html')
+
+## OUtdated:Basiq API 
+# basiq_service = BasiqService()
+
+basiq_key = os.getenv('API_KEY')
+toke = optimized_API.Core(basiq_key).generate_auth_token()
+print("Auth token: " + toke)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
