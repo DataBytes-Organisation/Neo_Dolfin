@@ -80,8 +80,52 @@ class UserTestMap(db.Model):
     userid = db.Column(db.String(80), unique=True, nullable=False)
     testid = db.Column(db.Integer, nullable=False)
 
-with app.app_context():
-     db.create_all()
+class UserAuditLog(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.now)
+    username = db.Column(db.String(80), nullable=False)
+    action = db.Column(db.String(80), nullable=False)
+    message = db.Column(db.String(255), nullable=False)
+
+try:
+    with app.app_context():
+        db.create_all()
+except Exception as e:
+    print("Error creating database:", str(e))
+
+# SQLite User Data Database Setup
+#df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
+#df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
+#df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
+#df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
+#df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
+
+# Function to clean the 'subClass' column
+#def clean_subClass(row):
+#    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
+#        return 'cash-withdrawal'
+#    if row['subClass'] == '{\\title\\":\\"\\"':
+#        return 'bank-fee'
+#    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
+#    if match:
+#        extracted_subClass = match.group(1)
+#        if extracted_subClass == 'Unknown':
+#            return row['description']
+#        return extracted_subClass
+#    return row['subClass']
+
+# df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
+# df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+# Check if the SQLite database file already exists
+# db_file = "db/transactions_ut.db"
+# if not os.path.exists(db_file):
+    # If the database file doesn't exist, create a new one
+#     conn = sqlite3.connect(db_file)
+    # Import the cleaned DataFrame to the SQLite database
+#     df4.to_sql("transactions", conn, if_exists="replace", index=False)
+#     conn.close()
+# else:
+    # If the database file already exists, connect to it
+#     conn = sqlite3.connect(db_file)
 
 ## Basiq API 
 basiq_service = BasiqService()
@@ -113,6 +157,16 @@ class GeoLockChecker(object):
         else:
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
+
+# Handles the logging of an authentication or registration event to a txt output and a log database
+def add_user_audit_log(username, action, message):
+    new_log = UserAuditLog(username=username, action=action, message=message)
+    print(new_log)
+    db.session.add(new_log)
+    db.session.commit() 
+    with open("audit.txt", 'a') as file:
+        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
+
 
 # ROUTING
 ## LANDING PAGE
@@ -174,13 +228,42 @@ def login():
 
             # Load transactional data
             loadDatabase(testId)            
-
+            # log successful authentication challenge 
+            add_user_audit_log(username, 'login-success', 'User logged in successfully.')
             # redirect to the dashboard.
             return redirect('/dash')
         
+        ## Otherwise:
+        # log un-successful authentication challenge
+        add_user_audit_log(username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
+
+## REGISTER
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        # Check if the username or email already exists in the database
+        existing_user = User.query.filter_by(username=username).first()
+        existing_email = User.query.filter_by(email=email).first()
+
+        if existing_user or existing_email:
+            add_user_audit_log(username, 'register-fail', 'User registration failed.')
+            return 'Username or email already exists. Please choose a different one.'
+
+        # Create a new user and add it to the database
+        new_user = User(username=username, email=email, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        add_user_audit_log(username, 'register-success', 'User registered successfully.')
+        return redirect('/login')
+
+    return render_template('register.html')  # Create a registration form in the HTML template
 
 @app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
