@@ -7,5 +7,5 @@
 | 3    | Persona with balances ranging between stable and diminishing over time |
 | 4    | Standard                                                     |
 | 5    | Standard                                                     |
-| 6    | Standard                                                     |
-| 7    | HooliGov Bank (AU00004)                                      |
+| 6    | HooliGov Bank (AU00004)                                      |
+| 7    | DolFin Test User                                             |
