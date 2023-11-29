@@ -12,16 +12,6 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 def preprocess_text(text):
-    """
-    Preprocesses the given text by converting to lowercase, removing punctuation,
-    removing stopwords, and lemmatizing the words.
-
-    Args:
-    text (str): The text to preprocess.
-
-    Returns:
-    str: The preprocessed text.
-    """
     # Convert to lowercase
     text = text.lower()
     # Remove punctuation and numbers
@@ -35,31 +25,11 @@ def preprocess_text(text):
 
 class WordCloudGenerator:
     def __init__(self, width=800, height=400, background_color='white'):
-        """
-        Initializes the WordCloudGenerator.
-
-        Args:
-        width (int): Width of the word cloud image. Default is 800.
-        height (int): Height of the word cloud image. Default is 400.
-        background_color (str): Background color of the word cloud image. Default is white.
-        """
         self.width = width
         self.height = height
         self.background_color = background_color
 
     def create_word_cloud(self, descriptions, amounts=None, mode='count', preprocess=False):
-        """
-        Generates a word cloud image from the given descriptions.
-
-        Args:
-        descriptions (list of str): Descriptions to include in the word cloud.
-        amounts (list of int/float, optional): Amounts corresponding to each description.
-        mode (str): Mode of word cloud generation ('count' or 'amount').
-        preprocess (bool): Whether to preprocess descriptions. Default is False.
-
-        Returns:
-        WordCloud: A WordCloud object.
-        """
         if preprocess:
             descriptions = [preprocess_text(description) for description in descriptions]
         if mode == 'amount' and amounts is not None:
@@ -72,20 +42,13 @@ class WordCloudGenerator:
         return wordcloud
 
 def visualize_word_clouds(word_clouds, titles, figsize=(20, 10)):
-    """
-    Visualizes a list of word clouds with their respective titles.
-
-    Args:
-    word_clouds (list of WordCloud): WordCloud objects to be visualized.
-    titles (list of str): Titles for each WordCloud object.
-    figsize (tuple): Size of the figure (width, height). Default is (20, 10).
-    """
     if len(word_clouds) != len(titles):
         raise ValueError("The number of word clouds and titles must be the same.")
 
     num_clouds = len(word_clouds)
-    fig, axs = plt.subplots(num_clouds, 1, figsize=figsize)
-    
+    fig, axs = plt.subplots(num_clouds, 1, figsize=figsize, squeeze=False)
+    axs = axs.flatten()
+
     for idx, (word_cloud, title) in enumerate(zip(word_clouds, titles)):
         axs[idx].imshow(word_cloud, interpolation='bilinear')
         axs[idx].axis('off')
@@ -94,8 +57,20 @@ def visualize_word_clouds(word_clouds, titles, figsize=(20, 10)):
     plt.tight_layout()
     plt.show()
 
-# Example usage:
-# generator = WordCloudGenerator()
-# descriptions = ['your text data here']
-# wordcloud = generator.create_word_cloud(descriptions, preprocess=True)
-# visualize_word_clouds([wordcloud], ['Sample Word Cloud'])
+# Function to read data from a CSV file and extract the descriptions
+def read_data_from_csv(csv_filename, text_column='description'):
+    df = pd.read_csv(csv_filename)
+    return df[text_column].dropna().tolist()  # Drop NaN values
+
+# Main execution
+if __name__ == "__main__":
+    # Since the CSV file is in the same directory, we can just use the filename
+    csv_filename = '../../static/data/cloud.csv'
+
+    # Read descriptions from the CSV file
+    descriptions = read_data_from_csv(csv_filename)
+
+    # Generate and visualize the word cloud
+    generator = WordCloudGenerator()
+    wordcloud = generator.create_word_cloud(descriptions, preprocess=True)
+    visualize_word_clouds([wordcloud], ['Word Cloud from CSV Data'])
