@@ -153,13 +153,14 @@ class GeoLockChecker(object):
 
 app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
+# Handles the logging of an authentication or registration event to a txt output and a log database
 def add_user_audit_log(username, action, message):
     new_log = UserAuditLog(username=username, action=action, message=message)
     print(new_log)
     db.session.add(new_log)
     db.session.commit() 
     with open("audit.txt", 'a') as file:
-        file.write(f"[{new_log.timestamp}] [user-{action}]  Username: {username}:  {message}\n")
+        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
 
 # ROUTING
@@ -190,12 +191,13 @@ def login():
 
             # Load transactional data
             loadDatabase(testId)            
-
-            # redirect to the dashboard.
+            # log successful authentication challenge 
             add_user_audit_log(username, 'login-success', 'User logged in successfully.')
+            # redirect to the dashboard.
             return redirect('/dash')
         
-
+        # Otherwise:
+        # log un-successful authentication challenge
         add_user_audit_log(username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
