@@ -1,15 +1,14 @@
 ```mermaid
 sequenceDiagram
-    loop Daily query
-        User->>Dolfin: Hello Dolfin, how are you?
-        alt is sick
-            Dolfin->>User: Not so good :(
-        else is well
-            Dolfin->>User: Feeling fresh like a daisy
-        end
+    rect rgb(64,64,64)
+    note right of User: A Successful login
+        User->>Dolfin_app: Check username and password
 
-        opt Extra response
-            Dolfin->>User: Thanks for asking
-        end
+        Dolfin_app->>dolfin_db: do you have this username?<br>if yes, does the password match it?
+
+        dolfin_db->>Dolfin_app: send username as session_id<br>send basiq_id to session
+
+        Dolfin_app->>User: Login success!
     end
+
 ```
