@@ -176,37 +176,6 @@ def add_user_audit_log(username, action, message):
 def landing():
     return render_template('landing.html')
 
-## REGISTER
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-
-        # Check if the username or email already exists in the database
-        existing_user = User.query.filter_by(username=username).first()
-        existing_email = User.query.filter_by(email=email).first()
-
-        if existing_user or existing_email:
-            return 'Username or email already exists. Please choose a different one.'
-
-        # Create a new user and add it to the database
-        new_user = User(username=username, email=email, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-
-        new_user_id = new_user.id
-
-        new_user_map = UserTestMap(userid = username, testid=new_user_id)
-        db.session.add(new_user_map)
-        db.session.commit()
-
-        return redirect('/login')
-
-    return render_template('register.html')  # Create a registration form in the HTML template
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -267,6 +236,13 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         add_user_audit_log(username, 'register-success', 'User registered successfully.')
+
+        new_user_id = new_user.id
+
+        new_user_map = UserTestMap(userid = username, testid=new_user_id)
+        db.session.add(new_user_map)
+        db.session.commit()
+
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
