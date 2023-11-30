@@ -239,13 +239,11 @@ def register():
         db.session.commit()
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
+        # create a new mapping for a user
         new_user_id = new_user.id
-
-        """ - Should unnecessary for new users?
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
         db.session.commit()
-        """
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
