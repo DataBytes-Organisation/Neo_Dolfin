@@ -186,19 +186,19 @@ print("Auth token: " + toke)
 def login():
     if request.method == 'POST':
 
-        username = request.form['username']
-        password = request.form['password']
+        input_username = request.form['username']
+        input_password = request.form['password']
 
         # Retrieve the user from the database
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(username=input_username).first()
 
         # Check if the user exists and the password is correct with stored hash
-        if user and bcrypt.checkpw(password.encode('utf-8'), user.password):
+        if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
 
             # If successful, check if test user or real user.
-            row = UserTestMap.query.filter_by(userid = username).first()
+            row = UserTestMap.query.filter_by(userid = input_username).first()
             testId = 0
             if row != None:
                  testId = row.testid
@@ -207,13 +207,13 @@ def login():
             # Load transactional data
             loadDatabase(testId)            
             # log successful authentication challenge 
-            add_user_audit_log(username, 'login-success', 'User logged in successfully.')
+            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
             # redirect to the dashboard.
             return redirect('/dash')
         
         ## Otherwise:
         # log un-successful authentication challenge
-        add_user_audit_log(username, 'login-fail', 'User login failed.')
+        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
@@ -222,33 +222,36 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
+        input_username = request.form['username']
+        input_email = request.form['email']
+        input_password = request.form['password']
 
         # Hash password
-        password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+        #print(input_password)
+        #print(input_password.decode())
 
         # Check if the username or email already exists in the database
-        existing_user = User.query.filter_by(username=username).first()
-        existing_email = User.query.filter_by(email=email).first()
+        existing_user = User.query.filter_by(username=input_username).first()
+        existing_email = User.query.filter_by(email=input_email).first()
 
         if existing_user or existing_email:
-            add_user_audit_log(username, 'register-fail', 'User registration failed.')
+            add_user_audit_log(input_username, 'register-fail', 'User registration failed.')
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
-        new_user = User(username=username, email=email, password=password)
+        new_user = User(username=input_username, email=input_email, password=input_password)
         db.session.add(new_user)
         db.session.commit()
-        add_user_audit_log(username, 'register-success', 'User registered successfully.')
+        add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
         new_user_id = new_user.id
 
-        new_user_map = UserTestMap(userid = username, testid=new_user_id)
+        """ - Should unnecessary for new users?
+        new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
         db.session.commit()
-
+        """
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
