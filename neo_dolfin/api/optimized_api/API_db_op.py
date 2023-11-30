@@ -22,7 +22,7 @@ def init_dolfin_db():
     Creates users and transactions tables if they don't exist.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             conn.execute("PRAGMA foreign_keys = ON;")
             cursor = conn.cursor()
             cursor.execute('''
@@ -66,7 +66,7 @@ def register_user(email, mobile, first_name, middle_name, last_name, password):
     Parameters include email, mobile number, first name, middle name, last name, and password.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             cursor.execute('''INSERT INTO users (email, mobile, first_name, middle_name, last_name, password)
                               VALUES (?, ?, ?, ?, ?, ?)''',
@@ -83,7 +83,7 @@ def get_basiq_id(user_id):
     Queries the users table for the basiq ID based on the user ID.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT basiq_id FROM users WHERE u_id = ?", (user_id,))
             result = cursor.fetchone()
@@ -101,7 +101,7 @@ def get_user_info(user_id):
     Queries for basic information of a user by user ID, including email, mobile, first name, middle name, and last name.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT email, mobile, first_name, middle_name, last_name FROM users WHERE u_id = ?",
                            (user_id,))
@@ -128,7 +128,7 @@ def register_basiq_id(user_id):
     """
     try:
         new_basiq_id = json.loads(core_instance.create_user_by_dict(get_user_info(user_id), access_token)).get('id')
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             cursor.execute("UPDATE users SET basiq_id = ? WHERE u_id = ?", (new_basiq_id, user_id))
             if cursor.rowcount == 0:
@@ -145,7 +145,7 @@ def link_bank_account(user_id):
     Generates an authorization link based on the user's basiq ID and opens it in a web browser.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT basiq_id FROM users WHERE u_id = ?", (user_id,))
             result = cursor.fetchone()
@@ -194,7 +194,7 @@ def cache_transactions(user_id, tran_data):
     Inserts transaction data into the transactions table, including transaction ID, type, status, description, etc.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             conn.execute("PRAGMA foreign_keys = ON;")
             cursor = conn.cursor()
             insert_statement = '''
@@ -219,7 +219,7 @@ def fetch_transactions_by_user(user_id):
     Queries the transactions table for all transaction information for a specific user.
     """
     try:
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             query = "SELECT * FROM transactions WHERE trans_u_id = ?"
             return pd.read_sql_query(query, conn, params=(user_id,))
     except sqlite3.Error as e:
@@ -233,7 +233,7 @@ def clear_transactions():
     """
     try:
         # Database connection
-        with sqlite3.connect("../../db/dolfin_db.db") as conn:
+        with sqlite3.connect("dolfin_db.db") as conn:
             cursor = conn.cursor()
             # SQL statement to delete all data from the transactions table
             cursor.execute("DELETE FROM transactions;")
