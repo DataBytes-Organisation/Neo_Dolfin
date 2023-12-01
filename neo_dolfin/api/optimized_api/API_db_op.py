@@ -13,6 +13,7 @@ core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
 
+## Operations specifically for interacting with the Dolfin Database, using fucntions from optimized_API.py
 
 # Operations specifically for interacting with the Dolfin Database
 def init_dolfin_db():

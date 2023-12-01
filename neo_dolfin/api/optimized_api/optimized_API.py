@@ -7,6 +7,9 @@ class Core:
         self.api_key = api_key
 
     def generate_auth_token(self):
+        """
+        Basiq 3.0 forced. Generate authentication token that will need to be used and passed for all JSON reqs.
+        """
         url = "https://au-api.basiq.io/token"
 
         headers = {
@@ -39,6 +42,10 @@ class Core:
 
     @staticmethod
     def create_user(user_first_name, user_middle_name, user_last_name, user_email, user_mobile, access_token):
+        """
+        Creates a new Basiq user object. Appropriate fields should be passed by partner application\n
+        (us), as should duplicate conflicts like mobile and email fields.
+        """
         url = "https://au-api.basiq.io/users"
 
         headers = {
@@ -145,7 +152,7 @@ class Data:
         pass
 
     @staticmethod
-    def all_accounts(user_id, access_token):
+    def all_accounts(access_token, user_id):
         url = f"https://au-api.basiq.io/users/{user_id}/accounts"
 
         headers = {
@@ -158,7 +165,7 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_account(user_id, account_id, access_token):
+    def get_account(access_token, user_id, account_id):
         url = f"https://au-api.basiq.io/users/{user_id}/accounts/{account_id}"
 
         headers = {
@@ -171,8 +178,22 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_transaction_list(user_id, limit_para, filter_para, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}&filter={filter_para}"
+    def get_transaction_list(access_token, user_id, limit_para=500, filter_para=None):
+        """
+        Get a list of transactions. Auth token and user_id required. default list size is 500. filter param is optional.
+        Function name differs to reference hyperlink for readabilities sake, else a single 's' is the on difference
+        between this and a specific transaction fetch. https://api.basiq.io/reference/gettransactions
+        """
+        # be sure that 
+        if limit_para > 500 or limit_para < 0:
+            limit_para = 10 #set to 10 to not impact memory too much, or leave at 500?
+            print("Max retriveable tranactions is 500") # Phrase this better later - AW
+        
+        # filter params are not nessecary in default JSON req
+        if filter_para != None:
+            url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}&filter={filter_para}"
+        else:
+            url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}"
 
         headers = {
             "accept": "application/json",
@@ -183,7 +204,12 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_transaction(user_id, transaction_id, access_token):
+    def get_transaction(access_token, user_id, transaction_id):
+        """
+        Get a specific transaction. Auth token, user_id required and transaction id required.
+        https://api.basiq.io/reference/gettransaction
+        """
+        
         url = f"https://au-api.basiq.io/users/{user_id}/transactions/{transaction_id}"
 
         headers = {

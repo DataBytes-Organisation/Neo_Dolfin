@@ -9,7 +9,8 @@ from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
 import time 
-import pandas as pd 
+import pandas as pd
+from pandas import json_normalize 
 import os 
 from dotenv import load_dotenv
 import ssl 
@@ -21,7 +22,8 @@ import bcrypt
 import datetime
 import re
 import sqlite3
-from services.basiq_service import BasiqService
+# Outdated and only relevant to AWS? from services.basiq_service import BasiqService
+from api import API
 from io import StringIO
 import pymysql
 import requests
@@ -175,12 +177,31 @@ def add_user_audit_log(username, action, message):
 def landing():
     return render_template('landing.html')
 
-## OUtdated:Basiq API 
-# basiq_service = BasiqService()
 
+
+""" Example of old service:
 basiq_key = os.getenv('API_KEY')
-toke = optimized_API.Core(basiq_key).generate_auth_token()
-print("Auth token: " + toke)
+basiq_functions = API.Core(basiq_key)
+basiq_data = API.Data()
+token = basiq_functions.get_auth_token()
+
+DEMO: Get all transaction data from Basiq for user and convert to dataframe. Currently returning dummy user data from max (wentworth) smith
+trans_data = basiq_data.get_transactions("fc303b24-69bc-4495-bed1-f1fb9fb56af4",toke)
+Transactions = pd.read_csv(StringIO(trans_data))
+print(Transactions)
+"""
+#Using optimised API.py
+basiq_key = os.getenv('API_KEY')
+core_func = optimized_API.Core(basiq_key)
+data_func = optimized_API.Data()
+
+token = core_func.generate_auth_token()
+print(token)
+
+trans_data = data_func.get_transaction_list(token, "fc303b24-69bc-4495-bed1-f1fb9fb56af4",10)
+transactions = pd.read_csv(StringIO(trans_data))
+print(transactions)
+print(type(transactions))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -236,7 +257,7 @@ def register():
         existing_email = User.query.filter_by(email=input_email).first()
 
         if existing_user or existing_email:
-            add_user_audit_log(input_username, 'register-fail', 'User registration failed.')
+            add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
