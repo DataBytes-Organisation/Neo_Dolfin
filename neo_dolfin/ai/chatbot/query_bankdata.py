@@ -131,6 +131,23 @@ def get_total_negative_amount_for_year(conn, year):
     result = cursor.fetchone()
     total_negative_amount = result[0] if result[0] is not None else 0
     return total_negative_amount
+
+def get_current_year(conn):
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(year) FROM transactions")
+    result = cursor.fetchone()
+    current_year = result[0] if result[0] is not None else None
+    return current_year
+
+
+
+##wip
+def get_current_month(conn, year):
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(month) FROM transactions WHERE year = ?", (year,))
+    result = cursor.fetchone()
+    current_month = result[0] if result[0] is not None else None
+    return current_month
 ##
 
 
