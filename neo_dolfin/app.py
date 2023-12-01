@@ -245,13 +245,11 @@ def register():
         db.session.commit()
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
+        # create a new mapping for a user
         new_user_id = new_user.id
-
-        """ - Should unnecessary for new users?
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
         db.session.commit()
-        """
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
@@ -500,6 +498,11 @@ def profile():
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
         return render_template('resetpw.html')
+
+# APPLICATION USER SURVEY
+@app.route('/survey')
+def survey():
+        return render_template("survey.html")
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
