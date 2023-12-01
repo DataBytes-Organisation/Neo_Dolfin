@@ -171,7 +171,7 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_transaction_list(user_id, access_token, limit_para=500, filter_para=''):
+    def get_transaction_list(user_id, limit_para, filter_para, access_token):
         url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}&filter={filter_para}"
 
         headers = {
