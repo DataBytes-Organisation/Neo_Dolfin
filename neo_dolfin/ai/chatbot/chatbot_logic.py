@@ -190,8 +190,28 @@ def get_response(intents_list, intents_json, message):
                             result = f"Your balance for {month} {year} was {balance}."
                         else:
                             result = "Data not found for the specified month and year."
-                    else:
-                        result = "Couldn't extract a single month and year from your message."
+                    
+                    elif len(months) == 1 and len(years) == 0:
+                        month = months[0]
+                        year = 2023 ### TEMPORARY value because there is an issue with dataset. replace with:
+                        #year = get_current_year(conn)
+                        balance = get_last_balance_for_month_year(
+                            conn, month, year)
+                        if balance:
+                            result = f"Your balance for {month} {year} was {balance}."
+                        else:
+                            result = f"Data not found for the specified month."
+                    
+                    elif len(months) == 0 and len(years) == 0:
+                        year = 2023 ### TEMPORARY value because there is an issue with dataset. replace with:
+                        #year = get_current_year(conn)
+                        month = get_current_month(conn, year)
+                        balance = get_last_balance_for_month_year(
+                            conn, month, year)
+                        if balance:
+                            result = f"Your balance for {month} {year} was {balance}."
+                        else:
+                            result = f"Data not found."
 
                 elif tag == "check_spending" or tag == "check_income":
                     month_list, year_list = extract_month_year(message)
@@ -228,6 +248,16 @@ def get_response(intents_list, intents_json, message):
                             result = highest_spending
                         else:
                             result = "Data not found for the specified month and year."
+                    elif len(months) == 0 and len(years) == 1:
+                        year = years[0]
+                        highest_spending = get_highest_spending_last_period(
+                            conn, 'year', year, year)
+                        if highest_spending:
+                            result = highest_spending
+                        else:
+                            result = "Data not found for the specified year."
+                    # could add logic to print recent month's highest spending if len(months) == 0 and len(years) == 0
+                    
                     else:
                         result = "Couldn't extract a single month and year from your message."
 
@@ -241,6 +271,8 @@ def get_response(intents_list, intents_json, message):
                         if total_spending: 
                             average_spending = total_spending / month_day_count
                             result = f"Your average spending for {month} {year} was ${average_spending * -1:.2f} per day." #make positive
+                        else:
+                            result = "Data not found for the specified month and year."
                     
                     elif len(months) == 0 and len(years) == 1: #if only year is given
                         year = years[0]
@@ -249,8 +281,19 @@ def get_response(intents_list, intents_json, message):
                             average_spending = total_spending / 365
                             result = f"Your average spending for {year} was ${average_spending * -1:.2f} per day."
                         else:
-                            result = "Data not found for the specified month and year."
+                            result = "Data not found for the specified year."
                     
+                    elif len(months) == 0 and len(years) == 0: #if none given, print recent
+                        year = 2023 ### TEMPORARY value because there is an issue with dataset. replace with:
+                        #year = get_current_year(conn)
+                        month = get_current_month(conn, year)
+                        total_spending = get_total_negative_amount_for_month_year(conn, month, year)
+                        if total_spending: 
+                            average_spending = total_spending / month_day_count
+                            result = f"Your average spending for {month} {year} was ${average_spending * -1:.2f} per day." #make positive
+                        else:
+                            result = "Data not found."
+
                     else:
                         result = "Couldn't extract a single month and year from your message."
                 else:
