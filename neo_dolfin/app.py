@@ -170,6 +170,39 @@ def add_user_audit_log(username, action, message):
         file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
 
+# transfer user to template
+@app.context_processor
+def inject_user():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        return dict(user_id=user_id)
+    return dict()
+
+# check user_id
+@app.before_request
+def before_request():
+    def check_auth():
+        # skip
+        if request.path.startswith('/static'):
+            return
+        if request.path == '/' or request.path == '/login' or request.path == '/register':
+            return
+        # check
+        print('@session[user_id]', session.get('user_id'))
+        if session.get('user_id') is None:
+            print('————redirect')
+            return redirect('/login')
+
+    return check_auth()
+
+# make sure no cache
+@app.after_request
+def add_no_cache_header(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
+
 # ROUTING
 ## LANDING PAGE
 @app.route("/",methods = ['GET']) #Initial landing page for application
@@ -195,8 +228,8 @@ def login():
             row = UserTestMap.query.filter_by(userid = input_username).first()
             testId = 0
             if row != None:
-                 testId = row.testid
-                 print('######### test id:', testId)
+                testId = row.testid
+                print('######### test id:', testId)
 
             # Load transactional data
             loadDatabase(testId)            
@@ -211,6 +244,12 @@ def login():
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
+
+## SIGN OUT
+@app.route('/signout')
+def sign_out():
+    session.pop('user_id', None)
+    return redirect('/')
 
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
