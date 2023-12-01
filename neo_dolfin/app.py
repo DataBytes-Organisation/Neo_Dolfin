@@ -493,6 +493,11 @@ def profile():
 def resetpw():
         return render_template('resetpw.html')
 
+# APPLICATION USER SURVEY
+@app.route('/survey')
+def survey():
+        return render_template("survey.html")
+
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
 def chatbot():
