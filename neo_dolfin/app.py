@@ -4,31 +4,39 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, inspect
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
-import pandas as pd
 import time 
+import pandas as pd 
 import os 
 from dotenv import load_dotenv
-import logging
 import ssl 
 import nltk
 #import certifi
 import requests
+import bcrypt
 import datetime
 import re
 import sqlite3
-import plotly.graph_objects as go
 from services.basiq_service import BasiqService
 from io import StringIO
-import json
+import pymysql
+import requests
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
 from services.basiq_service import BasiqService
 from ai.chatbot import chatbot_logic
+
+# Access environment variables
+PASSWORD = os.getenv("PASSWORD")
+PUBLIC_IP = os.getenv("PUBLIC_IP_ADDRESS")
+DBNAME = os.getenv("DBNAME")
+PROJECT_ID = os.getenv("PROJECT_ID")
+INSTANCE_NAME = os.getenv("INSTANCE_NAME")
 
 # Chatbot Logic req files for VENV
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -48,6 +56,7 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
+## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -58,9 +67,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 df1 = pd.read_csv('static/data/transaction_ut.csv')
 df2 = pd.read_csv('static/data/modified_transactions_data.csv')
 df3 = pd.read_csv('static/data/Predicted_Balances.csv')
-df4 = pd.read_csv('static/data/transaction_ut.csv')
 
-# SQL User Credential Database Configure
+# SQL Database Configure
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -69,6 +77,17 @@ class User(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
 
+class UserTestMap(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    userid = db.Column(db.String(80), unique=True, nullable=False)
+    testid = db.Column(db.Integer, nullable=False)
+
+class UserAuditLog(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.now)
+    username = db.Column(db.String(80), nullable=False)
+    action = db.Column(db.String(80), nullable=False)
+    message = db.Column(db.String(255), nullable=False)
+
 try:
     with app.app_context():
         db.create_all()
@@ -76,86 +95,39 @@ except Exception as e:
     print("Error creating database:", str(e))
 
 # SQLite User Data Database Setup
-df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
-df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
-df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
-df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
-df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
+#df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
+#df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
+#df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
+#df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
+#df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
 
 # Function to clean the 'subClass' column
-def clean_subClass(row):
-    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-        return 'cash-withdrawal'
-    if row['subClass'] == '{\\title\\":\\"\\"':
-        return 'bank-fee'
-    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-    if match:
-        extracted_subClass = match.group(1)
-        if extracted_subClass == 'Unknown':
-            return row['description']
-        return extracted_subClass
-    return row['subClass']
+#def clean_subClass(row):
+#    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
+#        return 'cash-withdrawal'
+#    if row['subClass'] == '{\\title\\":\\"\\"':
+#        return 'bank-fee'
+#    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
+#    if match:
+#        extracted_subClass = match.group(1)
+#        if extracted_subClass == 'Unknown':
+#            return row['description']
+#        return extracted_subClass
+#    return row['subClass']
 
-def subClass_titles(row): #clean titles for subclass column
-    sub_class_lower = str(row['subClass']).lower()
-
-    if sub_class_lower in ['{\\title\\":\\"civic', 'auxiliary finance and investment services', 'legal and accounting services']:
-        return 'professional services'
-    if 'payroll' in sub_class_lower:
-        return 'salary'
-    if 'ctrlink' in sub_class_lower:
-        return 'centrelink'
-    if 'withdrawal' in sub_class_lower:
-        return 'withdrawal'
-    if 'bank-fee' in sub_class_lower:
-        return 'bank fees'
-    if any(term in sub_class_lower for term in ['electricity', 'telecommunications', 'water']):
-        return 'utilities'
-    if 'education' in sub_class_lower:
-        return 'education fees'
-    if 'other' in sub_class_lower:
-        return 'other'
-    
-def clean_Description(row): #clean description column
-    description_lower = str(row['description']).lower()
-
-    if 'atm withdrawal fee' in description_lower:
-        return 'atm fee'
-    if 'homeloan' in description_lower:
-        return 'homeloan repayment'
-    if 'wdl atm' in description_lower:
-        return 'atm withdrawal'
-    if 'foreign currency' in description_lower:
-        return 'foreign transfer fee'
-    if 'tfr' in description_lower:
-        return 'account transfer'
-    if any(term in description_lower for term in ['wages', 'payroll']):
-        if 'wages' in description_lower:
-            description_lower.replace('wages', 'payroll')
-        return description_lower
-    if any(term in description_lower for term in ['tfr', 'transfer']):
-        return 'transfer'
-    if 'agl' in description_lower:
-        return 'utilities payment'
-    else:
-        return 'other'
-
-df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4.apply(subClass_titles, axis = 1) #clean 'subClass' column by applying categories
-df4['description'] = df4.apply(clean_Description, axis = 1) #clean 'description' column by applying categories
+# df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
+# df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
 # Check if the SQLite database file already exists
-db_file = "transactions_ut.db"
-if not os.path.exists(db_file):
+# db_file = "db/transactions_ut.db"
+# if not os.path.exists(db_file):
     # If the database file doesn't exist, create a new one
-    conn = sqlite3.connect(db_file)
+#     conn = sqlite3.connect(db_file)
     # Import the cleaned DataFrame to the SQLite database
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
-else:
+#     df4.to_sql("transactions", conn, if_exists="replace", index=False)
+#     conn.close()
+# else:
     # If the database file already exists, connect to it
-    conn = sqlite3.connect(db_file)
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
+#     conn = sqlite3.connect(db_file)
 
 ## Basiq API 
 basiq_service = BasiqService()
@@ -186,62 +158,56 @@ class GeoLockChecker(object):
                 return 0
         else:
             return 0
+#app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
+# Handles the logging of an authentication or registration event to a txt output and a log database
+def add_user_audit_log(username, action, message):
+    new_log = UserAuditLog(username=username, action=action, message=message)
+    print(new_log)
+    db.session.add(new_log)
+    db.session.commit() 
+    with open("audit.txt", 'a') as file:
+        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
-app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
 # ROUTING
-
-# Added By String
-@app.context_processor
-# transfer user to template
-def inject_user():
-    if 'username' in session:
-        username = session['username']
-        return dict(username=username)
-    return dict()
-
-def check_auth():
-    # print('————check')
-    # skip
-    if request.path.startswith('/static'):
-        return
-    if request.path == '/login' or request.path == '/register':
-        return
-    # check
-    # print('@session[username]', session.get('username'))
-    if session.get('username') is None:
-        redirect('/login')
-
-@app.before_request
-def before_request():
-    check_auth()
-
 ## LANDING PAGE
-@app.route("/",methods = ['GET','POST']) #Initial landing page for application
+@app.route("/",methods = ['GET']) #Initial landing page for application
 def landing():
     return render_template('landing.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+
+        input_username = request.form['username']
+        input_password = request.form['password']
 
         # Retrieve the user from the database
-        user = User.query.filter_by(username=username).first()
-        # print(type(user))
-        # print(user)
-        if user and user.password == password:
+        user = User.query.filter_by(username=input_username).first()
+
+        # Check if the user exists and the password is correct with stored hash
+        if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
-            # Added By String
-            # mount to session and hide password
-            # user.password = None
-            session['username'] = user.username
-            # print(session)
-            return redirect('/dash')
 
+            # If successful, check if test user or real user.
+            row = UserTestMap.query.filter_by(userid = input_username).first()
+            testId = 0
+            if row != None:
+                 testId = row.testid
+                 print('######### test id:', testId)
+
+            # Load transactional data
+            loadDatabase(testId)            
+            # log successful authentication challenge 
+            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
+            # redirect to the dashboard.
+            return redirect('/dash')
+        
+        ## Otherwise:
+        # log un-successful authentication challenge
+        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
@@ -250,22 +216,34 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
+        input_username = request.form['username']
+        input_email = request.form['email']
+        input_password = request.form['password']
+
+        # Hash password
+        input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+        #print(input_password)
+        #print(input_password.decode())
 
         # Check if the username or email already exists in the database
-        existing_user = User.query.filter_by(username=username).first()
-        existing_email = User.query.filter_by(email=email).first()
+        existing_user = User.query.filter_by(username=input_username).first()
+        existing_email = User.query.filter_by(email=input_email).first()
 
         if existing_user or existing_email:
+            add_user_audit_log(input_username, 'register-fail', 'User registration failed.')
             return 'Username or email already exists. Please choose a different one.'
 
         # Create a new user and add it to the database
-        new_user = User(username=username, email=email, password=password)
+        new_user = User(username=input_username, email=input_email, password=input_password)
         db.session.add(new_user)
         db.session.commit()
+        add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
+        # create a new mapping for a user
+        new_user_id = new_user.id
+        new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
+        db.session.add(new_user_map)
+        db.session.commit()
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
@@ -275,7 +253,7 @@ def auth_dash2():
 
     if request.method == 'GET':
         user_id = session.get('user_id')
-        con = sqlite3.connect("transactions_ut.db")
+        con = sqlite3.connect("db/transactions_ut.db")
         cursor = con.cursor() 
 
         defacc = 'ALL'
@@ -341,7 +319,7 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
+            con = sqlite3.connect("db/transactions_ut.db")
             cursor = con.cursor() 
             
             cursor.execute('SELECT DISTINCT account FROM transactions')
@@ -409,7 +387,7 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
+            con = sqlite3.connect("db/transactions_ut.db")
             cursor = con.cursor() 
 
             defacc = account_value
@@ -500,16 +478,11 @@ def open_terms_of_use():
 def open_terms_of_use_AI():
         return render_template("TermsofUse-AI.html") 
     
-# APPLICATION ARTICLE TEMPLATE ROUTING 
-@app.route('/articleTemplate/<int:article_id>')
-def open_article_template(article_id):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, 'static', 'json', 'article.json')
-    with open(json_path) as json_file:
-        articles_data = json.load(json_file)
-    article = next((article for article in articles_data if article['id'] == article_id), None)
-    return render_template('articleTemplate.html', articles=[article])
- 
+# APPLICATION Article Template PAGE 
+@app.route('/articleTemplate/')
+def open_article_template():
+        return render_template("articleTemplate.html") 
+    
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
@@ -519,6 +492,11 @@ def profile():
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
         return render_template('resetpw.html')
+
+# APPLICATION USER SURVEY
+@app.route('/survey')
+def survey():
+        return render_template("survey.html")
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
@@ -534,6 +512,6 @@ def chatbot():
         return jsonify(message)
     return render_template('chatbot.html')
 
-# Run the Flask app
+# Run the Flask appp
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
