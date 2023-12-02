@@ -2,3 +2,5 @@
 [2023-11-30 19:54:42.607455] [user-login-success]  username: tester:  User logged in successfully.
 [2023-11-30 20:03:52.354610] [user-login-success]  username: tester:  User logged in successfully.
 [2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-01 23:44:50.378236] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-01 23:48:18.698657] [user-login-success]  username: tester:  User logged in successfully.
