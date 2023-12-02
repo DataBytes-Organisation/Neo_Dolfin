@@ -1,25 +1,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar.css')}}">
 
 <div class = "container-fluid">
   <div class = "row flex-nowrap">
     <div class="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
       <div class="bg-dark p-2">
         <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
-          <span class="fs-4 d-none d-sm-inline">SideMenu</span>
+          <i class="fa-solid fa-bars"></i>
         </a>
         <ul class="nav nav-pills flex-column mt-4">
           <li class="nav-item py-2 py-sm-0 ">
-            <a href="#" class="nav-link text-white" >
+            <a href="/home" class="nav-link text-white" >
               <i class ="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Home</span>  
             </a>
           </li>
           <li class="nav-item py-2 py-sm-0">
-            <a href="#" class="nav-link text-white" >
+            <a href="/dashboard" class="nav-link text-white" >
               <i class ="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Dashboard</span>  
             </a>
           </li>
           <li class="nav-item py-2 py-sm-0">
-            <a href="#" class="nav-link text-white" >
+            <a href="/reports" class="nav-link text-white" >
               <i class ="fs-5 fa fa-table-list"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Reports</span>  
             </a>
           </li>

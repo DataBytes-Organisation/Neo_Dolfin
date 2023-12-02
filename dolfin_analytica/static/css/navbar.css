@@ -16,62 +16,33 @@
 }
 
 .bg-dark {
-    background-color: #343A40 !important;
+    background-color: #cbc211 !important;
 }
 
-/* .navbar-nav {
+.navbar-nav {
     flex-direction: row !important; 
-} */
+}
 
 .nav-item {
     font-weight: bold;
-    padding-left: 3.5em;
 }
 
 .nav-link {
     color: #FAFAFE;
-
 }
 
 .nav-link:hover {
-    color: #0077BB;
-    border-bottom: 2px solid #0077BB;
-}
-
-.dropdown-item {
-    text-align: center;
-    color: #FAFAFE;
-}
-.dropdown-item:hover {
-    text-align: center;
-    background-color: #343A40;
-    color: #0077BB;
-}
-
-.dropdown-menu{
-    background-color: #343A40;
-}
-.profile-img {
-    width: 30px;
-}
-
-.dropdown-menu[data-bs-popper] {
-    top: 100%;
-    left: -25% !important;
-    margin-top: var(--bs-dropdown-spacer);
+    background-color: rgb(237, 39, 0);
+    border-bottom: 2px solid #9fbb00;
 }
 
 /* Active state for the entire list item */
 .nav-item.active {
     background-color: #0077BB;
     border-radius: 2px; /* Add rounded corners */
-}
-.nav-item.active {
     padding: 8px 15px; /* Adjust padding as needed */
 }
 
-.nav-pills li a:hover{
-    background-color: blue;
-}
+
 
 
