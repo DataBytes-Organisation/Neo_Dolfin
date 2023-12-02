@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class = "container-fluid">
+  <div class = "row flex-nowrap">
+    <div class="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
+      <div class="bg-dark p-2">
+        <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
+          <span class="fs-4 d-none d-sm-inline">SideMenu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mt-4">
+          <li class="nav-item py-2 py-sm-0 ">
+            <a href="#" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Home</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="#" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Dashboard</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="#" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-table-list"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Reports</span>  
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class = "dropdown open p-3">
+        <button class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-aria-expanded="false">
+          <i class="fa fa-user"></i><span class="ms-2">Amit</span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+          <button class="dropdown-item" href="#">Setting</button>
+          <button class="dropdown-item disabled" href="#">Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current page from the template variable
+        var currentPage = "{{ current_page }}";
+
+        // Find the corresponding navigation item and add the 'active' class
+        var navItem = document.getElementById('nav-' + currentPage);
+        if (navItem) {
+            navItem.classList.add('active');
+        }
+    });
+</script>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <title>Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -11,16 +11,6 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;
-        }
-
-        #sidebar {
-            height: 100vh;
-            width: 110px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #343a40;
-            padding-top: 20px;
         }
 
         #content {
@@ -31,21 +21,8 @@
 </head>
 
 <body>
+    {% include 'components/navbar.html' %}  
 
-    <div id="sidebar">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Reports</a>
-            </li>
-            <!-- Add more items as needed -->
-        </ul>
-    </div>
 
     <div id="content">
         <h2>Welcome to the Dashboard</h2>

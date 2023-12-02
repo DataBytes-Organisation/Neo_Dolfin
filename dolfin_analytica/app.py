@@ -18,6 +18,7 @@ def landing():
 
     return render_template('landing.html')
 
+
 @app.route('/loading')
 def loading():
     return render_template('loading.html')
