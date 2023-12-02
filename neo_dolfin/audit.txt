@@ -1,5 +1,0 @@
-[2023-11-24 17:09:33] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:38] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:41] login-fail: Failed login attempt for user admin
-[2023-11-24 17:10:00] register: User admin registered
-[2023-11-24 17:10:03] login: User admin logged in

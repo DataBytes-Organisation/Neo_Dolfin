@@ -32,15 +32,33 @@
 				<div class="col">
 					<p id="p1">User Information</p>
 				</div>
+				<form method="POST">
+					{{ form.csrf_token }}
+					<div class="row">
+						<div class="col mb-3">
+							<label for="Given Name" class="form-label">{{
+								form.given_name.label(class="given-name-lab")}}</label>
+							{{ form.given_name(class="form-control") }}
+						</div>
+						<div class="col mb-3">
+							<label for="family_name" class="form-label" id="family_name">{{ form.family_name.label
+								(class="last-name-lab") }}</label>
+							{{ form.family_name(class="form-control") }}
+						</div>
+					</div>
 
-		<div class="container" id="secondsection">
-			<div class="row">
-				<div class="col">
-					<p id="p3">Username: {{username}} </p>
-					<p id="p4">Email Address: {{email}} </p>
-
-				</div>
-				
+					<div class="row">
+						<div class="col mb-3">
+							<label for="nickname" class="form-label">{{ form.nickname.label }}</label>
+							{{ form.nickname(class="form-control") }}
+						</div>
+						<div class="col mb-3">
+							<label for="username" class="form-label">{{ form.username.label }}</label>
+							{{ form.username(class="form-control") }}
+						</div>
+					</div>
+				</form>
+			</div>
 			<div>
 				<p id="p2">Reset Password</p>
 				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>
