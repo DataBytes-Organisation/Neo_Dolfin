@@ -1,104 +1,81 @@
-.inner-content {
-    background-color: #343A40;
-    height: 7vh;
-    color: #FAFAFE;
-}
-
-.content {
-    display: flex;
-    padding-top: 30px;
-}
-
-.content-left {
-    width: 50%;
-    padding-right: 10%;
-}
-
-.content-right {
-    width: 50%;
-}
-
-.content-right-h {
-    text-align: center;
-}
-
-.content-left-h {
-    text-align: center;
-}
-
-.left-content-p {
-    text-align: center;
-    display: flex;
-    justify-content: center; /* Center content horizontally */
+/* Reset and basic styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.custom-truncate-four-lines {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    /* Adjust the number of lines as needed */
-    -webkit-box-orient: vertical;
-    overflow-y: auto;
-    overflow-x: hidden;
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-.custom-truncate-four-lines2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow-y: auto;
-    overflow-x: hidden;
+/* Add CSS styles here or link an external stylesheet */
+/* Include the CSS code provided earlier for the footer */
+.footer {
+    /* Add the styles for the footer */
+    /* ... */
+    background-image: url('https://img.freepik.com/premium-photo/blue-orange-bird-sits-pink-flowered-bush_865967-629060.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699833600&semt=ais');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #343A40;
+    color: paleturquoise;
+    padding: 30px 0;
+    text-align: center;
+    /* Other styles */
 }
 
-.outer-content {
+.inner-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 6vh;
-    background-color: #232628;
-    color: #FAFAFE;
-}
-
-hr {
-    border: 0;
-    height: 5px;
-    background-color: white; 
-    border-radius: 5px;
-}
-
-.footer-content-ul {
-    list-style: none;
-    padding-left: 7rem;
 }
 
 .center-content {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-
+    margin-bottom: 20px;
 }
 
-.terms-link {
-    text-decoration: none !important;
-    color: #FAFAFE;
-    font-size: clamp(1.1rem, 1.5vw, 2rem);
-}
-
-
-
-.terms-link:hover {
-    text-decoration: none !important;
-    color: #0077BB;
-}
-
+.terms-link,
 .termsai-link {
-    text-decoration: none !important;
-    color: #FAFAFE;
-    font-size:clamp(1.1rem, 1.5vw, 2rem);
+    text-decoration: none;
+    color: paleturquoise;
+    margin: 8px 0;
+    display: block;
+    transition: color 0.3s ease;
 }
 
+.terms-link:hover,
 .termsai-link:hover {
-    text-decoration: none !important;
     color: #0077BB;
 }
 
+.outer-content {
+    margin-top: 20px;
+}
+
+.outer-content h5 {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (min-width: 768px) {
+    .inner-content {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .center-content {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .terms-link,
+    .termsai-link {
+        margin: 0 10px;
+    }
+}
