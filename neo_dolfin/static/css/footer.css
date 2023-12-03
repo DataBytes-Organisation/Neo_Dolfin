@@ -1,8 +1,13 @@
 .inner-content {
     background-color: #343A40;
-    height: 30vh;
+    
+    height: auto;
     color: #FAFAFE;
+    font-size: 8px;
+    
 }
+
+
 
 .content {
     display: flex;
@@ -55,8 +60,9 @@
     justify-content: center;
     align-items: center;
     height: 6vh;
-    background-color: #232628;
+    background-color: #343A40;
     color: #FAFAFE;
+    padding-top: 0px;
 }
 
 hr {
@@ -72,16 +78,26 @@ hr {
 }
 
 .center-content {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-
+    margin: 0; /* reset margins */
+    padding: 0.5rem; /* add padding to ensure space around the text */
+    font-size: 1rem; /* adjust base font size as needed */
+    text-align: center; /* center the text */
+    display: block; /* stack the elements */
 }
+
+.center-content h5 {
+    display: inline-block;
+    margin: 10px 0;
+    margin-top: 6px;
+    margin-bottom: 0rem; /* Adds space below each <h5> element */
+}
+
 
 .terms-link {
     text-decoration: none !important;
     color: #FAFAFE;
     font-size: clamp(1.1rem, 1.5vw, 2rem);
+    margin: 10px;
 }
 
 
@@ -101,4 +117,417 @@ hr {
     text-decoration: none !important;
     color: #0077BB;
 }
+
+/* Styles for medium-sized devices like tablets */
+@media (min-width: 771px) and (max-width: 988px) {
+    .center-content {
+        /* Use flexbox to allow for flexible layouts */
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap as needed */
+        justify-content: space-around; /* Distribute space around items */
+        align-items: center; /* Align items vertically */
+    }
+
+    .center-content h5 {
+        /* Add padding for spacing and visual comfort */
+        padding: 10px;
+        /* Set a minimum width if needed to avoid too much compression */
+        min-width: 120px; /* Adjust as needed */
+        /* Allow h5 to grow and shrink as needed while wrapping */
+        flex: 1 1 auto;
+    }
+
+    .terms-link, .termsai-link {
+        /* Provide additional horizontal spacing */
+        margin: 0 5px;
+    }
+}
+
+
+
+/* Media Query for Large Devices (Desktop) - screens larger than 992px */
+@media (min-width: 993px) {
+    .center-content {
+        flex-direction: row; /* align links in a row */
+        justify-content: space-around; /* distribute space around links */
+    }
+
+    .center-content h5 {
+        display: inline-block; /* place links in line */
+        margin: 0 10px; /* add horizontal margin */
+        padding: 0; /* reset padding if needed */
+        font-size: 1rem; /* adjust font size for desktop if needed */
+    }
+}
+
+ /* Responsive styles */
+ @media (max-width: 768px) {
+    /* Adjust styles for small screens */
+    body { background-color: rgb(48, 196, 245); } 
+
+    .inner-content {
+        background-color: #0c80f5;
+        height: auto;
+        color: #FAFAFE;
+          
+    }
+
+    .outer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        background-color: #343A40;
+        color: #FAFAFE;
+        margin-top: 6px;
+        padding-top: 0px;
+    }
+
+    .outer-content h6{
+        font-size: 12px;
+    }
+    
+    .content {
+        display: flex;
+        padding-top:0px;
+    }
+    
+    .content-left {
+        width: 50%;
+        padding-right: 10%;
+    }
+    
+    .content-right {
+        width: 50%;
+    }
+    
+    .content-right-h {
+        text-align: center;
+    }
+    
+    .content-left-h {
+        text-align: center;
+    }
+    
+    .left-content-p {
+        text-align: center;
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+        margin: 0;
+    }
+    
+    .custom-truncate-four-lines {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        /* Adjust the number of lines as needed */
+        -webkit-box-orient: vertical;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    .custom-truncate-four-lines2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    
+    
+    hr {
+        border: 0;
+        height: 5px;
+        background-color: white; 
+        border-radius: 5px;
+    }
+    
+    .footer-content-ul {
+        list-style: none;
+        padding-left: 7rem;
+    }
+    
+    .center-content h5 {
+        width: 100%; /* Full width for each item to stack them */
+        margin: 8px 0; /* Provide top and bottom margin */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .terms-link, .termsai-link {
+        text-decoration: none !important;
+        color: #FAFAFE;
+        padding: 0.5em; /* Padding to make the links easier to tap on */
+        font-size: smaller; /* Adjust font size to fit on smaller screens */
+        margin: 0 5px; /* Margin to add space between links */
+    }
+    
+    .center-content {
+        flex-direction: column;
+        align-items: center; /* Center align the flex items */
+        flex-wrap: wrap; /* Wrap items if they don't fit */
+    }
+    
+    .terms-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+    
+    
+    
+    .termsai-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+
+    h5{
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-content h5 {
+        font-size: 0.7rem; /* Adjust font size for very small devices */
+    }
+        body { background-color: rgb(78, 14, 241); } 
+    
+    .content-left, .content-right {
+        width: 100%;
+    }
+    
+    .center-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centers vertically in the container */
+        align-items: center; /* Centers horizontally in the container */
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .center-content h5 {
+        font-size: 8px 0;
+        margin-bottom: 12px; /* Adds space below each <h5> element */
+    }
+
+    .terms-link, .termsai-link {
+        margin: 0 4px; /* Adjust horizontal margin if needed */
+    }
+    
+}
+
+/* Media Query for Larger Devices (Desktops) - screens wider than 992px */
+@media (min-width: 993px) {
+    .center-content h5 {
+        font-size: 1.1rem; /* Adjust font size for larger devices */
+    }
+    
+    body { background-color: rgb(5, 239, 204); } 
+    .content-left, .content-right {
+        width: 100%;
+    }
+    
+    .center-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centers vertically in the container */
+        align-items: center; /* Centers horizontally in the container */
+        margin-top: 0;
+        margin-bottom: 0;
+       
+    }
+
+    .inner-content {
+        background-color: #343A40;
+        height: auto;
+        color: #FAFAFE;
+        font-size: 8px;
+    }
+
+    .outer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        background-color: #343A40;
+        color: #FAFAFE;
+        margin-top: 6px;
+        padding-top: 0px;
+    }
+
+    .outer-content h6{
+        font-size: 15px;
+    }
+
+    .terms-link{
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size: 16px;
+        margin: 7px 0;
+    }
+    
+    
+    
+    .terms-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+    
+    .termsai-link {
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size:16px;
+        margin: 7px 0;
+        margin-top: 20px;
+    }
+    
+    .termsai-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+
+    h5{
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 993px) {
+    /* Styles for screens smaller than or equal to 992px */
+    body { background-color: rgb(233, 16, 16); } 
+    .content-left, .content-right {
+        width: 50%;
+    }
+    
+    .center-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centers vertically in the container */
+        align-items: center; /* Centers horizontally in the container */
+        margin-top: 0;
+        margin-bottom: 0;
+       
+    }
+
+    .inner-content {
+        background-color: #343A40;
+        height: auto;
+        color: #FAFAFE;
+        font-size: 8px;
+    }
+
+    .outer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        background-color: #343A40;
+        color: #FAFAFE;
+        margin-top: 6px;
+        padding-top: 0px;
+    }
+
+    .outer-content h6{
+        font-size: 13px;
+    }
+
+    .terms-link{
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size: 14px;
+        margin: 7px 0;
+         .content-left, .content-right {
+        width: 50%;
+    }
+    
+    .center-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centers vertically in the container */
+        align-items: center; /* Centers horizontally in the container */
+        margin-top: 0;
+        margin-bottom: 0;
+       
+    }
+
+    .inner-content {
+        background-color: #343A40;
+        height: auto;
+        color: #FAFAFE;
+        font-size: 8px;
+        
+    }
+
+    .outer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 6vh;
+        background-color: #343A40;
+        color: #FAFAFE;
+        margin-top: 6px;
+        padding-top: 0px;
+    }
+
+    .outer-content h6{
+        font-size: 15px;
+    }
+
+    .terms-link{
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size: 16px;
+        margin: 7px 0;
+        margin-right: 50px;
+    }
+    
+    
+    
+    .terms-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+    
+    .termsai-link {
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size:16px;
+        margin: 7px 0;
+        margin-top: 20px;
+        margin-right: 50px;
+    }
+    
+    .termsai-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+
+    h5{
+        font-size: 8px;
+    }
+    }
+    
+    
+    
+    .terms-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+    
+    .termsai-link {
+        text-decoration: none !important;
+        color: #FAFAFE;
+        font-size:14px;
+        margin: 7px 0;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    
+    .termsai-link:hover {
+        text-decoration: none !important;
+        color: #0077BB;
+    }
+
+    h5{
+        font-size: 8px;
+    }
+}
+
 

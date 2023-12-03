@@ -1,0 +1,454 @@
+body {
+    background-image: url("../static/img/bg-img.png");
+    font-size: 1.6rem;
+    font-family: "Inter", sans-serif;
+    background-color: #FAFAFE;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup_bg {
+    height: 755px;
+    opacity: 0.7; 
+    margin-top: 25px;
+}
+
+.Title_signup {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    text-align: center; 
+    font-weight: bold;
+    color: #000;
+}
+
+.style {
+    height: auto;
+    opacity: 0.9; 
+    margin-top: -80px;
+}
+
+.text_bg {
+    position: relative;
+    /* width: 600px; */
+    max-width: 600px;
+    max-height: 310px;
+    background: rgba(238, 236, 236, 0.7); 
+    box-shadow: 5px 6px 20px 0px rgba(0, 0, 0, 0.25); 
+    backdrop-filter: blur(15px);
+    border-radius: 50px; 
+    /* background-size: 100%; */
+    display: flex;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+
+.container_right {
+    position: relative;
+    margin: 0 auto; 
+    color: #FFF;
+}
+
+.text_mid {
+    color: black;
+    font-family: 'Anek Gujarati', sans-serif;
+    font-size: 24px; 
+    font-weight: 400;
+    padding-top: 30px; 
+    padding-bottom: 0px;
+}
+
+ul {
+    line-height: 40px
+}
+
+
+.full-img {
+    background-image: url("../img/sign up/cover_style.png");
+    background-position:bottom left;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top:50px;
+}
+
+.top-right-image {
+    position:relative;
+    /* bottom: 55px; */
+    top: -350px;
+    left: -230px;
+    width: 1150px;
+    /* height: auto; */
+    opacity: 1;
+    display:initial;
+    /* margin-top: -80px;
+    margin-left: -100px; */
+    rotate: -9deg;
+
+}
+
+.dolfin {
+    position: relative;
+    top: -30px;
+    left: 470px;
+    max-width: 150px;
+}
+
+
+
+.text_top {
+    position: relative;
+    top: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-family: 'Arimo Hebrew Subset Italic', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
+    /* margin-left: 15px; */
+    
+}
+
+
+.Subtitle {
+    color: #AEAEAE;
+    text-align: center;
+    font-family: 'Anek Gujarati', sans-serif;
+    font-size: 0.8em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.input_area {
+    position: relative;
+    background: rgba(220, 231, 235, 0.44); 
+    padding:40px;
+    box-shadow: 5px 6px 20px 0px rgba(0, 0, 0, 0.25); 
+    border-radius: 50px;
+    backdrop-filter: blur(40.7px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto; 
+    max-width: 55%; 
+    /* min-width: 45%; */
+    margin-left: 0px; 
+    margin-right: 0px; 
+}
+
+body, html {
+    height: 100%; 
+}
+
+.text-under-container {
+    position: absolute;
+    color: #585858; 
+    font-family: 'Anek Gujarati', sans-serif; 
+    padding: 20px; 
+    padding-top: 490px;
+    margin-left: 470px;
+    text-align: center; 
+    font-size: 20px; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-family: 'Anybody', sans-serif;
+    color: rgba(12, 12, 12, 0.30);
+    font-size: 22px;
+    font-weight: 700;
+    max-width: 400px;
+    /* padding: 10px; */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+input[type="submit"] {
+    width: 40%;
+    padding: 5px;
+    font-size: 0.7em;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077BA;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 90px; 
+}
+
+input:not(:placeholder-shown) {
+    color: #000;
+}
+
+.or-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #000;
+    font-family: 'Anybody', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* css used to display Skip Address Validation and checkbox styled for DolFin Pages */
+.validation-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #000;
+    font-family: 'Anybody', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.validation-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .validation-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid #090909;
+  }
+  
+  /* On mouse-over update background colour of checkbox */
+  .validation-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked update background colour of checkbox to blue */
+  .validation-checkbox input:checked ~ .checkmark {
+    background-color: #0077BA;
+  }
+  
+  /* Create the checkmark (checkbox tick) - this is not displayed when unchecked */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Display the checkmark when checkbox is checked */
+  .validation-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Update the style of the checkmark (checkbox tick) */
+  .validation-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-google, .btn-microsoft {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: rgb(29, 28, 28);
+    font-size: 0.5em;
+    font-weight: bold;
+    margin: 5px 0;
+    white-space: nowrap;
+    position: relative;
+    width: 135%;
+}
+
+.btn-logo {
+    position: absolute; 
+    left: 10px; 
+    height: 20px; 
+    width: 20px; 
+}
+
+.btn-google, .btn-microsoft {
+    padding-left: 40px; 
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #0077BA;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #0077BA;
+}
+
+#dol-float {
+    width: 200px;
+    float: right;
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+
+/* Responsive Media Queries */
+
+@media screen and (max-width: 1680px) {
+    .top-right-image {
+        /* top: -350px; */
+        left: -300px;
+        /* width: 1150px; */
+        /* height: auto; */
+    }
+    #dol-float {
+        left: 40px;
+        top: -35px;
+        width: 170px;
+        /* background-color: aqua; */
+    }
+}
+
+#small-top {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-family: 'Arimo Hebrew Subset Italic', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
+    display: none;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1555px) {
+    .top-right-image {
+        top: -300px;
+        left: -350px
+    }
+
+}
+
+@media screen and (max-width: 1770px) {
+    #dol-float {
+            left: 40px;
+            top: -70px;
+            width: 150px;
+            /* background-color: aqua; */
+    }
+    .top-right-image {
+        /* top: -300px; */
+        left: -420px
+    }
+
+    #right-side {
+        /* display: flex; */
+        width: 530px;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 1150px) {
+    .top-right-image {
+        /* top: -350px; */
+        /* left: -300px; */
+        display: none;
+        /* width: 1150px; */
+        /* height: auto; */
+    }
+
+    #dol-float {
+        display: none;
+        /* background-color: aqua; */
+    }
+
+    .text_top {
+        display: none;
+    }
+
+    .text_mid {
+        display: none;
+    }
+
+    #small-top {
+        display: block;
+    }
+
+    #right-side {
+                /* display: flex; */
+        width: 900px;
+    }
+    
+
+    body {
+        background-image: url("../img/bg-img.png");
+    }
+
+    @media screen and (max-width: 850px){
+        #small-top {
+                display: none;
+        }
+
+
+    }
+
+}
