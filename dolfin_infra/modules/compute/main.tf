@@ -1,32 +1,46 @@
 resource "google_compute_instance" "vm_instance" {
   name         = "${var.project_name}-vm"
   machine_type = "f1-micro"
-  tags         = ["flask", "ssh"]
+  tags         = ["allow-connections"]
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "cos-cloud/cos-stable"
     }
   }
 
-  # Install Flask
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python3-pip rsync; pip install flask"
-
   network_interface {
-    subnetwork = var.subnet_id
+    network = var.network_name
+    subnetwork = var.subnet_name
     access_config {}
+  }
+
+  metadata = {
+    gce-container-declaration = <<-EOT
+    spec:
+      containers:
+        - name: dolfin-anomaly-detection
+          image: gcr.io/${var.project_name}/dolfin-anomaly-detection
+          ports:
+            - containerPort: 5000
+    EOT
+  }
+
+  service_account {
+    scopes = ["cloud-platform"]
   }
 }
 
-resource "google_compute_firewall" "ssh" {
-  name = "allow-ssh"
-  allow {
-      ports    = ["22"]
-      protocol = "tcp"
-  }
+resource "google_compute_firewall" "allow_connections" {
+  name          = "allow-connections"
+  network       = var.network_name
   direction     = "INGRESS"
-  network       = var.network_id
-  priority      = 1000
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443", "5000", "22"]
+  }
+
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["ssh"]
+  target_tags   = ["allow-connections"]
 }

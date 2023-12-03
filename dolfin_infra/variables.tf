@@ -1,5 +1,5 @@
 variable "gcp_project_id" {
-    default = ""
+    default = "sit764-dev"
 }
 
 variable "project_name" {

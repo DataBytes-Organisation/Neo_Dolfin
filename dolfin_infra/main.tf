@@ -44,6 +44,8 @@ module "compute" {
   source        = "./modules/compute"
   network_id    = module.network.vpc_network_id
   subnet_id     = module.network.vpc_subnet_id
+  network_name    = module.network.vpc_network_name
+  subnet_name     = module.network.vpc_subnet_name
   project_name  = var.project_name
 }
 
