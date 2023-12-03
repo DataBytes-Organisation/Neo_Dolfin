@@ -19,155 +19,158 @@
   {% include 'components/navbar.html' %}
 
 
-  <div id="mainBody">
+  <div id="backGroundImage">
+    <!-- <div id="backGroundImage"></div> -->
 
     <div id="headerSection" class="p-5">
-      <h1 id="headerTitle" class="display-1 text-center ">Latest News</h1>
+      <div id="headerGreeting" class="display-1 text-left ">Welcome Back!</div>
+      <div id="headerTitle" class="display-1 text-left ">NEWS</div>
+      <div id="headerTitleShadow" class="display-1 text-left ">NEWS</div>
     </div>
 
-    <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="12" fill="#343A40" />
-    </svg>
-  </div>
+    <div id="rectangle"></div>
 
-  <div id="mainNewsColumns" class="container">
-    <nav id="archiveNavbar" class="navbar bg-dark border-bottom border-body rounded-2 justify-content-around"
-      data-bs-theme="dark">
-      <!-- Navbar content -->
-      <div id="archiveColumnNavbar" class="navbar-brand p-2">Archive</div>
-      <div id="archiveItems">
-        <ul class="navbar-nav list-group-horizontal" style="list-style: none; display: flex;
-            justify-content: space-around;">
-          <li class="nav-item">
-            <a class="btn" id="archiveName" onclick="filterSelection('sept')">Sept</a>
-          </li>
-          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('all')">All</a>
-          </li>
-          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('july')">July</a>
-          </li>
-          <li class="nav-item"><a class="btn" id="archiveName" onclick="filterSelection('june')">June</a></li>
-        </ul>
-      </div>
+    <div id="mainNewsColumns" class="container">
 
-    </nav>
+      <!-- Navigation Bar -->
+      <nav id="custom-navbar" class="navbar navbar-expand-lg navbar-light bg-grey">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li id="navbar-nav-item" class="nav-item">
+              <a class="nav-link" href="#">
+                <button id="btn-primary" class="btn btn-primary navbar-btn btn-xl" onclick="filterSelection('archive')">Archive</button>
+              </a>
+            </li>
+            <li id="navbar-nav-item" class="nav-item">
+              <a class="nav-link" href="#">
+                <button id="btn-success" class="btn btn-success navbar-btn btn-xl" onclick="filterSelection('all')">All</button>
+              </a>
+            </li>
+            <li id="navbar-nav-item" class="nav-item">
+              <a class="nav-link" href="#">
+                <button id="btn-danger" class="btn btn-danger navbar-btn btn-xl" onclick="filterSelection('june')">June</button>
+              </a>
+            </li>
+            <li id="navbar-nav-item" class="nav-item">
+              <a class="nav-link" href="#">
+                <button id="btn-next" class="btn btn-next navbar-btn btn-xl" onclick="filterSelection('july')">July</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <div class="row" style="min-height: 700px;">
-      <div class="col-sm">
-        <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="sept">
-
-          <a id="articleLink" href="/articleTemplate/1">
-            <div class="ratio ratio-16x9">
-              <img class="card-img-top rounded-top img-fluid" src="/static/img/article1_cover.jpg"
-                alt="https://images.unsplash.com/photo-1553729459-efe14ef6055d">
-            </div>
-            <div class="card-body" style="height: 200px;">
-              <h5 id="articleTitle" class="card-title">Top 5 common bad saving habits</h5>
-              <p id="articleText" class="card-text card-text-custom-truncate">When it comes to saving money, it is
-                important to have
-                good habits.
-                Unfortunately, many people fall into bad habits. Here are the top 5 common bad savings habits:</p>
-            </div>
-            <div class="card-footer d-flex justify-content-between align-content-center">
-              <div class="container">
-                <div class="row mb-2">
-                  <div class="col-6 ps-0">
-                    <a id="readButton" href="/articleTemplate/1" class="btn btn-primary">Read more</a>
-                  </div>
-                  <div class="col-6 pt-2 text-end pe-3">
-                    <p class="h5">10/10/23</p>
+      <div class="container custom-container mt-4">
+        <!-- First Row with Two Boxes -->
+        <div class="row mt-4">
+          <div class="col box">
+            <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="june">
+              <a id="articleLink" href="/articleTemplate/1">
+                <div class="ratio ratio-16x9">
+                  <img class="card-img-top rounded-top img-fluid" src="/static/img/article1_cover.jpg"
+                    alt="https://images.unsplash.com/photo-1553729459-efe14ef6055d">
+                </div>
+                <div class="card-body" style="height: 200px;">
+                  <h5 id="articleTitle" class="card-title card-title-text-custom-truncate">Top 5 common bad saving habits</h5>
+                  <p id="articleText" class="card-text card-text-custom-truncate">When it comes to saving money, it is
+                    important to have
+                    good habits.
+                    Unfortunately, many people fall into bad habits. Here are the top 5 common bad savings habits:</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-content-center">
+                  <div class="container">
+                    <div class="row mb-2">
+                      <div class="col-6 ps-0">
+                        <a id="readButton" href="/articleTemplate/1" class="btn btn-primary">Read more</a>
+                      </div>
+                      <div class="col-6 pt-2 text-end pe-3">
+                        <p class="h5">10/10/23</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="july">
-          <a id="articleLink" href="/articleTemplate/3">
-            <div class="ratio ratio-16x9">
-              <img class="card-img-top rounded-top" src="/static/img/article2_cover.jpg"
-                alt="https://images.unsplash.com/photo-1481223014211-199b3e8f0002">
-            </div>
-            <div class="card-body" style="height: 200px;">
-              <h5 id="articleTitle" class="card-title card-title-text-custom-truncate">What is your age group of
-                people
-                spending their money on?</h5>
-              <p id="articleText" class="card-text card-text-custom-truncate">It is important to look at the
-                demographic
-                factors that are
-                influencing spending patterns. Generally speaking, those
-                between the ages of 25 and 44 are more likely to have higher disposable incomes and, as such, are more
-                likely to be
-                spending their money on items</p>
-            </div>
-            <div class="card-footer d-flex justify-content-between align-content-center">
-              <div class="container">
-                <div class="row mb-2">
-                  <div class="col-6 ps-0">
-                    <a id="readButton" href="/articleTemplate/3" class="btn btn-primary">Read more</a>
-                  </div>
-                  <div class="col-6 pt-2 text-end pe-3">
-                    <p class="h5">25/06/23</p>
+          </div>
+          <div class="col box">
+            <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="june">
+              <a id="articleLink" href="/articleTemplate/2">
+                <div class="ratio ratio-16x9">
+                  <img class="card-img-top rounded-top" src="/static/img/article3_cover.jpg"
+                    alt="https://plus.unsplash.com/premium_photo-1676637656277-498f73258bec">
+                </div>
+                <div class="card-body" style="height: 200px;">
+                  <h5 id="articleTitle" class="card-title card-title-text-custom-truncate">Learn what our AI has found
+                    about
+                    saving</h5>
+                  <p id="articleText" class="card-text card-text-custom-truncate">Learning about saving from historical
+                    data
+                    can be a great way to make smarter decisions when it comes to your finances.
+                    Our AI has found that by looking at past trends and data, you can better understand how to save and
+                    invest your money
+                    for the future.</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-content-center">
+                  <div class="container">
+                    <div class="row mb-2">
+                      <div class="col-6 ps-0">
+                        <a id="readButton" href="/articleTemplate/2" class="btn btn-primary">Read more</a>
+                      </div>
+                      <div class="col-6 pt-2 text-end pe-3">
+                        <p class="h5">08/10/23</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
-          </a>
+          </div>
         </div>
-      </div>
-      <div class="col-sm">
-        <div class="card border-0 shadow hide-card-default" data-category="sept" style="width: 22rem;">
-          <a id="articleLink" href="/articleTemplate/2">
-            <div class="ratio ratio-16x9">
-              <img class="card-img-top rounded-top" src="/static/img/article3_cover.jpg"
-                alt="https://plus.unsplash.com/premium_photo-1676637656277-498f73258bec">
-            </div>
-            <div class="card-body" style="height: 200px;">
-              <h5 id="articleTitle" class="card-title card-title-text-custom-truncate">Learn what our AI has found
-                about
-                saving</h5>
-              <p id="articleText" class="card-text card-text-custom-truncate">Learning about saving from historical
-                data
-                can be a great way to make smarter decisions when it comes to your finances.
-                Our AI has found that by looking at past trends and data, you can better understand how to save and
-                invest your money
-                for the future.</p>
-            </div>
-            <div class="card-footer d-flex justify-content-between align-content-center">
-              <div class="container">
-                <div class="row mb-2">
-                  <div class="col-6 ps-0">
-                    <a id="readButton" href="/articleTemplate/2" class="btn btn-primary">Read more</a>
-                  </div>
-                  <div class="col-6 pt-2 text-end pe-3">
-                    <p class="h5">08/10/23</p>
+    
+        <!-- Second Row with Two Boxes -->
+        <div class="row mt-4">
+          <div class="col box">
+            <div class="card border-0 shadow hide-card-default" style="width: 22rem;" data-category="july">
+              <a id="articleLink" href="/articleTemplate/3">
+                <div class="ratio ratio-16x9">
+                  <img class="card-img-top rounded-top" src="/static/img/article2_cover.jpg"
+                    alt="https://images.unsplash.com/photo-1481223014211-199b3e8f0002">
+                </div>
+                <div class="card-body" style="height: 200px;">
+                  <h5 id="articleTitle" class="card-title card-title-text-custom-truncate">What is your age group of
+                    people
+                    spending their money on?</h5>
+                  <p id="articleText" class="card-text card-text-custom-truncate">It is important to look at the
+                    demographic
+                    factors that are
+                    influencing spending patterns. Generally speaking, those
+                    between the ages of 25 and 44 are more likely to have higher disposable incomes and, as such, are more
+                    likely to be
+                    spending their money on items</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-content-center">
+                  <div class="container">
+                    <div class="row mb-2">
+                      <div class="col-6 ps-0">
+                        <a id="readButton" href="/articleTemplate/3" class="btn btn-primary">Read more</a>
+                      </div>
+                      <div class="col-6 pt-2 text-end pe-3">
+                        <p class="h5">25/06/23</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-        </div>
-      </div>
-
-      <div id="archiveColumn" class="col-sm">
-        <h2 class="float-right">Archive</h2>
-        <div id="archiveItems">
-          <a class="btn" id="archiveName" onclick="filterSelection('all')">All</a>
-          <hr class="hr" />
-          <a class="btn" id="archiveName" onclick="filterSelection('sept')">Sept</a>
-          <hr class="solid" />
-          <a class="btn" id="archiveName" onclick="filterSelection('july')">July</a>
-          <hr class="hr" />
-          <a class="btn" id="archiveName" onclick="filterSelection('june')">June</a>
-          <hr class="hr" />
+          </div>
+          <!-- Add new car HERE -->
         </div>
       </div>
     </div>
   </div>
-
-  <!-- IMPLEMENT CHATBOT HERE -->
-  {% include 'components/chatbotWidget.html' %}
-
-  </div>
-  {% include 'components/footer.html' %}
 
   <!-- javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -178,6 +181,11 @@
   <!-- importing local -->
   <script language="JavaScript" type="text/javascript" src="{{url_for('static', filename='js/news.js')}}">
   </script>
+
+  <!-- IMPLEMENT CHATBOT HERE -->
+  {% include 'components/chatbotWidget.html' %}
+
+  {% include 'components/footer.html' %}
 
 </body>
 
