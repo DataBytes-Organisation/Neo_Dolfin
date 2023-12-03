@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/registration.css')}}">
     <title>Register</title>
 </head>
+
 <body>
     <div class="container p-4" style="max-width: 85%; overflow: visible;">
         <div class="row justify-content-center g-0 p-0">
@@ -29,9 +31,12 @@
                             <div class="col-8 col-lg-8 col-md-12 col-sm-10">
                                 <form method="POST" action="/register">
                                     <div class="tab">
-                                        <input type="text" name="username" class="form-control" placeholder="Username" required>
-                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        <input type="text" name="username" class="form-control" placeholder="Username"
+                                            required>
+                                        <input type="email" name="email" class="form-control" placeholder="Email"
+                                            required>
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password" required>
                                     </div>
                                     <div class="tab">
                                         <label class="validation-checkbox">
@@ -39,11 +44,14 @@
                                             <input type="checkbox" id="validation" name="validation">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <input type="text" class="form-input" id="address1" placeholder="Search address here..." required>
-                                        <input type="text" class="form-input" id="address2" placeholder="Address Line 2">
+                                        <input type="text" class="form-input" id="address1"
+                                            placeholder="Search address here..." required>
+                                        <input type="text" class="form-input" id="address2"
+                                            placeholder="Address Line 2">
                                         <input type="text" class="form-input" id="suburb" placeholder="Suburb" required>
                                         <input type="text" class="form-input" id="state" placeholder="State" required>
-                                        <input type="text" class="form-input" id="postcode" placeholder="State" required>
+                                        <input type="text" class="form-input" id="postcode" placeholder="State"
+                                            required>
                                         <input type="submit" class="btn btn-primary" value="Register">
                                     </div>
                                 </form>
@@ -124,4 +132,5 @@
     </div> -->
     <script src="{{url_for('static', filename='js/register.js')}}"></script>
 </body>
+
 </html>
