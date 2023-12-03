@@ -13,6 +13,28 @@ def get_last_balance_for_month_year(conn, month, year):
     final_balance = result[0] if result else 0
     return final_balance
 
+def get_balance_for_specific_day(conn, day, month, year): ## atacolak
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT balance FROM transactions WHERE day = ? AND month = ? AND year = ? ORDER BY transactionDate DESC, id DESC LIMIT 1", (day, month, year))
+    result = cursor.fetchone()
+    final_balance = result[0] if result else 0
+    return final_balance
+
+def get_total_balance_for_year(conn, year):
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT SUM(balance) FROM transactions WHERE year = ?", (year,))
+    result = cursor.fetchone()
+    total_balance = result[0] if result[0] is not None else 0
+    return total_balance
+
+def get_total_balance_for_year_until(conn, month, year): ##wip, maybe dont need
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT SUM(balance) FROM transactions WHERE year = ? AND month <= ?", (year, month))
+    result = cursor.fetchone()
+    total_balance = result[0] if result[0] is not None else 0
+    return total_balance
+    
+
 # Function to get total spending/saving for a specific month and year
 def get_total_amount_for_month_year(conn, direction, month, year):
     cursor = conn.cursor()
@@ -108,7 +130,6 @@ def get_highest_spending_last_period(conn, period, num, year=None):
     return formatted_output
 
 
-##
 def get_total_positive_amount_for_month_year(conn, month, year):
     cursor = conn.cursor()
     cursor.execute("SELECT SUM(amount) FROM transactions WHERE amount > 0 AND month = ? AND year = ?", (month, year))
@@ -139,16 +160,20 @@ def get_current_year(conn):
     current_year = result[0] if result[0] is not None else None
     return current_year
 
+def get_last_day_in_range(conn, month, year):
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(day) FROM transactions WHERE year = ? AND month = ?", (month, year))
+    result = cursor.fetchone()
+    day = result[0] if result[0] is not None else None
+    return day
 
-
-##wip
 def get_current_month(conn, year):
     cursor = conn.cursor()
     cursor.execute("SELECT MAX(month) FROM transactions WHERE year = ?", (year,))
     result = cursor.fetchone()
     current_month = result[0] if result[0] is not None else None
     return current_month
-##
+
 
 
 # Test the functions

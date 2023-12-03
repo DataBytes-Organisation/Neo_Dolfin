@@ -19,7 +19,7 @@
         {
             "tag": "goodbye",
             "patterns": [
-                "Bye",
+                "Bye bye",
                 "See you later",
                 "Goodbye"
             ],
@@ -27,6 +27,18 @@
                 "Goodbye!",
                 "See you soon!",
                 "Take care!"
+            ]
+        },
+        {
+            "tag": "dolfin",
+            "patterns": [
+                "Tell me about dolfin.",
+                "DolFin info.",
+                "what is DolFin about?"
+            ],
+            "responses": [
+                "DolFin is a Fintech solution that aims to address the issue of people struggling to keep track of their finances and reduce the difficulties/costs associated with obtaining financial advice.",
+                "DolFin aims to use open banking data to display financial accounts held by an individual and provide a high-level summary with detailed reporting."
             ]
         },
         {
@@ -53,7 +65,7 @@
                 "What's trending?"
             ],
             "responses": [
-                "Based on your previous transaction you may save upto",
+                "Based on your previous transaction you may save up to",
                 "Based on your previous purchases, you might like product Y.",
                 "Product Z has been very popular among our customers.",
                 "Our featured product this month is A. Would you like to learn more about it?"
@@ -274,10 +286,10 @@
             "tag": "check_balance",
             "patterns": [
                 "What's my balance?", 
-                "How much do I have?", "Check my balance", 
+                "How much do I have?", "Check my balance [year]", 
                 "What was my balance in [month] [year]?",
                 "Could you tell me my current balance?",
-                "What is my account balance right now?",
+                "What is my account balance in [month]",
                 "I need to know my balance as of today.",
                 "Please show me my latest account balance.",
                 "Can you update me on my current account balance?"
@@ -289,12 +301,7 @@
 
             "tag": "check_spending",
             "patterns": [
-                "How much did I spend?", 
                 "Check my spending", 
-                "What was my spending in [month] [year]?", 
-                "What was my spending from [month] [year] to [month] [year]?", 
-                "What was my spending in [year]?",
-                "I'd like to review my recent spending, please.",
                 "Can you show me how much I've spent this month?",
                 "I need a summary of my expenditures for the last quarter.",
                 "Please provide a detailed report of my spending.",
@@ -309,10 +316,8 @@
             "patterns": [
                 "Check my income", 
                 "What was my income in [month] [year]?", 
-                "What was my income from [month] [year] to [month] [year]?", 
                 "What was my income in [year]?",
-                "Please inform me about my total income this month.",
-                "Can you provide a breakdown of my income for the last year?",
+                "Please inform me about my total income in [month].",
                 "I'd like to see a summary of my earnings for the past quarter.",
                 "What was my total income for the previous financial year?",
                 "Can you display my income trends over the past few months?"
@@ -448,11 +453,57 @@
         {
             "tag": "average_spending",
             "patterns": [
+                "Average spending",
                 "How much have I spent on average in [month] [year]?",
+                "Median spending in [month]",
                 "Check spending per day for [month] [year].",
-                "Daily spend for [month] in [year]."
+                "Daily spendings in [year]."
             ],
             "responses": []
+        },
+        {
+            "tag": "investment_advice",
+            "patterns": [
+                "Can you give me investment advice?",
+                "Where should I invest?",
+                "Investment options"
+            ],
+            "responses": [
+                "To provide you with investment advice, I need more information about your risk tolerance and financial goals. Please pick your preferred investment style from the table below:"
+            ]
+        },
+        {
+            "tag": "credit_limit_increase",
+            "patterns": [
+                "Credit limit increase",
+                "Raise my credit limit",
+                "Credit card limit add"
+            ],
+            "responses": [
+                "To increase your credit limit, I need to review your credit history and financial situation. Please provide more details, and I will connect you to our live support."
+            ]
+        },
+        {
+            "tag": "emergency_fund_advice",
+            "patterns": [
+                "Emergency fund",
+                "Build emergency account",
+                "Emergency savings"
+            ],
+            "responses": [
+                "Building an emergency fund is a smart financial move. Let's discuss how we can create and grow your emergency fund together."
+            ]
+        },
+        {
+            "tag": "financial_news_updates",
+            "patterns": [
+                "financial news updates",
+                "latest market news",
+                "economic developments"
+            ],
+            "responses": [
+                "It is wise to stay on track with financial updates and news, especially in our current fast-paced world. Would you like to subscribe to our newsletter to receive regular market insights?"
+            ]
         }
 
 
