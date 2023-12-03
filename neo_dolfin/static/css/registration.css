@@ -441,6 +441,7 @@ input.invalid {
 
     body {
         background-image: url("../img/bg-img.png");
+<<<<<<< HEAD
     }
 
     @media screen and (max-width: 850px){
@@ -451,4 +452,16 @@ input.invalid {
 
     }
 
+=======
+    }
+
+    @media screen and (max-width: 850px){
+        #small-top {
+                display: none;
+        }
+
+
+    }
+
+>>>>>>> f9e7c14 (register responsive)
 }
