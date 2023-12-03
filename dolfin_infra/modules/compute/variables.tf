@@ -1,3 +1,6 @@
+variable "project_id" {
+  default = null
+}
 variable "project_name" {
   default = null
 }

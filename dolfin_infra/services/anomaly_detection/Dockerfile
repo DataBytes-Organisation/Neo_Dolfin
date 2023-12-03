@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM gcr.io/google-containers/toolbox:latest:latest
 
 RUN apt-get update -y
 

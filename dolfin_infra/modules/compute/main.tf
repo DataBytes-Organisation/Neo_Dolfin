@@ -20,7 +20,7 @@ resource "google_compute_instance" "vm_instance" {
     spec:
       containers:
         - name: dolfin-anomaly-detection
-          image: gcr.io/${var.project_name}/dolfin-anomaly-detection
+          image: gcr.io/${var.project_id}/dolfin-anomaly-detection
           ports:
             - containerPort: 5000
     EOT
