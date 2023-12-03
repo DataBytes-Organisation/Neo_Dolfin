@@ -187,6 +187,7 @@ def open_article_template():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+<<<<<<< Updated upstream
 
     #request userid/username of current logged in user
     if request.method =='GET':
@@ -198,13 +199,24 @@ def profile():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     #query to db based on username of current logged in user 
+=======
+    if request.method =='GET':
+        user_id = session.get('user_id')
+
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+>>>>>>> Stashed changes
     cursor.execute("SELECT email FROM user WHERE username = ?", (session['user_id'],))
     email = cursor.fetchall()
     cursor.execute("SELECT username FROM user WHERE username = ?", (session['user_id'],))
     username = cursor.fetchall()
     conn.close()
 
+<<<<<<< Updated upstream
     #clean the fetched results to remove additional symbols and display as plain text 
+=======
+>>>>>>> Stashed changes
     email_tuple = email
     username_tuple = username
 
@@ -214,7 +226,11 @@ def profile():
     email = email_address.replace("[('", "").replace("',)]", "")
     username = username_symbol.replace("[('", "").replace("',)]", "")
 
+<<<<<<< Updated upstream
     return render_template("profile.html", email=email, username=username, user_id=user_id) 
+=======
+    return render_template("profile.html", email=email, username=username, user_id=user_id)
+>>>>>>> Stashed changes
     
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
