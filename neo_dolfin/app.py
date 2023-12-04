@@ -22,6 +22,8 @@ from services.basiq_service import BasiqService
 from io import StringIO
 import pymysql
 import requests
+import json
+
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -449,8 +451,8 @@ def profile():
         cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
         query = cursor.fetchall()
         dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
-        jfx8 = dfx8.to_json(orient='records')
-
+        jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
+        jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
 
 
