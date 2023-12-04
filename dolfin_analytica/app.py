@@ -1,5 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+import bcrypt
 import time
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, inspect
 
 app = Flask(__name__)
 
@@ -17,6 +21,29 @@ def landing():
                 return redirect(url_for('loading'))
 
     return render_template('landing.html')
+
+# SQL Database Configure
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.LargeBinary, nullable=False)
+
+class UserTestMap(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    userid = db.Column(db.String(80), unique=True, nullable=False)
+    testid = db.Column(db.Integer, nullable=False)
+
+try:
+    with app.app_context():
+        db.create_all()
+except Exception as e:
+    print("Error creating database:", str(e))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,16 +70,20 @@ def login():
             # Load transactional data
             loadDatabase(testId)            
             # log successful authentication challenge 
-            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
-            # redirect to the dashboard.
-            return redirect('/dash')
         
         ## Otherwise:
-        # log un-successful authentication challenge
-        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
+
+
+
+
+
+
+
+
+
 
 @app.route('/loading')
 def loading():
