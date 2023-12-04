@@ -66,8 +66,8 @@ class Core:
         return response.text
 
     @staticmethod
-    def retrieve_user(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}"
+    def retrieve_user(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}"
 
         headers = {
             "accept": "application/json",
@@ -77,8 +77,8 @@ class Core:
         return response.text
 
     @staticmethod
-    def update_user_by_dict(user_id, user_payload, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}"
+    def update_user_by_dict(basiq_id, user_payload, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}"
 
         headers = {
             "accept": "application/json",
@@ -92,8 +92,8 @@ class Core:
         return response.text
 
     @staticmethod
-    def update_user(user_id, user_first_name, user_last_name, user_email, user_mobile, access_token, user_middle_name=''):
-        url = f"https://au-api.basiq.io/users/{user_id}"
+    def update_user(basiq_id, user_first_name, user_last_name, user_email, user_mobile, access_token, user_middle_name=''):
+        url = f"https://au-api.basiq.io/users/{basiq_id}"
 
         headers = {
             "accept": "application/json",
@@ -113,8 +113,8 @@ class Core:
         return response.text
 
     @staticmethod
-    def create_auth_link(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/auth_link"
+    def create_auth_link(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/auth_link"
 
         headers = {
             "accept": "application/json",
@@ -130,8 +130,8 @@ class Core:
             return str(e)
 
     @staticmethod
-    def retrieve_auth_link(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/auth_link"
+    def retrieve_auth_link(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/auth_link"
 
         headers = {
             "accept": "application/json",
@@ -152,8 +152,8 @@ class Data:
         pass
 
     @staticmethod
-    def all_accounts(access_token, user_id):
-        url = f"https://au-api.basiq.io/users/{user_id}/accounts"
+    def all_accounts(access_token, basiq_id):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/accounts"
 
         headers = {
             "accept": "application/json",
@@ -165,8 +165,8 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_account(access_token, user_id, account_id):
-        url = f"https://au-api.basiq.io/users/{user_id}/accounts/{account_id}"
+    def get_account(access_token, basiq_id, account_id):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/accounts/{account_id}"
 
         headers = {
             "accept": "application/json",
@@ -178,22 +178,17 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_transaction_list(access_token, user_id, limit_para=500, filter_para=None):
+    def get_transaction_list(access_token, basiq_id, limit_para, filter_para):
         """
-        Get a list of transactions. Auth token and user_id required. default list size is 500. filter param is optional.
+        Get a list of transactions. Auth token and basiq_id required. default list size is 500. filter param is optional.
         Function name differs to reference hyperlink for readabilities sake, else a single 's' is the on difference
         between this and a specific transaction fetch. https://api.basiq.io/reference/gettransactions
         """
-        # be sure that 
-        if limit_para > 500 or limit_para < 0:
-            limit_para = 10 #set to 10 to not impact memory too much, or leave at 500?
-            print("Max retriveable tranactions is 500") # Phrase this better later - AW
-        
         # filter params are not nessecary in default JSON req
         if filter_para != None:
-            url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}&filter={filter_para}"
+            url = f"https://au-api.basiq.io/users/{basiq_id}/transactions?limit={limit_para}&filter={filter_para}"
         else:
-            url = f"https://au-api.basiq.io/users/{user_id}/transactions?limit={limit_para}"
+            url = f"https://au-api.basiq.io/users/{basiq_id}/transactions?limit={limit_para}"
 
         headers = {
             "accept": "application/json",
@@ -204,13 +199,13 @@ class Data:
         return response.text
 
     @staticmethod
-    def get_transaction(access_token, user_id, transaction_id):
+    def get_transaction(access_token, basiq_id, transaction_id):
         """
-        Get a specific transaction. Auth token, user_id required and transaction id required.
+        Get a specific transaction. Auth token, basiq_id required and transaction id required.
         https://api.basiq.io/reference/gettransaction
         """
         
-        url = f"https://au-api.basiq.io/users/{user_id}/transactions/{transaction_id}"
+        url = f"https://au-api.basiq.io/users/{basiq_id}/transactions/{transaction_id}"
 
         headers = {
             "accept": "application/json",
@@ -225,8 +220,8 @@ class Data:
             return str(e)
 
     @staticmethod
-    def get_affordability_report(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/affordability"
+    def get_affordability_report(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/affordability"
 
         headers = {
             "accept": "application/json",
@@ -242,8 +237,8 @@ class Data:
             return str(e)
 
     @staticmethod
-    def get_expenses(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/expenses"
+    def get_expenses(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/expenses"
 
         headers = {
             "accept": "application/json",
@@ -259,8 +254,8 @@ class Data:
             return str(e)
 
     @staticmethod
-    def get_income(user_id, access_token):
-        url = f"https://au-api.basiq.io/users/{user_id}/income"
+    def get_income(basiq_id, access_token):
+        url = f"https://au-api.basiq.io/users/{basiq_id}/income"
 
         headers = {
             "accept": "application/json",

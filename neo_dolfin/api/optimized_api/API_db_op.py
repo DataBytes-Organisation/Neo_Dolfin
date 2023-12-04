@@ -1,5 +1,5 @@
 import sqlite3
-from optimized_API import Core, Data
+from .optimized_API import Core, Data
 import os
 from dotenv import load_dotenv
 import json
@@ -12,8 +12,10 @@ api_key = API_KEY
 core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
+user_db_path = "db/user_database.db"
+transactions_db_path = "transactions_ut.db"
 
-## Operations specifically for interacting with the Dolfin Database, using fucntions from optimized_API.py
+## Operations specifically for interacting with the Dolfin Database, using functions from optimized_API.py
 
 # Operations specifically for interacting with the Dolfin Database
 def init_dolfin_db():
@@ -23,20 +25,23 @@ def init_dolfin_db():
     Creates users and transactions tables if they don't exist.
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             conn.execute("PRAGMA foreign_keys = ON;")
             cursor = conn.cursor()
             cursor.execute('''
-                CREATE TABLE IF NOT EXISTS users
-                (u_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                CREATE TABLE IF NOT EXISTS users_new
+                (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                 username VARCHAR(30),
                  email VARCHAR(255),
-                 mobile VARCHAR(255),
+                 mobile VARCHAR(12),
                  first_name VARCHAR(255),
                  middle_name VARCHAR(255),
                  last_name VARCHAR(255),
                  password VARCHAR(255),
-                 basiq_id VARCHAR(255) DEFAULT NULL);
+                 pwd_pt VARCHAR(255),
+                 b_id_temp VARCHAR(36) DEFAULT NULL);
             ''')
+            """ transactions will be handled in transactions_ut.db for now
             cursor.execute('''
                             CREATE TABLE IF NOT EXISTS transactions
                             (id VARCHAR(255) PRIMARY KEY,
@@ -55,71 +60,71 @@ def init_dolfin_db():
                              trans_u_id INTEGER NOT NULL,
                              FOREIGN KEY (trans_u_id) REFERENCES users (u_id) ON DELETE CASCADE ON UPDATE CASCADE);
                         ''')
-            return "managed to init dolfin_db."
+            """
+            return "INITIALISE - Connected to Dolfin Database."
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "INITIALSIE - An error occurred: " + str(e)
 
 
-def register_user(email, mobile, first_name, middle_name, last_name, password):
+def register_user(username, email, mobile, first_name, middle_name, last_name, password):
     """
     Registers a new DolFin user.
-    Inserts user information into the users table.
-    Parameters include email, mobile number, first name, middle name, last name, and password.
+    Inserts user information into the users_new table.
+    Parameters include username, email, mobile number, first name, middle name, last name, and password.
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute('''INSERT INTO users (email, mobile, first_name, middle_name, last_name, password)
-                              VALUES (?, ?, ?, ?, ?, ?)''',
-                           (email, mobile, first_name, middle_name, last_name, password))
+            cursor.execute('''INSERT INTO users_new (username, email, mobile, first_name, middle_name, last_name, password)
+                              VALUES (?, ?, ?, ?, ?, ?, ?)''',
+                           (username, email, mobile, first_name, middle_name, last_name, password))
             conn.commit()
-            return "User inserted successfully into 'users' table."
+            return "REG: User \"%s %s\" inserted successfully into 'users_new' table." %(first_name, last_name)
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "USER REGSISTRATION - An error occurred: " + str(e)
 
 
-def get_basiq_id(user_id):
+def get_basiq_id(username):
     """
     Retrieves the basiq ID for a specific DolFin user.
-    Queries the users table for the basiq ID based on the user ID.
+    Queries the users_new table for the basiq ID based on the user ID.
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT basiq_id FROM users WHERE u_id = ?", (user_id,))
+            cursor.execute("SELECT b_id_temp FROM users_new WHERE username = ?",(username,))
             result = cursor.fetchone()
             if result:
                 return result[0]
             else:
                 return "No user found with the given ID."
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "FETCH BASIQ ID - An error occurred: " + str(e)
 
 
 def get_user_info(user_id):
     """
-    Retrieves information of a DolFin user.
+    Retrieves information of a DolFin user in a dictionary.
     Queries for basic information of a user by user ID, including email, mobile, first name, middle name, and last name.
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT email, mobile, first_name, middle_name, last_name FROM users WHERE u_id = ?",
-                           (user_id,))
+            cursor.execute("SELECT email, mobile, first_name, middle_name, last_name FROM users_new WHERE id = ?",(user_id,))
             result = cursor.fetchone()
             if result:
                 user_info = {
-                    "email": result[0],
-                    "mobile": result[1],
-                    "firstName": result[2],
-                    "middleName": result[3],
-                    "lastName": result[4]
+                    "email":        result[0],
+                    "mobile":       result[1],
+                    "firstName":    result[2],
+                    "middleName":   result[3],
+                    "lastName":     result[4]
                 }
                 return user_info
             else:
-                return "No user found with the given ID."
+                return "USER INFO - No user found with the given ID."
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "USER INFO - An error occurred: " + str(e)
 
 
 def register_basiq_id(user_id):
@@ -129,15 +134,15 @@ def register_basiq_id(user_id):
     """
     try:
         new_basiq_id = json.loads(core_instance.create_user_by_dict(get_user_info(user_id), access_token)).get('id')
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute("UPDATE users SET basiq_id = ? WHERE u_id = ?", (new_basiq_id, user_id))
+            cursor.execute("UPDATE users_new SET b_id_temp = ? WHERE id = ?", (new_basiq_id, user_id))
             if cursor.rowcount == 0:
                 return "No user found with the given ID."
             conn.commit()
-            return "basiq_id updated successfully for user ID {}".format(user_id)
+            return "REG: basiq_id updated successfully for user ID {}".format(user_id)
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "BASIQ REGISTER - An error occurred: " + str(e)
 
 
 def link_bank_account(user_id):
@@ -146,32 +151,33 @@ def link_bank_account(user_id):
     Generates an authorization link based on the user's basiq ID and opens it in a web browser.
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(user_db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT basiq_id FROM users WHERE u_id = ?", (user_id,))
+            cursor.execute("SELECT b_id_temp FROM users_new WHERE id = ?", (user_id,))
             result = cursor.fetchone()
             if result:
                 link = json.loads(core_instance.create_auth_link(result[0], access_token)).get('links').get('public')
                 webbrowser.open(link)
+                # ^^^ a html popup that informs the user that they need to go link their account in the new tab should popup here so the user knows what they need to do now
             else:
                 return "No user found with the given ID."
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "AUTH LINK - An error occurred: " + str(e)
 
 
-def request_transactions_df(user_id, limit_para=500, filter_para=''):
+def request_transactions_df(user_id, limit_para=500, filter_para=None):
     """
     Requests and returns user transaction data in DataFrame format.
     Fetches the transaction list based on the user's basiq ID and converts it into a DataFrame.
     """
-    tran_data = json.loads(
-        data_instance.get_transaction_list(get_basiq_id(user_id), limit_para, filter_para, access_token))
+    tran_data = json.loads(data_instance.get_transaction_list(access_token, get_basiq_id(user_id), limit_para, filter_para))
     transaction_list = tran_data['data']
+    #print(transaction_list)
     transactions = []
     for transaction in transaction_list:
         transaction = {
-            'type': transaction['type'],
             'id': transaction['id'],
+            'type': transaction['type'],
             'status': transaction['status'],
             'description': transaction['description'],
             'amount': transaction['amount'],
@@ -181,50 +187,67 @@ def request_transactions_df(user_id, limit_para=500, filter_para=''):
             'class': transaction['class'],
             'institution': transaction['institution'],
             'postDate': transaction['postDate'],
-            'subClass_title': transaction['subClass']['title'] if transaction.get('subClass') else None,
-            'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
+            'subClass': transaction['subClass']['title'] if transaction.get('subClass') else None
+            #'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
         }
         transactions.append(transaction)
     transaction_df = pd.DataFrame(transactions)
     return transaction_df
 
 
-def cache_transactions(user_id, tran_data):
+def cache_transactions(tran_data):
     """
-    Caches transaction data for a Dolfin user.
-    Inserts transaction data into the transactions table, including transaction ID, type, status, description, etc.
+    Caches transaction data (from Dataframe format) for a Dolfin user.
+    Inserts transaction data into the transactions table, including transaction ID, type, status, description, etc.\n
+    NEW - Transaction data stored in a different database
     """
     try:
-        with sqlite3.connect("dolfin_db.db") as conn:
-            conn.execute("PRAGMA foreign_keys = ON;")
+        with sqlite3.connect(transactions_db_path) as conn:
+            #conn.execute(transactions_db_path)
             cursor = conn.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS transactions
+                (id VARCHAR(255) PRIMARY KEY,
+                    type VARCHAR(50),
+                    status VARCHAR(50),
+                    description TEXT,
+                    amount REAL,
+                    account VARCHAR(255),
+                    balance REAL,
+                    direction VARCHAR(50),
+                    class VARCHAR(50),
+                    institution VARCHAR(50),
+                    postDate TIMESTAMP,
+                    subClass VARCHAR(255));
+            ''')
+            #--subClass_code VARCHAR(50));
             insert_statement = '''
-                INSERT INTO transactions (id, type, status, description, amount, account, balance, direction, class, institution, postDate, subClass_title, subClass_code, trans_u_id)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            '''
+                INSERT INTO transactions (id, type, status, description, amount, account, balance, direction, class, institution, postDate, subClass) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''' #left out: #, subClass_code) -> made subClasstitle = Subclass
             for index, row in tran_data.iterrows():
                 cursor.execute(insert_statement, (
                     row['id'], row['type'], row['status'], row['description'], row['amount'],
                     row['account'], row['balance'], row['direction'], row['class'], row['institution'],
-                    row['postDate'], row['subClass_title'], row['subClass_code'], user_id))
+                    row['postDate'], row['subClass'])) # left out: , row['subClass_code']
 
-        return "Transactions successfully inserted."
+        return "Transactions for user successfully inserted."
 
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "CACHE - An error occurred: " + str(e)
 
-
-def fetch_transactions_by_user(user_id):
-    """
-    Fetches cached transaction data based on the user ID.
-    Queries the transactions table for all transaction information for a specific user.
-    """
-    try:
-        with sqlite3.connect("dolfin_db.db") as conn:
-            query = "SELECT * FROM transactions WHERE trans_u_id = ?"
-            return pd.read_sql_query(query, conn, params=(user_id,))
-    except sqlite3.Error as e:
-        print(f"An error occurred: {e}")
+# irrelevant with separate db
+# def fetch_transactions_by_user(user_id):
+#     """
+#     Fetches cached transaction data based on the user ID.
+#     Queries the transactions table for all transaction information for a specific user.
+#     """
+#     try:
+#         with sqlite3.connect(transactions_db_path) as conn:
+#             query = "SELECT * FROM transactions WHERE trans_u_id = ?"
+#             return pd.read_sql_query(query, conn, params=(user_id,))
+#     except sqlite3.Error as e:
+#         print(f"An error occurred: {e}")
 
 
 def clear_transactions():
@@ -234,10 +257,32 @@ def clear_transactions():
     """
     try:
         # Database connection
-        with sqlite3.connect("dolfin_db.db") as conn:
+        with sqlite3.connect(transactions_db_path) as conn:
             cursor = conn.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS transactions
+                (id VARCHAR(255) PRIMARY KEY,
+                    type VARCHAR(50),
+                    status VARCHAR(50),
+                    description TEXT,
+                    amount REAL,
+                    account VARCHAR(255),
+                    balance REAL,
+                    direction VARCHAR(50),
+                    class VARCHAR(50),
+                    institution VARCHAR(50),
+                    postDate TIMESTAMP,
+                    subClass VARCHAR(255));
+                    
+            ''')
+            #Omitted due to different structure:
+            #--subClass_code VARCHAR(50));
+            #--trans_u_id INTEGER NOT NULL;
+            #--FOREIGN KEY (trans_u_id) REFERENCES users (u_id) ON DELETE CASCADE ON UPDATE CASCADE);
+
             # SQL statement to delete all data from the transactions table
             cursor.execute("DELETE FROM transactions;")
-        return "Transactions table cleared successfully."
+            #print("Transactions table cleared successfully.")
+        return "CLEAR DATABASE - Transactions cleared successfully."
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
+        return "CLEAR DATABASE - An error occurred: " + str(e)
