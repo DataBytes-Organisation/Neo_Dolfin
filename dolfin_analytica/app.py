@@ -70,7 +70,6 @@ def login():
                 testId = row.testid
                 print('######### test id:', testId)
         
-            # log successful authentication challenge 
             # redirect to the dashboard.
             return redirect('/main')
         
