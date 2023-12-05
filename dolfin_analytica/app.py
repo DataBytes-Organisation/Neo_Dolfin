@@ -87,9 +87,9 @@ def login():
                 testId = row.testid
                 print('######### test id:', testId)
         
-            #successful login
+            #Successful login
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
-            # redirect to the dashboard.
+            # redirect to  main.
             return redirect('/main')
         
         ## Otherwise:
