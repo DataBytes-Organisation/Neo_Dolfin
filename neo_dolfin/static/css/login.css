@@ -1,67 +1,83 @@
-/* CSS for the sliding animation */
-body {
+*{
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color:  #f2f2f2; /* smoke background */
 }
-.content {
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: slideIn 0.8s ease-in-out forwards;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+body{
+    width: 100%;
+}
+.content{
+    overflow: hidden;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 14%;
+    height: 370px;
+    background: url(../img/blob.png) no-repeat;
+    background-size: 100% 100%;
     text-align: center;
 }
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+h1{
+    font-size: 50px;
+    color: #fff;    
+    font-weight: 900;
+    text-align: left;
+    margin-left: 25%;
+    margin-top: 2%;
 }
-/* Form styles */
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 24px;
+.inp{
+    width: 40%;
+    height: 38px;
+    border-radius: 10px;
+    margin-top: 3%;
+    padding-left: 10px;
+    border: none;
 }
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.anniu{
+    width: 40%;
+    margin: 0 auto;
+    text-align: right;
 }
-label {
-    margin-bottom: 8px;
-    color: #555;
-    font-size: 16px;
+.btn{
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 5%;
+    border-radius: 55px;
+    background-color: #0372B2;
+    border: none;
 }
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
+h2{
+    text-align: left;
+    margin-left: 10%;
+    color: #fff;
 }
-h2 {
-    color: #555;
-    margin-top: 20px;
-    font-size: 14px;
-}
-h2 span {
+h2 span{
     color: #0372B2;
-    cursor: pointer;
+}
+form{
+    margin-top: 3%;
+}
+/* Add animation keyframes for the left slide */
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the content */
+.content {
+    overflow: hidden;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 14%;
+    height: 370px;
+    background: url(../img/blob.png) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    animation: slideFromLeft 0.5s ease-in-out; /* Add animation here */
 }

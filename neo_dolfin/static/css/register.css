@@ -1,0 +1,19 @@
+/* Add left slide animation keyframes */
+@keyframes slideFromLeft {
+          from {
+              transform: translateX(-100%);
+              opacity: 0;
+          }
+          to {
+              transform: translateX(0);
+              opacity: 1;
+          }
+      }
+      
+      /* Apply animation to the registration form */
+      h1,
+      form {
+          animation: slideFromLeft 0.5s ease-in-out;
+          /* Add other existing styles for registration if any */
+          /* ... */
+      }
