@@ -209,14 +209,16 @@ def login():
 
         input_username = request.form['username']
         input_password = request.form['password']
+
         # Retrieve the user from the (new) database
         user = UsersNew.query.filter_by(username=input_username).first()
-        #print(user);print(type(user))
+
         # Check if the user exists and the password is correct with stored hash
         if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             session['basiq_id'] = user.b_id_temp
+            session['first_name'] = user.first_name
 
             # If successful, check if test user or real user.
             row = UserTestMap.query.filter_by(userid = input_username).first()
@@ -230,9 +232,9 @@ def login():
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 
+            # this should be done authentication to avoid empty filling the dash
             print(user_ops.clear_transactions())
-            print("phase1")
-            cache = user_ops.request_transactions_df(user.username,5)
+            cache = user_ops.request_transactions_df(user.username)
             print(cache)
             print(user_ops.cache_transactions(cache))
 
@@ -240,8 +242,7 @@ def login():
             return redirect('/dash')
         
         ## Otherwise, fail by default:
-        # log un-successful authentication challenge
-        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
+        add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
@@ -251,9 +252,9 @@ def login():
 def register():
 
     if request.method == 'POST':
-        input_username = request.form['username']
-        input_email = request.form['email']
-        input_password = request.form['password']
+        input_username  = request.form['username']
+        input_email     = request.form['email']
+        input_password  = request.form['password']
 
         # Hash password
         input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
@@ -262,21 +263,10 @@ def register():
         existing_user = User.query.filter_by(username=input_username).first()
         existing_email = User.query.filter_by(email=input_email).first()
 
-        if existing_user or existing_email:
-            add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
-            return 'Username or email already exists. Please choose a different one.'
-
-        # Create a new user and add it to the database
+        # OLD Create a new user and add it to the database
         new_user = User(username=input_username, email=input_email, password=input_password)
         db.session.add(new_user)
         db.session.commit()
-        """
-        """
-        print(user_ops.register_user(input_username, input_email,"+61450627105","david","test","smith",input_password))
-        con = sqlite3.connect("db/user_database.db")
-        cursor = con.execute('SELECT max(id) FROM users_new')
-        new_id = str(cursor.fetchone()[0])
-        con.close()
         """
         existing_user = UsersNew.query.filter_by(username=input_username).first()
         existing_email = UsersNew.query.filter_by(email=input_email).first()
@@ -287,7 +277,7 @@ def register():
 
         # Create a new user and add it to the database
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
-                            first_name="david",middle_name="test",last_name="smith",password=input_password)
+                            first_name="MAx",middle_name="test",last_name="Wentworth-Smith",password=input_password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -310,11 +300,8 @@ def auth_dash2():
 
     if request.method == 'GET':
         #log session username to terminal - using for debugging
-        user_id = session.get('user_id'); #print(user_id)
-        
-        """         # Request data from basiq, convert to dataframe, then store in "local" transactions database
-        transaction_data = user_ops.request_transactions_df(user_id)
-        print(user_ops.cache_transactions(transaction_data)) """
+        user_id     = session.get('user_id')
+        first_name  = session.get('first_name')
 
         #con = sqlite3.connect("db/transactions_ut.db")
         #con = sqlite3.connect("db/user_database.db")
@@ -374,7 +361,7 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, jsxx=jfxx, defacc=defacc)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc)
         
     if request.method == "POST":
             # Get the account value from the JSON payload
@@ -386,7 +373,7 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("db/transactions_ut.db")
+            con = sqlite3.connect("transactions_ut.db")
             cursor = con.cursor() 
             
             cursor.execute('SELECT DISTINCT account FROM transactions')
@@ -444,7 +431,7 @@ def auth_dash2():
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
-                'user_id': user_id,
+                'user_id': first_name,
                 'jsxx': jfxx,
                 'defacc': defacc,
             }
@@ -454,7 +441,7 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("db/transactions_ut.db")
+            con = sqlite3.connect("transactions_ut.db")
             cursor = con.cursor() 
 
             defacc = account_value
@@ -514,7 +501,7 @@ def auth_dash2():
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
-                'user_id': user_id,
+                'user_id': first_name,
                 'jsxx': jfxx,
                 'defacc': defacc,
             }

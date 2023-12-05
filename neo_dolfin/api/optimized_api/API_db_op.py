@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import json
 import webbrowser
 import pandas as pd
+from datetime import datetime
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
@@ -41,26 +42,8 @@ def init_dolfin_db():
                  pwd_pt VARCHAR(255),
                  b_id_temp VARCHAR(36) DEFAULT NULL);
             ''')
-            """ transactions will be handled in transactions_ut.db for now
-            cursor.execute('''
-                            CREATE TABLE IF NOT EXISTS transactions
-                            (id VARCHAR(255) PRIMARY KEY,
-                             type VARCHAR(50),
-                             status VARCHAR(50),
-                             description TEXT,
-                             amount REAL,
-                             account VARCHAR(255),
-                             balance REAL,
-                             direction VARCHAR(50),
-                             class VARCHAR(50),
-                             institution VARCHAR(50),
-                             postDate TIMESTAMP,
-                             subClass_title VARCHAR(255),
-                             subClass_code VARCHAR(50),
-                             trans_u_id INTEGER NOT NULL,
-                             FOREIGN KEY (trans_u_id) REFERENCES users (u_id) ON DELETE CASCADE ON UPDATE CASCADE);
-                        ''')
-            """
+            # transactions will be handled in transactions_ut.db for now
+           
             return "INITIALISE - Connected to Dolfin Database."
     except sqlite3.Error as e:
         return "INITIALSIE - An error occurred: " + str(e)
@@ -79,9 +62,9 @@ def register_user(username, email, mobile, first_name, middle_name, last_name, p
                               VALUES (?, ?, ?, ?, ?, ?, ?)''',
                            (username, email, mobile, first_name, middle_name, last_name, password))
             conn.commit()
-            return "REG: User \"%s %s\" inserted successfully into 'users_new' table." %(first_name, last_name)
+            return "USER REGISTRATION: User \"%s %s\" inserted successfully into 'users_new' table." %(first_name, last_name)
     except sqlite3.Error as e:
-        return "USER REGSISTRATION - An error occurred: " + str(e)
+        return "USER REGISTRATION - An error occurred: " + str(e)
 
 
 def get_basiq_id(username):
@@ -97,7 +80,7 @@ def get_basiq_id(username):
             if result:
                 return result[0]
             else:
-                return "No user found with the given ID."
+                return "FETH BASIQ ID - No user found with the given ID."
     except sqlite3.Error as e:
         return "FETCH BASIQ ID - An error occurred: " + str(e)
 
@@ -140,7 +123,7 @@ def register_basiq_id(user_id):
             if cursor.rowcount == 0:
                 return "No user found with the given ID."
             conn.commit()
-            return "REG: basiq_id updated successfully for user ID {}".format(user_id)
+            return "BASIQ REGISTER: basiq_id updated successfully for user ID {}".format(user_id)
     except sqlite3.Error as e:
         return "BASIQ REGISTER - An error occurred: " + str(e)
 
@@ -160,7 +143,7 @@ def link_bank_account(user_id):
                 webbrowser.open(link)
                 # ^^^ a html popup that informs the user that they need to go link their account in the new tab should popup here so the user knows what they need to do now
             else:
-                return "No user found with the given ID."
+                return "AUTH LINK - No user found with the given ID."
     except sqlite3.Error as e:
         return "AUTH LINK - An error occurred: " + str(e)
 
@@ -172,26 +155,38 @@ def request_transactions_df(user_id, limit_para=500, filter_para=None):
     """
     tran_data = json.loads(data_instance.get_transaction_list(access_token, get_basiq_id(user_id), limit_para, filter_para))
     transaction_list = tran_data['data']
-    #print(transaction_list)
+    
     transactions = []
     for transaction in transaction_list:
+        date_obj = datetime.fromisoformat(transaction['postDate'])
+        post = date_obj.strftime("%Y-%m-%d")
+        date_obj = datetime.fromisoformat(transaction['postDate'])
+        tran = date_obj.strftime("%Y-%m-%d")
         transaction = {
-            'id': transaction['id'],
-            'type': transaction['type'],
-            'status': transaction['status'],
-            'description': transaction['description'],
-            'amount': transaction['amount'],
-            'account': transaction['account'],
-            'balance': transaction['balance'],
-            'direction': transaction['direction'],
-            'class': transaction['class'],
-            'institution': transaction['institution'],
-            'postDate': transaction['postDate'],
-            'subClass': transaction['subClass']['title'] if transaction.get('subClass') else None
+            'id':               transaction['id'],
+            'type':             transaction['type'],
+            'status':           transaction['status'],
+            'description':      transaction['description'],
+            'amount':           transaction['amount'],
+            'account':          transaction['account'],
+            'balance':          transaction['balance'],
+            'direction':        transaction['direction'],
+            'class':            transaction['class'],
+            'institution':      transaction['institution'],
+            'transactionDate':  tran,
+            'postDate':         post,
+            'subClass':         transaction['subClass']['title'] if transaction.get('subClass') else None
             #'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
         }
         transactions.append(transaction)
+    #transaction_df['day']
     transaction_df = pd.DataFrame(transactions)
+
+    transaction_df['transactionDate'] = pd.to_datetime(transaction_df['transactionDate'],format="%Y-%m-%d")
+    transaction_df['day']   = transaction_df['transactionDate'].dt.day      # Create new columns for day, month, and year
+    transaction_df['month'] = transaction_df['transactionDate'].dt.month    # Create new columns for day, month, and year
+    transaction_df['year']  = transaction_df['transactionDate'].dt.year     # Create new columns for day, month, and year
+    #print(transaction_df)
     return transaction_df
 
 
@@ -203,7 +198,6 @@ def cache_transactions(tran_data):
     """
     try:
         with sqlite3.connect(transactions_db_path) as conn:
-            #conn.execute(transactions_db_path)
             cursor = conn.cursor()
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS transactions
@@ -217,21 +211,26 @@ def cache_transactions(tran_data):
                     direction VARCHAR(50),
                     class VARCHAR(50),
                     institution VARCHAR(50),
-                    postDate TIMESTAMP,
-                    subClass VARCHAR(255));
+                    transactionDate TEXT,
+                    postDate TEXT,
+                    subClass VARCHAR(255),
+                    day INTEGER,
+                    month INTEGER,
+                    year INTEGER);
             ''')
             #--subClass_code VARCHAR(50));
             insert_statement = '''
-                INSERT INTO transactions (id, type, status, description, amount, account, balance, direction, class, institution, postDate, subClass) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO transactions (id, type, status, description, amount, account, balance, direction, class, institution, transactionDate, postDate, subClass, day, month, year) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''' #left out: #, subClass_code) -> made subClasstitle = Subclass
             for index, row in tran_data.iterrows():
                 cursor.execute(insert_statement, (
-                    row['id'], row['type'], row['status'], row['description'], row['amount'],
-                    row['account'], row['balance'], row['direction'], row['class'], row['institution'],
-                    row['postDate'], row['subClass'])) # left out: , row['subClass_code']
+                    row['id'], row['type'], row['status'], row['description'], 
+                    row['amount'], row['account'], row['balance'], row['direction'], 
+                    row['class'], row['institution'], str(row['transactionDate']), row['postDate'], 
+                    row['subClass'], row['day'], row['month'], row['year'])) # left out: , row['subClass_code']
 
-        return "Transactions for user successfully inserted."
+        return "CACHE - Transactions for user successfully inserted."
 
     except sqlite3.Error as e:
         return "CACHE - An error occurred: " + str(e)
@@ -271,9 +270,12 @@ def clear_transactions():
                     direction VARCHAR(50),
                     class VARCHAR(50),
                     institution VARCHAR(50),
-                    postDate TIMESTAMP,
-                    subClass VARCHAR(255));
-                    
+                    transactionDate TEXT,
+                    postDate TEXT,
+                    subClass VARCHAR(255),
+                    day INTEGER,
+                    month INTEGER,
+                    year INTEGER);
             ''')
             #Omitted due to different structure:
             #--subClass_code VARCHAR(50));
