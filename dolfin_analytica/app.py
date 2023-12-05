@@ -1,9 +1,10 @@
-import os
-import bcrypt
-import time
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, inspect
+import secrets
+import bcrypt
+import os
+import time
 
 app = Flask(__name__)
 
@@ -23,15 +24,17 @@ def landing():
     return render_template('landing.html')
 
 # SQL Database Configure
-
+app.config['SECRET_KEY'] = secrets.token_hex(16) 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+
+# SQL Database Configure
 db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.LargeBinary, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
 
 class UserTestMap(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -42,8 +45,17 @@ try:
     with app.app_context():
         db.create_all()
 except Exception as e:
-    print("Error creating database:", str(e))
+     print("Error creating database:", str(e))
 
+
+#Used to hash all the current passwords inside the database 
+#with app.app_context():
+#    users = User.query.all()
+#
+#    for user in users:
+#        user.password = bcrypt.hashpw(user.password.encode('utf-8'), bcrypt.gensalt())
+#    db.session.commit()
+#
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -66,23 +78,16 @@ def login():
             if row != None:
                 testId = row.testid
                 print('######### test id:', testId)
-
-            # Load transactional data
-            loadDatabase(testId)            
+        
             # log successful authentication challenge 
+            # redirect to the dashboard.
+            return redirect('/main')
         
         ## Otherwise:
+        # log un-successful authentication challenge
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
-
-
-
-
-
-
-
-
 
 
 @app.route('/loading')
