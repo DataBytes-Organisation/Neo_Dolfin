@@ -5,6 +5,7 @@ import secrets
 import bcrypt
 import os
 import time
+import datetime
 
 app = Flask(__name__)
 
@@ -41,11 +42,27 @@ class UserTestMap(db.Model):
     userid = db.Column(db.String(80), unique=True, nullable=False)
     testid = db.Column(db.Integer, nullable=False)
 
+class UserAuditLog(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.now)
+    username = db.Column(db.String(80), nullable=False)
+    action = db.Column(db.String(80), nullable=False)
+    message = db.Column(db.String(255), nullable=False)
+
 try:
     with app.app_context():
         db.create_all()
 except Exception as e:
      print("Error creating database:", str(e))
+
+#Logging authentication and output to txt file
+def add_user_audit_log(username, action, message):
+    new_log = UserAuditLog(username=username, action=action, message=message)
+    print(new_log)
+    db.session.add(new_log)
+    db.session.commit() 
+    with open("audit.txt", 'a') as file:
+        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
+
 
 #LOGIN ROUTE
 @app.route('/login', methods=['GET', 'POST'])
@@ -70,11 +87,14 @@ def login():
                 testId = row.testid
                 print('######### test id:', testId)
         
+            #successful login
+            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
             # redirect to the dashboard.
             return redirect('/main')
         
         ## Otherwise:
         # log un-successful authentication challenge
+        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
