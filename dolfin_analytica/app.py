@@ -47,16 +47,7 @@ try:
 except Exception as e:
      print("Error creating database:", str(e))
 
-
-#Used to hash all the current passwords inside the database 
-#with app.app_context():
-#    users = User.query.all()
-#
-#    for user in users:
-#        user.password = bcrypt.hashpw(user.password.encode('utf-8'), bcrypt.gensalt())
-#    db.session.commit()
-#
-
+#LOGIN ROUTE
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
