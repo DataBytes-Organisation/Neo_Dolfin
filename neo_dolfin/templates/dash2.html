@@ -34,8 +34,8 @@
   </style>
 <body>
 
-    {% include 'components/navbar.html' %}  
-
+    {% include 'components/navbar.html' %} 
+    
     <div class="container mt-3">
         <div class="d-flex justify-content-between align-items-center">
             <p><strong>Welcome</strong>, {{ user_id }}</p>
@@ -49,6 +49,14 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+    <div class="headerTitle">
+        <img class="backGroundImage" src="static/img/bg.png">
+        <img class="dashboardTitle" src="static/img/dashboardTitle.png">
+        <img class="dashboardTitle-dropShadow" src="static/img/dashboardTitle.png">
+        <div id="trans-title-rectangle"></div>
+        <div id="trans-body-rectangle"></div>        
     </div>
     
     <div> 

@@ -5,102 +5,149 @@ body {
     font-size: 1.6rem;
 }
 
-/* background colour */
-#rectangle-background{
-    width: 100vw;
-    height:100vh;
-    background: #BAC1C185;
-    opacity: 60%;
-    position:absolute;
-    z-index:-1;
-    border-radius: 0;
-    bottom:0px;
-    overflow: hidden;
+/* graphics in header */
+.backGroundImage {
+    width: 1920px;
+    height: 600px;
+    opacity: 0.99;
+    padding-top: 100px;
+    padding-left: 300px;
+    z-index: -3;
+}
+
+/* title text */
+.dashboardTitle {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 1000px;
+    width: 1900px;
+    z-index: 1;
+}
+
+/* drop shadow for title text */
+.dashboardTitle-dropShadow {
+    position: absolute;
+    left: 40%;
+    opacity: 20%;
+    top: -15%;
+    height: 1000px;
+    width: 1900px;
+    z-index: 1;
+}
+
+/* transparent shape over header */
+#trans-title-rectangle{
+    background: #BAC1C1;
+    backdrop-filter:blur(20px) brightness(110%);
+    opacity: 52%;
+    position: absolute;
+    width: 1920px;
+    height: 240px;
+    border-radius: 20px 20px 0px 0px;
+    top: 54%;
+    z-index: 2;
+}
+
+/* transparent shape behind body */
+#trans-body-rectangle{
+    background: #BAC1C1;
+    backdrop-filter:blur(20px) brightness(110%);
+    opacity: 52%;
+    position: absolute;
+    width: 1920px;
+    height: 590px;
+    border-radius: 0px;
+    top: 79.6%;
+    z-index: -1;
 }
 
 /* current balance backing */
 #rectangle-balance{
-    width: 1400px;
-    height:60px;
+    width: 1800px;
+    height: 80px;
     background: #FFFFFF;
     opacity: 100%;
-    display: flex;
+    display: flex; 
     align-items: end;
-    top: 17%;
-    left: 13%;
-    position:absolute;
-    z-index:-1;
+    top: 79.7%;
+    left: 1.5%;
+    position: absolute;
+    z-index: -1;
     border-radius: 20px;
-    bottom:0px;
+    bottom: 0px;
     overflow: hidden;
 }
 
-/* pie charts backing */
+/* pie-charts-backing */
 #rectangle-pie-charts{
-    width: 1400px;
-    height:470px;
+    width: 1800px;
+    height: 470px;
     background: #FFFFFF;
     opacity: 100%;
-    display: flex;
+    display: flex; 
     align-items: end;
-    top: 27%;
-    left: 13%;
-    position:absolute;
-    z-index:-1;
+    top: 90%;
+    left: 1.5%;
+    position: absolute;
+    z-index: -1;
     border-radius: 20px;
-    bottom:0px;
+    bottom: 0px;
     overflow: hidden;
 }
 
-/* left line graph backing */
-#rectangle-left-graph{
-    width: 675px;
-    height:300px;
-    background: #FFFFFF;
-    opacity: 100%;
-    display: flex;
-    align-items: end;
-    top: 79%;
-    left: 13%;
-    position:absolute;
-    z-index:-1;
-    border-radius: 20px;
-    bottom:0px;
-    overflow: hidden;
-}
-
-/* right line graph backing */
-#rectangle-right-graph{
-    width: 710px;
-    height:300px;
-    background: #FFFFFF;
-    opacity: 100%;
-    display: flex;
-    align-items: end;
-    top: 79%;
-    left: 50%;
-    position:absolute;
-    z-index:-1;
-    border-radius: 20px;
-    bottom:0px;
-    overflow: hidden;
-}
-
-/* responsiveness for shapes */
+/* responsiveness */
 @media screen and (max-width: 768px) {
-    #rectangle-pie-charts {
-        width: 75%;
-        top: 38%;
+    .dashboardTitle {
+        position: absolute;
+        left: 0%;
+        top: 20%;
+        height: 300px;
+        width: 450px;
+        z-index: 1;
     }
 
-    #rectangle-balance {
-        width: 75%;
-        height: 140px;
-        top: 19%;
+    .dashboardTitle-dropShadow {
+        position: absolute;
+        left: 40%;
+        opacity: 20%;
+        top: 15%;
+        height: 300px;
+        width: 500px;
+        z-index: 1;
     }
 
-    #rectangle-left-graph {
-        width: 50%;
+    .backGroundImage {
+        width: 768px;
+        height: 200px;
+        opacity: 0.99;
+        padding-top: 0px;
+        padding-left: 0px;
+        z-index: -3;
+    }
+
+    #trans-body-rectangle{
+        background: #BAC1C1;
+        backdrop-filter:blur(20px) brightness(110%);
+        opacity: 52%;
+        position: absolute;
+        width: 300px;
+        height: 590px;
+        border-radius: 0px;
+        top: 52.2%;
+        z-index: -1;
+    }
+
+    #trans-title-rectangle{
+        background: #BAC1C1;
+        backdrop-filter:blur(20px) brightness(110%);
+        opacity: 52%;
+        position: absolute;
+        width: 450px;
+        height: 75px;
+        border-radius: 20px 20px 0px 0px;
+        top: 41%;
+        z-index: 2;
     }
 }
 
@@ -108,16 +155,17 @@ body {
     #rectangle-pie-charts {
         width: 90%;
         left: 5%;
-        height: 200px;
-        top: 55%;
+        height: 500px;
+        top: 85%;
     }
 
     #rectangle-balance {
-        width: 90%;
+        width:300px;
         left: 5%;
-        height: 200px;
-        top: 23%;
+        height: 500px;
+        top: 40%;
     }
+    
 }
 
 @media screen and (max-width: 320px) {
@@ -134,4 +182,5 @@ body {
         height: 200px;
         top: 23%;
     }
+
 }
