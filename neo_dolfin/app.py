@@ -22,8 +22,7 @@ import bcrypt
 import datetime
 import re
 import sqlite3
-# Outdated and only relevant to AWS? from services.basiq_service import BasiqService
-# from api import API
+
 from io import StringIO
 import pymysql
 import requests
@@ -76,7 +75,7 @@ df3 = pd.read_csv('static/data/Predicted_Balances.csv')
 # SQL Database Configure
 db = SQLAlchemy(app)
 
-#setup new BASIQ functions
+# Setup BASIQ functions
 user_ops = API_db_op
 API_CORE_ops = optimized_API.Core(os.getenv('API_KEY'))
 API_DATA_ops = optimized_API.Data()
@@ -98,6 +97,7 @@ class UserAuditLog(db.Model):
     action =    db.Column(db.String(80), nullable=False)
     message =   db.Column(db.String(255), nullable=False)
 
+# Our new User database, pending Address fields
 class UsersNew(db.Model):
     id =        db.Column(db.Integer, primary_key=True, nullable=False)
     username =  db.Column(db.String(30), unique=True, nullable=False)
@@ -110,7 +110,6 @@ class UsersNew(db.Model):
     pwd_pt =    db.Column(db.String(255), nullable=True)
     b_id_temp = db.Column(db.String(255), nullable=True)
 
-     
 try:
     with app.app_context():
         db.create_all()
@@ -120,44 +119,8 @@ except Exception as e:
 # do, then print confirmation/error
 print(user_ops.init_dolfin_db())
 
-
-# SQLite User Data Database Setup
-#df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
-#df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
-#df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
-#df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
-#df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
-
-""" #Function to clean the 'subClass' column
-def clean_subClass(row):
-   if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-       return 'cash-withdrawal'
-   if row['subClass'] == '{\\title\\":\\"\\"':
-       return 'bank-fee'
-   match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-   if match:
-       extracted_subClass = match.group(1)
-       if extracted_subClass == 'Unknown':
-           return row['description']
-       return extracted_subClass
-   return row['subClass'] """
-
-""" df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
-#Check if the SQLite database file already exists
-db_file = "transactions_ut.db"
-if not os.path.exists(db_file):
-    #If the database file doesn't exist, create a new one
-    conn = sqlite3.connect(db_file)
-    #Import the cleaned DataFrame to the SQLite database
-    df4.to_sql("transactions", conn, if_exists="replace", index=False)
-    conn.close()
-else:
-    #If the database file already exists, connect to it
-    conn = sqlite3.connect(db_file) """
-
-print(API_CORE_ops.generate_auth_token())
-
+# Debug and easy testing
+# print(API_CORE_ops.generate_auth_token())
 
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
 class GeoLockChecker(object):
@@ -187,8 +150,11 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
-# Handles the logging of an authentication or registration event to a txt output and a log database
 def add_user_audit_log(username, action, message):
+    """
+    Handles the logging of an authentication or registration event to a txt output and a log database.\n
+    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
+    """
     new_log = UserAuditLog(username=username, action=action, message=message)
     db.session.add(new_log)
     db.session.commit() 
@@ -213,7 +179,8 @@ def login():
         # Retrieve the user from the (new) database
         user = UsersNew.query.filter_by(username=input_username).first()
 
-        # Check if the user exists and the password is correct with stored hash
+        # If username is correct, check if the input password (once hashed) matches the hash in the users record.
+        # If both are true, send relevant information to session.
         if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
@@ -232,11 +199,11 @@ def login():
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 
-            # this should be done authentication to avoid empty filling the dash
-            print(user_ops.clear_transactions())
-            cache = user_ops.request_transactions_df(user.username)
-            print(cache)
-            print(user_ops.cache_transactions(cache))
+            ## This section should be done on authentication to avoid empty filling the dash
+            print(user_ops.clear_transactions())                        # Ensure no previous data remains from a previous user etc.
+            cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
+            #print(cache)                                               # used for testing and debugging
+            print(user_ops.cache_transactions(cache))                   # Insert cahce in to database and confirm success
 
             # redirect to the dashboard.
             return redirect('/dash')
@@ -256,7 +223,7 @@ def register():
         input_email     = request.form['email']
         input_password  = request.form['password']
 
-        # Hash password
+        # Encode password into bytes, Hash password, add salt
         input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
         """ OLD DB FORMAT:
         # Check if the username or email already exists in the database
@@ -268,24 +235,31 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         """
+        #
         existing_user = UsersNew.query.filter_by(username=input_username).first()
         existing_email = UsersNew.query.filter_by(email=input_email).first()
+        print(existing_user)
 
+        # If user exists, they need to retry.
         if existing_user or existing_email:
             add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
             return 'Username or email already exists. Please choose a different one.'
 
-        # Create a new user and add it to the database
+        # Create a new user and add it to the users_new database
+        # Names are currently hard coded pending name fields in registration
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
                             first_name="MAx",middle_name="test",last_name="Wentworth-Smith",password=input_password)
         db.session.add(new_user)
         db.session.commit()
 
-        print(user_ops.register_basiq_id(new_user.id))
-        print(user_ops.link_bank_account(new_user.id))
+
+        print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
+        print(user_ops.link_bank_account(new_user.id))      # A user will need to link an account to their Basiq entity (that they won't see the entity)
+        # Log result
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
         # create a new mapping for a user
+        # not relevant in users_new but remains in if need for 
         new_user_id = new_user.id
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
@@ -299,12 +273,16 @@ def register():
 def auth_dash2(): 
 
     if request.method == 'GET':
-        #log session username to terminal - using for debugging
-        user_id     = session.get('user_id')
+        # From session variable, user the user's first name in:
+        #   Welcome message
+        #   ...
+        user_id     = session.get('user_id') # Not used right now.
         first_name  = session.get('first_name')
 
         #con = sqlite3.connect("db/transactions_ut.db")
         #con = sqlite3.connect("db/user_database.db")
+
+        # connect to the newly loaded transactions database, for dashboard to do its thing.
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor()
 

@@ -13,22 +13,25 @@ api_key = API_KEY
 core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
+
+# Use path variables if locations ever change.
 user_db_path = "db/user_database.db"
 transactions_db_path = "transactions_ut.db"
 
 ## Operations specifically for interacting with the Dolfin Database, using functions from optimized_API.py
 
-# Operations specifically for interacting with the Dolfin Database
 def init_dolfin_db():
     """
     Initialize the DolFin database and create user and transaction tables.
-    Connects to the SQLite database and sets up foreign key constraints.
-    Creates users and transactions tables if they don't exist.
+    Connects to the SQLite database.
+    Creates users_new table if it doesn't exist.
+    T3 2023 - "users_new" will, for the time be, be our primary user profile storage
     """
     try:
         with sqlite3.connect(user_db_path) as conn:
             conn.execute("PRAGMA foreign_keys = ON;")
             cursor = conn.cursor()
+            ## ADRESS FIELDS WILL NEED TO BE ADDED HERE
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS users_new
                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -53,7 +56,9 @@ def register_user(username, email, mobile, first_name, middle_name, last_name, p
     """
     Registers a new DolFin user.
     Inserts user information into the users_new table.
+    Confirm registration for terminal.
     Parameters include username, email, mobile number, first name, middle name, last name, and password.
+    ADDRESS - Later will require address values
     """
     try:
         with sqlite3.connect(user_db_path) as conn:
@@ -69,8 +74,15 @@ def register_user(username, email, mobile, first_name, middle_name, last_name, p
 
 def get_basiq_id(username):
     """
-    Retrieves the basiq ID for a specific DolFin user.
-    Queries the users_new table for the basiq ID based on the user ID.
+    Retrieves the basiq ID for a specific DolFin user, based on their username.
+    Queries the users_new table for the basiq ID based on the user ID that aligns with the passed username.\n
+    T3 2023 - In an initial database design, database had basiq_IDs in a separate table, that could be accessed via a user ID mapping. For time
+    and simplicity reasons, this was scrapped, but may like to be explored as a future Back-End/Cybersecurity task, to harden the database.
+
+    :username: The unique username used to query the database.
+    
+    Returns:
+    \tString: basiq_ID
     """
     try:
         with sqlite3.connect(user_db_path) as conn:
@@ -87,8 +99,8 @@ def get_basiq_id(username):
 
 def get_user_info(user_id):
     """
-    Retrieves information of a DolFin user in a dictionary.
-    Queries for basic information of a user by user ID, including email, mobile, first name, middle name, and last name.
+    Retrieves information of a DolFin user in a dictionary, based on the username entered.
+    Queries databse for basic information of a user by user ID, including email, mobile, first name, middle name, and last name.
     """
     try:
         with sqlite3.connect(user_db_path) as conn:
@@ -158,6 +170,12 @@ def request_transactions_df(user_id, limit_para=500, filter_para=None):
     
     transactions = []
     for transaction in transaction_list:
+        """
+        In the sample data, 'transactionDate' is not given, so we have copied it from 'postDate' as a workaround.
+        Times are returned in the JSON response in ISO8601 format, and the dash board requires separate day, 
+        month, and year columns to properly display.
+        """
+        #Convert date from ISO8601 to "YYYY-mm-dd" (preferred format by SQL)
         date_obj = datetime.fromisoformat(transaction['postDate'])
         post = date_obj.strftime("%Y-%m-%d")
         date_obj = datetime.fromisoformat(transaction['postDate'])
@@ -176,17 +194,17 @@ def request_transactions_df(user_id, limit_para=500, filter_para=None):
             'transactionDate':  tran,
             'postDate':         post,
             'subClass':         transaction['subClass']['title'] if transaction.get('subClass') else None
-            #'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
+            #'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None 
         }
         transactions.append(transaction)
-    #transaction_df['day']
     transaction_df = pd.DataFrame(transactions)
 
+    # using 'transactionDate', take it out of str form and into a datetime format, to easily split into d, m, and Y
     transaction_df['transactionDate'] = pd.to_datetime(transaction_df['transactionDate'],format="%Y-%m-%d")
     transaction_df['day']   = transaction_df['transactionDate'].dt.day      # Create new columns for day, month, and year
     transaction_df['month'] = transaction_df['transactionDate'].dt.month    # Create new columns for day, month, and year
     transaction_df['year']  = transaction_df['transactionDate'].dt.year     # Create new columns for day, month, and year
-    #print(transaction_df)
+    #print(transaction_df)  # here for debug
     return transaction_df
 
 
@@ -199,6 +217,7 @@ def cache_transactions(tran_data):
     try:
         with sqlite3.connect(transactions_db_path) as conn:
             cursor = conn.cursor()
+            # post and transactionDate are text values as they are not used by dashboard (right now) - subject to change
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS transactions
                 (id VARCHAR(255) PRIMARY KEY,
@@ -219,10 +238,12 @@ def cache_transactions(tran_data):
                     year INTEGER);
             ''')
             #--subClass_code VARCHAR(50));
+            # insert 16 values into each respective wildcard
             insert_statement = '''
                 INSERT INTO transactions (id, type, status, description, amount, account, balance, direction, class, institution, transactionDate, postDate, subClass, day, month, year) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ''' #left out: #, subClass_code) -> made subClasstitle = Subclass
+            # Iterate through dataframe records, and execute the insert statement and add each value to its respective SQL field
             for index, row in tran_data.iterrows():
                 cursor.execute(insert_statement, (
                     row['id'], row['type'], row['status'], row['description'], 
@@ -235,7 +256,7 @@ def cache_transactions(tran_data):
     except sqlite3.Error as e:
         return "CACHE - An error occurred: " + str(e)
 
-# irrelevant with separate db
+# irrelevant with separate db -Leaving in in case change appears.
 # def fetch_transactions_by_user(user_id):
 #     """
 #     Fetches cached transaction data based on the user ID.
@@ -258,6 +279,7 @@ def clear_transactions():
         # Database connection
         with sqlite3.connect(transactions_db_path) as conn:
             cursor = conn.cursor()
+            # post and transactionDate are text values as they are not used by dashboard (right now) - subject to change
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS transactions
                 (id VARCHAR(255) PRIMARY KEY,

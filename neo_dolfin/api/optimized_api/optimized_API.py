@@ -9,6 +9,9 @@ class Core:
     def generate_auth_token(self):
         """
         Basiq 3.0 forced. Generate authentication token that will need to be used and passed for all JSON reqs.
+        Before being able to use any of the Basiq fucntions, you need to swap your API Key for an Auth Token. This function is in API.py, in the Core class and is called 'get_auth_token'.
+        The Auth token expires *every 60 minutes*, so needs to be refreshed. Best practice is to refresh this 2-3 times an hour.
+        https://api.basiq.io/reference/posttoken
         """
         url = "https://au-api.basiq.io/token"
 
@@ -27,6 +30,10 @@ class Core:
 
     @staticmethod
     def create_user_by_dict(user_payload, access_token):
+        """
+        Requires a specific dictionary param to operate, containing the same five parameters needed in create_user().
+        https://api.basiq.io/reference/createuser
+        """
         url = "https://au-api.basiq.io/users"
 
         headers = {
@@ -43,8 +50,9 @@ class Core:
     @staticmethod
     def create_user(user_first_name, user_middle_name, user_last_name, user_email, user_mobile, access_token):
         """
-        Creates a new Basiq user object. Appropriate fields should be passed by partner application\n
-        (us), as should duplicate conflicts like mobile and email fields.
+        Creates a new Basiq user object. Appropriate fields should be passed by partner application (us), and duplicate conflicts like mobile and email fields should be handled by us.\n
+        T3 2023 - Note that for testing purposes mob and email fields should not be checked for uniqueness in the Dolfin DB until a deployment environment.\n
+        https://api.basiq.io/reference/createuser
         """
         url = "https://au-api.basiq.io/users"
 
@@ -67,6 +75,11 @@ class Core:
 
     @staticmethod
     def retrieve_user(basiq_id, access_token):
+        """
+        Returns a Basiq user object based on a passsed Basqi ID. This includes account object, connection list, personal details (full name, mobile, etc.) and relevant links.\n
+        Untrested, but likely memory intensive. Surgical access to user object fields can be provided via other functions.
+        https://api.basiq.io/reference/getuser
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}"
 
         headers = {
@@ -114,6 +127,10 @@ class Core:
 
     @staticmethod
     def create_auth_link(basiq_id, access_token):
+        """
+        An Authlink is requried for a user to give their consent for Basiq to connect to their institution. A consent dialogue opens for users to authenticate themselves on the instiuutioion side of things.\n
+        In the future, this will be updated to have detailed consent lists as to how data willl be access by DolFin and why.
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}/auth_link"
 
         headers = {
@@ -166,6 +183,10 @@ class Data:
 
     @staticmethod
     def get_account(access_token, basiq_id, account_id):
+        """
+        Not currently used
+        https://api.basiq.io/reference/getaccount
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}/accounts/{account_id}"
 
         headers = {
@@ -220,7 +241,11 @@ class Data:
             return str(e)
 
     @staticmethod
-    def get_affordability_report(basiq_id, access_token):
+    def create_affordability_report(basiq_id, access_token):
+        """
+        T3 2023 - Not tested or implemented.
+        https://api.basiq.io/reference/postaffordability
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}/affordability"
 
         headers = {
@@ -237,7 +262,11 @@ class Data:
             return str(e)
 
     @staticmethod
-    def get_expenses(basiq_id, access_token):
+    def create_expenses(basiq_id, access_token):
+        """
+        T3 2023 - Not tested or implemented.
+        https://api.basiq.io/reference/postexpenses
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}/expenses"
 
         headers = {
@@ -255,6 +284,10 @@ class Data:
 
     @staticmethod
     def get_income(basiq_id, access_token):
+        """
+        T3 2023 - Not tested or implemented.
+        https://api.basiq.io/reference/postincome
+        """
         url = f"https://au-api.basiq.io/users/{basiq_id}/income"
 
         headers = {
