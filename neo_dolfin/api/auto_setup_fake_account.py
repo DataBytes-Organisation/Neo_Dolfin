@@ -62,7 +62,7 @@ class Fake:
 
         response = requests.post(url, json=payload, headers=headers)
         response_data = response.json()
-        return response_data.get('links').get('self')
+        return response_data.get('links').get('public')
 
 
 load_dotenv()
