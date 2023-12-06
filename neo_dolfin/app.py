@@ -248,7 +248,7 @@ def register():
         # Create a new user and add it to the users_new database
         # Names are currently hard coded pending name fields in registration
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
-                            first_name="MAx",middle_name="test",last_name="Wentworth-Smith",password=input_password)
+                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -259,7 +259,7 @@ def register():
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
         # create a new mapping for a user
-        # not relevant in users_new but remains in if need for 
+        # not relevant in users_new but remains in if need for later database gen
         new_user_id = new_user.id
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
