@@ -2,57 +2,115 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<title>DolFin - User Profile Information</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>DolFin - User Profile Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/profile.css')}}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
 
-	{% include 'components/navbar.html' %}
+    {% include 'components/navbar.html' %}
 
+    <div class="container" id="mainTitleArea">
+        <div class="row">
+            <div class="col">
+                <h1 id="articleTitle", style="font-size: xxx-large;">User Profile</h1>
+                <br>
+            </div>
+        </div>
+        <svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
 
-	<div>
-		<div class="container" id="mainTitleArea">
-			<div class="row">
-				<div class="col">
-					<h1 id="articleTitle">User Profile</h1>
-				</div>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container bootstrap snippets bootdey">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel rounded shadow" style="background-color: rgb(245, 245, 245);">
+                    <div class="panel-body">
+                        <div class="inner-all">
+                            <ul class="list-unstyled">
+                                <li class="text-center">
+                                    <img class="profile-img"
+                                        src="{{ url_for('static', filename='logo/dolfinlogoborder.png') }}" alt="profile-img"
+                                        style="width: 170px; height: 170px;">
+                                </li>
+                                <li class="text-center">
+                                    <h4 class="text-capitalize"> {{user_id}}</h4>
+                                    <p class="text-muted text-capitalize">{{email}}</p>
+                                </li>
+                                <li class="text-center">
+                                    <br>
+                                    <p class="text-muted text-capitalize">Manage Account</p>
+                                </li>
+                                <li><br></li>
+                                <li>
+                                    <div class="btn-group-vertical btn-block">
+                                        <a href="" class="btn btn-default"><i
+                                                class="fa fa-cog pull-right"></i>Edit Account</a>
+                                        <a href="/" class="btn btn-default"><i
+                                                class="fa fa-sign-out pull-right"></i>Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel rounded shadow no-overflow" style="background-color: rgb(245, 245, 245); max-height: 400px; overflow-y: auto;">
+                    <div class="panel-body">
+                        <div class="inner-cover">
+                            <img src="https://www.bootdey.com/image/600x150/FF69B4/000000"
+                                class="img-responsive full-width" alt="cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel rounded shadow no-overflow" style="background-color: rgb(245, 245, 245); max-height: 400px; overflow-y: auto;">
+                    <div class="panel-body">
+                        <div class="p-3">
+                            <p> <strong> Current Balance: </strong> <br>
+                                $<span id="currentBalance">{{ jsd6 | safe }}</span>
+                            </p>
+                        </div>
+                        <div class="p-3">
+							<p> <strong> Transaction History: </strong> <br>
+                            <p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Class</th>
+                                            <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transactionHistoryDropdown"> <!-- Add ID to tbody element -->
+                                        <!-- Populate the table with transaction history -->
+                                        {% for transaction in jsd8 %}
+                                            <tr>
+                                                <td>{{ transaction.amount }}</td>
+                                                <td>{{ transaction.class }}</td>
+                                                <td>{{ transaction.day }}/{{ transaction.month }}/{{ transaction.year }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-			</div>
-			<svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
-				<rect fill="#343A40" height="12" width="100%"></rect>
-			</svg>
-		</div>
-		<div class="container" id="firstSection">
-			<div class="row">
-				<div class="col">
-					<p id="p1">User Information</p>
-				</div>
+    {% include 'components/footer.html' %}
 
-		<div class="container" id="secondsection">
-			<div class="row">
-				<div class="col">
-					<p id="p3">Username: {{username}} </p>
-					<p id="p4">Email Address: {{email}} </p>
-
-				</div>
-				
-			<div>
-				<p id="p2">Reset Password</p>
-				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>
-			</div>
-			</br>
-			<!-- IMPLEMENT CHATBOT HERE -->
-			{% include 'components/chatbotWidget.html' %}
-		</div>
-		{% include 'components/footer.html' %}
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -60,7 +60,6 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
-## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -173,8 +172,8 @@ def landing():
 def login():
     if request.method == 'POST':
 
-        input_username = request.form['username']
-        input_password = request.form['password']
+        username = request.form['username']
+        password = request.form['password']
 
         # Retrieve the user from the (new) database
         user = UsersNew.query.filter_by(username=input_username).first()
@@ -188,7 +187,7 @@ def login():
             session['first_name'] = user.first_name
 
             # If successful, check if test user or real user.
-            row = UserTestMap.query.filter_by(userid = input_username).first()
+            row = UserTestMap.query.filter_by(userid = username).first()
             testId = 0
             if row != None:
                  testId = row.testid
@@ -493,12 +492,12 @@ def dashboardLoader():
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-        return render_template("news.html")   
+        return render_template("news.html", current_page='news') # current_page='news' USed for Navbar. DO NOT DELETE   
 
 ## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-        return render_template("FAQ.html")
+        return render_template("FAQ.html", current_page="FAQ") #  current_page="FAQ" Used for Navbar. DO NOT DELETE
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
@@ -516,19 +515,47 @@ def open_article_template():
         return render_template("articleTemplate.html") 
     
 # APPLICATION USER SPECIFIC  PROFILE PAGE
-@app.route('/profile')
+@app.route('/profile', methods=['GET'])
 def profile():
-        return render_template("profile.html") 
-    
+     # Get transaction values for account
+      if request.method == 'GET':
+        user_id = session.get('user_id')
+        con = sqlite3.connect("db/transactions_ut.db")
+        cursor = con.cursor() 
+        defacc = 'ALL'  
+        email = session.get('email') 
+
+        # Account 
+        cursor.execute('SELECT DISTINCT account FROM transactions')
+        query = cursor.fetchall()
+        dfxx = pd.DataFrame(query,columns=['account'])
+        new_record = pd.DataFrame([{'account': 'ALL'}])
+        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        jfxx = dfxx.to_json(orient='records')
+
+        # Get transaction values for balance indicator
+        cursor.execute('SELECT amount,direction FROM transactions')
+        query = cursor.fetchall()
+        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
+        jfx3 = dfx3.to_json(orient='records')   
+
+        cursor.execute('SELECT balance FROM transactions LIMIT 1')
+        query = cursor.fetchone()
+        curr_bal = query[0]
+
+        #Transactions 
+        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
+        query = cursor.fetchall()
+        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
+        jfx8 = dfx8.to_json(orient='records')
+
+        return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
+
+
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
         return render_template('resetpw.html')
-
-# APPLICATION USER SURVEY
-@app.route('/survey')
-def survey():
-        return render_template("survey.html")
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
