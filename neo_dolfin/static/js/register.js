@@ -76,3 +76,77 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+
+//Address AutoComplete/Validation client-side scripts below - using AddressFinder API
+document.addEventListener('DOMContentLoaded', function() {
+  const validationCheckbox = document.getElementById('validation');
+  const addressLine1 = document.getElementById('address1');
+  let widget;
+
+// Initialize AddressFinder Widget
+function initAddressFinder() {
+  widget = new AddressFinder.Widget(
+          addressLine1,
+          'H9B6JVYDLM4CRNUKA78E',
+          'AU', {
+              "address_params": {
+                  "au_paf": "1",
+                  "post_box": "0"
+              },
+              "empty_content": "No addresses were found. This could be a new address, or you may need to check the spelling. Learn more"
+          }
+);
+
+widget.on('address:select', function(fullAddress, metaData) {
+  let addressLine1 = metaData.address_line_1;
+  let addressLine2 = metaData.address_line_2;
+          
+  if(metaData.address_line_2) {
+    addressLine1 = metaData.address_line_2;
+    addressLine2 = metaData.address_line_1;
+  }
+  // Populates form fields with address elements from the selected address that was autocompleted
+  document.getElementById('address1').value = addressLine1;
+  document.getElementById('address2').value = addressLine2;
+  document.getElementById('suburb').value = metaData.locality_name;
+  document.getElementById('state').value = metaData.state_territory;
+  document.getElementById('postcode').value = metaData.postcode;
+  });
+}
+
+// Uninitialised AddressFinder - Used when Skip Address Validation checkbox is checked.
+function destroyAddressFinder() {
+  if (widget) {
+    widget.destroy();
+    widget = null;
+  }
+}
+
+// Download the AddressFinder script and initialize.
+function downloadAddressFinder() {
+  var script = document.createElement('script');
+  script.src = 'https://api.addressfinder.io/assets/v3/widget.js';
+  script.async = true;
+  script.onload = initAddressFinder;
+  document.body.appendChild(script);
+}
+
+// Event listener for Skip Address Validation checkbox.
+// When Validation checkbox is unchecked, download and initialise AddressFinder and update placeholder text
+// When Validation checkbox is checked, uninitialise AddressFinder and update placeholder text
+validationCheckbox.addEventListener('change', function() {
+  if (this.checked) {
+    addressLine1.placeholder = "Address Line 1";
+    destroyAddressFinder();
+  } 
+  else {
+    addressLine1.placeholder = "Search address here...";
+    downloadAddressFinder();
+  }
+});
+
+// Initial setup of AddressFinder when the page is first loaded
+downloadAddressFinder();
+});
+// End of Scripts related to Address Validation
