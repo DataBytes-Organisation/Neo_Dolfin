@@ -24,6 +24,7 @@ from services.basiq_service import BasiqService
 from io import StringIO
 import pymysql
 import requests
+import json
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -185,7 +186,7 @@ def before_request():
         # skip
         if request.path.startswith('/static'):
             return
-        if request.path == '/' or request.path == '/login' or request.path == '/register':
+        if request.path == '/' or request.path == '/login' or request.path == '/register' or request.path == '/submit'or request.path == '/submit':
             return
         # check
         print('@session[user_id]', session.get('user_id'))
@@ -536,6 +537,18 @@ def resetpw():
 @app.route('/survey')
 def survey():
         return render_template("survey.html")
+
+# Export USER SURVEY RESULTS
+@app.route('/submit', methods=['POST'])
+def submit():
+    data = request.get_json()
+
+    try:
+        with open('surveyResults.json', 'w') as file:
+            json.dump(data, file)
+        return jsonify({'status': 'success', 'message': 'Data submitted successfully!'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
