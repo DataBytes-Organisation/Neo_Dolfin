@@ -77,7 +77,6 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-
 //Address AutoComplete/Validation client-side scripts below - using AddressFinder API
 document.addEventListener('DOMContentLoaded', function() {
   const validationCheckbox = document.getElementById('validation');

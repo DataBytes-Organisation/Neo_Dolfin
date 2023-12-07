@@ -194,7 +194,7 @@ input:not(:placeholder-shown) {
     font-weight: 700;
 }
 
-/* css used to display Skip Address Validation and checkbox styled for DolFin Pages */
+/* css used to display Skip Address Validation and checkbox styled for DolFin Pages - Starts Here */
 .validation-text {
     text-align: center;
     margin-top: 20px;
@@ -271,6 +271,7 @@ input:not(:placeholder-shown) {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+  /* css used to display Skip Address Validation and checkbox styled for DolFin Pages - Finishes Here */
 
 .social-login {
     display: flex;
