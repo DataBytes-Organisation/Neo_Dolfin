@@ -6,6 +6,7 @@ import json
 import webbrowser
 import pandas as pd
 from datetime import datetime
+from dateutil import parser
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
@@ -176,9 +177,9 @@ def request_transactions_df(user_id, limit_para=500, filter_para=None):
         month, and year columns to properly display.
         """
         #Convert date from ISO8601 to "YYYY-mm-dd" (preferred format by SQL)
-        date_obj = datetime.fromisoformat(transaction['postDate'])
+        date_str = transaction['postDate']
+        date_obj = parser.parse(date_str)
         post = date_obj.strftime("%Y-%m-%d")
-        date_obj = datetime.fromisoformat(transaction['postDate'])
         tran = date_obj.strftime("%Y-%m-%d")
         transaction = {
             'id':               transaction['id'],
