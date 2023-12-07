@@ -26,6 +26,8 @@ import urllib.parse
 from io import StringIO
 import pymysql
 import requests
+import json
+
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -643,8 +645,40 @@ def open_article_template():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
-        return render_template("profile.html") 
-    
+     # Get transaction values for account
+      if request.method == 'GET':
+        user_id = session.get('user_id')
+        con = sqlite3.connect("db/transactions_ut.db")
+        cursor = con.cursor() 
+        defacc = 'ALL'  
+        email = session.get('email') 
+
+        # Account 
+        cursor.execute('SELECT DISTINCT account FROM transactions')
+        query = cursor.fetchall()
+        dfxx = pd.DataFrame(query,columns=['account'])
+        new_record = pd.DataFrame([{'account': 'ALL'}])
+        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        jfxx = dfxx.to_json(orient='records')
+
+        # Get transaction values for balance indicator
+        cursor.execute('SELECT amount,direction FROM transactions')
+        query = cursor.fetchall()
+        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
+        jfx3 = dfx3.to_json(orient='records')   
+
+        cursor.execute('SELECT balance FROM transactions LIMIT 1')
+        query = cursor.fetchone()
+        curr_bal = query[0]
+
+        #Transactions 
+        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
+        query = cursor.fetchall()
+        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
+        jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
+        jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
+        return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
+
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
