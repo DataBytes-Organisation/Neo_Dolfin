@@ -1,127 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<html lang="en">
-
-<<<<<<< HEAD
-<html lang="en">
-
-=======
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<<<<<<< HEAD
-    <script src="../static/"></script>
-    <link rel="stylesheet" href="../static/css/registration.css">
-=======
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/registration.css')}}">
-
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
     <title>Register</title>
 </head>
-
 <body>
-    <div class="container-fluid">
-        <div class="row">
-<<<<<<< HEAD
-            <div class="display_left">
-
-                <div class="container_left">
-
-                    <img src="../static/img/sign up/Title_signup.png" alt="Title_signup" class="Title_signup">
-                    <img src="../static/img/sign up/signup_bg.png" alt="signup_bg" class="signup_bg">
-                    <div class="input_area">
-                        <h1>Registration</h1>
-                        <form method="POST" action="/register">
-                            <label for="username">Username:</label>
-                            <input type="text" name="username" required>
-                            <br>
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" required>
-                            <br>
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" required>
-                            <br>
-                            <label for="address1">Address Line 1:</label>
-                            <input type="text" name="address1" required>
-                            <br>
-                            <label for="address2">Address Line 2:</label>
-                            <input type="text" name="address2">
-                            <br>
-                            <label for="suburb">Suburb:</label>
-                            <input type="text" name="suburb" required>
-                            <br>
-                            <label for="state">State:</label>
-                            <input type="text" name="state" required>
-                            <br>
-                            <label for="postcode">Postcode:</label>
-                            <input type="text" name="postcode" required>
-                            <br>
-                            <input type="submit" value="Register">
-                        </form>
-                    </div>
-                </div>
+    <div class="container p-4" style="max-width: 85%; overflow: visible;">
+        <div class="row justify-content-center g-0 p-0">
+            <div class="col-7 p-2 mt-4" id="small-top">
+                Your Journey Towards Smarter Financial Management Starts Here.
             </div>
-            <div class="display_right">
-
-                <div class="container_right">
-
-                    <img src="../static/img/sign up/style.png" alt="style" class="style">
-                    <div class="text_top">
-                        Your Journey Towards Smarter <br /> Financial Management Starts Here.</div>
-                    <div class="text_bg">
-
-                        <div class="text_mid">
-                            ·Unified view of all your financial accounts in one place. <br />·Customized advice with
-                            AI-powered predictions. <br />·Compare your finances with peers for better decisions.
-                        </div>
-
-=======
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="container_left">
-                    <img src="../static/img/Title.png" alt="Sign up | DolFin" class="img-fluid Title_signup">
+            <div id="right-side" class="col-7 col-lg-7 col-md-12 col-sm-12 d-flex justify-content-center"
+                align="center">
+                <div class="container_left" style="z-index: 1;">
                     <div class="input_area">
                         <h1 class="Title_signup">DolFin</h1>
                         <h2 class="Subtitle">Empowering Your Financial Journey</h2>
                         <div class="row align-items-center">
-                            <div class="col-sm-2">
+                            <div class="col-2 col-lg-2 col-md-1 col-sm-1">
                                 <button onclick="nextPrev(-1)" style="border: none;">
                                     <img id="previousPage" src="../static/img/sign up/slide-left.png" class="img-fluid">
                                 </button>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-8 col-lg-8 col-md-12 col-sm-10">
                                 <form method="POST" action="/register">
                                     <div class="tab">
-                                        <input type="text" name="username" class="form-control" placeholder="Username"
-                                            required>
-                                        <input type="email" name="email" class="form-control" placeholder="Email"
-                                            required>
-                                        <input type="password" name="password" class="form-control"
-                                            placeholder="Password" required>
+                                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                                     </div>
                                     <div class="tab">
-                                        <input type="text" name="address1" class="form-control"
-                                            placeholder="Address Line1" required>
-                                        <input type="text" name="address2" class="form-control"
-                                            placeholder="Address Line2" required>
-                                        <input type="text" name="suburb" class="form-control" placeholder="Suburb"
-                                            required>
-                                        <input type="text" name="postcode" class="form-control" placeholder="Postcode"
-                                            required>
+                                        <label class="validation-checkbox">
+                                            <div class="validation-text">Skip Address Validation</div>
+                                            <input type="checkbox" id="validation" name="validation">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <input type="text" class="form-input" id="address1" placeholder="Search address here..." required>
+                                        <input type="text" class="form-input" id="address2" placeholder="Address Line 2">
+                                        <input type="text" class="form-input" id="suburb" placeholder="Suburb" required>
+                                        <input type="text" class="form-input" id="state" placeholder="State" required>
+                                        <input type="text" class="form-input" id="postcode" placeholder="State" required>
                                         <input type="submit" class="btn btn-primary" value="Register">
-
                                     </div>
-                                    <!-- <div style="overflow:auto;">
-                                        <div style="float:right;">
-                                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                        </div>
-                                    </div> -->
                                 </form>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-2">
                                 <button onclick="nextPrev(1)" style="border: none;">
                                     <img id="nextPage" src="../static/img/sign up/slide-right.png" class="img-fluid">
                                 </button>
@@ -133,56 +60,68 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="or-text">OR</div>
-                        <div class="social-login">
-                            <button type="button" class="btn-google">
+                        <div class="row align-items-center">
+                            <div class="col-10 offset-1">
+                                <div class="or-text">OR</div>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <div class="social-login">
+                                    <button type="button" class="btn-google">
 
-                                <img src="../static/img/google_icon.svg" alt="Google" class="btn-logo"> Sign up with
-                                Google
-                            </button>
-                            <button type="button" class="btn-microsoft">
-                                <img src="../static/img/microsoft_logo.svg" alt="Microsoft" class="btn-logo"> Sign up
-                                with
-                                Microsoft
-                            </button>
+                                        <img src="../static/img/google_icon.svg" alt="Google" class="btn-logo"> Sign up
+                                        with
+                                        Google
+                                    </button>
+                                    <button type="button" class="btn-microsoft">
+                                        <img src="../static/img/microsoft_logo.svg" alt="Microsoft" class="btn-logo">
+                                        Sign
+                                        up
+                                        with
+                                        Microsoft
+                                    </button>
+                                </div>
+                            </div>
                         </div>
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-5 col-lg-5 col-md-12 col-sm-12 d-flex justify-content-center">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" style="position: absolute;">
+                            <img src="../static/img/sign up/cover_style.png" alt="image" style="visibility: visible;"
+                                class="top-right-image">
+                        </div>
+                        <div class="col-12">
+
+                            <div class="text_top" id="text_top_right">
+                                Your Journey Towards Smarter Financial Management Starts Here.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="text_bg">
+                                <ul class="text_mid">
+                                    <li>Unified view of all your financial accounts in one place.</li>
+                                    <li>Customized advice with AI-powered predictions.</li>
+                                    <li>Compare your finances with peers for better decisions.</li>
+                                    <br>
+                                    <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" id="dol-float">
+
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <img src="../static/img/sign up/cover_style.png" alt="image" class="top-right-image">
-                <div class="container_right">
-
-                    <div class="text_top">
-                        Your Journey Towards Smarter Financial Management Starts Here.
-                    </div>
-                    <div class="text_bg">
-                        <ul class="text_mid">
-                            <li>Unified view of all your financial accounts in one place.</li>
-                            <li>Customized advice with AI-powered predictions.</li>
-                            <li>Compare your finances with peers for better decisions.</li>
-                        </ul>
-                    </div>
-                    <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" class="img-fluid dolfin">
-                </div>
-
-            </div>
-
         </div>
     </div>
-    <div class="text-under-container">
+    <!-- <div class="text-under-container">
         <p>Gain complete control over your finances with<br>
             personalized insights and real-time tracking.</p>
-    </div>
+    </div> -->
     <script src="{{url_for('static', filename='js/register.js')}}"></script>
-
-
 </body>
-
-<<<<<<< HEAD
 </html>
-=======
-
-</html>
->>>>>>> 70b7272dc22777ff9050c07d982ce9169c126022
