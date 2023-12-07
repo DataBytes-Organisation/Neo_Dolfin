@@ -116,9 +116,8 @@ def clean_subClass(row):
 def loadDatabase(testId):
 
     # If the user is a test user, read from one of the user* csv.
-    # IF NOT - continue with default sample data
     df4 = pd.read_csv('static/data/transaction_ut.csv')
-    if testId > 0 and testId < 7:
+    if testId > 0:
         df4 = pd.read_csv('static/data/new_data/user' + str(testId) + '.csv')
 
     # SQLite User Data Database Setup
