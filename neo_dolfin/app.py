@@ -21,10 +21,13 @@ import bcrypt
 import datetime
 import re
 import sqlite3
+import urllib.parse
 
 from io import StringIO
 import pymysql
 import requests
+import json
+
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -109,6 +112,17 @@ class UsersNew(db.Model):
     pwd_pt =    db.Column(db.String(255), nullable=True)
     b_id_temp = db.Column(db.String(255), nullable=True)
 
+class UserAddress(db.Model):
+    __tablename__ = 'user_address'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    address1 = db.Column(db.String(255), nullable=False)
+    address2 = db.Column(db.String(255), nullable=True)
+    suburb = db.Column(db.String(255), nullable=False)
+    state=db.Column(db.String(50), nullable=False)
+    postcode = db.Column(db.String(10), nullable=False)
+    validation =db.Column(db.String(10),nullable=True)
+    
 try:
     with app.app_context():
         db.create_all()
@@ -254,6 +268,17 @@ def register():
         input_username  = request.form['username']
         input_email     = request.form['email']
         input_password  = request.form['password']
+        address1 = request.form['address1']
+        address2 = request.form['address2']
+        suburb = request.form['suburb']
+        state =request.form['state']
+        postcode = request.form['postcode']
+        
+        #if the 'validation' checkbox is present in the form data
+        # If present, set validation_checkbox to True; otherwise, set it to False
+        validation_checkbox = True if 'validation' in request.form else False
+
+        print("under register func")
 
         # Encode password into bytes, Hash password, add salt
         input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
@@ -296,6 +321,69 @@ def register():
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
         db.session.commit()
+
+        # Validate address using AddressFinder API and Create a new user address entry to the database
+        user = User.query.filter_by(id=new_user_id).first()
+        if user:
+            user_id = user.id
+            # importing API creds
+            API_KEY=os.getenv("API_KEY")
+            SECRET=os.getenv("SECRET")
+            print("userid: ",user_id)
+            #combining address fields to single value
+            address = address1+', '+address2+', '+suburb+', '+state+', '+postcode
+            encoded_address = urllib.parse.quote(address)
+
+            if not validation_checkbox:
+                 
+                # calling address Validation API
+                try:
+                    fullurl=f"https://api.addressfinder.io/api/au/address/v2/verification/?key={API_KEY}&secret={SECRET}&format=json&q={encoded_address}&gnaf=1&paf=1&domain=localhost"
+                    response =requests.get(fullurl)
+                    print("Full address: ",address)
+                    print(response.status_code)
+                    # prints the int of the status code. Find more at httpstatusrappers.com :)
+                except requests.ConnectionError:
+                    print("failed to connect, response code: ", response.status_code)
+                
+                result = response.json()
+                print("result of json req:", result )
+                        
+                respvalidation=checkAF_response(result)
+                if respvalidation:
+                    new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb, state=state, postcode=postcode,validation='Yes')
+                    db.session.add(new_user_address)
+                    db.session.commit()
+                if not respvalidation:
+                    message="Invalid Address, please check !"
+                    print("rendering register page with error...")
+                    #User.query.filter_by(id=new_user_id).delete()
+                    #db.session.commit()
+                    #UserTestMap.query.filter_by(id=new_user_id).delete()
+                    #db.session.commit()
+                    return render_template("register.html", msg=message)
+
+            if validation_checkbox:
+                new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb,state=state, postcode=postcode,validation='No')
+                db.session.add(new_user_address)
+                db.session.commit()
+
+        return redirect('/login')
+
+    return render_template('register.html')  # Create a registration form in the HTML template
+
+
+
+def checkAF_response(responsedata):
+     # Check if the response contains valid address information
+    if responsedata['success']:
+        if responsedata['matched']: # Address is valid
+            print("Address Validated")
+            return True
+        else:
+            # Address is not valid
+            print("invalid address...")
+            return False
 
         return redirect('/login')
 
@@ -557,8 +645,40 @@ def open_article_template():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
-        return render_template("profile.html") 
-    
+     # Get transaction values for account
+      if request.method == 'GET':
+        user_id = session.get('user_id')
+        con = sqlite3.connect("db/transactions_ut.db")
+        cursor = con.cursor() 
+        defacc = 'ALL'  
+        email = session.get('email') 
+
+        # Account 
+        cursor.execute('SELECT DISTINCT account FROM transactions')
+        query = cursor.fetchall()
+        dfxx = pd.DataFrame(query,columns=['account'])
+        new_record = pd.DataFrame([{'account': 'ALL'}])
+        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        jfxx = dfxx.to_json(orient='records')
+
+        # Get transaction values for balance indicator
+        cursor.execute('SELECT amount,direction FROM transactions')
+        query = cursor.fetchall()
+        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
+        jfx3 = dfx3.to_json(orient='records')   
+
+        cursor.execute('SELECT balance FROM transactions LIMIT 1')
+        query = cursor.fetchone()
+        curr_bal = query[0]
+
+        #Transactions 
+        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
+        query = cursor.fetchall()
+        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
+        jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
+        jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
+        return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
+
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
