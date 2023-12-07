@@ -149,14 +149,17 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
-# Handles the logging of an authentication or registration event to a txt output and a log database
 def add_user_audit_log(username, action, message):
+    """
+    Handles the logging of an authentication or registration event to a txt output and a log database.\n
+    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
+    """
     new_log = UserAuditLog(username=username, action=action, message=message)
-    print(new_log)
     db.session.add(new_log)
     db.session.commit() 
     with open("audit.txt", 'a') as file:
         file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
+    print(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
 
 # transfer user to template
@@ -191,18 +194,6 @@ def add_no_cache_header(response):
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     return response
-
-def add_user_audit_log(username, action, message):
-    """
-    Handles the logging of an authentication or registration event to a txt output and a log database.\n
-    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
-    """
-    new_log = UserAuditLog(username=username, action=action, message=message)
-    db.session.add(new_log)
-    db.session.commit() 
-    with open("audit.txt", 'a') as file:
-        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
-    print(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
 # ROUTING
 ## LANDING PAGE
@@ -309,6 +300,12 @@ def register():
         return redirect('/login')
 
     return render_template('register.html')  # Create a registration form in the HTML template
+
+## SIGN OUT
+@app.route('/signout')
+def sign_out():
+    session.pop('user_id', None)
+    return redirect('/')
 
 @app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
