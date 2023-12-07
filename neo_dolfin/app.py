@@ -96,6 +96,7 @@ class UserAddress(db.Model):
     address1 = db.Column(db.String(255), nullable=False)
     address2 = db.Column(db.String(255), nullable=True)
     suburb = db.Column(db.String(255), nullable=False)
+    state=db.Column(db.String(50), nullable=False)
     postcode = db.Column(db.String(10), nullable=False)
     validation =db.Column(db.String(10),nullable=True)
 
@@ -269,13 +270,15 @@ def register():
         input_username = request.form['username']
         input_email = request.form['email']
         input_password = request.form['password']
-        #validation=request.form['validation']
-        #address1 = request.form['address1']
-        """address2 = request.form['address2']
+        address1 = request.form['address1']
+        address2 = request.form['address2']
         suburb = request.form['suburb']
         state =request.form['state']
         postcode = request.form['postcode']
-        validation=request.form['validation']"""
+        
+        #if the 'validation' checkbox is present in the form data
+        # If present, set validation_checkbox to True; otherwise, set it to False
+        validation_checkbox = True if 'validation' in request.form else False
 
         print("under register func")
         # Hash password
@@ -305,10 +308,9 @@ def register():
         db.session.commit()
         print("New user added in map")
 
-        data=request.json
-        print(data)
+        
 
-        """# Validate address using AddressFinder API and Create a new user address entry to the database
+        # Validate address using AddressFinder API and Create a new user address entry to the database
         user = User.query.filter_by(id=new_user_id).first()
         if user:
             user_id = user.id
@@ -320,7 +322,7 @@ def register():
             address = address1+', '+address2+', '+suburb+', '+state+', '+postcode
             encoded_address = urllib.parse.quote(address)
 
-            if not validation:
+            if not validation_checkbox:
                  
                 # calling address Validation API
                 try:
@@ -337,7 +339,7 @@ def register():
                         
                 respvalidation=checkAF_response(result)
                 if respvalidation:
-                    new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb, state=state, postcode=postcode,validation=validation)
+                    new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb, state=state, postcode=postcode,validation='Yes')
                     db.session.add(new_user_address)
                     db.session.commit()
                 if not respvalidation:
@@ -349,10 +351,10 @@ def register():
                     #db.session.commit()
                     return render_template("register.html", msg=message)
 
-            if validation:
-                new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb,state=state, postcode=postcode,validation=validation)
+            if validation_checkbox:
+                new_user_address = UserAddress(id=user_id, username=input_username, address1=address1, address2=address2, suburb=suburb,state=state, postcode=postcode,validation='No')
                 db.session.add(new_user_address)
-                db.session.commit()"""
+                db.session.commit()
 
         return redirect('/login')
 
