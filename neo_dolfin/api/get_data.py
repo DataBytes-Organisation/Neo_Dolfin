@@ -6,10 +6,14 @@ import pandas as pd
 from API import Core, Data
 from dotenv import load_dotenv
 
+"""
+As best as I can tell, this was a Test script from last trimester's Basiq work. 
+Not called in any file, designed to be run solo.
+MAybe useful for demostration purposes, but should be renamed regardless.
+"""
 
-#from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env
-API_KEY =os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
 user_id = os.getenv("user_id")
 
 base_url = "https://au-api.basiq.io/"
