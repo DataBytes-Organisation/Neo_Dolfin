@@ -1,0 +1,36 @@
+.container epv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+.chart epv{
+    width:800px;
+    height:400px;
+    margin: 10px;
+}
+ .image epv{
+     background: aqua;
+    width:600px;
+    height:300px;
+     margin: 10px;
+ }
+
+.button-container epv{
+    display: flex;
+    justify-content: space-between;
+}
+.button epv{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button epv:hover {
+    background-color: #367c39;
+}

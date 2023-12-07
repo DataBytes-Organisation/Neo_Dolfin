@@ -1,9 +1,10 @@
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+import pandas as pd
 
 
-def expenditure_cluster_model(trans_data, preprocess=True):
+def cluster(trans_data, preprocess=True):
     """
     Main model function for clustering expenditure data.
     It processes the data, applies KMeans clustering, and returns the clustered data along with cluster summaries.
@@ -11,13 +12,14 @@ def expenditure_cluster_model(trans_data, preprocess=True):
     :param preprocess: Boolean to indicate whether preprocessing should be applied.
     :return: Tuple of processed DataFrame with expenditure levels and JSON array with cluster summaries.
     """
+
     def preprocess_data(data):
         """
         Preprocesses the transaction data by filtering and transforming relevant columns.
         :param data: DataFrame containing raw transaction data.
         :return: DataFrame after preprocessing.
         """
-        preprocessed_data = data[['transactionDate', 'amount', 'description']].copy
+        preprocessed_data = data[['transactionDate', 'amount', 'description']].copy()
         preprocessed_data = preprocessed_data[preprocessed_data['amount'] < 0]
         preprocessed_data['amount'] = preprocessed_data['amount'] * -1
         return preprocessed_data
@@ -61,7 +63,7 @@ def expenditure_cluster_model(trans_data, preprocess=True):
             json_array.append(json_obj)
         return json_array
 
-    cleaned_data = preprocess_data(trans_data)if preprocess else trans_data
+    cleaned_data = preprocess_data(trans_data) if preprocess else trans_data
 
     k_auto, kmeans_auto = auto_kmeans(cleaned_data)
     kmeans_auto.fit(cleaned_data[['amount']])

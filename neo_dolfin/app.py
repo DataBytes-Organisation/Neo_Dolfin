@@ -22,12 +22,14 @@ import datetime
 import re
 import sqlite3
 import urllib.parse
-
+import ai.cloud.expenditure_cluster_model
+import ai.cloud.word_cloud
 from io import StringIO
 import pymysql
 import requests
 import json
 
+from ai.cloud import word_cloud, expenditure_cluster_model
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -702,6 +704,31 @@ def chatbot():
         return jsonify(message)
     return render_template('chatbot.html')
 
-# Run the Flask appp
+
+global current_trans_data_with_level
+
+
+@app.route('/dash/epv')
+def epv_load():
+    global current_trans_data_with_level
+    trans_data = pd.read_csv('static/data/transaction_ut_Original.csv')
+    trans_data_with_level, data_cluster = expenditure_cluster_model.cluster(trans_data)
+    current_trans_data_with_level = trans_data_with_level
+    re = {
+        'data_cluster': data_cluster
+    }
+    return jsonify(re)
+
+
+@app.route('/dash/epv/generate_word_cloud', methods=['POST'])
+def generate_wordcloud():
+    data = request.json
+    level = data.get('level', 'level 0')
+    mode = data.get('mode', 'default')
+    response = word_cloud.generate(current_trans_data_with_level, level, mode)
+    return response
+
+
+# Run the Flask app
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
