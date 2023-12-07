@@ -304,18 +304,19 @@ def register():
 ## SIGN OUT
 @app.route('/signout')
 def sign_out():
+    user_ops.clear_transactions()
     session.pop('user_id', None)
     return redirect('/')
 
 @app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
-
+    user_id     = session.get('user_id') # Not used right now.
+    first_name  = session.get('first_name')
     if request.method == 'GET':
         # From session variable, user the user's first name in:
         #   Welcome message
         #   ...
-        user_id     = session.get('user_id') # Not used right now.
-        first_name  = session.get('first_name')
+
 
         #con = sqlite3.connect("db/transactions_ut.db")
         #con = sqlite3.connect("db/user_database.db")
