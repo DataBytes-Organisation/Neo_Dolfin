@@ -405,7 +405,6 @@ def auth_dash2():
         #   Welcome message
         #   ...
 
-
         #con = sqlite3.connect("db/transactions_ut.db")
         #con = sqlite3.connect("db/user_database.db")
 

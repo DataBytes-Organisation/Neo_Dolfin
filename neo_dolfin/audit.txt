@@ -2,3 +2,5 @@
 [2023-11-30 19:54:42.607455] [user-login-success]  username: tester:  User logged in successfully.
 [2023-11-30 20:03:52.354610] [user-login-success]  username: tester:  User logged in successfully.
 [2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-07 19:28:52.256947] [user-login-fail]  username: maxWWsmith:  User login failed.
+[2023-12-07 19:30:14.169221] [user-login-success]  username: maxWWsmith:  User logged in successfully.
