@@ -16,6 +16,12 @@
 <body>
 
     {% include 'components/navbar.html' %}
+   <!-- Add this button in your navigation menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('feedback') }}">
+            <button type="button" class="btn btn-outline-primary">Give us Feedback!</button>
+        </a>
+    </li>
 
     <div class="container" id="mainTitleArea">
         <div class="row">

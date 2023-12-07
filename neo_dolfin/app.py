@@ -417,6 +417,13 @@ def open_terms_of_use_AI():
 @app.route('/articleTemplate/')
 def open_article_template():
         return render_template("articleTemplate.html") 
+
+
+# Add this route to your Flask app
+@app.route('/feedback', methods=['GET'])
+def feedback():
+    return render_template('feedback.html')
+
     
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile', methods=['GET'])
