@@ -1,0 +1,66 @@
+.popup {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(1, 119, 187, 0.74);
+    border: 0.5px solid black;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.dashboard-question {
+    display: flex;
+    justify-content: left;
+    padding-left: 30px;
+}
+
+label {
+    padding: 0px 10px 0px 10px;
+    font-size: 24px;
+}
+
+.faces {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.face {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: white;
+    z-index: 1; 
+}
+
+.face:hover {
+    background-color: rgba(225, 225, 225, 0.5);
+}
+
+.top-header {
+    padding-top: 10px;
+}
+
+.final-submit-button {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.submitting-button {
+    color: black;
+    background-color: white;
+    padding: 5px;
+}
+
+h4 {
+    text-decoration: underline;
+    color: black;
+    padding-top: 15px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.wordCount {
+    margin-right: 20px;
+    color: white;
+}

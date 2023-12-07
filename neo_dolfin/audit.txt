@@ -1,5 +1,4 @@
-[2023-11-24 17:09:33] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:38] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:41] login-fail: Failed login attempt for user admin
-[2023-11-24 17:10:00] register: User admin registered
-[2023-11-24 17:10:03] login: User admin logged in
+[2023-11-30 19:50:10.814616] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 19:54:42.607455] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 20:03:52.354610] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.

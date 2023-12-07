@@ -13,6 +13,7 @@ async-timeout==4.0.3
 asyncio==3.4.3
 attrs==23.1.0
 backcall==0.2.0
+bcrypt==4.1.1
 blinker==1.6.2
 boto3==1.28.17
 botocore==1.31.17
@@ -135,3 +136,5 @@ Werkzeug==2.3.6
 wrapt==1.15.0
 WTForms==3.0.1
 yarl==1.9.2
+
+wordcloud~=1.9.2
