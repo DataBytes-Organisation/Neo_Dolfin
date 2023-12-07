@@ -9,51 +9,22 @@ from operator import itemgetter
 import csv
 import itertools
 import datetime
+import SavingPredAIUtil as util
 
 #read input file 
-transfile = "neo_dolfin/static/modified_transactions_data.csv"
-df = pd.read_csv(transfile)
-print("File read into df")
-print(df.head(5))
+transfile = "neo_dolfin/static/data/modified_transactions_data.csv"
+df = util.read_file(path = transfile )
 
-# Then, resample the DataFrame with daily frequency and forward-fill missing values
-def data_resample(df):
-    df['postDate'] = pd.to_datetime(df['postDate'])
-    df.set_index('postDate', inplace=True)
-    df2 = df.resample('D').ffill()
-    # Reset the index to have 'postDate' as a regular column again
-    print("resampling done.. resting the index")
-    df2.reset_index(inplace=True)
-    return df2
-
-data= data_resample(df)
+#resample the DataFrame with daily frequency and forward-fill missing values
+data= util.data_resample(df)
 
 # Split the data into train and test
-def train_testsplit(df,trainsize):
-    df.set_index('postDate', inplace=True)
-    train_size = int(len(df) * trainsize)
-    traindata = df['balance'][:train_size]
-    testdata = df['balance'][train_size:]
-    return traindata,testdata
-
-train_data,test_data = train_testsplit(data,0.8)
+train_data,test_data = util.train_testsplit(data,0.8)
 print("train sample:\n", train_data.head(3))
 print("test sample:\n", test_data.head(3))
 
 # checking stationarity
-def ad_test(dataset):
-     dftest = adfuller(dataset, autolag = 'AIC')
-     print("1. ADF : ",dftest[0])
-     print("2. P-Value : ", dftest[1])
-     print("3. Num Of Lags : ", dftest[2])
-     print("4. Num Of Observations Used For ADF Regression:",      dftest[3])
-     print("5. Critical Values :")
-     for key, val in dftest[4].items():
-         print("\t",key, ": ", val)
-     if (dftest[1] > 0.05):
-        print("Data is not stationary") #if p>0.05; Data is not stationary
-     print("Data is stationary")   
-ad_test(train_data)
+util.ad_test(train_data) 
 
 print("Stationarity check performed.")
 

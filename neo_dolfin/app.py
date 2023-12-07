@@ -17,7 +17,6 @@ import ssl
 import nltk
 #import certifi
 import requests
-import requests
 import bcrypt
 import datetime
 import re
@@ -60,6 +59,7 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
+## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -149,6 +149,49 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
+# Handles the logging of an authentication or registration event to a txt output and a log database
+def add_user_audit_log(username, action, message):
+    new_log = UserAuditLog(username=username, action=action, message=message)
+    print(new_log)
+    db.session.add(new_log)
+    db.session.commit() 
+    with open("audit.txt", 'a') as file:
+        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
+
+
+# transfer user to template
+@app.context_processor
+def inject_user():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        return dict(user_id=user_id)
+    return dict()
+
+# check user_id
+@app.before_request
+def before_request():
+    def check_auth():
+        # skip
+        if request.path.startswith('/static'):
+            return
+        if request.path == '/' or request.path == '/login' or request.path == '/register':
+            return
+        # check
+        print('@session[user_id]', session.get('user_id'))
+        if session.get('user_id') is None:
+            print('————redirect')
+            return redirect('/login')
+
+    return check_auth()
+
+# make sure no cache
+@app.after_request
+def add_no_cache_header(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
+
 def add_user_audit_log(username, action, message):
     """
     Handles the logging of an authentication or registration event to a txt output and a log database.\n
@@ -167,13 +210,12 @@ def add_user_audit_log(username, action, message):
 def landing():
     return render_template('landing.html')
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
 
-        username = request.form['username']
-        password = request.form['password']
+        input_username = request.form['username']
+        input_password = request.form['password']
 
         # Retrieve the user from the (new) database
         user = UsersNew.query.filter_by(username=input_username).first()
@@ -187,11 +229,11 @@ def login():
             session['first_name'] = user.first_name
 
             # If successful, check if test user or real user.
-            row = UserTestMap.query.filter_by(userid = username).first()
+            row = UserTestMap.query.filter_by(userid = input_username).first()
             testId = 0
             if row != None:
-                 testId = row.testid
-                 print('######### test id:', testId)
+                testId = row.testid
+                print('######### test id:', testId)
 
             # Load transactional data
             #loadDatabase(testId)            
@@ -492,12 +534,12 @@ def dashboardLoader():
 ## APPLICATION NEWS PAGE   
 @app.route('/news/')
 def auth_news():
-        return render_template("news.html", current_page='news') # current_page='news' USed for Navbar. DO NOT DELETE   
+        return render_template("news.html")   
 
 ## APPLICATION FAQ PAGE 
 @app.route('/FAQ/')
 def auth_FAQ(): 
-        return render_template("FAQ.html", current_page="FAQ") #  current_page="FAQ" Used for Navbar. DO NOT DELETE
+        return render_template("FAQ.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
@@ -515,47 +557,19 @@ def open_article_template():
         return render_template("articleTemplate.html") 
     
 # APPLICATION USER SPECIFIC  PROFILE PAGE
-@app.route('/profile', methods=['GET'])
+@app.route('/profile')
 def profile():
-     # Get transaction values for account
-      if request.method == 'GET':
-        user_id = session.get('user_id')
-        con = sqlite3.connect("db/transactions_ut.db")
-        cursor = con.cursor() 
-        defacc = 'ALL'  
-        email = session.get('email') 
-
-        # Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
-        new_record = pd.DataFrame([{'account': 'ALL'}])
-        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
-        jfxx = dfxx.to_json(orient='records')
-
-        # Get transaction values for balance indicator
-        cursor.execute('SELECT amount,direction FROM transactions')
-        query = cursor.fetchall()
-        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-        jfx3 = dfx3.to_json(orient='records')   
-
-        cursor.execute('SELECT balance FROM transactions LIMIT 1')
-        query = cursor.fetchone()
-        curr_bal = query[0]
-
-        #Transactions 
-        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
-        query = cursor.fetchall()
-        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
-        jfx8 = dfx8.to_json(orient='records')
-
-        return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
-
-
+        return render_template("profile.html") 
+    
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
         return render_template('resetpw.html')
+
+# APPLICATION USER SURVEY
+@app.route('/survey')
+def survey():
+        return render_template("survey.html")
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])

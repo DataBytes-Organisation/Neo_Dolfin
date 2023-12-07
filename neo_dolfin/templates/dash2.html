@@ -13,10 +13,11 @@
     <script src="../static//js//dash_extended.js" defer></script>
       <!-- changes-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash2.css')}}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    // <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dash2.css')}}" /> -->
 </head>
 
+<!--
 <style>
     .container_pattern{
         display: flex;
@@ -31,8 +32,10 @@
       transition: opacity 0.5s ease-in-out; 
       opacity: 1; 
     }
-  </style>
-<body>
+</style>
+-->
+
+<body style="background-color: aqua;">
 
     {% include 'components/navbar.html' %}  
 
@@ -122,6 +125,12 @@
         
         </div>
       </div>
+
+    <div>
+        <p>
+            
+        </p>
+    </div>
 
     <script>
 
@@ -613,6 +622,13 @@
         });
 
     </script>
+
+    <!-- background shape elements -->
+    <div id="rectangle-background"></div>
+    <div id="rectangle-pie-charts"></div>
+    <div id="rectangle-left-graph"></div>    
+    <div id="rectangle-right-graph"></div> 
+    <div id="rectangle-balance"></div> 
 
     {% include 'components/chatbotWidget.html' %}
     {% include 'components/footer.html' %}
