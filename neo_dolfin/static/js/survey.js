@@ -42,7 +42,6 @@ function countWords(textboxClass, wordCountId) {
     }
 
     wordCountElement.textContent = words.length + ' words';
-<<<<<<< HEAD
 }
 
 function submitForm() {
@@ -145,6 +144,4 @@ function getSelectedFaceValue(containerId) {
 
 
 
-=======
-}
->>>>>>> develop
+

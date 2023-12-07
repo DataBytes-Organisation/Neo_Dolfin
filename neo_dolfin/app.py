@@ -27,10 +27,6 @@ from io import StringIO
 import pymysql
 import requests
 import json
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
