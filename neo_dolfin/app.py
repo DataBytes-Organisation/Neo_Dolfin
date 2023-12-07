@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify,flash
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -9,7 +9,8 @@ from sqlalchemy.orm import sessionmaker
 import secrets
 import boto3 as boto3
 import time 
-import pandas as pd 
+import pandas as pd
+from pandas import json_normalize 
 import os 
 from dotenv import load_dotenv
 import ssl 
@@ -20,16 +21,18 @@ import bcrypt
 import datetime
 import re
 import sqlite3
-from services.basiq_service import BasiqService
+import urllib.parse
+
 from io import StringIO
 import pymysql
 import requests
-import urllib.parse
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
-from services.basiq_service import BasiqService
+#from services.basiq_service import BasiqService
+from api.optimized_api import optimized_API
+from api.optimized_api import API_db_op
 from ai.chatbot import chatbot_logic
 
 # Access environment variables
@@ -72,22 +75,40 @@ df3 = pd.read_csv('static/data/Predicted_Balances.csv')
 # SQL Database Configure
 db = SQLAlchemy(app)
 
+# Setup BASIQ functions
+user_ops = API_db_op
+API_CORE_ops = optimized_API.Core(os.getenv('API_KEY'))
+API_DATA_ops = optimized_API.Data()
+
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+    id =        db.Column(db.Integer, primary_key=True)
+    username =  db.Column(db.String(80), unique=True, nullable=False)
+    email =     db.Column(db.String(80), unique=True, nullable=False)
+    password =  db.Column(db.String(255), nullable=False)
 
 class UserTestMap(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    userid = db.Column(db.String(80), unique=True, nullable=False)
-    testid = db.Column(db.Integer, nullable=False)
+    id =        db.Column(db.Integer, primary_key=True, autoincrement=True)
+    userid =    db.Column(db.String(80), unique=True, nullable=False)
+    testid =    db.Column(db.Integer, nullable=False)
 
 class UserAuditLog(db.Model):
     timestamp = db.Column(db.DateTime, primary_key=True, default=datetime.datetime.now)
-    username = db.Column(db.String(80), nullable=False)
-    action = db.Column(db.String(80), nullable=False)
-    message = db.Column(db.String(255), nullable=False)
+    username =  db.Column(db.String(80), nullable=False)
+    action =    db.Column(db.String(80), nullable=False)
+    message =   db.Column(db.String(255), nullable=False)
+
+# Our new User database, pending Address fields
+class UsersNew(db.Model):
+    id =        db.Column(db.Integer, primary_key=True, nullable=False)
+    username =  db.Column(db.String(30), unique=True, nullable=False)
+    email =     db.Column(db.String(255), nullable=False)
+    mobile =    db.Column(db.String(12), nullable=False)
+    first_name =    db.Column(db.String(255), nullable=False)
+    middle_name =   db.Column(db.String(255), nullable=True)
+    last_name = db.Column(db.String(255), nullable=False)
+    password =  db.Column(db.String(255), nullable=False)
+    pwd_pt =    db.Column(db.String(255), nullable=True)
+    b_id_temp = db.Column(db.String(255), nullable=True)
 
 class UserAddress(db.Model):
     __tablename__ = 'user_address'
@@ -99,50 +120,18 @@ class UserAddress(db.Model):
     state=db.Column(db.String(50), nullable=False)
     postcode = db.Column(db.String(10), nullable=False)
     validation =db.Column(db.String(10),nullable=True)
-
+    
 try:
     with app.app_context():
         db.create_all()
 except Exception as e:
     print("Error creating database:", str(e))
 
-# SQLite User Data Database Setup
-#df4.drop(['enrich', 'links'], axis=1, inplace=True) # Drop unnecessary columns
-#df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
-#df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
-#df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
-#df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
+# do, then print confirmation/error
+print(user_ops.init_dolfin_db())
 
-# Function to clean the 'subClass' column
-#def clean_subClass(row):
-#    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
-#        return 'cash-withdrawal'
-#    if row['subClass'] == '{\\title\\":\\"\\"':
-#        return 'bank-fee'
-#    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
-#    if match:
-#        extracted_subClass = match.group(1)
-#        if extracted_subClass == 'Unknown':
-#            return row['description']
-#        return extracted_subClass
-#    return row['subClass']
-
-# df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
-# df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
-# Check if the SQLite database file already exists
-# db_file = "db/transactions_ut.db"
-# if not os.path.exists(db_file):
-    # If the database file doesn't exist, create a new one
-#     conn = sqlite3.connect(db_file)
-    # Import the cleaned DataFrame to the SQLite database
-#     df4.to_sql("transactions", conn, if_exists="replace", index=False)
-#     conn.close()
-# else:
-    # If the database file already exists, connect to it
-#     conn = sqlite3.connect(db_file)
-
-## Basiq API 
-basiq_service = BasiqService()
+# Debug and easy testing
+# print(API_CORE_ops.generate_auth_token())
 
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
 class GeoLockChecker(object):
@@ -172,14 +161,17 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
-# Handles the logging of an authentication or registration event to a txt output and a log database
 def add_user_audit_log(username, action, message):
+    """
+    Handles the logging of an authentication or registration event to a txt output and a log database.\n
+    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
+    """
     new_log = UserAuditLog(username=username, action=action, message=message)
-    print(new_log)
     db.session.add(new_log)
     db.session.commit() 
     with open("audit.txt", 'a') as file:
         file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
+    print(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
 
 
 # transfer user to template
@@ -228,13 +220,16 @@ def login():
         input_username = request.form['username']
         input_password = request.form['password']
 
-        # Retrieve the user from the database
-        user = User.query.filter_by(username=input_username).first()
+        # Retrieve the user from the (new) database
+        user = UsersNew.query.filter_by(username=input_username).first()
 
-        # Check if the user exists and the password is correct with stored hash
+        # If username is correct, check if the input password (once hashed) matches the hash in the users record.
+        # If both are true, send relevant information to session.
         if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
+            session['basiq_id'] = user.b_id_temp
+            session['first_name'] = user.first_name
 
             # If successful, check if test user or real user.
             row = UserTestMap.query.filter_by(userid = input_username).first()
@@ -244,32 +239,33 @@ def login():
                 print('######### test id:', testId)
 
             # Load transactional data
-            loadDatabase(testId)            
+            #loadDatabase(testId)            
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
+
+            ## This section should be done on authentication to avoid empty filling the dash
+            print(user_ops.clear_transactions())                        # Ensure no previous data remains from a previous user etc.
+            cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
+            #print(cache)                                               # used for testing and debugging
+            print(user_ops.cache_transactions(cache))                   # Insert cahce in to database and confirm success
+
             # redirect to the dashboard.
             return redirect('/dash')
         
-        ## Otherwise:
-        # log un-successful authentication challenge
-        add_user_audit_log(input_username, 'login-fail', 'User login failed.')
+        ## Otherwise, fail by default:
+        add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
 
-## SIGN OUT
-@app.route('/signout')
-def sign_out():
-    session.pop('user_id', None)
-    return redirect('/')
-
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+
     if request.method == 'POST':
-        input_username = request.form['username']
-        input_email = request.form['email']
-        input_password = request.form['password']
+        input_username  = request.form['username']
+        input_email     = request.form['email']
+        input_password  = request.form['password']
         address1 = request.form['address1']
         address2 = request.form['address2']
         suburb = request.form['suburb']
@@ -281,34 +277,48 @@ def register():
         validation_checkbox = True if 'validation' in request.form else False
 
         print("under register func")
-        # Hash password
-        input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
-        #print(input_password)
-        #print(input_password.decode())
 
+        # Encode password into bytes, Hash password, add salt
+        input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+        """ OLD DB FORMAT:
         # Check if the username or email already exists in the database
         existing_user = User.query.filter_by(username=input_username).first()
         existing_email = User.query.filter_by(email=input_email).first()
 
-        if existing_user or existing_email:
-            add_user_audit_log(input_username, 'register-fail', 'User registration failed.')
-            return 'Username or email already exists. Please choose a different one.'
-
-        # Create a new user and add it to the database
+        # OLD Create a new user and add it to the database
         new_user = User(username=input_username, email=input_email, password=input_password)
         db.session.add(new_user)
         db.session.commit()
+        """
+        #
+        existing_user = UsersNew.query.filter_by(username=input_username).first()
+        existing_email = UsersNew.query.filter_by(email=input_email).first()
+        print(existing_user)
+
+        # If user exists, they need to retry.
+        if existing_user or existing_email:
+            add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
+            return 'Username or email already exists. Please choose a different one.'
+
+        # Create a new user and add it to the users_new database
+        # Names are currently hard coded pending name fields in registration
+        new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
+                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+
+        print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
+        print(user_ops.link_bank_account(new_user.id))      # A user will need to link an account to their Basiq entity (that they won't see the entity)
+        # Log result
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
-        print("New user added in user")
 
         # create a new mapping for a user
+        # not relevant in users_new but remains in if need for later database gen
         new_user_id = new_user.id
         new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
         db.session.add(new_user_map)
         db.session.commit()
-        print("New user added in map")
-
-        
 
         # Validate address using AddressFinder API and Create a new user address entry to the database
         user = User.query.filter_by(id=new_user_id).first()
@@ -372,15 +382,36 @@ def checkAF_response(responsedata):
             # Address is not valid
             print("invalid address...")
             return False
-                        
+
+        return redirect('/login')
+
+    return render_template('register.html')  # Create a registration form in the HTML template
+
+## SIGN OUT
+@app.route('/signout')
+def sign_out():
+    user_ops.clear_transactions()
+    session.pop('user_id', None)
+    return redirect('/')
 
 @app.route('/dash',methods=['GET','POST'])
 def auth_dash2(): 
-
+    user_id     = session.get('user_id') # Not used right now.
+    first_name  = session.get('first_name')
     if request.method == 'GET':
-        user_id = session.get('user_id')
-        con = sqlite3.connect("db/transactions_ut.db")
-        cursor = con.cursor() 
+        # From session variable, user the user's first name in:
+        #   Welcome message
+        #   ...
+
+
+        #con = sqlite3.connect("db/transactions_ut.db")
+        #con = sqlite3.connect("db/user_database.db")
+
+        # connect to the newly loaded transactions database, for dashboard to do its thing.
+        con = sqlite3.connect("transactions_ut.db")
+        cursor = con.cursor()
+
+        ## Accout relative code here
 
         defacc = 'ALL'
 
@@ -433,7 +464,7 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=user_id, jsxx=jfxx, defacc=defacc)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc)
         
     if request.method == "POST":
             # Get the account value from the JSON payload
@@ -445,7 +476,7 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("db/transactions_ut.db")
+            con = sqlite3.connect("transactions_ut.db")
             cursor = con.cursor() 
             
             cursor.execute('SELECT DISTINCT account FROM transactions')
@@ -503,7 +534,7 @@ def auth_dash2():
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
-                'user_id': user_id,
+                'user_id': first_name,
                 'jsxx': jfxx,
                 'defacc': defacc,
             }
@@ -513,7 +544,7 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("db/transactions_ut.db")
+            con = sqlite3.connect("transactions_ut.db")
             cursor = con.cursor() 
 
             defacc = account_value
@@ -573,7 +604,7 @@ def auth_dash2():
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
-                'user_id': user_id,
+                'user_id': first_name,
                 'jsxx': jfxx,
                 'defacc': defacc,
             }
