@@ -42,14 +42,19 @@ def survey():
 @app.route("/submit", methods=["POST"])
 def submit():
     print("under surveysubmit function...")
-    email = request.form['email']
-    response1 = request.form['response1']
-    response2 = request.form['response2']
+    email = "testmail"
+    if request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        # Do something with the rating (e.g., store it in a database)
+        return "Feedback received successfully"
+    else:
+        return "Invalid request method"
 
     #email = User.query.filter_by(email=email).first()
-    response = Response(email=email, response1=response1, response2=response2)
+    """response = Response(email=email, response1=response1, response2=response2)
     db.session.add(response)
-    db.session.commit()
+    db.session.commit()"""
 
     return "Thank you for your Feedback!"
     

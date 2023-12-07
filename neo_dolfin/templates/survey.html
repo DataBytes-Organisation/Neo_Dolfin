@@ -38,23 +38,23 @@
             <form>
                 <h4 class="top-header">Have you seen the information you wanted on the dashboard?</h4>
                 <div class="dashboard-question">
-                  <input type="radio" name="question1" id="dashboard-question-yes1" onclick="showHideTextArea('dashboard-question-no1', 'textAreaContainer1')">
+                  <input type="radio" name="question1" id="dashboard-question-yes1" onclick="showHideTextArea('dashboard-question-yes1', 'textAreaContainer1')">
                   <label for="dashboard-question-yes1">Yes</label>
                   <input type="radio" name="question1" id="dashboard-question-no1" onclick="showHideTextArea('dashboard-question-no1', 'textAreaContainer1')">
                   <label for="dashboard-question-no1">No</label>
                 </div>
                 <div style="display:none;" id="textAreaContainer1">
-                  <textarea class="dashboard-textbox-box" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
+                  <textarea class="dashboard-textbox-box" placeholder="Elaborate in 100 words or less" rows="3" cols="160" onclick="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
                   <div class="wordCount" id="wordCount1">0 words</div>
                 </div>
 
                 <h4>How satisfied are you with the Dolfin app's user interface and navigation?</h4>
                 <div class="faces" id="faces2">
-                  <span class="face" onclick="changeColor(this, 'faces2', 1)" id="face2_1">Very unsatisified</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 2)" id="face2_2">Unsatisified</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 3)" id="face2_3">Neutral</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 4)" id="face2_4">Satisfied</span>
-                  <span class="face" onclick="changeColor(this, 'faces2', 5)" id="face2_5">Very satisfied</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 'Very unsatisified')" id="face2_1">Very unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 'Unsatisified')" id="face2_2">Unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 'Neutral')" id="face2_3">Neutral</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 'Satisfied')" id="face2_4">Satisfied</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 'Very satisfied')" id="face2_5">Very satisfied</span>
               </div>
 
                 <h4>How easy was it to access and interpret the predicted yearly balance and expenditure categories displayed on the dashboard?</h4>
@@ -67,18 +67,18 @@
               </div>
                 <h4>Were the features provided by Dolfin (such as budgeting tools, expenditure breakdowns) helpful in managing your finances?</h4>
                 <div class="dashboard-question">
-                  <input type="radio" name="question2" id="dashboard-question-yes2" onclick="showHideTextArea('dashboard-question-no2', 'textAreaContainer2')">
+                  <input type="radio" name="question2" id="dashboard-question-yes2" onclick="showHideTextArea('dashboard-question-yes2', 'textAreaContainer2')">
                   <label for="dashboard-question-yes2">Yes</label>
                   <input type="radio" name="question2" id="dashboard-question-no2" onclick="showHideTextArea('dashboard-question-no2', 'textAreaContainer2')">
                   <label for="dashboard-question-no2">No</label>
                 </div>
                 <div style="display:none;" id="textAreaContainer2">
-                  <textarea class="dashboard-textbox-box2" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box2', 'wordCount2')"></textarea>
+                  <textarea class="dashboard-textbox-box2" id="response2" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box2', 'wordCount2')"></textarea>
                   <div class="wordCount" id="wordCount2">0 words</div>
                 </div>
                 <h4>Did you encounter any challenges or limitations while using specific features on the Dolfin app related to predicting yearly balance or expenditure categories?</h4>
                 <div class="dashboard-question">
-                  <input type="radio" name="question3" id="dashboard-question-yes3" onclick="showHideTextArea('dashboard-question-no3', 'textAreaContainer3')">
+                  <input type="radio" name="question3" id="dashboard-question-yes3" onclick="showHideTextArea('dashboard-question-yes3', 'textAreaContainer3')">
                   <label for="dashboard-question-yes3">Yes</label>
                   <input type="radio" name="question3" id="dashboard-question-no3" onclick="showHideTextArea('dashboard-question-no3', 'textAreaContainer3')">
                   <label for="dashboard-question-no3">No</label>
@@ -103,7 +103,7 @@
                 
                 <h4>Are there any concerns or suggestions you have regarding the privacy or security of your financial information while using Dolfin?</h4>
                 <div id="textAreaContainer5">
-                  <textarea class="dashboard-textbox-box5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box5', 'wordCount5')"></textarea>
+                  <textarea class="dashboard-textbox-box5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWordsAndCreateJSON('dashboard-textbox-box5', 'wordCount5')"></textarea>
                   <div class="wordCount" id="wordCount5">0 words</div>
                 </div>
                 <h4>How did you feel we did (1-poor to 5-excllent)?</h4>
@@ -116,7 +116,7 @@
                   <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
                 </div>
                 <div class="final-submit-button">
-                    <button type="submit" class="submitting-button">Submit</button>
+                  <button type="button" onclick="submitsurvey()">Submit</button>
                 </div>
                 
         
