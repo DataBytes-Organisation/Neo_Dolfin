@@ -35,5 +35,3 @@ function countWords(textboxClass, wordCountId) {
 
     wordCountElement.textContent = words.length + ' words';
 }
-
-
