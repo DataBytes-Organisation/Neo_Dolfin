@@ -13,7 +13,6 @@ import hashlib
 import hmac
 import base64
 import sqlite3
-import qrcode
 import logging 
 import datetime
 from services.basiq_service import BasiqService

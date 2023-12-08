@@ -35,7 +35,7 @@
   <div id="mainNewsColumns" class="container">
     <div class="row" style="min-height: 700px;">
         <div class="popup" id="feedbackPopup">
-            <form>
+            <form id="surveyForm" method="POST">
                 <h4 class="top-header">Have you seen the information you wanted on the dashboard?</h4>
                 <div class="dashboard-question">
                   <input type="radio" name="question1" id="dashboard-question-yes1" onclick="showHideTextArea('dashboard-question-no1', 'textAreaContainer1')">
@@ -44,7 +44,7 @@
                   <label for="dashboard-question-no1">No</label>
                 </div>
                 <div style="display:none;" id="textAreaContainer1">
-                  <textarea class="dashboard-textbox-box" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
+                  <textarea class="dashboard-textbox-box" id="text-box-1" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
                   <div class="wordCount" id="wordCount1">0 words</div>
                 </div>
 
@@ -73,7 +73,7 @@
                   <label for="dashboard-question-no2">No</label>
                 </div>
                 <div style="display:none;" id="textAreaContainer2">
-                  <textarea class="dashboard-textbox-box2" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box2', 'wordCount2')"></textarea>
+                  <textarea class="dashboard-textbox-box2" id="text-box-2" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box2', 'wordCount2')"></textarea>
                   <div class="wordCount" id="wordCount2">0 words</div>
                 </div>
                 <h4>Did you encounter any challenges or limitations while using specific features on the Dolfin app related to predicting yearly balance or expenditure categories?</h4>
@@ -84,7 +84,7 @@
                   <label for="dashboard-question-no3">No</label>
                 </div>
                 <div style="display:none;" id="textAreaContainer3">
-                  <textarea class="dashboard-textbox-box3" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box3', 'wordCount3')"></textarea>
+                  <textarea class="dashboard-textbox-box3" id="text-box-3" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box3', 'wordCount3')"></textarea>
                   <div class="wordCount" id="wordCount3">0 words</div>
                 </div>
                 <h4>How frequently did you access the dashboard to view the predicted yearly balance and expenditure categories?</h4>
@@ -97,13 +97,13 @@
                 </div>
                 <h4>What additional features or functionalities would you like to see implemented on the Dolfin app to enhance its usability and usefulness?</h4>
                 <div id="textAreaContainer4">
-                  <textarea class="dashboard-textbox-box4" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box4', 'wordCount4')"></textarea>
+                  <textarea class="dashboard-textbox-box4" id="text-box-4" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box4', 'wordCount4')"></textarea>
                   <div class="wordCount" id="wordCount4">0 words</div>
                 </div>
                 
                 <h4>Are there any concerns or suggestions you have regarding the privacy or security of your financial information while using Dolfin?</h4>
                 <div id="textAreaContainer5">
-                  <textarea class="dashboard-textbox-box5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box5', 'wordCount5')"></textarea>
+                  <textarea class="dashboard-textbox-box5" id="text-box-5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box5', 'wordCount5')"></textarea>
                   <div class="wordCount" id="wordCount5">0 words</div>
                 </div>
                 <h4>How did you feel we did (1-poor to 5-excllent)?</h4>
@@ -116,7 +116,7 @@
                   <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
                 </div>
                 <div class="final-submit-button">
-                    <button type="submit" class="submitting-button">Submit</button>
+                    <button type="button" class="submitting-button" onclick="submitForm()">Submit</button>
                 </div>
                 
         

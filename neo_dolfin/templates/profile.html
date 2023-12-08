@@ -11,48 +11,143 @@
 </head>
 
 <body>
+    {% include 'components/navbar.html' %}
+   <!-- Add this button in your navigation menu -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('feedback') }}">
+            <button type="button" class="btn btn-outline-primary">Give us Feedback!</button>
+        </a>
+    </li>
 
-	{% include 'components/navbar.html' %}
+    <div class="container" id="mainTitleArea">
+        <div class="row">
+            <div class="col">
+                <h1 id="articleTitle", style="font-size: xxx-large;">User Profile</h1>
+                <br>
+            </div>
+        </div>
+        <svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container bootstrap snippets bootdey">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel rounded shadow" style="background-color: rgb(245, 245, 245);">
+                    <div class="panel-body">
+                        <div class="inner-all">
+                            <ul class="list-unstyled">
+                                <li class="text-center">
+                                    <img class="profile-img"
+                                        src="{{ url_for('static', filename='logo/dolfinlogoborder.png') }}" alt="profile-img"
+                                        style="width: 170px; height: 170px;">
+                                </li>
+                                <li class="text-center">
+                                    <h4 class="text-capitalize"> {{user_id}}</h4>
+                                    <p class="text-muted text-capitalize">{{email}}</p>
+                                </li>
+                                <li class="text-center">
+                                    <br>
+                                    <p class="text-muted text-capitalize">Manage Account</p>
+                                </li>
+                                <li><br></li>
+                                <li>
+                                    <div class="btn-group-vertical btn-block">
+                                        <a href="" class="btn btn-default"><i
+                                                class="fa fa-cog pull-right"></i>Edit Account</a>
+                                        <a href="/" class="btn btn-default"><i
+                                                class="fa fa-sign-out pull-right"></i>Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel rounded shadow no-overflow" style="background-color: rgb(245, 245, 245); max-height: 400px; overflow-y: auto;">
+                    <div class="panel-body">
+                        <div class="inner-cover">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="panel rounded shadow no-overflow" style="background-color: rgb(245, 245, 245); max-height: 400px; overflow-y: auto;">
+                    <div class="panel-body">
+                        <div class="p-1">
+                            <p style="font-size: x-large;"> <strong> Account Info </strong> 
+                            </p>
+                        </div>
+                        <div class="p-3">
+                            <p> <strong> Current Balance: </strong> <br>
+                                $<span id="currentBalance">{{ jsd6 | safe }}</span>
+                            </p>
+                        </div>
+                        <div class="p-3">
+                            <p><strong> Transaction History: </strong></p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Class</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                            <tbody id="transactionHistoryDropdown">
+                                <script>
+                                    var jsd8DataString = '{{ jsd8|tojson|safe }}';
+                                    
+                                    // Remove outer double quotes which caused whitespace erro 
+                                    var jsonData = jsd8DataString.trim();
+                                    if (jsonData.charAt(0) === '"' && jsonData.charAt(jsonData.length - 1) === '"') {
+                                        jsonData = jsonData.slice(1, -1);
+                                    }
+                                
+                                    // Output the content of jsonData to the console for debugging
+                                    console.log(jsonData);
+                                
+                                    try {
+                                        console.log('Parsed Data:', JSON.parse(jsonData));
+                                
+                                        var jsd8Data = JSON.parse(jsonData);
+                                
+                                        var tableBody = document.getElementById('transactionHistoryDropdown');
+                                
+                                        // Iterate through the data and create table rows
+                                        jsd8Data.forEach(function(transaction) {
+                                            var row = tableBody.insertRow();
+                                            var cell1 = row.insertCell(0);
+                                            var cell2 = row.insertCell(1);
+                                            var cell3 = row.insertCell(2);
+                                
+                                            cell1.textContent = transaction.amount;
+                                            cell2.textContent = transaction.class;
+                                            cell3.textContent = `${transaction.day}/${transaction.month}/${transaction.year}`;
+                                        });
+                                    } catch (error) {
+                                        console.error('Error parsing JSON:', error);
+                                    }
+                                </script>
+                                
+                                
 
-	<div>
-		<div class="container" id="mainTitleArea">
-			<div class="row">
-				<div class="col">
-					<h1 id="articleTitle">User Profile</h1>
-				</div>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-			</div>
-			<svg height="12" id="articleBreak" width="100%" xmlns="http://www.w3.org/2000/svg">
-				<rect fill="#343A40" height="12" width="100%"></rect>
-			</svg>
-		</div>
-		<div class="container" id="firstSection">
-			<div class="row">
-				<div class="col">
-					<p id="p1">User Information</p>
-				</div>
-
-		<div class="container" id="secondsection">
-			<div class="row">
-				<div class="col">
-					<p id="p3">Username: {{username}} </p>
-					<p id="p4">Email Address: {{email}} </p>
-
-				</div>
-				
-			<div>
-				<p id="p2">Reset Password</p>
-				<a class="btn btn-primary" href="/resetpw" role="button">Reset Password</a>
-			</div>
-			</br>
-			<!-- IMPLEMENT CHATBOT HERE -->
-			{% include 'components/chatbotWidget.html' %}
-		</div>
-		{% include 'components/footer.html' %}
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-	</div>
+    {% include 'components/footer.html' %}
+    <script>
+        //console log for debug stuff
+        console.log('{{ jsd8|tojson|safe }}');
+        var jsd8Data = '{{ jsd8|tojson|safe }}';
+        console.log(jsd8Data);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

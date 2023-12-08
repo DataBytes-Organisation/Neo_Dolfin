@@ -4,3 +4,8 @@
 [2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-01 23:44:50.378236] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-01 23:48:18.698657] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 14:52:12.137739] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 15:43:24.684804] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 16:48:30.325457] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-04 20:46:22.678779] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-04 21:05:02.746064] [user-login-success]  username: tester:  User logged in successfully.
