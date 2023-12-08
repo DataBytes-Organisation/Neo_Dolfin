@@ -73,7 +73,7 @@ def predict_class(sentence):
     return results
 
 # Capture the user's speech input
-def listen_to_user():
+def listen_to_user(): 
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -294,8 +294,6 @@ def get_response(intents_list, intents_json, message):
                     else:
                         result = "Couldn't extract the required month and year information from your message."
                         #debugging:    result = f"month: {len(month_list)} year:{len(year_list)}."
-
-
                 elif tag == "highest_spending":
                     months, years = extract_month_year(message)
                     if len(months) == 1 and len(years) == 1:
@@ -337,7 +335,6 @@ def get_response(intents_list, intents_json, message):
                             result = "Data not found." #recent data not found
                     else:
                         result = "Couldn't extract a single month and year from your message."
-
                 elif tag == "average_spending": #divide amount spent in a specific year, or a specific month of a year by the number of days in that specific year/month. Prints average spent amount per day.
                     months, years = extract_month_year(message)
                     if len(months) == 1 and len(years) == 1: #if both month and year is given
@@ -345,7 +342,7 @@ def get_response(intents_list, intents_json, message):
                         year = years[0]
                         month_day_count = get_month_day_count(month, year)
                         total_spending = get_total_negative_amount_for_month_year(conn, month, year)
-                        if total_spending: 
+                        if total_spending:
                             average_spending = total_spending / month_day_count
                             result = f"Your average spending for {get_month_name(month)} {year} was ${average_spending * -1:.2f} per day." #make positive
                         else:
@@ -355,7 +352,7 @@ def get_response(intents_list, intents_json, message):
                         year = 2023 ### TEMPORARY value because there is an issue with dataset. replace with:
                         #year = get_current_year(conn)
                         month = months[0]
-                        total_spending = get_total_negative_amount_for_year(conn, year)
+                        total_spending = get_total_negative_amount_for_month_year(conn, month, year)
                         if total_spending: 
                             month_day_count = get_month_day_count(month, year)
                             average_spending = total_spending / month_day_count

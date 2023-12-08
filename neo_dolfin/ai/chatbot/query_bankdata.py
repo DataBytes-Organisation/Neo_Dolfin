@@ -13,7 +13,7 @@ def get_last_balance_for_month_year(conn, month, year):
     final_balance = result[0] if result else 0
     return final_balance
 
-def get_balance_for_specific_day(conn, day, month, year): ## atacolak
+def get_balance_for_specific_day(conn, day, month, year):
     cursor = conn.cursor()
     cursor.execute(f"SELECT balance FROM transactions WHERE day = ? AND month = ? AND year = ? ORDER BY transactionDate DESC, id DESC LIMIT 1", (day, month, year))
     result = cursor.fetchone()
@@ -27,7 +27,7 @@ def get_total_balance_for_year(conn, year):
     total_balance = result[0] if result[0] is not None else 0
     return total_balance
 
-def get_total_balance_for_year_until(conn, month, year): ##wip, maybe dont need
+def get_total_balance_for_year_until(conn, month, year):
     cursor = conn.cursor()
     cursor.execute(f"SELECT SUM(balance) FROM transactions WHERE year = ? AND month <= ?", (year, month))
     result = cursor.fetchone()
