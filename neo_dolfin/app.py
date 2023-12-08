@@ -27,6 +27,7 @@ from io import StringIO
 import pymysql
 import requests
 import json
+from ai.cloud import word_cloud, expenditure_cluster_model
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -404,7 +405,6 @@ def auth_dash2():
         #   Welcome message
         #   ...
 
-
         #con = sqlite3.connect("db/transactions_ut.db")
         #con = sqlite3.connect("db/user_database.db")
 
@@ -640,6 +640,13 @@ def open_terms_of_use_AI():
 @app.route('/articleTemplate/')
 def open_article_template():
         return render_template("articleTemplate.html") 
+
+
+# Add this route to your Flask app
+@app.route('/feedback', methods=['GET'])
+def feedback():
+    return render_template('feedback.html')
+
     
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
@@ -714,6 +721,34 @@ def chatbot():
         return jsonify(message)
     return render_template('chatbot.html')
 
+global current_trans_data_with_level
+@app.route('/dash/epv')
+def epv_load():
+    global current_trans_data_with_level
+    con = sqlite3.connect("transactions_ut.db")
+    cursor = con.cursor()
+    query = "SELECT * FROM transactions"
+    cursor.execute(query)
+
+    data = cursor.fetchall()
+    columns = [description[0] for description in cursor.description]
+    trans_data = pd.DataFrame(data, columns=columns)
+    con.close()
+    trans_data_with_level, data_cluster = expenditure_cluster_model.cluster(trans_data)
+    current_trans_data_with_level = trans_data_with_level
+    re = {
+        'data_cluster': data_cluster
+    }
+    return jsonify(re)
+
+
+@app.route('/dash/epv/generate_word_cloud', methods=['POST'])
+def generate_wordcloud():
+    data = request.json
+    level = data.get('level', 'level 0')
+    mode = data.get('mode', 'default')
+    response = word_cloud.generate(current_trans_data_with_level, level, mode)
+    return response
 # Run the Flask appp
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000, debug=True, threaded=False)
