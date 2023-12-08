@@ -10,7 +10,7 @@ gcloud auth login
 gcloud auth configure-docker
 
 # Build the Docker image
-docker build -t ${IMAGE_NAME}:${TAG} .
+docker buildx build --no-cache --platform=linux/amd64 -t ${IMAGE_NAME}:${TAG} .
 
 # Tag the image for uploading to Google Container Registry
 docker tag ${IMAGE_NAME}:${TAG} gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${TAG}
