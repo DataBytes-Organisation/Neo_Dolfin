@@ -1,0 +1,42 @@
+.container-epv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chart-epv{
+    width:900px;
+    height:500px;
+}
+.cloud-epv{
+    width:900px;
+    height:550px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+ .image-epv{
+    width:600px;
+    height:300px;
+ }
+
+.button-container-epv{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 80px ;
+    margin-right: 80px;
+}
+.button-epv{
+    width: 180px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-epv:hover {
+    background-color: #367c39;
+}

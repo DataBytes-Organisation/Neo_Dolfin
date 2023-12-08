@@ -1,0 +1,4 @@
+[2023-12-05 14:12:27.042636] [user-login-fail]  username: genie:  User login failed.
+[2023-12-05 14:12:41.626831] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-05 14:12:54.632698] [user-login-success]  username: django:  User logged in successfully.
+[2023-12-05 14:13:13.296527] [user-login-success]  username: richard:  User logged in successfully.

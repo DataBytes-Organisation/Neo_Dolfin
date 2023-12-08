@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DolFin - News</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+  <link rel="stylesheet" type="text/css" href="../static/css/survey.css">
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
+  </style>
+  <script src="{{url_for('static', filename='js/survey.js')}}"></script>
+</head>
+
+<body>
+  <!-- IMPLEMENT NAV BAR HERE -->
+  {% include 'components/navbar.html' %}
+
+  <div id="mainBody">
+
+    <div id="headerSection" class="p-5">
+      <h1 id="headerTitle" class="display-1 text-center ">Survey</h1>
+    </div>
+
+    <svg id="rectangleDivider" width="100%" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="12" fill="#343A40" />
+    </svg>
+  </div>
+
+  <div id="mainNewsColumns" class="container">
+    <div class="row" style="min-height: 700px;">
+        <div class="popup" id="feedbackPopup">
+            <form id="surveyForm" method="POST">
+                <h4 class="top-header">Have you seen the information you wanted on the dashboard?</h4>
+                <div class="dashboard-question">
+                  <input type="radio" name="question1" id="dashboard-question-yes1" onclick="showHideTextArea('dashboard-question-no1', 'textAreaContainer1')">
+                  <label for="dashboard-question-yes1">Yes</label>
+                  <input type="radio" name="question1" id="dashboard-question-no1" onclick="showHideTextArea('dashboard-question-no1', 'textAreaContainer1')">
+                  <label for="dashboard-question-no1">No</label>
+                </div>
+                <div style="display:none;" id="textAreaContainer1">
+                  <textarea class="dashboard-textbox-box" id="text-box-1" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box', 'wordCount1')"></textarea>
+                  <div class="wordCount" id="wordCount1">0 words</div>
+                </div>
+
+                <h4>How satisfied are you with the Dolfin app's user interface and navigation?</h4>
+                <div class="faces" id="faces2">
+                  <span class="face" onclick="changeColor(this, 'faces2', 1)" id="face2_1">Very unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 2)" id="face2_2">Unsatisified</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 3)" id="face2_3">Neutral</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 4)" id="face2_4">Satisfied</span>
+                  <span class="face" onclick="changeColor(this, 'faces2', 5)" id="face2_5">Very satisfied</span>
+              </div>
+
+                <h4>How easy was it to access and interpret the predicted yearly balance and expenditure categories displayed on the dashboard?</h4>
+                <div class="faces" id="faces3">
+                  <span class="face" onclick="changeColor(this, 'faces3', 1)" id="face3_1">Very Difficult</span>
+                  <span class="face" onclick="changeColor(this, 'faces3', 2)" id="face3_2">Slightly Difficult</span>
+                  <span class="face" onclick="changeColor(this, 'faces3', 3)" id="face3_3">Neither Difficult nor Easy</span>
+                  <span class="face" onclick="changeColor(this, 'faces3', 4)" id="face3_4">Slightly Easy</span>
+                  <span class="face" onclick="changeColor(this, 'faces3', 5)" id="face3_5">Very Easy</span>
+              </div>
+                <h4>Were the features provided by Dolfin (such as budgeting tools, expenditure breakdowns) helpful in managing your finances?</h4>
+                <div class="dashboard-question">
+                  <input type="radio" name="question2" id="dashboard-question-yes2" onclick="showHideTextArea('dashboard-question-no2', 'textAreaContainer2')">
+                  <label for="dashboard-question-yes2">Yes</label>
+                  <input type="radio" name="question2" id="dashboard-question-no2" onclick="showHideTextArea('dashboard-question-no2', 'textAreaContainer2')">
+                  <label for="dashboard-question-no2">No</label>
+                </div>
+                <div style="display:none;" id="textAreaContainer2">
+                  <textarea class="dashboard-textbox-box2" id="text-box-2" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box2', 'wordCount2')"></textarea>
+                  <div class="wordCount" id="wordCount2">0 words</div>
+                </div>
+                <h4>Did you encounter any challenges or limitations while using specific features on the Dolfin app related to predicting yearly balance or expenditure categories?</h4>
+                <div class="dashboard-question">
+                  <input type="radio" name="question3" id="dashboard-question-yes3" onclick="showHideTextArea('dashboard-question-no3', 'textAreaContainer3')">
+                  <label for="dashboard-question-yes3">Yes</label>
+                  <input type="radio" name="question3" id="dashboard-question-no3" onclick="showHideTextArea('dashboard-question-no3', 'textAreaContainer3')">
+                  <label for="dashboard-question-no3">No</label>
+                </div>
+                <div style="display:none;" id="textAreaContainer3">
+                  <textarea class="dashboard-textbox-box3" id="text-box-3" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box3', 'wordCount3')"></textarea>
+                  <div class="wordCount" id="wordCount3">0 words</div>
+                </div>
+                <h4>How frequently did you access the dashboard to view the predicted yearly balance and expenditure categories?</h4>
+                <div class="faces" id="faces4">
+                    <span class="face" onclick="changeColor(this, 'faces4', 1)" id="face4_1">Daily</span>
+                    <span class="face" onclick="changeColor(this, 'faces4', 2)" id="face4_2">Weekly</span>
+                    <span class="face" onclick="changeColor(this, 'faces4', 3)" id="face4_3">Fortnightly</span>
+                    <span class="face" onclick="changeColor(this, 'faces4', 4)" id="face4_4">Monthly</span>
+                    <span class="face" onclick="changeColor(this, 'faces4', 5)" id="face4_5">Yearly</span>
+                </div>
+                <h4>What additional features or functionalities would you like to see implemented on the Dolfin app to enhance its usability and usefulness?</h4>
+                <div id="textAreaContainer4">
+                  <textarea class="dashboard-textbox-box4" id="text-box-4" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box4', 'wordCount4')"></textarea>
+                  <div class="wordCount" id="wordCount4">0 words</div>
+                </div>
+                
+                <h4>Are there any concerns or suggestions you have regarding the privacy or security of your financial information while using Dolfin?</h4>
+                <div id="textAreaContainer5">
+                  <textarea class="dashboard-textbox-box5" id="text-box-5" placeholder="Elaborate in 100 words or less" rows="3" cols="160" oninput="countWords('dashboard-textbox-box5', 'wordCount5')"></textarea>
+                  <div class="wordCount" id="wordCount5">0 words</div>
+                </div>
+                <h4>How did you feel we did (1-poor to 5-excllent)?</h4>
+                <br>
+                <div class="faces" id="faces1">
+                  <span class="face" onclick="changeColor(this, 'faces1', 1)" id="face1_1">1</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 2)" id="face1_2">2</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 3)" id="face1_3">3</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 4)" id="face1_4">4</span>
+                  <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
+                </div>
+                <div class="final-submit-button">
+                    <button type="button" class="submitting-button" onclick="submitForm()">Submit</button>
+                </div>
+                
+        
+                
+            </form>
+        </div>
+        
+        
+        
+    </div>
+
+      
+  </div>
+
+  <!-- IMPLEMENT CHATBOT HERE -->
+  {% include 'components/chatbotWidget.html' %}
+
+  </div>
+  {% include 'components/footer.html' %}
+  
+</body>
+
+</html>

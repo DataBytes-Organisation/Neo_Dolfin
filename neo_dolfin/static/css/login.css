@@ -55,7 +55,7 @@ body {
 }
 
 .auth-link {
-    font-family: 'Anybody', sans-serif;
+    /* font-family: 'Anybody', sans-serif; */
     font-weight: bold;
     color: white; /* Adjust the color as needed */
     text-decoration: none; /* Removes underline */
@@ -121,7 +121,7 @@ body {
     top: 130px;
     position: absolute;
     color: #787878;
-    font-family: Archivo;
+    /* font-family: Archivo; */
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
@@ -133,7 +133,7 @@ body {
     top: 70px;
     position: absolute;
     color: #000;
-    font-family: Archivo;
+    /* font-family: Archivo; */
     font-size: 60px;
     font-style: normal;
     font-weight: 800;
@@ -153,7 +153,7 @@ body {
 {
     position: relative;
     top:18.75rem;
-    left:3.125rem;
+    left:5.125rem;
     width: 33rem;
     height: 27.5rem;
     background-color: rgb(255, 255, 255);
@@ -168,12 +168,12 @@ body {
     left: 50px;
     width: 650px;
     color: #000;
-font-family: Archivo;
-font-size: 30px;
-font-style: normal;
-font-weight: 700;
-line-height: 146.88%;
-letter-spacing: -0.8px;
+/* font-family: Archivo; */
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 146.88%;
+    letter-spacing: -0.8px;
 }
 
 .tips
@@ -184,12 +184,12 @@ letter-spacing: -0.8px;
     left: 50px;
     width: 650px;
     color: #000;
-font-family: Archivo;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: 146.88%;
-letter-spacing: -0.8px;
+/* font-family: Archivo; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 146.88%;
+    letter-spacing: -0.8px;
 }
 
 
