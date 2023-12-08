@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Data Visualizations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    {% include 'components/navbar.html' %}
+
+    <h1 id="articleTitle", style="font-size: xxx-large;">Here's how Dolfin's tracking with customers </h1>
+
+
+    {% block content %}
+      
+      {% for category, chart in chart_data.items() %}
+        <h2>{{ category }}</h2>
+        <img src="data:image/png;base64,{{ chart }}" alt="{{ category }} Chart">
+      {% endfor %}
+    {% endblock %}
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

@@ -10,6 +10,7 @@
     <link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Add any additional CSS styles for your feedback page -->
+  
 </head>
 
 <body>
@@ -42,7 +43,8 @@
         <div class="container mt-5">
             <p>We appreciate your feedback on DolFin. Please take a moment to answer the following questions:</p>
     
-            <form action="/submit-feedback" method="post">
+
+            <form action="/feedback" method="post">
                 <!-- Question 1 -->
                 <div class="mb-3">
                     <label for="features">1. On a scale of 1 to 5, how would you rate the ease of use of DolFin?</label>
@@ -57,8 +59,9 @@
     
                 <!-- Question 2 -->
                 <div class="mb-3">
-                    <label for="competitors">2. How satisfied are you with the security features of DolFin? (1 - Not Satisfied, 5 - Very Satisfied)</label>
-                    <select class="form-select" id="competitors" name="competitors">
+
+                    <label for="security">2. How satisfied are you with the security features of DolFin? (1 - Not Satisfied, 5 - Very Satisfied)</label>
+                    <select class="form-select" id="security" name="security">
                         <option value="1">1 - Not Satisfied</option>
                         <option value="2">2 - Somewhat Satisfied</option>
                         <option value="3">3 - Neutral</option>
@@ -66,11 +69,12 @@
                         <option value="5">5 - Very Satisfied</option>
                     </select>
                 </div>
-    
+
+
                 <!-- Question 3 -->
                 <div class="mb-3">
-                    <label for="similarities">3. How likely are you to recommend DolFin to others? (1 - Not Likely, 5 - Very Likely)</label>
-                    <select class="form-select" id="similarities" name="similarities">
+                    <label for="recommend">3. How likely are you to recommend DolFin to others? (1 - Not Likely, 5 - Very Likely)</label>
+                    <select class="form-select" id="recommend" name="recommend">
                         <option value="1">1 - Not Likely</option>
                         <option value="2">2 - Somewhat Likely</option>
                         <option value="3">3 - Neutral</option>
@@ -80,8 +84,9 @@
                 </div>
     
                 <div class="mb-3">
-                    <label for="features">1. What features of DolFin do you find most valuable?</label>
-                    <select class="form-select" id="features" name="features">
+
+                    <label for="features_valuable">1. What features of DolFin do you find most valuable?</label>
+                    <select class="form-select" id="features_valuable" name="features_valuable">
                         <option value="ease-of-use">Ease of Use</option>
                         <option value="security">Security Features</option>
                         <option value="transactions">Transaction Management</option>
@@ -91,8 +96,8 @@
     
                 <!-- Question 2 -->
                 <div class="mb-3">
-                    <label for="competitors">2. What do competitors' products do well in comparison to DolFin?</label>
-                    <textarea class="form-control" id="competitors" name="competitors" rows="3"></textarea>
+                    <label for="competitors_do_well">2. What do competitors' products do well in comparison to DolFin?</label>
+                    <textarea class="form-control" id="competitors_do_well" name="competitors_do_well" rows="3"></textarea>
                 </div>
     
                 <!-- Question 3 -->
