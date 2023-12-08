@@ -7,6 +7,7 @@ body {
 
 /* graphics in header */
 .backGroundImage {
+    fill: #FFFFFF;
     width: 1920px;
     height: 600px;
     opacity: 0.99;
@@ -24,6 +25,21 @@ body {
     width: 1900px;
     z-index: 1;
 }
+
+/* keeps account text on top layer */
+    #accountind{
+        z-index: 3;
+    }
+
+    .btn{
+        z-index: 3;
+    }
+
+    p{
+        z-index: 3;
+    }
+
+
 
 /* drop shadow for title text */
 .dashboardTitle-dropShadow {
@@ -97,13 +113,46 @@ body {
 }
 
 /* responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
+
+    #rectangle-balance{
+        width: 1800px;
+        height: 80px;
+        background: #FFFFFF;
+        opacity: 100%;
+        display: flex; 
+        align-items: end;
+        top: 53%;
+        left: 1.5%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 20px;
+        bottom: 0px;
+        overflow: hidden;
+    }
+
+    #rectangle-pie-charts{
+        width: 1800px;
+        height: 500px;
+        background: #FFFFFF;
+        opacity: 100%;
+        display: flex; 
+        align-items: end;
+        top: 70%;
+        left: 1.5%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 20px;
+        bottom: 0px;
+        overflow: hidden;
+    }
+    
     .dashboardTitle {
         position: absolute;
-        left: 0%;
-        top: 20%;
-        height: 300px;
-        width: 450px;
+        left: 3%;
+        top: 7%;
+        height: 400px;
+        width: 1000px;
         z-index: 1;
     }
 
@@ -111,9 +160,9 @@ body {
         position: absolute;
         left: 40%;
         opacity: 20%;
-        top: 15%;
-        height: 300px;
-        width: 500px;
+        top: 2%;
+        height: 400px;
+        width: 1000px;
         z-index: 1;
     }
 
@@ -131,6 +180,60 @@ body {
         backdrop-filter:blur(20px) brightness(110%);
         opacity: 52%;
         position: absolute;
+        width: 1080px;
+        height: 590px;
+        border-radius: 0px;
+        top: 52.2%;
+        z-index: -1;
+    }
+
+    #trans-title-rectangle{
+        background: #BAC1C1;
+        backdrop-filter:blur(20px) brightness(110%);
+        opacity: 52%;
+        position: absolute;
+        width: 1080px;
+        height: 115px;
+        border-radius: 20px 20px 0px 0px;
+        top: 35%;
+        z-index: 2;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dashboardTitle {
+        position: absolute;
+        left: 0%;
+        top: 10%;
+        height: 300px;
+        width: 450px;
+        z-index: 1;
+    }
+
+    .dashboardTitle-dropShadow {
+        position: absolute;
+        left: 40%;
+        opacity: 20%;
+        top: 5%;
+        height: 300px;
+        width: 500px;
+        z-index: 1;
+    }
+
+    .backGroundImage {
+        width: 768px;
+        height: 200px;
+        opacity: 0.99;
+        padding-top: 0px;
+        padding-left: 0px;
+        z-index: -3;
+    }
+
+    #trans-body-rectangle{
+        background: #ffffff;
+        backdrop-filter:blur(20px) brightness(110%);
+        opacity: 52%;
+        position: absolute;
         width: 300px;
         height: 590px;
         border-radius: 0px;
@@ -144,10 +247,42 @@ body {
         opacity: 52%;
         position: absolute;
         width: 450px;
-        height: 75px;
+        height: 80px;
         border-radius: 20px 20px 0px 0px;
-        top: 41%;
+        top: 31%;
         z-index: 2;
+    }
+
+    #rectangle-balance{
+        width: 1800px;
+        height: 80px;
+        background: #FFFFFF;
+        opacity: 100%;
+        display: flex; 
+        align-items: end;
+        top: 53%;
+        left: 0%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 20px;
+        bottom: 0px;
+        overflow: hidden;
+    }
+
+    #rectangle-pie-charts{
+        width: 1800px;
+        height: 100px;
+        background: #FFFFFF;
+        opacity: 100%;
+        display: flex; 
+        align-items: end;
+        top: 50%;
+        left: 0%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 20px;
+        bottom: 0px;
+        overflow: hidden;
     }
 }
 
@@ -167,6 +302,8 @@ body {
     }
     
 }
+
+
 
 @media screen and (max-width: 320px) {
     #rectangle-pie-charts {
