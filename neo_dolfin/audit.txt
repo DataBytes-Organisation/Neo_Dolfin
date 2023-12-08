@@ -4,3 +4,6 @@
 [2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-01 23:44:50.378236] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-01 23:48:18.698657] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-07 19:44:26.036776] [user-login-fail]  username: admin:  User login failed.
+[2023-12-07 19:50:30.943024] [user-login-fail]  username: tester:  User login failed.
+[2023-12-07 19:53:45.996733] [user-login-success]  username: a:  User logged in successfully.

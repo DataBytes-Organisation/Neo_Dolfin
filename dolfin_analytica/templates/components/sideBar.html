@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sideBar.css')}}">
+
+<div class = "container-fluid">
+  <div class = "row flex-nowrap">
+    <div class="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
+      <div class="bg-dark p-2">
+        <ul class="nav nav-pills flex-column mt-4">
+          <li class="nav-item py-2 py-sm-0 ">
+            <a href="/home" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Home</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/dashboard" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Dashboard</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/dataUpload" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-upload"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Upload Data</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/dataExplore" class="nav-link text-white" >
+              <i class="fa-brands fa-wpexplorer"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Explore Data</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/dataProcess" class="nav-link text-white" >
+              <i class="fa-solid fa-microchip"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Process Data</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/modelTrain" class="nav-link text-white" >
+              <i class="fa-solid fa-dumbbell"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Train Model</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/modelDevelop" class="nav-link text-white" >
+              <i class="fa-brands fa-connectdevelop"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Develop Model</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/prediction" class="nav-link text-white" >
+              <i class="fa-solid fa-magnifying-glass-dollar"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Prediction</span>  
+            </a>
+          </li>          
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/reports" class="nav-link text-white" >
+              <i class ="fs-5 fa fa-table-list"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Results and Reports</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/userProfile" class="nav-link text-white" >
+              <i class="fa-solid fa-user"></i><span class="fs-4 ms-3 d-none d-sm-inline"> User Profile</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/help" class="nav-link text-white" >
+              <i class="fa-solid fa-circle-info"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Documentation and Help</span>  
+            </a>
+          </li>
+     
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/aboutUs" class="nav-link text-white" >
+              <i class="fa-solid fa-address-card"></i><span class="fs-4 ms-3 d-none d-sm-inline"> About Us</span>  
+            </a>
+          </li>
+          <li class="nav-item py-2 py-sm-0">
+            <a href="/terms" class="nav-link text-white" >
+              <i class="fa-solid fa-file-contract"></i><span class="fs-4 ms-3 d-none d-sm-inline"> Privacy and Terms of Service</span>  
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current page from the template variable
+        var currentPage = "{{ current_page }}";
+
+        // Find the corresponding navigation item and add the 'active' class
+        var navItem = document.getElementById('nav-' + currentPage);
+        if (navItem) {
+            navItem.classList.add('active');
+        }
+    });
+</script>
