@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-17xl: 36px;
+  --font-size-13xl: 32px;
+
+  /* Colors */
+  --color-darkslategray: #343a40;
+  --color-gainsboro: #d9d9d9;
+  --color-steelblue: #2f89b6;
+  --color-white: #fff;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+}
