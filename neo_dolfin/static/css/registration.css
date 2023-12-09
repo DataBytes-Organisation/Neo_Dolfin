@@ -161,10 +161,16 @@ input[type="password"] {
     font-size: 22px;
     font-weight: 700;
     max-width: 400px;
-    /* padding: 10px; */
-    margin: 10px;
+    padding: 10px;
+    margin: 5px;
     border: 1px solid #ddd;
     border-radius: 15px;
+}
+
+#nextPage.img {
+    /* background-color: #000; */
+    /* position:static; */
+    /* width: 10px;  */
 }
 
 input[type="submit"] {
@@ -177,8 +183,8 @@ input[type="submit"] {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 25px;
-    margin-left: 90px; 
+    margin-top: 20px;
+    /* margin-left: 90px;  */
 }
 
 input:not(:placeholder-shown) {
