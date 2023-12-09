@@ -235,7 +235,6 @@ def login():
         arg_hash = PasswordHasher()
         # If username is correct, check if the input password (once hashed) matches the hash in the users record.
         # If both are true, send relevant information to session.
-        print("log:");print(user.password); print(type(user.password))
         if user and arg_hash.verify(user.password, input_password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
@@ -316,12 +315,12 @@ def register():
         5900x+3080LHR   with default params is ___verified___ in ~28.9ms
         i5-1135G7       with default params is ___verified___ in ~55.4ms"""
         arg_hash = PasswordHasher()
-        hashed = arg_hash.hash(input_password) ; print(hashed)
+        input_password = arg_hash.hash(input_password) #; print(hashed)
 
         # Create a new user and add it to the users_new database
         # Names are currently hard coded pending name fields in registration
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
-                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=hashed)
+                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
         db.session.add(new_user)
         db.session.commit()
 
