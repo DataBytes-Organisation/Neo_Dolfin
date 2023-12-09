@@ -511,17 +511,25 @@ def profile():
         jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
 
-def generate_bar_chart(category, values):
-    # Create a bar chart
-    plt.figure(figsize=(10, 6))
-    plt.bar(category, values, color='blue')
-    plt.xlabel(category)
-    plt.ylabel('Count')
+def generate_pie_chart(data, category, custom_labels=None):
+    # Count the occurrences of each value in the given category
+    value_counts = data[category].value_counts()
+
+    # Create a pie chart
+    plt.figure(figsize=(7, 5))
+    
+    
+    # Check if custom labels are provided
+    labels = custom_labels if custom_labels else value_counts.index
+    plt.pie(value_counts, labels=labels, autopct='%1.1f%%', startangle=90, colors=['red', 'orange', 'yellow', 'green', 'blue'])
     plt.title(f'{category} Distribution')
+
+    # Add a legend
+    plt.legend(labels, title=f'{category} Legend', loc='center left', bbox_to_anchor=(1, 0.5))
 
     # Save the chart to a BytesIO object
     image_stream = io.BytesIO()
-    plt.savefig(image_stream, format='png')
+    plt.savefig(image_stream, format='png', bbox_inches='tight')
     image_stream.seek(0)
 
     # Encode the image to base64
@@ -529,6 +537,7 @@ def generate_bar_chart(category, values):
 
     # Return the encoded image
     return image_base64
+
 
 @app.route('/visualizations', methods=['GET'])
 def visualizations():
@@ -544,8 +553,7 @@ def visualizations():
     # Generate the chart data for each category
     chart_data = {}
     for category in categories:
-        values = data[category].tolist()
-        chart_data[category] = generate_bar_chart(category, values)
+        chart_data[category] = generate_pie_chart(data, category)
 
     return render_template('visualizations.html', chart_data=chart_data)
 
@@ -561,15 +569,11 @@ def visualize_category(category):
     if category not in data.columns or data[category].dtype != 'int64':
         return 'Invalid category or non-numeric data'
 
-    # Get values for the selected category
-    values = data[category].tolist()
-
-    # Generate the bar chart
-    chart_data = generate_bar_chart(category, values)
+    # Generate the pie chart
+    chart_data = generate_pie_chart(data, category)
 
     # Render the chart in an HTML template
     return render_template('chart.html', chart_data=chart_data)
-
 
 
 # APPLICATION USER RESET PASSWORD PAGE
