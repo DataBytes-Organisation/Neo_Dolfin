@@ -193,7 +193,7 @@ input:not(:placeholder-shown) {
 
 .or-text {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
     color: #000;
     font-family: 'Anybody', sans-serif;
     font-size: 22px;
@@ -214,7 +214,7 @@ input:not(:placeholder-shown) {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -283,7 +283,7 @@ input:not(:placeholder-shown) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .btn-google, .btn-microsoft {
