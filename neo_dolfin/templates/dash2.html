@@ -40,7 +40,7 @@
 </style>
 -->
 
-<body style="background-color: aqua;">
+<body>
 
     {% include 'components/navbar.html' %}
 
@@ -119,18 +119,18 @@
                 <div class="card card-body"> <!-- New Visualisations go here-->
                     <div class="container-epv">
 
-        <div class="cloud-epv">
-            <div id="chartContainer" class="chart-epv" ></div>
+                        <div class="cloud-epv">
+                            <div id="chartContainer" class="chart-epv"></div>
 
-        <div class="button-container-epv">
-            <button  class='button-epv' id="default" onclick="default_onclick()">default</button>
-            <button class='button-epv' id="amount" onclick="amount_onclick()">amount</button>
-        </div>
-        </div>
+                            <div class="button-container-epv">
+                                <button class='button-epv' id="default" onclick="default_onclick()">default</button>
+                                <button class='button-epv' id="amount" onclick="amount_onclick()">amount</button>
+                            </div>
+                        </div>
                         <div class="image-epv">
-            <img id="word_cloud" src="" alt="Word Cloud" />
-        </div>
-            </div>
+                            <img id="word_cloud" src="" alt="Word Cloud" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
