@@ -1,48 +1,67 @@
-/* Navbar */
-
-.navbar {
-    padding: 8px 10px; /* You can adjust these values as needed */
-}
-
-.nav-logo {
-    width: 4.65rem;
-    padding-right: 8px;
-}
-
-.navbar-brand {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.bg-dark {
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background-color: #343a40 !important;
-}
-
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+  }
+  
+  
 .navbar-nav {
-    flex-direction: row !important; 
+    flex-direction: column !important; 
 }
 
 .nav-item {
     font-weight: bold;
 }
 
-.nav-link {
-    color: #FAFAFE;
-}
+  .nav-link {
+    padding: 8px 8px 8px 32px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fafafe;
+    display: block;
+    transition: 0.3s;
+  }
 
-.nav-link:hover {
-    background-color: rgb(237, 39, 0);
-    border-bottom: 2px solid #9fbb00;
+  .nav-link:hover {
+    background-color: #0077bb;
+    color: #d9d9d9;
 }
+  .openbtn {
+    font-size: 15px;
+    background-color: #343a40 ;
+    color: white;
+    padding: 10px 15px;
+    border: 2px;
+  }
+  
+  .openbtn:hover {
+    background-color: #0077bb;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+  }
 
-/* Active state for the entire list item */
+  /* Active state for the entire list item */
 .nav-item.active {
     background-color: #0077BB;
     border-radius: 2px; /* Add rounded corners */
     padding: 8px 15px; /* Adjust padding as needed */
 }
-
-
-
-
