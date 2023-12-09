@@ -7,7 +7,6 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import secrets
-import io
 import boto3 as boto3
 import time 
 import pandas as pd
@@ -24,16 +23,11 @@ import datetime
 import re
 import sqlite3
 import urllib.parse
-from io import StringIO, BytesIO
+
+from io import StringIO
 import pymysql
 import requests
 import json
-import csv
-import matplotlib.pyplot as plt
-import base64
-import matplotlib
-matplotlib.use('Agg')
-
 from ai.cloud import word_cloud, expenditure_cluster_model
 
 load_dotenv()  # Load environment variables from .env
@@ -657,53 +651,13 @@ def open_terms_of_use_AI():
 def open_article_template():
         return render_template("articleTemplate.html") 
 
-@app.route('/feedback', methods=['GET', 'POST'])
+
+# Add this route to your Flask app
+@app.route('/feedback', methods=['GET'])
 def feedback():
-    if request.method == 'POST':
-        # Get form data
-        features_rating = request.form['features']
-        security_rating = request.form['security']
-        recommend_rating = request.form['recommend']
-        features_valuable = request.form['features_valuable']
-        competitors_do_well = request.form['competitors_do_well']
-        similarities = request.form['similarities']
-
-        # Create a dictionary with the form data
-        feedback_data = {
-            'Features Rating': features_rating,
-            'Security Rating': security_rating,
-            'Recommendation Rating': recommend_rating,
-            'Valuable Features': features_valuable,
-            'Competitors Do Well': competitors_do_well,
-            'Similarities': similarities,
-        }
-
-        print("Received Feedback Data:", feedback_data)
-
-        # Log the data to a CSV file
-        data_folder = 'data'
-        os.makedirs(data_folder, exist_ok=True)
-
-        # Log the data to a CSV file inside the 'data' folder
-        csv_filename = os.path.join(data_folder, 'feedback_data.csv')
-        file_exists = os.path.isfile(csv_filename)
-
-        with open(csv_filename, mode='a', newline='') as csvfile:
-            fieldnames = list(feedback_data.keys())
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            if not file_exists:
-                writer.writeheader()
-
-            writer.writerow(feedback_data)
-
-        print("Feedback Data Logged to CSV")
-
-        return render_template('feedback_thank_you.html')
-
-    # Render the feedback form if the request is not POST
     return render_template('feedback.html')
-    
 
+    
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
@@ -740,69 +694,6 @@ def profile():
         jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
         jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
-
-def generate_pie_chart(data, category, custom_labels=None):
-    # Count the occurrences of each value in the given category
-    value_counts = data[category].value_counts()
-
-    # Create a pie chart
-    plt.figure(figsize=(7, 5))
-    
-    
-    # Check if custom labels are provided
-    labels = custom_labels if custom_labels else value_counts.index
-    plt.pie(value_counts, labels=labels, autopct='%1.1f%%', startangle=90, colors=['red', 'orange', 'yellow', 'green', 'blue'])
-    plt.title(f'{category} Distribution')
-
-    # Add a legend
-    plt.legend(labels, title=f'{category} Legend', loc='center left', bbox_to_anchor=(1, 0.5))
-
-    # Save the chart to a BytesIO object
-    image_stream = io.BytesIO()
-    plt.savefig(image_stream, format='png', bbox_inches='tight')
-    image_stream.seek(0)
-
-    # Encode the image to base64
-    image_base64 = base64.b64encode(image_stream.read()).decode('utf-8')
-
-    # Return the encoded image
-    return image_base64
-
-@app.route('/visualizations', methods=['GET'])
-def visualizations():
-    # Assuming 'feedback_data.csv' is your CSV file inside the 'data' folder
-    csv_filename = 'data/feedback_data.csv'
-
-    # Read the CSV file into a Pandas DataFrame
-    data = pd.read_csv(csv_filename)
-
-    # Get unique categories from the DataFrame columns (excluding non-numeric ones)
-    categories = [col for col in data.columns if data[col].dtype == 'int64']
-
-    # Generate the chart data for each category
-    chart_data = {}
-    for category in categories:
-        chart_data[category] = generate_pie_chart(data, category)
-
-    return render_template('visualizations.html', chart_data=chart_data)
-
-@app.route('/visualizations/<category>', methods=['GET'])
-def visualize_category(category):
-    # Assuming 'feedback_data.csv' is your CSV file
-    csv_filename = 'data/feedback_data.csv'
-
-    # Read the CSV file into a Pandas DataFrame
-    data = pd.read_csv(csv_filename)
-
-    # Ensure the selected category is a valid column in the DataFrame
-    if category not in data.columns or data[category].dtype != 'int64':
-        return 'Invalid category or non-numeric data'
-
-    # Generate the pie chart
-    chart_data = generate_pie_chart(data, category)
-
-    # Render the chart in an HTML template
-    return render_template('chart.html', chart_data=chart_data)
 
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
