@@ -10,3 +10,15 @@
 [2023-12-04 20:46:22.678779] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-04 21:05:02.746064] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-09 15:27:51.488778] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-10 00:13:52.431143] [user-register-success]  username: newboy:  User registered successfully.
+[2023-12-10 00:15:57.567217] [user-register-success]  username: newboy2:  User registered successfully.
+[2023-12-10 00:24:49.225424] [user-register-success]  username: newboy3:  User registered successfully.
+[2023-12-10 00:30:37.785187] [user-login-success]  username: newboy3:  User logged in successfully.
+[2023-12-10 00:31:16.715255] [user-login-success]  username: newboy2:  User logged in successfully.
+[2023-12-10 00:31:41.411627] [user-login-success]  username: newboy3:  User logged in successfully.
+[2023-12-10 00:39:30.184322] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-10 00:40:24.518713] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-10 00:40:44.630597] [user-login-success]  username: gavinBelson:  User logged in successfully.
+[2023-12-10 00:40:58.236319] [user-login-success]  username: whistlersmith:  User logged in successfully.
+[2023-12-10 00:41:14.904732] [user-login-success]  username: gilfoyle:  User logged in successfully.
+[2023-12-10 00:41:47.202260] [user-login-success]  username: richardBirt:  User logged in successfully.

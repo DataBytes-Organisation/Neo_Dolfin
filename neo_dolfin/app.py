@@ -235,7 +235,8 @@ def login():
         arg_hash = PasswordHasher()
         # If username is correct, check if the input password (once hashed) matches the hash in the users record.
         # If both are true, send relevant information to session.
-        if user and arg_hash.verify(input_password, user.password):
+        print("log:");print(user.password); print(type(user.password))
+        if user and arg_hash.verify(user.password, input_password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             session['basiq_id'] = user.b_id_temp
@@ -250,7 +251,7 @@ def login():
 
             # Load transactional data
             #loadDatabase(testId)            
-            
+
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 
@@ -315,18 +316,18 @@ def register():
         5900x+3080LHR   with default params is ___verified___ in ~28.9ms
         i5-1135G7       with default params is ___verified___ in ~55.4ms"""
         arg_hash = PasswordHasher()
-        input_password = arg_hash.hash(input_password)
+        hashed = arg_hash.hash(input_password) ; print(hashed)
 
         # Create a new user and add it to the users_new database
         # Names are currently hard coded pending name fields in registration
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
-                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
+                            first_name="SAMPLE1",middle_name="test",last_name="USER",password=hashed)
         db.session.add(new_user)
         db.session.commit()
 
 
         print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
-        print(user_ops.link_bank_account(new_user.id))      # A user will need to link an account to their Basiq entity (that they won't see the entity)
+        user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
