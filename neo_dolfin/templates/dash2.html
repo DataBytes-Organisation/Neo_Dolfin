@@ -45,6 +45,9 @@
     {% include 'components/navbar.html' %}
 
     <div class="container mt-3">
+        <div class="alert-ribbon">
+            <p>{{msg}} <a href="{{ url_for('survey') }}"> here</a>.</p>
+        </div>
         <div class="d-flex justify-content-between align-items-center">
             <p><strong>Welcome</strong>, {{ user_id }}!</p>
             <p id="accountind"><strong>Viewing Account:</strong> {{ defacc | safe }}</p>
