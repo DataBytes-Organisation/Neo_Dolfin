@@ -681,7 +681,6 @@ def feedback():
         with open(csv_filename, mode='a', newline='') as csvfile:
             fieldnames = list(feedback_data.keys())
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
             if not file_exists:
                 writer.writeheader()
 
@@ -759,7 +758,6 @@ def generate_pie_chart(data, category, custom_labels=None):
     # Return the encoded image
     return image_base64
 
-
 @app.route('/visualizations', methods=['GET'])
 def visualizations():
     # Assuming 'feedback_data.csv' is your CSV file inside the 'data' folder
@@ -795,8 +793,6 @@ def visualize_category(category):
 
     # Render the chart in an HTML template
     return render_template('chart.html', chart_data=chart_data)
-
-
 
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
