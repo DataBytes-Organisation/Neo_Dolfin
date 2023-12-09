@@ -9,6 +9,8 @@
     <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url_for('static', filename='css/articles.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add any additional CSS styles for your feedback page -->
+  
 </head>
 
 <body>
@@ -41,6 +43,7 @@
         <div class="container mt-5">
             <p>We appreciate your feedback on DolFin. Please take a moment to answer the following questions:</p>
     
+
             <form action="/feedback" method="post">
                 <!-- Question 1 -->
                 <div class="mb-3">
@@ -56,6 +59,7 @@
     
                 <!-- Question 2 -->
                 <div class="mb-3">
+
                     <label for="security">2. How satisfied are you with the security features of DolFin? (1 - Not Satisfied, 5 - Very Satisfied)</label>
                     <select class="form-select" id="security" name="security">
                         <option value="1">1 - Not Satisfied</option>
@@ -65,6 +69,7 @@
                         <option value="5">5 - Very Satisfied</option>
                     </select>
                 </div>
+
 
                 <!-- Question 3 -->
                 <div class="mb-3">
@@ -79,6 +84,7 @@
                 </div>
     
                 <div class="mb-3">
+
                     <label for="features_valuable">1. What features of DolFin do you find most valuable?</label>
                     <select class="form-select" id="features_valuable" name="features_valuable">
                         <option value="ease-of-use">Ease of Use</option>

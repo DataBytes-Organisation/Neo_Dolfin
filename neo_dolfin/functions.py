@@ -13,7 +13,6 @@ import hashlib
 import hmac
 import base64
 import sqlite3
-import qrcode
 import logging 
 import datetime
 from services.basiq_service import BasiqService
@@ -116,8 +115,9 @@ def clean_subClass(row):
 def loadDatabase(testId):
 
     # If the user is a test user, read from one of the user* csv.
+    # IF NOT - continue with default sample data
     df4 = pd.read_csv('static/data/transaction_ut.csv')
-    if testId > 0:
+    if testId > 0 and testId < 7:
         df4 = pd.read_csv('static/data/new_data/user' + str(testId) + '.csv')
 
     # SQLite User Data Database Setup
