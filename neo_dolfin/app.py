@@ -33,8 +33,8 @@ load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
 #from services.basiq_service import BasiqService
-from api.optimized_api import optimized_API
-from api.optimized_api import API_db_op
+from api.opt import optimized_API
+from api.opt import API_db_op
 from ai.chatbot import chatbot_logic
 
 # Access environment variables
