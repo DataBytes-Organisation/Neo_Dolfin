@@ -109,7 +109,7 @@ function submitForm() {
     // Convert surveyData object to JSON
     var jsonData = JSON.stringify(surveyData);
 
-    fetch('/submit', {
+    fetch('/surveysubmit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
