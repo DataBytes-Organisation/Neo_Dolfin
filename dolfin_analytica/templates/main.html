@@ -7,44 +7,40 @@
     <title>Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-        }
 
-        #sidebar {
-            height: 100vh;
-            width: 110px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #343a40;
-            padding-top: 20px;
-        }
-
-        #content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-    </style>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
+    
 </head>
 
 <body>
     {% include 'components/navbar.html' %}  
     {% include 'components/sideBar.html' %}
 
-    <div id="content">
         <!-- 
         <h2>Welcome to the Dashboard</h2>
         Add your dashboard content here -->
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">Welcome to the Dashboard</div>
-            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
-            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
-        </div>
-    </div>
+        <div class="container">
+            <h2>Welcome to the Dashboard</h2>
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <h3>HOME</h3>
+                <p>Welcome to DolFin - Page One.</p>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                <h3>Menu 1</h3>
+                <p>Welcome to DolFin - Page Two.</p>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Welcome to DolFin - Page Three.</p>
+              </div>
+              <div id="menu3" class="tab-pane fade">
+                <h3>Menu 3</h3>
+                <p>Welcome to DolFin - Page Four.</p>
+              </div>
+            </div>
+          </div>
+
     {% include 'components/footer.html' %}
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -7,13 +7,14 @@ body {
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 60px;
+    top: 65px;
     left: 0;
     background-color: #343a40 !important;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    padding-top: 13px;
+    padding-top: 40px;
+    opacity: 80%;
   }
   
   
@@ -40,14 +41,16 @@ body {
     background-color: #0077bb;
     color: #d9d9d9;
 }
-  .menubtn {
+.menubtn {
     font-size: 20px;
     background-color: #343a40 ;
     color: white;
-    padding: 5px 15px;
+    padding: 0px 10px;
     font-weight: bold;
     z-index: 1;
-  }
+    position: absolute;
+    top: 68px;
+}
   
   .menubtn:hover {
     background-color: #0077bb;
