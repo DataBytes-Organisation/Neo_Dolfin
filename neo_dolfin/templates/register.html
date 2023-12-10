@@ -29,7 +29,7 @@
                                     <img id="previousPage" src="../static/img/sign up/slide-left.png" class="img-fluid">
                                 </button>
                             </div>
-                            <div class="col-8 col-lg-8 col-md-12 col-sm-10">
+                            <div class="col-8 col-lg-8 col-md-10 col-sm-10">
                                 <form method="POST" action="/register">
                                     <div class="tab">
                                         <input type="text" name="username" class="form-control" placeholder="Username"
@@ -52,36 +52,32 @@
                                             placeholder="State" required>
                                         <input type="text" class="form-input" id="postcode" name="postcode"
                                             placeholder="postcode" required>
-                                        <label class="validation-checkbox">
-                                            <!--<div class="validation-text">Skip Address Validation</div> -->
-                                            <p style="color:blue;font-size:70%;"><strong>Skip address
-                                                    validation</strong></p>
-                                            <input type="checkbox" id="validation" name="validation">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <input type="text" class="form-input" id="address1"
-                                            placeholder="Search address here..." required>
-                                        <input type="text" class="form-input" id="address2"
-                                            placeholder="Address Line 2">
-                                        <input type="text" class="form-input" id="suburb" placeholder="Suburb" required>
-                                        <input type="text" class="form-input" id="state" placeholder="State" required>
-                                        <input type="text" class="form-input" id="postcode" placeholder="State"
-                                            required>
+                                        <div class="col-12" style="padding: 5px;">
+                                            <label class="validation-checkbox">
+                                                <!--<div class="validation-text">Skip Address Validation</div> -->
+                                                <small class="text-body-secondary"><strong>Skip address
+                                                        validation</strong></small>
+                                                <input type="checkbox" id="validation" name="validation">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                         <input type="submit" class="btn btn-primary" value="Register">
                                     </div>
                                 </form>
-                            </div>
-                            <div class="col-2">
-                                <button onclick="nextPrev(1)" style="border: none;">
-                                    <img id="nextPage" src="../static/img/sign up/slide-right.png" class="img-fluid">
-                                </button>
-                            </div>
-                            <div class="row">
-                                <div style="text-align:center;margin-top:40px;">
-                                    <span class="step"></span>
-                                    <span class="step"></span>
+                                <div class="row">
+                                    <div style="text-align:center;margin-top:10px;">
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-2 col-lg-2 col-md-1 col-sm-1">
+                                <button onclick="nextPrev(1)" style="border: none;">
+                                    <img id="nextPage" style="min-width: 10%;"
+                                        src="../static/img/sign up/slide-right.png" class="img-fluid">
+                                </button>
+                            </div>
+
                         </div>
                         <div class="row align-items-center">
                             <div class="col-10 offset-1">
@@ -90,7 +86,6 @@
                             <div class="col-10 offset-1">
                                 <div class="social-login">
                                     <button type="button" class="btn-google">
-
                                         <img src="../static/img/google_icon.svg" alt="Google" class="btn-logo"> Sign up
                                         with
                                         Google
