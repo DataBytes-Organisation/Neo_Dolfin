@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import secrets
+import io
 import boto3 as boto3
 import time 
 import pandas as pd
@@ -23,11 +24,15 @@ import datetime
 import re
 import sqlite3
 import urllib.parse
-from io import StringIO
+from io import StringIO, BytesIO
 import pymysql
 import requests
 import json
+import csv
 import matplotlib.pyplot as plt
+import base64
+import matplotlib
+matplotlib.use('Agg')
 
 from ai.cloud import word_cloud, expenditure_cluster_model
 
@@ -651,9 +656,7 @@ def open_terms_of_use_AI():
 def open_article_template():
         return render_template("articleTemplate.html") 
 
-
-# Add this route to your Flask app
-@app.route('/feedback', methods=['GET'])
+@app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
     if request.method == 'POST':
         # Get form data
@@ -698,8 +701,8 @@ def feedback():
 
     # Render the feedback form if the request is not POST
     return render_template('feedback.html')
-
     
+
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
