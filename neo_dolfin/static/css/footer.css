@@ -163,7 +163,7 @@ hr {
  /* Responsive styles */
  @media (max-width: 768px) {
     /* Adjust styles for small screens */
-    body { background-color: rgb(48, 196, 245); } 
+    /* body { background-color: rgb(48, 196, 245); }  */
 
     .inner-content {
         background-color: #0c80f5;
@@ -288,7 +288,7 @@ hr {
     .center-content h5 {
         font-size: 0.7rem; /* Adjust font size for very small devices */
     }
-        body { background-color: rgb(78, 14, 241); } 
+        /* body { background-color: rgb(78, 14, 241); }  */
     
     .content-left, .content-right {
         width: 100%;
@@ -320,7 +320,7 @@ hr {
         font-size: 1.1rem; /* Adjust font size for larger devices */
     }
     
-    body { background-color: rgb(5, 239, 204); } 
+    /* body { background-color: rgb(5, 239, 204); }  */
     .content-left, .content-right {
         width: 100%;
     }
@@ -391,7 +391,7 @@ hr {
 
 @media (max-width: 993px) {
     /* Styles for screens smaller than or equal to 992px */
-    body { background-color: rgb(233, 16, 16); } 
+    /* body { background-color: rgb(233, 16, 16); }  */
     .content-left, .content-right {
         width: 50%;
     }

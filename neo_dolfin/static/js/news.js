@@ -1,5 +1,22 @@
 filterSelection("all")
 
+// Makes the clicked button stand out by moving it slightly above the others
+// Get the button container and all buttons
+const buttonContainer = document.getElementById('navbarNav');
+const buttons = buttonContainer.querySelectorAll('.btn');
+
+// Add a click event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Remove the pressed class from all buttons
+    buttons.forEach(btn => btn.classList.remove('pressed-btn'));
+
+    // Add the pressed class to the clicked button
+    this.classList.add('pressed-btn');
+  });
+});
+
+
 function filterSelection(month) {
     var card_elements, i;
     // console.log(c)
