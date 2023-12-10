@@ -56,7 +56,7 @@
                 // Check if survey has already been taken on this day
                 var surveyTaken = localStorage.getItem(surveyKey);
         
-                // Check if it's the second Wednesday of the month and the survey hasn't been taken
+                // Check if it's the second Monday of the month and the survey hasn't been taken
                 if (dayOfWeek === 1 && dayOfMonth >= 8 && dayOfMonth <= 14 && !surveyTaken) {
                     if (confirm('Take the survey for better user experience! Click OK to proceed.')) {
                         localStorage.setItem(surveyKey, 'true'); // Mark survey as taken for today
