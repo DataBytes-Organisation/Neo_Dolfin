@@ -899,12 +899,12 @@ def submit():
         with open('surveyResults.json', 'w') as file:
             json.dump(data, file)
         # Return success response before the function exits
-        return jsonify({'status': 'success', 'message': 'Data submitted successfully!'})
+        message = "Thanks for your feedback!"
+        # Redirect to dash2.html after showing the message for 3000ms
+        return f"{message}<script>setTimeout(function(){{window.location.href = '{url_for('dash')}'}}, 3000);</script>"
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
 
-    
-    return "Thanks for your feedback!"
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
