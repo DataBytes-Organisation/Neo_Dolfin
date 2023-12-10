@@ -19,6 +19,7 @@ body {
   
 .sidebar-nav {
     flex-direction: column !important; 
+    white-space: nowrap;
 }
 
 .sidebar-item {
