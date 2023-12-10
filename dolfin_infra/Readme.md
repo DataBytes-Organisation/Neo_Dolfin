@@ -4,11 +4,7 @@ The infra folder contains a Terraform project that creates the following infrast
 
 - A VPC with subnet
 - Cloud SQL instance using MySql
-- VM instance with Flask installed
-
-Further work will add modules for provisioning AI infrastructure
-
-**This is a work in progress and not guaranteed to be ready for the app to be deployed on**
+- VM instance that loads a containerised model endpoint
 
 ## Getting Started
 
@@ -19,6 +15,10 @@ https://cloud.google.com/sdk/docs/install
 ### Install Terraform
 
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+## Install Docker Desktop
+
+https://docs.docker.com/desktop/install/mac-install/
 
 ### Generate a Service Key
 
@@ -43,6 +43,10 @@ In the GCP console do the following:
     - Location type: ```Region```, select ```australia-southeast1```
     - Storage class: ```Standard```
     - Access: ```Enforce public access prevention on this bucket```
+
+### Make the deployment scripts executable
+```chmod a+x ./deploy.sh```
+```chmod a+x services/anomaly_detection/build_image.sh```
 
 ### Configure Local Variables
 
@@ -72,5 +76,28 @@ Navigate to the infra folder in your terminal and run the following steps:
 
 ```terraform plan -var credentials_file=./path_to_your_creds.json```
 
+Once initialised you can deploy using the deployment script if you want to also build a new container:
+
+```./deploy.sh```
+
+If you want to only deploy the infrastructure:
+
 ```terraform deploy -auto-approve -var credentials_file=./path_to_your_creds.json```
 
+If you want to only build and deploy the anomaly detection container:
+
+```./services/anomalydetection/build_image.sh PROJECT_ID```
+
+### Testing the deployment
+
+Using the web_server_url URL from the terraform outputs, perform a POST request to:
+
+http://gcloud.ip.address:5000/predict
+
+With postdata data [[-200.0,22109.56,2]]
+
+Verify the response is:
+
+[
+  -1
+]

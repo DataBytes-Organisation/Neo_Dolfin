@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Set variables
-PROJECT_ID="sit764-dev"
+PROJECT_ID=$1
 IMAGE_NAME="dolfin-anomaly-detection"
 TAG="latest"
 
 # Authenticate with GCP (uncomment if needed)
-gcloud auth login
+# gcloud auth login
 gcloud auth configure-docker
 
 # Build the Docker image
