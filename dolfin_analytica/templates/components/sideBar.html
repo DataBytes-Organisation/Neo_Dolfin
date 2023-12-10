@@ -1,0 +1,83 @@
+<!--
+  Amit Parmar - Initial version
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sideBar.css')}}">
+
+
+<nav id="mySidebar" class="sidebar">
+  <div class="container-fluid"></div>
+  <button class="menubtn" onclick="closenav()">&#9776</button>  
+  <ul class="sidebar-nav">
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/home" class="sidebar-link" ><i class =" fa fa-house"></i> Home  </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/dashboard" class="sidebar-link" ><i class ="fa fa-gauge"></i> Dashboard </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/dataUpload" class="sidebar-link" ><i class ="fa fa-upload"></i> Upload Data </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/dataExplore" class="sidebar-link" ><i class ="fa-brands fa-wpexplorer"></i> Explore Data </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/dataProcess" class="sidebar-link" ><i class ="fa-solid fa-microchip"></i> Process Data </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/modelTrain" class="sidebar-link" ><i class ="fa-solid fa-dumbbell"></i> Train Model </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/modelDevelop" class="sidebar-link" ><i class ="fa-brands fa-connectdevelop"></i> Develop Model </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/prediction" class="sidebar-link" ><i class ="fa-solid fa-magnifying-glass-dollar"></i> Prediction </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/reports" class="sidebar-link" ><i class ="fa fa-table-list"></i> Results and Reports </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/userProfile" class="sidebar-link" ><i class ="fa-solid fa-user"></i> User Profile </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/help" class="sidebar-link" ><i class ="fa-solid fa-circle-info"></i> Documentation and Help </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/aboutUs" class="sidebar-link" ><i class ="fa-solid fa-address-card"></i> About Us </a>
+  </li>
+  <li class="sidebar-item {% if current_page == 'dash' %}active{% endif %}">
+    <a href="/tAndC" class="sidebar-link" ><i class ="fa-solid fa-file-contract"></i> Privacy and Terms of Service </a>
+  </li>
+
+  </ul>
+  </div>
+</nav>
+
+<button id = "toggleButton" class="menubtn" onclick="openNav()">&#9776</button>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "300px";
+        document.getElementById("toggleButton").style.visibility = "hidden";
+
+    }
+    function closenav()
+    {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("toggleButton").style.visibility = "visible";
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current page from the template variable
+        var currentPage = "{{ current_page }}";
+
+        // Find the corresponding navigation item and add the 'active' class
+        var navItem = document.getElementById('nav-' + currentPage);
+        if (navItem) {
+            navItem.classList.add('active');
+        }
+    });
+</script>

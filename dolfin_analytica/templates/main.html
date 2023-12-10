@@ -31,21 +31,8 @@
 </head>
 
 <body>
-
-    <div id="sidebar">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Reports</a>
-            </li>
-            <!-- Add more items as needed -->
-        </ul>
-    </div>
+    {% include 'components/navbar.html' %}
+    {% include 'components/sideBar.html' %}
 
     <div id="content">
         <h2>Welcome to the Dashboard</h2>
