@@ -37,13 +37,12 @@
     {% include 'components/navbar.html' %} 
 
     <div class="headerTitle">
-        <div class="backGroundImage"></div>
+        <div class="headerSpace"></div>
         <img class="dashboardTitle" src="static/img/dashboardTitle.png">
         <img class="dashboardTitle-dropShadow" src="static/img/dashboardTitle.png">
-        <div id="trans-title-rectangle"></div>
         <div id="trans-body-rectangle"></div>        
     </div>
-    
+
     <div class="container mt-3">
         <div class="d-flex justify-content-between align-items-center">
             <p><strong>Welcome</strong>, {{ user_id }}</p>
@@ -60,36 +59,38 @@
     </div>
     
     <div> 
-        <div class="container px-4 text-center">
-            <div class="row row-cols-3">
-                <div class="col">
-                    <div class="p-3"> <p> <strong> Current Balance: </strong> <br> $<span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
+        <div class= "background">
+            <div class="container px-4 text-center">
+                <div class="row row-cols-3">
+                    <div class="col">
+                        <div class="p-3"> <p> <strong> Current Balance: </strong> <br> $<span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3"> <p> <strong> Balance Change YoY: </strong> <br> +<span id="balanceRange">{{ jsd7 | safe }}</span> </p> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3"> <p> <strong> Last Transaction: </strong> <br> <span name="lastTransaction" id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="p-3"> <p> <strong> Balance Change YoY: </strong> <br> +<span id="balanceRange">{{ jsd7 | safe }}</span> </p> 
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="p-3"> <p> <strong> Last Transaction: </strong> <br> <span name="lastTransaction" id="amount">{{ jsd8[0].amount }}</span> @ <span id="classValue">{{ jsd8[0].class }}</span> on <span id="day">{{ jsd8[0].day }}</span>/<span id="month">{{ jsd8[0].month }}</span>/<span id="year">{{ jsd8[0].year }}</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row gx-5">
-                <div class="col">
-                    <div class="p-3">
-                        <canvas id="bar1"></canvas>
-                    </div>
-                </div>
+                <div class="row gx-5">
                     <div class="col">
                         <div class="p-3">
-                            <canvas id="pie1"></canvas>
+                            <canvas id="bar1"></canvas>
                         </div>
-
                     </div>
-                <div class="col">
-                    <div class="p-3">
-                        <canvas id="dou1"></canvas>
+                        <div class="col">
+                            <div class="p-3">
+                                <canvas id="pie1"></canvas>
+                            </div>
+
+                        </div>
+                    <div class="col">
+                        <div class="p-3">
+                            <canvas id="dou1"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,18 +120,19 @@
 
     <br>
 
-    <div class="container text-center">
-        <div class="row row-cols-2">
-            <div>
-                <canvas id="myChart"> </canvas>
+    <div class= "background">
+        <div class="container text-center">
+            <div class="row row-cols-2">
+                <div>
+                    <canvas id="myChart"> </canvas>
+                </div>
+                <div>
+                    <canvas id="myChart2"> </canvas>
+                </div>
+            
             </div>
-            <div>
-                <canvas id="myChart2"> </canvas>
-            </div>
-        
         </div>
-      </div>
-
+    </div>
     <script>
 
         var currentBalance = {{ jsd6 | safe }};
@@ -621,13 +623,6 @@
         });
 
     </script>
-
-    <!-- background shape elements -->
-    <div id="rectangle-background"></div>
-    <div id="rectangle-pie-charts"></div>
-    <div id="rectangle-left-graph"></div>    
-    <div id="rectangle-right-graph"></div> 
-    <div id="rectangle-balance"></div> 
 
     {% include 'components/chatbotWidget.html' %}
     {% include 'components/footer.html' %}
