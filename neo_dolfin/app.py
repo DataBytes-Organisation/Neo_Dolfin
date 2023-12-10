@@ -342,8 +342,8 @@ def register():
         if user:
             user_id = user.id
             # importing API creds
-            API_KEY=os.getenv("API_KEY")
-            SECRET=os.getenv("SECRET")
+            AFAPI_KEY=os.getenv("AFAPI_KEY")
+            AF_SECRET=os.getenv("AF_SECRET")
             print("userid: ",user_id)
             #combining address fields to single value
             address = address1+', '+address2+', '+suburb+', '+state+', '+postcode
@@ -353,7 +353,7 @@ def register():
                  
                 # calling address Validation API
                 try:
-                    fullurl=f"https://api.addressfinder.io/api/au/address/v2/verification/?key={API_KEY}&secret={SECRET}&format=json&q={encoded_address}&gnaf=1&paf=1&domain=localhost"
+                    fullurl=f"https://api.addressfinder.io/api/au/address/v2/verification/?key={AFAPI_KEY}&secret={AF_SECRET}&format=json&q={encoded_address}&gnaf=1&paf=1&domain=localhost"
                     response =requests.get(fullurl)
                     print("Full address: ",address)
                     print(response.status_code)
@@ -480,8 +480,9 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc,show_alert=True)
         
+    
     if request.method == "POST":
             # Get the account value from the JSON payload
         data = request.get_json()
@@ -809,9 +810,26 @@ def resetpw():
         return render_template('resetpw.html')
 
 # APPLICATION USER SURVEY
-@app.route('/survey')
+@app.route('/survey',methods=['POST'])
 def survey():
-        return render_template("survey.html")
+    # Get survey responses from the request
+    """question_1 = request.form.get('question_1')
+    question_2 = request.form.get('question_2')
+    # Get other survey response fields similarly
+
+    # Create a new SurveyResponse object
+    new_response = SurveyResponse(
+        question_1=question_1,
+        question_2=question_2,
+        # Assign other survey response fields similarly
+    )
+
+    # Add the new response to the database
+    db.session.add(new_response)
+    db.session.commit()"""
+    print("survey is submitted")
+
+    return 'Survey response submitted successfully'
 
 # Export USER SURVEY RESULTS
 @app.route('/submit', methods=['POST'])

@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os 
+from datetime import datetime, timedelta
+from flask import Flask
+from apscheduler.schedulers.background import BackgroundScheduler
+
 
 print("Entered the program...")
 app = Flask(__name__)
@@ -10,7 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db= SQLAlchemy(app)
 
-class Response(db.Model):
+"""class Response(db.Model):
     __tablename__ = 'SurveyResponses'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(50), nullable=False)
@@ -26,7 +30,7 @@ class Response(db.Model):
 
 
     def __repr__(self):
-        return f'<Response {self.name}'
+        return f'<Response {self.name}'"""
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,12 +38,31 @@ class User(db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)    
 
-@app.route("/")
-def survey():
-    print("under survey function...")
-    return render_template("survey.html")
+"""scheduler = BackgroundScheduler()
+scheduler.start()
 
-@app.route("/submit", methods=["POST"])
+def my_job():
+    # Define the task to be executed
+    print("Scheduled job executed!")
+    survey_ribbon()
+    
+
+scheduler.add_job(
+    my_job,
+    "interval",  # Run the job at regular intervals
+    minutes=10,  # Adjust as needed, e.g., run every 10 minutes
+    start_date=datetime.now() + timedelta(seconds=10),  # Start after 10 seconds
+)
+
+@app.route('/')
+def survey_ribbon():
+    return render_template('survey_ribbon.html')"""
+
+@app.route('/')
+def survey():
+    return render_template('survey.html')
+
+@app.route("/submit", methods=["GET","POST"])
 def submit():
     print("under surveysubmit function...")
     email = "testmail"
@@ -100,7 +123,7 @@ def submit():
         response_9=str(feelings_question) if 'feelings_question' in data else 'None'
         print("responses:"+response_1+response1_2+response_2+response_3+response_4+response4_2+response_5+response5_2+response_6+response_7+response_8+response_9)
         print("freq value:",response_6)
-        return "Feedback received successfully"
+    return "Feedback received successfully"
     
 
     #email = User.query.filter_by(email=email).first()
@@ -112,8 +135,8 @@ def submit():
     
 if __name__ == "__main__": 
     with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+       # db.create_all()
+        app.run(debug=True)
 
 
 

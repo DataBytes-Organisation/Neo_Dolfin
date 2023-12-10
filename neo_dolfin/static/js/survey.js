@@ -136,18 +136,11 @@ function getSelectedFaceValue(containerId) {
     var selectedFace = facesContainer.querySelector('.selected');
     
     if (selectedFace) {
-        var selectedValue = parseInt(selectedFace.textContent);
-
-        // Check if the parsed value is a valid number
-        if (!isNaN(selectedValue)) {
-            return selectedValue;
-        } else {
-            console.error('Invalid face value:', selectedFace.textContent);
-        }
+        return selectedFace.textContent.trim();
     } else {
         console.error('No face selected in container:', containerId);
     }
-
+ 
     return null;
 }
 
