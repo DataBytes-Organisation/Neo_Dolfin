@@ -19,7 +19,7 @@
         {
             "tag": "goodbye",
             "patterns": [
-                "Bye bye",
+                "Bye",
                 "See you later",
                 "Goodbye"
             ],
@@ -27,18 +27,6 @@
                 "Goodbye!",
                 "See you soon!",
                 "Take care!"
-            ]
-        },
-        {
-            "tag": "dolfin",
-            "patterns": [
-                "Tell me about dolfin.",
-                "DolFin info.",
-                "what is DolFin about?"
-            ],
-            "responses": [
-                "DolFin is a Fintech solution that aims to address the issue of people struggling to keep track of their finances and reduce the difficulties/costs associated with obtaining financial advice.",
-                "DolFin aims to use open banking data to display financial accounts held by an individual and provide a high-level summary with detailed reporting."
             ]
         },
         {
@@ -65,7 +53,7 @@
                 "What's trending?"
             ],
             "responses": [
-                "Based on your previous transaction you may save up to",
+                "Based on your previous transaction you may save upto",
                 "Based on your previous purchases, you might like product Y.",
                 "Product Z has been very popular among our customers.",
                 "Our featured product this month is A. Would you like to learn more about it?"
@@ -284,229 +272,29 @@
         {
 
             "tag": "check_balance",
-            "patterns": [
-                "What's my balance?", 
-                "How much do I have?", "Check my balance [year]", 
-                "What was my balance in [month] [year]?",
-                "Could you tell me my current balance?",
-                "What is my account balance in [month]",
-                "I need to know my balance as of today.",
-                "Please show me my latest account balance.",
-                "Can you update me on my current account balance?"
-            ],
+            "patterns": ["What's my balance?", "How much do I have?", "Check my balance", "What was my balance in [month] [year]?"],
             "responses": []
 
         },
         {
 
             "tag": "check_spending",
-            "patterns": [
-                "Check my spending", 
-                "Can you show me how much I've spent this month?",
-                "I need a summary of my expenditures for the last quarter.",
-                "Please provide a detailed report of my spending.",
-                "What have been my total expenditures for the past six months?"
-            ],
+            "patterns": ["How much did I spend?", "Check my spending", "What was my spending in [month] [year]?", "What was my spending from [month] [year] to [month] [year]?", "What was my spending in [year]?"],
             "responses": []
 
         },
         {
 
             "tag": "check_income",
-            "patterns": [
-                "Check my income", 
-                "What was my income in [month] [year]?", 
-                "What was my income in [year]?",
-                "Please inform me about my total income in [month].",
-                "I'd like to see a summary of my earnings for the past quarter.",
-                "What was my total income for the previous financial year?",
-                "Can you display my income trends over the past few months?"
-            ],
-                
+            "patterns": ["Check my income", "What was my income in [month] [year]?", "What was my income from [month] [year] to [month] [year]?", "What was my income in [year]?"],
             "responses": []
 
-        },
-                {
-            "tag": "loan_repayment",
-            "patterns": [
-                "How do I repay my loan?",
-                "I want to repay my loan.",
-                "What are the loan repayment options?",
-                "Tell me about loan repayment options.",
-                "Loan repayment"
-            ],
-            "responses": [
-                "You can repay your loan through our website or app. Would you like help with the repayment process?"
-            ]
-        },
-        {
-            "tag": "credit_card_benefits",
-            "patterns": [
-                "Tell me about the perks of my credit card.",
-                "What are the benefits of my credit card?",
-                "What benefits do I get from a credit card?",
-                "What are the credit card benefits?"
-                
-            ],
-            "responses": [
-                "Our credit card offers perks such as cashback on many platforms, travel rewards, and purchase protection. Would you like to learn more about the benefits?"
-            ]
-        },
-        {
-            "tag": "lost_stolen_card",
-            "patterns": [
-                "My card has been lost or stolen. Can I have some assistance?",
-                "I lost my credit card.",
-                "My credit card is missing.",
-                "My card has been stolen.",
-                "Stolen card",
-                "Lost card"
-            ],
-            "responses": [
-                "I'm very sorry to hear that. Please contact our customer support immediately at [phone number] or live service."
-            ]
-        },
-        {
-            "tag": "customer_feedback",
-            "patterns": [
-                "How can I provide feedback about your services?",
-                "I want to share my experience with your company.",
-                "I want to give feedback on your performance."
-            ],
-            "responses": [
-                "DolFin values your feedback! You can share your thoughts through our website or contact our customer support."
-            ]
-        },
-        {
-            "tag": "interest_rate",
-            "patterns": [
-                "What is the current interest rate on my savings account?",
-                "Tell me the interest rate of my savings account.",
-                "Current interest rate"
-            ],
-            "responses": [
-                "The current interest rate on your savings account is [rate]%."
-            ]
         },
         {
             "tag": "highest_spending",
-            "patterns": [
-                "What's the most I've spent?",
-                "Highest spending",
-                "What was my highest spending in [month] [year]?"],
+            "patterns": ["What's the most I've spent?", "Highest spending", "What was my highest spending in [month] [year]?"],
             "responses": []
-        },
-        {
-            "tag": "retirement_plan",
-            "patterns": [
-                "I want to plan my retirement.",
-                "Can we set up a retiring plan?",
-                "I want a plan for when I retire."
-            ],
-            "responses": [
-                "Absolutely! To get started, let's gather some key information. Could you please provide details about your expected retirement age and any specific financial goals you have for your retirement? This will help us tailor a retirement plan that aligns with your needs."
-            ]
-        },
-        {
-            "tag": "mobile_app_features",
-            "patterns": [
-                "What are some unique features in the mobile app?",
-                "Can you tell me about the mobile application?"
-            ],
-            "responses": [
-                "Our mobile app allows users to view their transactions, manage their accounts, setting up bill alerts to get notified in real-time, allows contactless payments and much more. You can download DolFin on your phone through this [link]!"
-            ] 
-        },
-        {
-            "tag": "fraudulent_activity",
-            "patterns": [
-                "I suspect fraudulent activity on my account",
-                "Report suspicious transactions",
-                "Fraud detection help."
-            ],
-            "responses": [
-                "I'm sorry to hear that you suspect fraudulent activity on your account. Your account security is our top priority. To report suspicious transactions, please contact our customer support immediately at [phone number] or use our live chat service."
-            ]
-        },
-        {
-            "tag": "financial_literacy_tips",
-            "patterns": [
-                "Provide financial literacy tips",
-                "I want to improve my financial knowledge."
-            ],
-            "responses": [
-                "Improving your financial literacy is very important to make wise economical decisions. You can access our guide on finance terminology using [this link]."
-            ]
-        },
-        {
-            "tag": "cryptocurrency_information",
-            "patterns": [
-                "Tell me about cryptocurrencies",
-                "I'm interested in investing in crypto.",
-                "I want to invest in cryptocurrency",
-                "Investment bitcoin"
-            ],
-            "responses": [
-                "Cryptocurrencies are digital or virtual currencies that use cryptography for security, However, if you're interested in investing in cryptocurrencies, it is essential to understand the basics. You can access our cryptocurrency guide using [this link]. Safe trading!"
-            ]
-        },
-        {
-            "tag": "average_spending",
-            "patterns": [
-                "Average spending",
-                "How much have I spent on average in [month] [year]?",
-                "Median spending in [month]",
-                "Check spending per day for [month] [year].",
-                "Daily spendings in [year]."
-            ],
-            "responses": []
-        },
-        {
-            "tag": "investment_advice",
-            "patterns": [
-                "Can you give me investment advice?",
-                "Where should I invest?",
-                "Investment options"
-            ],
-            "responses": [
-                "To provide you with investment advice, I need more information about your risk tolerance and financial goals. Please pick your preferred investment style from the table below:"
-            ]
-        },
-        {
-            "tag": "credit_limit_increase",
-            "patterns": [
-                "Credit limit increase",
-                "Raise my credit limit",
-                "Credit card limit add"
-            ],
-            "responses": [
-                "To increase your credit limit, I need to review your credit history and financial situation. Please provide more details, and I will connect you to our live support."
-            ]
-        },
-        {
-            "tag": "emergency_fund_advice",
-            "patterns": [
-                "Emergency fund",
-                "Build emergency account",
-                "Emergency savings"
-            ],
-            "responses": [
-                "Building an emergency fund is a smart financial move. Let's discuss how we can create and grow your emergency fund together."
-            ]
-        },
-        {
-            "tag": "financial_news_updates",
-            "patterns": [
-                "financial news updates",
-                "latest market news",
-                "economic developments"
-            ],
-            "responses": [
-                "It is wise to stay on track with financial updates and news, especially in our current fast-paced world. Would you like to subscribe to our newsletter to receive regular market insights?"
-            ]
         }
-
-
     ]
 }
 

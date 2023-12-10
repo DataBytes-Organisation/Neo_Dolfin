@@ -161,16 +161,10 @@ input[type="password"] {
     font-size: 22px;
     font-weight: 700;
     max-width: 400px;
-    padding: 10px;
-    margin: 5px;
+    /* padding: 10px; */
+    margin: 10px;
     border: 1px solid #ddd;
     border-radius: 15px;
-}
-
-#nextPage.img {
-    /* background-color: #000; */
-    /* position:static; */
-    /* width: 10px;  */
 }
 
 input[type="submit"] {
@@ -183,8 +177,8 @@ input[type="submit"] {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
-    /* margin-left: 90px;  */
+    margin-top: 25px;
+    margin-left: 90px; 
 }
 
 input:not(:placeholder-shown) {
@@ -193,7 +187,7 @@ input:not(:placeholder-shown) {
 
 .or-text {
     text-align: center;
-    margin-top: 0px;
+    margin-top: 20px;
     color: #000;
     font-family: 'Anybody', sans-serif;
     font-size: 22px;
@@ -214,7 +208,7 @@ input:not(:placeholder-shown) {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -283,7 +277,7 @@ input:not(:placeholder-shown) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 .btn-google, .btn-microsoft {

@@ -7,7 +7,6 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import secrets
-import io
 import boto3 as boto3
 import time 
 import pandas as pd
@@ -18,20 +17,17 @@ import ssl
 import nltk
 #import certifi
 import requests
-import bcrypt
+#import bcrypt
+from argon2 import PasswordHasher
 import datetime
 import re
 import sqlite3
 import urllib.parse
-from io import StringIO, BytesIO
+from io import StringIO
 import pymysql
 import requests
 import json
-import csv
 import matplotlib.pyplot as plt
-import base64
-import matplotlib
-matplotlib.use('Agg')
 
 from ai.cloud import word_cloud, expenditure_cluster_model
 
@@ -39,8 +35,8 @@ load_dotenv()  # Load environment variables from .env
 from classes import *
 from functions import * 
 #from services.basiq_service import BasiqService
-from api.optimized_api import optimized_API
-from api.optimized_api import API_db_op
+from api.opt import optimized_API
+from api.opt import API_db_op
 from ai.chatbot import chatbot_logic
 
 # Access environment variables
@@ -231,9 +227,10 @@ def login():
         # Retrieve the user from the (new) database
         user = UsersNew.query.filter_by(username=input_username).first()
 
+        arg_hash = PasswordHasher()
         # If username is correct, check if the input password (once hashed) matches the hash in the users record.
         # If both are true, send relevant information to session.
-        if user and bcrypt.checkpw(input_password.encode('utf-8'), user.password):
+        if user and arg_hash.verify(user.password, input_password):
             # Successful login, set a session variable to indicate that the user is logged in
             session['user_id'] = user.username 
             session['basiq_id'] = user.b_id_temp
@@ -248,6 +245,7 @@ def login():
 
             # Load transactional data
             #loadDatabase(testId)            
+
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 
@@ -274,20 +272,19 @@ def register():
         input_username  = request.form['username']
         input_email     = request.form['email']
         input_password  = request.form['password']
-        address1 = request.form['address1']
-        address2 = request.form['address2']
-        suburb = request.form['suburb']
-        state =request.form['state']
-        postcode = request.form['postcode']
+        address1        = request.form['address1']
+        address2        = request.form['address2']
+        suburb          = request.form['suburb']
+        state           = request.form['state']
+        postcode        = request.form['postcode']
         
         #if the 'validation' checkbox is present in the form data
         # If present, set validation_checkbox to True; otherwise, set it to False
         validation_checkbox = True if 'validation' in request.form else False
 
-        print("under register func")
+        #print("under register func") # Old?
 
-        # Encode password into bytes, Hash password, add salt
-        input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+
         """ OLD DB FORMAT:
         # Check if the username or email already exists in the database
         existing_user = User.query.filter_by(username=input_username).first()
@@ -308,6 +305,13 @@ def register():
             add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
             return 'Username or email already exists. Please choose a different one.'
 
+        #input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+        """Setup argon2id hasher with default params. Object Default based on RFC second "recommended option", low memory. 
+        5900x+3080LHR   with default params is ___verified___ in ~28.9ms
+        i5-1135G7       with default params is ___verified___ in ~55.4ms"""
+        arg_hash = PasswordHasher()
+        input_password = arg_hash.hash(input_password) #; print(hashed)
+
         # Create a new user and add it to the users_new database
         # Names are currently hard coded pending name fields in registration
         new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
@@ -317,7 +321,7 @@ def register():
 
 
         print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
-        print(user_ops.link_bank_account(new_user.id))      # A user will need to link an account to their Basiq entity (that they won't see the entity)
+        user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
@@ -391,7 +395,7 @@ def checkAF_response(responsedata):
             print("invalid address...")
             return False
 
-        return redirect('/login')
+        return redirect('/login') # unreachbale warning
 
     return render_template('register.html')  # Create a registration form in the HTML template
 
@@ -647,7 +651,9 @@ def open_terms_of_use_AI():
 def open_article_template():
         return render_template("articleTemplate.html") 
 
-@app.route('/feedback', methods=['GET', 'POST'])
+
+# Add this route to your Flask app
+@app.route('/feedback', methods=['GET'])
 def feedback():
     if request.method == 'POST':
         # Get form data
@@ -692,8 +698,8 @@ def feedback():
 
     # Render the feedback form if the request is not POST
     return render_template('feedback.html')
-    
 
+    
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
