@@ -1,0 +1,615 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "Hello",
+                "Greetings",
+                "Hi",
+                "Hey"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there! How can I help you?",
+                "Hey! How can I assist you today?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you soon!",
+                "Take care!"
+            ]
+        },
+        {
+            "tag": "dolfin",
+            "patterns": [
+                "Tell me about dolfin.",
+                "DolFin info.",
+                "what is DolFin about?"
+            ],
+            "responses": [
+                "DolFin is a Fintech solution that aims to address the issue of people struggling to keep track of their finances and reduce the difficulties/costs associated with obtaining financial advice.",
+                "DolFin aims to use open banking data to display financial accounts held by an individual and provide a high-level summary with detailed reporting."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Thanks a lot"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "Glad to help!"
+            ]
+        },
+        {
+            "tag": "recommendation",
+            "patterns": [
+                "Can you recommend something?",
+                "What do you suggest?",
+                "Any ideas?",
+                "What's good?",
+                "What's popular?",
+                "What's trending?"
+            ],
+            "responses": [
+                "Based on your previous transaction you may save up to",
+                "Based on your previous purchases, you might like product Y.",
+                "Product Z has been very popular among our customers.",
+                "Our featured product this month is A. Would you like to learn more about it?"
+            ]
+        },
+        {
+            "tag": "budget_creation",
+            "patterns": [
+                "Can you help me create a budget based on my income and expenses?"
+            ],
+            "responses": [
+                "Absolutely, I can help you create a budget. Let's start by understanding your monthly income and expenses."
+            ]
+        },
+        {
+            "tag": "transaction_history",
+            "patterns": [
+                "How do I view my transaction history?",
+                "Can you show me my recent transactions?"
+            ],
+            "responses": [
+                "You can view your transaction history in the 'Transactions' section of our online portal or mobile app. Would you like me to guide you there?"
+            ]
+        },
+        {
+            "tag": "credit_score",
+            "patterns": [
+                "How can I better understand my credit score and work to improve it?",
+                "What's my credit score?",
+                "Why is my credit score important?"
+            ],
+            "responses": [
+                "Your credit score is important because it impacts the interest rates you get on loans and credit cards. I can help you understand how it's calculated and provide tips to improve it. Would you like to continue?"
+            ]
+        },
+        {
+            "tag": "account_security",
+            "patterns": [
+                "How can I protect my personal and financial information from fraud and identity theft?",
+                "What security measures do you have in place?"
+            ],
+            "responses": [
+                "We use advanced encryption and fraud detection systems to protect your personal and financial information. I can provide more detailed tips to help you enhance your account security. Interested?"
+            ]
+        },
+        {
+            "tag": "account_closing",
+            "patterns": [
+                "What is the process for closing my account?",
+                "I want to close my account."
+            ],
+            "responses": [
+                "Closing an account with us involves a few steps. Are you sure you want to close your account? I can guide you through the process."
+            ]
+        },
+        {
+            "tag": "account_update",
+            "patterns": [
+                "How do I update my personal information or contact details?",
+                "I want to update my account information."
+            ],
+            "responses": [
+                "You can update your personal information through our online portal or mobile app. Need help with the process?"
+            ]
+        },
+        {
+            "tag": "dispute_error",
+            "patterns": [
+                "How do I dispute an error on my credit report?",
+                "There's an error on my credit report."
+            ],
+            "responses": [
+                "I'm sorry to hear about the error. I can guide you through the process of disputing an error on your credit report. Ready to proceed?"
+            ]
+        },
+        {
+            "tag": "bill_alerts",
+            "patterns": [
+                "Can you send me alerts when there are significant changes to my account or when bills are due?",
+                "I want to set up bill alerts."
+            ],
+            "responses": [
+                "Yes, you can set up alerts for bill due dates and significant account changes through our online portal or mobile app. Would you like assistance in setting these up?"
+            ]
+        },
+        {
+            "tag": "automatic_payments",
+            "patterns": [
+                "How can I set up automatic payments to ensure bills are paid on time?",
+                "I want to set up auto-pay."
+            ],
+            "responses": [
+                "You can set up automatic payments in the 'Payments' section of our online portal or mobile app. Can I guide you through the steps?"
+            ]
+        },
+        {
+            "tag": "financial_goals",
+            "patterns": [
+                "Can you help me set financial goals and track my progress towards them?",
+                "I need help with financial planning."
+            ],
+            "responses": [
+                "Absolutely! Let's start by discussing your financial goals. Do you have any specific goals in mind?"
+            ]
+        },
+        {
+            "tag": "saving_money",
+            "patterns": [
+                "What are some ways I can save money or earn more interest on my savings?",
+                "How can I boost my savings?"
+            ],
+            "responses": [
+                "There are many strategies to save money and boost your savings. One of the effective ways is to create a budget and stick to it. Would you like some more tips?"
+            ]
+        },
+        {
+            "tag": "debt_plan",
+            "patterns": [
+                "How can I set up a plan for paying off my debts, such as credit card balances or loans?",
+                "I need help with debt management."
+            ],
+            "responses": [
+                "I can definitely assist you with that. Let's start by looking at your current debts and interest rates."
+            ]
+        },
+        {
+            "tag": "expense_reduction",
+            "patterns": [
+                "Can you help me find ways to reduce unnecessary expenses and save more money?",
+                "How can I cut costs?"
+            ],
+            "responses": [
+                "Absolutely. Let's start by reviewing your expenses. Can you provide me with details about your monthly expenses?"
+            ]
+        },
+        {
+            "tag": "credit_requirements",
+            "patterns": [
+                "What are the credit score requirements for your loans or credit cards?",
+                "Do I need a specific credit score to apply for a loan or credit card?"
+            ],
+            "responses": [
+                "The credit score requirement varies based on the financial product. For example, to apply for product X, you need a credit score of Y. Can you specify the product you're interested in?"
+            ]
+        },
+        {
+            "tag": "new_account_requirements",
+            "patterns": [
+                "What are the requirements for opening a new account?",
+                "I want to open a new account."
+            ],
+            "responses": [
+                "To open a new account, you generally need to provide some personal information and meet certain eligibility requirements. Do you have a specific account type in mind?"
+            ]
+        },
+        {
+            "tag": "loan_application",
+            "patterns": [
+                "How do I apply for a loan?",
+                "I want to apply for a loan."
+            ],
+            "responses": [
+                "You can apply for a loan through our website or app. Would you like help with the application process?"
+            ]
+        },
+        {
+            "tag": "credit_card_application",
+            "patterns": [
+                "How do I apply for a credit card?",
+                "I want to apply for a credit card."
+            ],
+            "responses": [
+                "You can apply for a credit card via our online portal or mobile app. Need assistance with the application process?"
+            ]
+        },
+        {
+            "tag": "account_management_online",
+            "patterns": [
+                "What are the options for managing my account online?",
+                "I want to manage my account online."
+            ],
+            "responses": [
+                "Our online portal and mobile app provide several options for managing your account, such as viewing transactions, transferring money, and updating your profile. Can I help you with a specific task?"
+            ]
+        },
+        {
+            "tag": "customer_support_policy",
+            "patterns": [
+                "What is your customer support policy?",
+                "How can I contact you if I have questions or issues with my account?"
+            ],
+            "responses": [
+                "Our customer support team is available 24/7 to help you with any questions or issues. You can contact us via phone, email, or live chat. How may I assist you today?"
+            ]
+        },
+        {
+            "tag": "personalised_financial_advice",
+            "patterns": [
+                "Can you provide me with personalised financial advice based on my situation?",
+                "I need financial advice."
+            ],
+            "responses": [
+                "I can definitely provide some general advice. For detailed personalised financial advice, it would be best to consult with our financial advisors. Would you like to schedule a consultation?"
+            ]
+        },
+        {
+            "tag": "account_statements",
+            "patterns": [
+                "How do I view my transaction history or download account statements?",
+                "I want to download my account statement."
+            ],
+            "responses": [
+                "You can view your transaction history and download account statements in the 'Statements' section of our online portal or mobile app. Can I guide you there?"
+            ]
+        },
+        {
+            "tag": "check_balance",
+            "patterns": [
+                "What's my balance?",
+                "How much do I have?",
+                "Check my balance [year]",
+                "What was my balance in [month] [year]?",
+                "Could you tell me my current balance?",
+                "What is my account balance in [month]",
+                "I need to know my balance as of today.",
+                "Please show me my latest account balance.",
+                "Can you update me on my current account balance?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "check_spending",
+            "patterns": [
+                "Check my spending",
+                "Can you show me how much I've spent this month?",
+                "I need a summary of my expenditures for the last quarter.",
+                "Please provide a detailed report of my spending.",
+                "What have been my total expenditures for the past six months?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "check_income",
+            "patterns": [
+                "Check my income",
+                "What was my income in [month] [year]?",
+                "What was my income in [year]?",
+                "Please inform me about my total income in [month].",
+                "I'd like to see a summary of my earnings for the past quarter.",
+                "What was my total income for the previous financial year?",
+                "Can you display my income trends over the past few months?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "loan_repayment",
+            "patterns": [
+                "How do I repay my loan?",
+                "I want to repay my loan.",
+                "What are the loan repayment options?",
+                "Tell me about loan repayment options.",
+                "Loan repayment"
+            ],
+            "responses": [
+                "You can repay your loan through our website or app. Would you like help with the repayment process?"
+            ]
+        },
+        {
+            "tag": "credit_card_benefits",
+            "patterns": [
+                "Tell me about the perks of my credit card.",
+                "What are the benefits of my credit card?",
+                "What benefits do I get from a credit card?",
+                "What are the credit card benefits?"
+            ],
+            "responses": [
+                "Our credit card offers perks such as cashback on many platforms, travel rewards, and purchase protection. Would you like to learn more about the benefits?"
+            ]
+        },
+        {
+            "tag": "lost_stolen_card",
+            "patterns": [
+                "My card has been lost or stolen. Can I have some assistance?",
+                "I lost my credit card.",
+                "My credit card is missing.",
+                "My card has been stolen.",
+                "Stolen card",
+                "Lost card"
+            ],
+            "responses": [
+                "I'm very sorry to hear that. Please contact our customer support immediately at [phone number] or live service."
+            ]
+        },
+        {
+            "tag": "customer_feedback",
+            "patterns": [
+                "How can I provide feedback about your services?",
+                "I want to share my experience with your company.",
+                "I want to give feedback on your performance."
+            ],
+            "responses": [
+                "DolFin values your feedback! You can share your thoughts through our website or contact our customer support."
+            ]
+        },
+        {
+            "tag": "interest_rate",
+            "patterns": [
+                "What is the current interest rate on my savings account?",
+                "Tell me the interest rate of my savings account.",
+                "Current interest rate"
+            ],
+            "responses": [
+                "The current interest rate on your savings account is [rate]%."
+            ]
+        },
+        {
+            "tag": "highest_spending",
+            "patterns": [
+                "What's the most I've spent?",
+                "Highest spending",
+                "What was my highest spending in [month] [year]?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "retirement_plan",
+            "patterns": [
+                "I want to plan my retirement.",
+                "Can we set up a retiring plan?",
+                "I want a plan for when I retire."
+            ],
+            "responses": [
+                "Absolutely! To get started, let's gather some key information. Could you please provide details about your expected retirement age and any specific financial goals you have for your retirement? This will help us tailor a retirement plan that aligns with your needs."
+            ]
+        },
+        {
+            "tag": "mobile_app_features",
+            "patterns": [
+                "What are some unique features in the mobile app?",
+                "Can you tell me about the mobile application?"
+            ],
+            "responses": [
+                "Our mobile app allows users to view their transactions, manage their accounts, setting up bill alerts to get notified in real-time, allows contactless payments and much more. You can download DolFin on your phone through this [link]!"
+            ]
+        },
+        {
+            "tag": "fraudulent_activity",
+            "patterns": [
+                "I suspect fraudulent activity on my account",
+                "Report suspicious transactions",
+                "Fraud detection help."
+            ],
+            "responses": [
+                "I'm sorry to hear that you suspect fraudulent activity on your account. Your account security is our top priority. To report suspicious transactions, please contact our customer support immediately at [phone number] or use our live chat service."
+            ]
+        },
+        {
+            "tag": "financial_literacy_tips",
+            "patterns": [
+                "Provide financial literacy tips",
+                "I want to improve my financial knowledge."
+            ],
+            "responses": [
+                "Improving your financial literacy is very important to make wise economical decisions. You can access our guide on finance terminology using [this link]."
+            ]
+        },
+        {
+            "tag": "cryptocurrency_information",
+            "patterns": [
+                "Tell me about cryptocurrencies",
+                "I'm interested in investing in crypto.",
+                "I want to invest in cryptocurrency",
+                "Investment bitcoin"
+            ],
+            "responses": [
+                "Cryptocurrencies are digital or virtual currencies that use cryptography for security, However, if you're interested in investing in cryptocurrencies, it is essential to understand the basics. You can access our cryptocurrency guide using [this link]. Safe trading!"
+            ]
+        },
+        {
+            "tag": "average_spending",
+            "patterns": [
+                "Average spending",
+                "How much have I spent on average in [month] [year]?",
+                "Median spending in [month]",
+                "Check spending per day for [month] [year].",
+                "Daily spendings in [year]."
+            ],
+            "responses": []
+        },
+        {
+            "tag": "investment_advice",
+            "patterns": [
+                "Can you give me investment advice?",
+                "Where should I invest?",
+                "Investment options"
+            ],
+            "responses": [
+                "To provide you with investment advice, I need more information about your risk tolerance and financial goals. Please pick your preferred investment style from the table below:"
+            ]
+        },
+        {
+            "tag": "credit_limit_increase",
+            "patterns": [
+                "Credit limit increase",
+                "Raise my credit limit",
+                "Credit card limit add"
+            ],
+            "responses": [
+                "To increase your credit limit, I need to review your credit history and financial situation. Please provide more details, and I will connect you to our live support."
+            ]
+        },
+        {
+            "tag": "emergency_fund_advice",
+            "patterns": [
+                "Emergency fund",
+                "Build emergency account",
+                "Emergency savings"
+            ],
+            "responses": [
+                "Building an emergency fund is a smart financial move. Let's discuss how we can create and grow your emergency fund together."
+            ]
+        },
+        {
+            "tag": "financial_news_updates",
+            "patterns": [
+                "financial news updates",
+                "latest market news",
+                "economic developments"
+            ],
+            "responses": [
+                "It is wise to stay on track with financial updates and news, especially in our current fast-paced world. Would you like to subscribe to our newsletter to receive regular market insights?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you soon!",
+                "Take care!"
+            ]
+        },
+        {
+            "tag": "recommendation",
+            "patterns": [
+                "Can you recommend something?",
+                "What do you suggest?",
+                "Any ideas?",
+                "What's good?",
+                "What's popular?",
+                "What's trending?"
+            ],
+            "responses": [
+                "Based on your previous transaction you may save upto",
+                "Based on your previous purchases, you might like product Y.",
+                "Product Z has been very popular among our customers.",
+                "Our featured product this month is A. Would you like to learn more about it?"
+            ]
+        },
+        {
+            "tag": "check_balance",
+            "patterns": [
+                "What's my balance?",
+                "How much do I have?",
+                "Check my balance",
+                "What was my balance in [month] [year]?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "check_spending",
+            "patterns": [
+                "How much did I spend?",
+                "Check my spending",
+                "What was my spending in [month] [year]?",
+                "What was my spending from [month] [year] to [month] [year]?",
+                "What was my spending in [year]?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "check_income",
+            "patterns": [
+                "Check my income",
+                "What was my income in [month] [year]?",
+                "What was my income from [month] [year] to [month] [year]?",
+                "What was my income in [year]?"
+            ],
+            "responses": []
+        },
+        {
+            "tag": "financial_overview_inquiry",
+            "patterns": [
+                "Can you give me an overview of my financial status?",
+                "Show me my financial summary",
+                "What's my current financial standing?",
+                "I want to see my overall financial situation"
+            ],
+            "responses": [
+                "Sure, let me fetch your current financial overview.",
+                "I'll provide you with a summary of your financial status right away."
+            ]
+        },
+        {
+            "tag": "expense_tracking",
+            "patterns": [
+                "How much have I spent this month?",
+                "Show me my spending report",
+                "Track my expenses for this month",
+                "I need a breakdown of my recent expenditures"
+            ],
+            "responses": [
+                "Let me pull up your expense report for this month.",
+                "Here's a detailed breakdown of your expenditures."
+            ]
+        },
+        {
+            "tag": "investment_opportunities",
+            "patterns": [
+                "What investment opportunities are available?",
+                "Show me investment options",
+                "I'm interested in investing, what do you recommend?",
+                "Can you suggest some investments?"
+            ],
+            "responses": [
+                "Based on your financial profile, here are some investment opportunities you might find interesting.",
+                "I can suggest a few investment options that align with your financial goals."
+            ]
+        },
+        {
+            "tag": "savings_plan_advice",
+            "patterns": [
+                "How can I improve my savings?",
+                "Advise me on creating a savings plan",
+                "I need tips for better savings",
+                "What's the best way to save money?"
+            ],
+            "responses": [
+                "Let's look at your current financial situation to tailor a savings plan for you.",
+                "I can help you create an effective savings plan based on your income and expenses."
+            ]
+        }
+    ]
+}
