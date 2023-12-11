@@ -291,6 +291,10 @@ def login():
             # redirect to the dashboard.
             return redirect('/dash')
         
+        #log failed 
+        log_message = input_username + ': Login failed.' 
+        app.logger.warning(log_message)
+
         ## Otherwise, fail by default:
         add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
         return 'Login failed. Please check your credentials.'
@@ -355,7 +359,12 @@ def register():
 
         print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
         user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
+
+
         # Log result
+        log_message = input_username + ': User registered successfully.' 
+        app.logger.info(log_message)
+
         add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
 
         # create a new mapping for a user
