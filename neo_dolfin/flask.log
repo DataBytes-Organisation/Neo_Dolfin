@@ -37,3 +37,14 @@
 [2023-12-12 10:44:31,806] INFO in _internal:  * Restarting with stat
 [2023-12-12 10:44:45,181] WARNING in _internal:  * Debugger is active!
 [2023-12-12 10:44:45,200] INFO in _internal:  * Debugger PIN: 602-913-803
+[2023-12-12 10:45:26,469] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "[32mGET /signout HTTP/1.1[0m" 302 -
+[2023-12-12 10:45:26,488] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "GET /login HTTP/1.1" 200 -
+[2023-12-12 10:45:26,646] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "GET /static/css/main.css HTTP/1.1" 200 -
+[2023-12-12 10:45:26,659] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "GET /static/css/login.css HTTP/1.1" 200 -
+[2023-12-12 10:45:26,669] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "GET /static/img/style.png HTTP/1.1" 200 -
+[2023-12-12 10:45:26,687] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:26] "GET /static/img/dolfin_icon_v2%202.png HTTP/1.1" 200 -
+[2023-12-12 10:45:32,184] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:32] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2023-12-12 10:45:32,214] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:32] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[2023-12-12 10:45:32,224] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:32] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[2023-12-12 10:45:32,388] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:32] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+[2023-12-12 10:45:32,436] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:45:32] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
