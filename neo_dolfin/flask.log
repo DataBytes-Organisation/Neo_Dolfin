@@ -1,0 +1,31 @@
+[2023-12-12 10:36:14,766] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.105.236.78:8000
+[2023-12-12 10:36:14,769] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2023-12-12 10:36:14,774] INFO in _internal:  * Restarting with stat
+[2023-12-12 10:36:29,595] WARNING in _internal:  * Debugger is active!
+[2023-12-12 10:36:29,623] INFO in _internal:  * Debugger PIN: 602-913-803
+[2023-12-12 10:36:29,667] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "[32mGET /signout HTTP/1.1[0m" 302 -
+[2023-12-12 10:36:29,693] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "GET /login HTTP/1.1" 200 -
+[2023-12-12 10:36:29,889] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "GET /static/css/main.css HTTP/1.1" 200 -
+[2023-12-12 10:36:29,903] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "GET /static/css/login.css HTTP/1.1" 200 -
+[2023-12-12 10:36:29,920] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "GET /static/img/style.png HTTP/1.1" 200 -
+[2023-12-12 10:36:29,946] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:29] "GET /static/img/dolfin_icon_v2%202.png HTTP/1.1" 200 -
+[2023-12-12 10:36:33,920] INFO in app: maxWWsmith: User logged in successfully.
+[2023-12-12 10:36:35,279] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+[2023-12-12 10:36:35,326] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /dash HTTP/1.1" 200 -
+[2023-12-12 10:36:35,362] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/css/evp.css HTTP/1.1" 200 -
+[2023-12-12 10:36:35,371] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/css/main.css HTTP/1.1" 200 -
+[2023-12-12 10:36:35,379] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/css/navbar.css HTTP/1.1" 200 -
+[2023-12-12 10:36:35,387] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/js/evp.js HTTP/1.1" 200 -
+[2023-12-12 10:36:35,396] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/logo/dolfinlogoborder.png HTTP/1.1" 200 -
+[2023-12-12 10:36:35,405] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/css/chatbot.css HTTP/1.1" 200 -
+[2023-12-12 10:36:35,488] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/img/dolfinlogoborder.png HTTP/1.1" 200 -
+[2023-12-12 10:36:35,496] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/img/chat_724715.png HTTP/1.1" 200 -
+[2023-12-12 10:36:35,507] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/js/chatbot_app.js HTTP/1.1" 200 -
+[2023-12-12 10:36:35,527] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/css/footer.css HTTP/1.1" 200 -
+[2023-12-12 10:36:35,543] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/logo/dolfinlogoborder.png HTTP/1.1" 200 -
+[2023-12-12 10:36:35,763] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:35] "GET /static/img/chatbot-text-cloud.png HTTP/1.1" 200 -
+[2023-12-12 10:36:36,549] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:36] "GET /dash/epv HTTP/1.1" 200 -
+[2023-12-12 10:36:37,304] INFO in _internal: 127.0.0.1 - - [12/Dec/2023 10:36:37] "POST /dash/epv/generate_word_cloud HTTP/1.1" 200 -

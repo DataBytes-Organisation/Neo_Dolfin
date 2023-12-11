@@ -85,10 +85,15 @@ dictConfig(
                 "class": "logging.StreamHandler",
                 "stream": "ext://sys.stdout",
                 "formatter": "default",
+            },
+            "file": {
+                "class": "logging.FileHandler",
+                "filename": "flask.log",
+                "formatter": "default",
             }
         },
-        "root": {"level": "DEBUG", "handlers": ["console"]},
-    }
+        "root": {"level": "DEBUG", "handlers": ["console","file"]},
+    } 
 )
 
 ## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
