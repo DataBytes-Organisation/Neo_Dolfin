@@ -35,6 +35,8 @@ import matplotlib
 matplotlib.use('Agg')
 
 from ai.cloud import word_cloud, expenditure_cluster_model
+from logging.config import dictConfig
+
 
 load_dotenv()  # Load environment variables from .env
 from classes import *
@@ -68,6 +70,26 @@ else:
 nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
+
+# add logging config
+dictConfig(
+    {
+        "version": 1,
+        "formatters": {
+            "default": {
+                "format": "[%(asctime)s] %(levelname)s in %(module)s: %(message)s",
+            }
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "stream": "ext://sys.stdout",
+                "formatter": "default",
+            }
+        },
+        "root": {"level": "DEBUG", "handlers": ["console"]},
+    }
+)
 
 ## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
 app = Flask(__name__)
@@ -250,7 +272,8 @@ def login():
 
             # Load transactional data
             #loadDatabase(testId)            
-
+            log_message = input_username + ': User logged in successfully.' 
+            app.logger.info(log_message)
             # log successful authentication challenge 
             add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 

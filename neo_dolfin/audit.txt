@@ -11,3 +11,7 @@
 [2023-12-04 21:05:02.746064] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-10 13:32:35.153718] [user-login-success]  username: maxWWsmith:  User logged in successfully.
 [2023-12-09 15:27:51.488778] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-12 10:14:49.263180] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-12 10:22:00.189905] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-12 10:26:28.256897] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-12 10:30:13.324326] [user-login-success]  username: maxWWsmith:  User logged in successfully.
