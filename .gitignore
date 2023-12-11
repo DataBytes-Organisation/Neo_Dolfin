@@ -5,3 +5,4 @@ neo_dolfin/audit.txt
 neo_dolfin/logs/dolfin.log
 neo_dolfin/logs/dolfin-app.log
 neo_dolfin/logs/dolfin-basiq.log
+neo_dolfin/logs/dolfin-users.log
