@@ -16,3 +16,5 @@
 [2023-12-10 14:15:17.722848] [user-register-success]  username: test01:  User registered successfully.
 [2023-12-10 14:20:03.732497] [user-login-fail]  username: richardBirt:  User login failed.
 [2023-12-10 14:20:29.133661] [user-login-fail]  username: richardBirt:  User login failed.
+[2023-12-11 22:15:20.492425] [user-login-fail]  username: maxWWsmith:  User login failed.
+[2023-12-11 22:22:08.264229] [user-login-success]  username: maxWWsmith:  User logged in successfully.
