@@ -61,17 +61,46 @@
                             <div class="tips_title">
                                 Quick Tips:
                             </div>
-                            <div class="tips">
-
-                                <br />Check your updated financial
-                                <br /> summaries and reports. <br />
-                                <br />Ask DolFin, your AI chatbot, for<br />
-                                the latest insights on your
-                                <br />spending and savings.<br />
-                                <br /> Explore new features and tools <br />
-                                designed to enhance your <br />
-                                financial understanding. <br />
-                            </div>
+                            <div class="tips_container mt-5">
+                                <div id="card-container" class="card-deck card-container">
+                              
+                                    <!-- Card 1 -->
+                                    <div class="card card-sm">
+                                    <img src="/static/img/tip1.png" class="card-img-top" alt="Card Image 1">
+                                    <div class="card-body">
+                                        <p class="card-text">Check your updated financial summaries and reports.</p>
+                                    </div>
+                                    </div>
+                                
+                                    <!-- Card 2 -->
+                                    <div class="card card-sm" style="display: none;">
+                                    <img src="/static/img/tip2.png" class="card-img-top" alt="Card Image 2">
+                                    <div class="card-body">
+                                        <p class="card-text">Ask DolFin, your AI chatbot, for the latest insights on your spending and savings.</p>
+                                    </div>
+                                    </div>
+                                
+                                    <!-- Card 3 -->
+                                    <div class="card card-sm" style="display: none;">
+                                    <img src="/static/img/tip3.png" class="card-img-top" alt="Card Image 3">
+                                    <div class="card-body">
+                                        <p class="card-text">Explore new features and tools designed to enhance your financial understanding.</p>
+                                    </div>
+                                    </div>
+                                
+                                    <!-- Navigation Buttons -->
+                                    <button class="btn btn-primary rounded-circle nav-btn nav-btn-left" onclick="showCard('prev')">&lt;</button>
+                                    <button class="btn btn-primary rounded-circle nav-btn nav-btn-right" onclick="showCard('next')">&gt;</button>
+                                
+                                    <!-- Pagination Dots -->
+                                    <ul class="pagination-dots">
+                                    <li class="dot active" onclick="goToCard(0)"></li>
+                                    <li class="dot" onclick="goToCard(1)"></li>
+                                    <li class="dot" onclick="goToCard(2)"></li>
+                                    </ul>
+                              
+                                </div>
+                              </div>
                             <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" class="dolfin">
                         </div>
                     </div>
@@ -82,6 +111,9 @@
         </div>
 
     </div>
+
+    <!-- importing local -->
+    <script language="JavaScript" type="text/javascript" src="{{url_for('static', filename='js/login.js')}}"></script>
 
 </body>
 
