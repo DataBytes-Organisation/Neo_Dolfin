@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
+import logging
+from logging.config import dictConfig
 import secrets
 import io
 import boto3 as boto3
@@ -18,7 +20,6 @@ import ssl
 import nltk
 #import certifi
 import requests
-#import bcrypt
 from argon2 import PasswordHasher
 import datetime
 import re
@@ -69,7 +70,87 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
-## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
+# setup logging configs - needs to be done before flask app is initialised
+# can be stored in a dict instead of being passed, but am being memory conservative. python3 also recommends storing in dict over reading from file.
+dictConfig(
+    { 
+    "version": 1,
+    "disable_existing_loggers": True,
+    "formatters": { 
+        "default": {
+                "format": "%(levelname)s in %(module)s.py >>> %(message)s",
+            },
+        "timestamp_file": {
+                "format": "[%(asctime)s] %(levelname)s in %(module)s.py >>> %(message)s",
+                "datefmt": "%x %X Local",
+            },
+        },
+    "handlers": { 
+        "default": { 
+            "level": "INFO",
+            "formatter": "default",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",  # Default is stderr
+            },
+        "timestamp_stream": {       ##pirnts to console, but with timestamp
+            "level": "INFO",
+            "formatter": "timestamp_file",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",  # 
+            },
+        "dolfin_log": {         # create more module specific loggers here. If adding a new log file, please add to .gitignore
+                "class": "logging.FileHandler",
+                "filename": "./logs/dolfin.log",    #if log file does not exist, the file will be created. "logs" folder must exist though
+                "formatter": "timestamp_file",
+            },
+        "app_log": {
+                "class": "logging.FileHandler",
+                "filename": "logs/dolfin-app.log",
+                "formatter": "timestamp_file",
+            },
+        "basiq_log": {
+                "class": "logging.FileHandler",
+                "filename": "./logs/dolfin-basiq.log",
+                "formatter": "timestamp_file",
+            },
+        "users_log": {
+                "class": "logging.FileHandler",
+                "filename": "./logs/dolfin-users.log",
+                "formatter": "timestamp_file",
+            },
+    },
+    "loggers": { 
+        "": {  # root logger? - *should* handle things like flask logs (untested - get reqs still seem come through with info level)
+            "handlers": ["default"],
+            "level": "WARNING",
+            "propagate": False
+        },
+        "dolfin": { 
+            "handlers": ["dolfin_log"], #printot console with time stamp, and write to log file
+            "level": "INFO",
+            "propagate": False
+        },
+        "dolfin.app" : { 
+            "handlers": ["timestamp_stream","app_log"],
+            "level": "INFO",
+        },
+        "dolfin.basiq" : { 
+            "handlers": ["timestamp_stream","basiq_log"],
+            "level": "INFO",
+        },
+        "dolfin.users" : { 
+            "handlers": ["timestamp_stream","users_log"],
+            "level": "INFO",
+        },
+        } 
+    }
+)
+# "dolfin" logger is essentially a master log. "dolfin.app" is a child logger of the "dolfin" logger. ".app" and ".basiq" are set to automatically propagate back to the master log.
+#master_log  = logging.getLogger("dolfin")
+app_log     = logging.getLogger("dolfin.app")
+#basiq_log   = logging.getLogger("dolfin.basiq")
+user_log    = logging.getLogger("dolfin.users")
+
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -126,9 +207,9 @@ class UserAddress(db.Model):
     address1 = db.Column(db.String(255), nullable=False)
     address2 = db.Column(db.String(255), nullable=True)
     suburb = db.Column(db.String(255), nullable=False)
-    state=db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
     postcode = db.Column(db.String(10), nullable=False)
-    validation =db.Column(db.String(10),nullable=True)
+    validation = db.Column(db.String(10),nullable=True)
 
 class Response(db.Model):
     __tablename__ = 'surveyresponses'
@@ -154,9 +235,9 @@ except Exception as e:
     print("Error creating database:", str(e))
 
 # do, then print confirmation/error
-print(user_ops.init_dolfin_db())
+user_ops.init_dolfin_db()
 
-# Debug and easy testing
+# Debug and easy testing with API reference
 # print(API_CORE_ops.generate_auth_token())
 
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
@@ -187,19 +268,7 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
-def add_user_audit_log(username, action, message):
-    """
-    Handles the logging of an authentication or registration event to a txt output and a log database.\n
-    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
-    """
-    new_log = UserAuditLog(username=username, action=action, message=message)
-    db.session.add(new_log)
-    db.session.commit() 
-    with open("audit.txt", 'a') as file:
-        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
-    print(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
-
-
+# RE-LOG = redo audit log function calls
 # transfer user to template
 @app.context_processor
 def inject_user():
@@ -220,9 +289,8 @@ def before_request():
         # check
         print('@session[user_id]', session.get('user_id'))
         if session.get('user_id') is None:
-            print('————redirect')
+            app_log.warning("AUTH: No user session active. Redirected to login.") # Should we capture IP?
             return redirect('/login')
-
     return check_auth()
 
 # make sure no cache
@@ -237,6 +305,10 @@ def add_no_cache_header(response):
 ## LANDING PAGE
 @app.route("/",methods = ['GET']) #Initial landing page for application
 def landing():
+    """ Log testing breaker
+    master_log.info("Test - At landing page")
+    app_log.info("APP Test - At landing page")
+    basiq_log.info("basiq test - At landing page")"""
     return render_template('landing.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -268,21 +340,21 @@ def login():
             # Load transactional data
             #loadDatabase(testId)            
 
-            # log successful authentication challenge 
-            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
+            # log successful authentication challenge - consider logging multiple tries?
+            user_log.info("AUTH: User %s has been successfully authenticated. Session active."%(user.username)) # capture IP?
 
             ## This section should be done on authentication to avoid empty filling the dash
-            print(user_ops.clear_transactions())                        # Ensure no previous data remains from a previous user etc.
+            user_ops.clear_transactions()                               # Ensure no previous data remains from a previous user etc.
             cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
             #print(cache)                                               # used for testing and debugging
-            print(user_ops.cache_transactions(cache))                   # Insert cahce in to database and confirm success
+            user_ops.cache_transactions(cache)                          # Insert cahce in to database and confirm success
 
             # redirect to the dashboard.
             return redirect('/dash')
         
         ## Otherwise, fail by default:
-        add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
-        return 'Login failed. Please check your credentials.'
+        user_log.warning("AUTH: Login attempt as \"%s\" was rejected. Invalid credentials."%(input_username)) # Log. capture IP? Left as warning for now, could change with justification.
+        return 'Login failed. Please check your credentials, and try again.'
 
     return render_template('login.html')  # Create a login form in the HTML template
 
@@ -304,9 +376,6 @@ def register():
         # If present, set validation_checkbox to True; otherwise, set it to False
         validation_checkbox = True if 'validation' in request.form else False
 
-        #print("under register func") # Old?
-
-
         """ OLD DB FORMAT:
         # Check if the username or email already exists in the database
         existing_user = User.query.filter_by(username=input_username).first()
@@ -324,10 +393,9 @@ def register():
 
         # If user exists, they need to retry.
         if existing_user or existing_email:
-            add_user_audit_log(input_username, 'register-fail-preexisting', 'User registration failed due to a copy of another record.')
+            user_log.info("REGISTER: (ip?) attempted to register as an existing user.") # keep usernames ambiguous, for now
             return 'Username or email already exists. Please choose a different one.'
 
-        #input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
         """Setup argon2id hasher with default params. Object Default based on RFC second "recommended option", low memory. 
         5900x+3080LHR   with default params is ___verified___ in ~28.9ms
         i5-1135G7       with default params is ___verified___ in ~55.4ms"""
@@ -342,10 +410,10 @@ def register():
         db.session.commit()
 
 
-        print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
+        user_ops.register_basiq_id(new_user.id)      # Create a new entity on our API key, based on the data passed into the user registration form
         user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
-        add_user_audit_log(input_username, 'register-success', 'User registered successfully.')
+        user_log.info("REGISTER: New user %s, (%s %s) successfully registered and added to database."%(new_user.username,new_user.first_name, new_user.last_name))
 
         # create a new mapping for a user
         # not relevant in users_new but remains in if need for later database gen
@@ -425,6 +493,7 @@ def checkAF_response(responsedata):
 @app.route('/signout')
 def sign_out():
     user_ops.clear_transactions()
+    user_log.info("LOGOUT: %s has logged out."%session['user_id'])
     session.pop('user_id', None)
     return redirect('/')
 
@@ -443,6 +512,7 @@ def auth_dash2():
         # connect to the newly loaded transactions database, for dashboard to do its thing.
         con = sqlite3.connect("transactions_ut.db")
         cursor = con.cursor()
+        app_log.info("APP: Connected to most recent transaction data.")
 
         ## Accout relative code here
 

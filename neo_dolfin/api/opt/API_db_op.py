@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 import json
 import webbrowser
+import logging
 import pandas as pd
 from datetime import datetime
 from dateutil import parser
@@ -14,6 +15,8 @@ api_key = API_KEY
 core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
+
+basiq_log   = logging.getLogger("dolfin.basiq")
 
 # Use path variables if locations ever change.
 user_db_path = "db/user_database.db"
@@ -47,10 +50,11 @@ def init_dolfin_db():
                  b_id_temp VARCHAR(36) DEFAULT NULL);
             ''')
             # transactions will be handled in transactions_ut.db for now
-           
+            basiq_log.info("Connected to Dolfin Database.")
             return "INITIALISE - Connected to Dolfin Database."
     except sqlite3.Error as e:
-        return "INITIALSIE - An error occurred: " + str(e)
+        basiq_log.error("INITIALISE - An error occurred: " + str(e))
+        return "INITIALISE - An error occurred: " + str(e)
 
 
 def register_user(username, email, mobile, first_name, middle_name, last_name, password):
@@ -68,6 +72,7 @@ def register_user(username, email, mobile, first_name, middle_name, last_name, p
                               VALUES (?, ?, ?, ?, ?, ?, ?)''',
                            (username, email, mobile, first_name, middle_name, last_name, password))
             conn.commit()
+            basiq_log.info("USER REGISTRATION: User \"%s %s\" inserted successfully into 'users_new' table." %(first_name, last_name))
             return "USER REGISTRATION: User \"%s %s\" inserted successfully into 'users_new' table." %(first_name, last_name)
     except sqlite3.Error as e:
         return "USER REGISTRATION - An error occurred: " + str(e)
@@ -136,6 +141,7 @@ def register_basiq_id(user_id):
             if cursor.rowcount == 0:
                 return "No user found with the given ID."
             conn.commit()
+            basiq_log.info("BASIQ REGISTER: basiq_id updated successfully for user ID {}".format(user_id))
             return "BASIQ REGISTER: basiq_id updated successfully for user ID {}".format(user_id)
     except sqlite3.Error as e:
         return "BASIQ REGISTER - An error occurred: " + str(e)
@@ -155,6 +161,7 @@ def link_bank_account(user_id):
                 link = json.loads(core_instance.create_auth_link(result[0], access_token)).get('links').get('public')
                 webbrowser.open(link)
                 # ^^^ a html popup that informs the user that they need to go link their account in the new tab should popup here so the user knows what they need to do now
+                basiq_log.info("AUTH LINK: Link (%s) sent to %s"%(link,user_id))
             else:
                 return "AUTH LINK - No user found with the given ID."
     except sqlite3.Error as e:
@@ -251,10 +258,11 @@ def cache_transactions(tran_data):
                     row['amount'], row['account'], row['balance'], row['direction'], 
                     row['class'], row['institution'], str(row['transactionDate']), row['postDate'], 
                     row['subClass'], row['day'], row['month'], row['year'])) # left out: , row['subClass_code']
-
+        basiq_log.info("CACHE - Transactions for user successfully inserted in transactions.db")
         return "CACHE - Transactions for user successfully inserted."
 
     except sqlite3.Error as e:
+        basiq_log.error("CACHE - An error occurred: " + str(e))
         return "CACHE - An error occurred: " + str(e)
 
 # irrelevant with separate db -Leaving in in case change appears.
@@ -307,7 +315,8 @@ def clear_transactions():
 
             # SQL statement to delete all data from the transactions table
             cursor.execute("DELETE FROM transactions;")
-            #print("Transactions table cleared successfully.")
+            basiq_log.info("CLEAR DATABASE - Transactions cleared from transactions.db successfully.")
         return "CLEAR DATABASE - Transactions cleared successfully."
     except sqlite3.Error as e:
+        basiq_log.error("CLEAR DATABASE - An error occurred: " + str(e))
         return "CLEAR DATABASE - An error occurred: " + str(e)
