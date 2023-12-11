@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
+import logging
+from logging.config import dictConfig
 import secrets
 import io
 import boto3 as boto3
@@ -18,7 +20,6 @@ import ssl
 import nltk
 #import certifi
 import requests
-#import bcrypt
 from argon2 import PasswordHasher
 import datetime
 import re
@@ -69,7 +70,77 @@ nltk.data.path.append(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.download('wordnet', download_dir=nltk_data_path)
 
-## TO do: review and dicuss replacing 'user_database.db' with 'dolfin_db.db', or explore transferring table cols
+# setup logging configs - needs to be done before flask app is initialised
+# can be stored in a dict instead of being passed, but am being meory conservative.
+dictConfig(
+    { 
+    "version": 1,
+    "disable_existing_loggers": True,
+    "formatters": { 
+        "default": {
+                "format": "%(levelname)s in %(module)s >>> %(message)s",
+            },
+        "timestamp_file": {
+                "format": "[%(asctime)s] %(levelname)s in %(module)s >>> %(message)s",
+                "datefmt": "%x %X Local",
+            },
+        },
+    "handlers": { 
+        "default": { 
+            "level": "INFO",
+            "formatter": "default",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",  # Default is stderr
+            },
+        "timestamp_stream": {       ##pirnts to console, but with timestamp
+            "level": "INFO",
+            "formatter": "timestamp_file",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",  # 
+            },
+        "dolfin_log": {         # create more module specific loggers here. If adding a new log file, please add to .gitignore
+                "class": "logging.FileHandler",
+                "filename": "./logs/dolfin.log",    #if log file does not exist, the file will be created. "logs" folder must exist though
+                "formatter": "timestamp_file",
+            },
+        "app_log": {
+                "class": "logging.FileHandler",
+                "filename": "logs/dolfin-app.log",
+                "formatter": "timestamp_file",
+            },
+        "basiq_log": {
+                "class": "logging.FileHandler",
+                "filename": "./logs/dolfin-basiq.log",
+                "formatter": "timestamp_file",
+            },
+    },
+    "loggers": { 
+        "": {  # root logger - should handle things like flask logs
+            "handlers": ["default"],
+            "level": "WARNING",
+            "propagate": False
+        },
+        "dolfin": { 
+            "handlers": ["timestamp_stream","dolfin_log"], #printot console with time stamp, and write to log file
+            "level": "INFO",
+            "propagate": False
+        },
+        "dolfin.app" : { 
+            "handlers": ["timestamp_stream","app_log"],
+            "level": "INFO",
+        },
+        "dolfin.basiq" : { 
+            "handlers": ["timestamp_stream","basiq_log"],
+            "level": "INFO",
+        },
+        } 
+    }
+)
+# "dolfin" logger is essentially a master log. "dolfin.app" is a child logger of the "dolfin" logger. ".app" and ".basiq" are set to automatically propagate back to the master log.
+master_log  = logging.getLogger("dolfin")
+app_log     = logging.getLogger("dolfin.app")
+basiq_log   = logging.getLogger("dolfin.basiq")
+
 app = Flask(__name__)
 app.static_folder = 'static'
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # Replace with a secure random key
@@ -139,7 +210,7 @@ except Exception as e:
 # do, then print confirmation/error
 print(user_ops.init_dolfin_db())
 
-# Debug and easy testing
+# Debug and easy testing with API reference
 # print(API_CORE_ops.generate_auth_token())
 
 # GEO LOCK MIDDLEWARE - Restricts to Australia or Localhost IPs
@@ -170,19 +241,7 @@ class GeoLockChecker(object):
             return 0
 #app.wsgi_app = GeoLockChecker(app.wsgi_app)
 
-def add_user_audit_log(username, action, message):
-    """
-    Handles the logging of an authentication or registration event to a txt output and a log database.\n
-    6/12 AW - Working with the error handling in the API DB ops has given me the idea of moving this feature to its own file and modularly being deployed for other situations across the app.
-    """
-    new_log = UserAuditLog(username=username, action=action, message=message)
-    db.session.add(new_log)
-    db.session.commit() 
-    with open("audit.txt", 'a') as file:
-        file.write(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
-    print(f"[{new_log.timestamp}] [user-{action}]  username: {username}:  {message}\n")
-
-
+# RE-LOG = redo audit log function calls
 # transfer user to template
 @app.context_processor
 def inject_user():
@@ -203,9 +262,8 @@ def before_request():
         # check
         print('@session[user_id]', session.get('user_id'))
         if session.get('user_id') is None:
-            print('————redirect')
+            app_log.warning("Auth failed: No user session active. Redirected to login.") # Should we capture IP?
             return redirect('/login')
-
     return check_auth()
 
 # make sure no cache
@@ -220,6 +278,9 @@ def add_no_cache_header(response):
 ## LANDING PAGE
 @app.route("/",methods = ['GET']) #Initial landing page for application
 def landing():
+    master_log.info("Test - At landing page")
+    app_log.info("APP Test - At landing page")
+    basiq_log.info("basiq test - At landing page")
     return render_template('landing.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -252,7 +313,7 @@ def login():
             #loadDatabase(testId)            
 
             # log successful authentication challenge 
-            add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
+            # RE-LOG add_user_audit_log(input_username, 'login-success', 'User logged in successfully.')
 
             ## This section should be done on authentication to avoid empty filling the dash
             print(user_ops.clear_transactions())                        # Ensure no previous data remains from a previous user etc.
@@ -264,7 +325,7 @@ def login():
             return redirect('/dash')
         
         ## Otherwise, fail by default:
-        add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
+        # RE-LOG add_user_audit_log(input_username, 'login-fail', 'User login failed.')          # log un-successful authentication challenge
         return 'Login failed. Please check your credentials.'
 
     return render_template('login.html')  # Create a login form in the HTML template
