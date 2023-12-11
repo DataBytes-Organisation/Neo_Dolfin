@@ -1,6 +1,0 @@
-type,id,status,description,amount,account,balance,direction,class,institution,postDate,subClass_title,subClass_code
-transaction,7e1ede57-c924-4623-b2fb-8fde81aabb22,posted,Contribution - Super Guarantee,568.83,4c1a5265-779f-4698-b5d6-f1bcca36d40e,0.00,credit,transfer,AU00004,2023-11-11T00:00:00Z,Superannuation Funds,633
-transaction,11dc8f84-fc18-47b5-ace7-920bd9f67de4,posted,Income - Cash Account,15.93,4c1a5265-779f-4698-b5d6-f1bcca36d40e,0.00,credit,transfer,AU00004,2023-10-31T00:00:00Z,Unknown,0
-transaction,58d9ed49-a8dd-4848-87dc-d558e273ca38,posted,Transfer in,358.68,4c1a5265-779f-4698-b5d6-f1bcca36d40e,0.00,credit,transfer,AU00004,2023-03-04T00:00:00Z,Auxiliary Finance and Investment Services,641
-transaction,ae2be1e4-ed44-44ea-bf24-1b988a1a134c,posted,Transfer in,426.87,4c1a5265-779f-4698-b5d6-f1bcca36d40e,0.00,credit,transfer,AU00004,2022-09-05T00:00:00Z,Auxiliary Finance and Investment Services,641
-transaction,20d8f18d-cc53-43a0-a7c0-c48b7e94ef4c,posted,Contribution - Super Guarantee,598.89,4c1a5265-779f-4698-b5d6-f1bcca36d40e,0.00,credit,transfer,AU00004,2022-08-13T00:00:00Z,Superannuation Funds,633

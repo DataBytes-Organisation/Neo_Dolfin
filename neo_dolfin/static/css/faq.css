@@ -3,10 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap');
 
 #accordionMain{
-    padding-top: 50px !important;
-    padding-bottom: 200px !important;
+    padding-top: 90px !important;
+    padding-bottom: 20px !important;
+    margin-top: 0;
     animation: slide 1s ease-in-out 1 both;
     position: relative;
+    z-index: 5;
 }
 
 @keyframes slide{
@@ -18,8 +20,74 @@
     }
 }
 
+body::before {
+    content: ''; 
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 21%; 
+    background: rgba(52, 58, 64, 0.2); 
+    z-index: -1; 
+  }
+  
+  
+  body {
+    position: relative;
+    
+  }
+
+  #headerSection {
+    background: none !important;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 160px;
+    height: auto; 
+    position: relative; 
+    z-index: -2; 
+}
+
+#headerSection .row {
+    background: none !important;
+    margin: 0;
+}
+
+#headerSection .col-md-6 {
+    padding: 0;
+    position: relative;
+}
+
+#headerSection .col-md-6 img {
+    width: 40%; 
+    height: auto;
+    display: block;
+}
+
+#headerSection .col-md-6:nth-child(2) img {
+    opacity: 0.5;/
+}
+
+#headerSection .col-md-6:first-child {
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    transform: translateY(-50%);
+    z-index: -1; 
+}
+
+#headerSection .col-md-6:nth-child(2) {
+    position: absolute;
+    top: 10%;
+    right: 25%; /* Adjust this value as needed */
+    transform: translateY(-50%);
+    z-index: -1; 
+}
+
+
 .accordion-header{
     padding-bottom: 0%;
+    padding-top: 0%;
     border: 0px solid white;
     border-radius: 100%;
     font-weight: bold;
@@ -72,20 +140,32 @@
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-dash-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>");
 }
 
-#rectangle{
-    width:950px;
-    height:700px;
-    background: #343a40;
-    opacity: 20%;
-    display: flex;
-    align-items: end;
-    position:absolute;
-    top:32%;
-    left:24.55%;
-    z-index:-1;
+#FlushAccordion {
+    background: #FAFAFE;
+    background-size: 960px 700px;
+    border: #343a40;
+    padding: 25px;
     border-radius: 25px;
-    bottom:0px;
-    overflow: hidden;
-    ;
 }
+
+#newContainer {
+    width: 50%; 
+    margin: auto; 
+    padding: 20px; 
+    background-color: #FAFAFE; 
+    margin-top: 0px;
+    border-radius: 25px;
+}
+
+#newContainer h2 {
+    color: #0077BB; 
+    margin-top: 20px; 
+}
+
+#newContainer p {
+    color: #343A40; 
+    margin-top: 10px; 
+}
+
+
 

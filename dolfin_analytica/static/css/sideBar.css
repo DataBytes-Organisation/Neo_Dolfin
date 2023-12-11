@@ -1,0 +1,65 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 65px;
+    left: 0;
+    background-color: #343a40 !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+    opacity: 80%;
+  }
+  
+  
+.sidebar-nav {
+    flex-direction: column !important; 
+    white-space: nowrap;
+}
+
+.sidebar-item {
+    font-weight: bold;    
+    color: #343a40;
+}
+
+  .sidebar-link {
+    padding: 8px ;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fafafe;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar-link:hover {
+    background-color: #0077bb;
+    color: #d9d9d9;
+}
+.menubtn {
+    font-size: 20px;
+    background-color: #343a40 ;
+    color: white;
+    padding: 0px 10px;
+    font-weight: bold;
+    z-index: 1;
+    position: absolute;
+    top: 70px;
+}
+  
+  .menubtn:hover {
+    background-color: #0077bb;
+  }
+    
+
+  /* Active state for the entire list item */
+.sidebar-item.active {
+    background-color: #0077BB;
+    border-radius: 2px; /* Add rounded corners */
+    padding: 8px 15px; /* Adjust padding as needed */
+}

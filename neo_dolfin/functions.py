@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import hashlib
 import hmac
 import base64
-import qrcode
+import sqlite3
 import logging 
 import datetime
 from services.basiq_service import BasiqService
@@ -97,3 +97,58 @@ async def s3connection(bucket_name, s3_client, basiq_service, s3_service):
         df1 = pd.read_csv(s3_client.get_object(Bucket = bucket_name, Key = latest_object).get('Body'))
         df2 = s3_client.get_object(Bucket = bucket_name + '-processed', Key = latest_object).get('Body')
         df2 = pd.read_csv(df2)
+
+# Function to clean the 'subClass' column
+def clean_subClass(row):
+    if pd.isnull(row['subClass']) and row['class'] == 'cash-withdrawal':
+        return 'cash-withdrawal'
+    if row['subClass'] == '{\\title\\":\\"\\"':
+        return 'bank-fee'
+    match = re.search(r'\\title\\":\\"(.*?)\\"', str(row['subClass']))
+    if match:
+        extracted_subClass = match.group(1)
+        if extracted_subClass == 'Unknown':
+            return row['description']
+        return extracted_subClass
+    return row['subClass']
+
+def loadDatabase(testId):
+
+    # If the user is a test user, read from one of the user* csv.
+    # IF NOT - continue with default sample data
+    df4 = pd.read_csv('static/data/transaction_ut.csv')
+    if testId > 0 and testId < 7:
+        df4 = pd.read_csv('static/data/new_data/user' + str(testId) + '.csv')
+
+    # SQLite User Data Database Setup
+    df4.drop(['enrich', 'links'], axis=1, inplace=True, errors='ignore') # Drop unnecessary columns
+
+    # Amit Parmar 23-Nov-2023
+    # Using the post date as the new schema does not have the transaction date field.    
+    df4['transactionDate'] = pd.to_datetime(df4['postDate'].str[:10], format='%Y-%m-%d') # Convert 'transactionDate' to datetime format for easy manipulation
+
+    # Amit Parmar 23-Nov-2023
+    # Below line is compatible with the transaction_ut_original.csv.
+    # df4['transactionDate'] = pd.to_datetime(df4['transactionDate'], format='%d/%m/%Y') # Convert 'transactionDate' to datetime format for easy manipulation
+
+    df4['day'] = df4['transactionDate'].dt.day # Create new columns for day, month, and year
+    df4['month'] = df4['transactionDate'].dt.month # Create new columns for day, month, and year
+    df4['year'] = df4['transactionDate'].dt.year # Create new columns for day, month, and year
+
+
+    # Amit Parmar 23-Nov-2023
+    # Below line is compatible with the transaction_ut_original.csv.
+    #df4['subClass'] = df4.apply(clean_subClass, axis=1) # Clean the 'subClass' column
+    #df4['subClass'] = df4['subClass'].apply(lambda x: 'Professional and Other Interest Group Services' if x == '{\\title\\":\\"Civic' else x) # Update specific 'subClass' values
+   
+    # Check if the SQLite database file already exists
+    db_file = "db/transactions_ut.db"
+    if not os.path.exists(db_file):
+        # If the database file doesn't exist, create a new one
+        conn = sqlite3.connect(db_file)
+        # Import the cleaned DataFrame to the SQLite database
+        df4.to_sql("transactions", conn, if_exists="replace", index=False)
+        conn.close()
+    else:
+        # If the database file already exists, connect to it
+        conn = sqlite3.connect(db_file)
