@@ -20,7 +20,7 @@
 <body>
   <!-- IMPLEMENT NAV BAR HERE -->
   {% include 'components/navbar.html' %}
-
+  <p style="color:rgb(255, 0, 0);font-family:courier;font-size:50%;"><strong>{{msg}}</strong></p>
   <div id="mainBody">
 
     <div id="headerSection" class="p-5">
@@ -116,7 +116,7 @@
                   <span class="face" onclick="changeColor(this, 'faces1', 5)" id="face1_5">5</span>
                 </div>
                 <div class="final-submit-button">
-                    <button type="button" class="submitting-button" onclick="submitForm()">Submit</button>
+                    <button type="submit" class="submitting-button" onclick="submitForm()">Submit</button>
                 </div>
                 
         

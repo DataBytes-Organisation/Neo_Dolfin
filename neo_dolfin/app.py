@@ -827,83 +827,78 @@ def resetpw():
         return render_template('resetpw.html')
 
 # APPLICATION USER SURVEY
-@app.route('/survey')
+# APPLICATION USER SURVEY
+@app.route('/survey',  methods=['GET','POST'])
 def survey():
-        return render_template("survey.html")
+    return render_template("survey.html")
 
-# Export USER SURVEY RESULTS
-@app.route('/surveysubmit', methods=['GET','POST'])
+@app.route('/submit', methods=['POST'])
 def submit():
-    data = request.get_json()
-    print(data)
-    email = session.get('email')
-    #email = User.query.filter_by(email=email).first()
-    print("user email: ", email)
-    question_1_yes = data.get('question_1_yes')
-    question_1_no = data.get('question_1_no')
-
-    # Assigning response based on the values of question_1_yes and question_1_no
-    if question_1_yes is True:
-        response_1 = 'Yes'
-    elif question_1_no is True:
-        response_1 = 'No'
-    else:
-        response_1 = 'None'
+    if request.is_json:
+        data = request.json
+        # Process the received JSON data here
+        print(data)
+        email="test@mail"
+        # email = User.query.filter_by(email=email).first()
+        print("user email: ", email)
+        question_1_yes = data.get('question_1_yes')
+        question_1_no = data.get('question_1_no')
+        # Assigning response based on the values of question_1_yes and question_1_no
+        if question_1_yes is True:
+            response_1 = 'Yes'
+        elif question_1_no is True:
+            response_1 = 'No'
+        else:
+            response_1 = 'None'
         
-    text_box_1_data = data.get('text_box_1')
-    response1_2 = str(text_box_1_data) if 'text_box_1' in data else 'None'
-    satisfaction_value=data.get('satisfaction_value')
-    response_2=str(satisfaction_value) if 'satisfaction_value' in data else 'None'
-    ease_of_access_value=data.get('ease_of_access_value')
-    response_3=str(ease_of_access_value) if 'ease_of_access_value' in data else 'None'
-        
-    question_4_yes = data.get('question_4_yes')
-    question_4_no = data.get('question_4_no')
-    # Assigning response based on the values of question_1_yes and question_1_no
-    if question_4_yes is True:
-        response_4 = 'Yes'
-    elif question_4_no is True:
-        response_4 = 'No'
-    else:
-        response_4 = 'None'
+        text_box_1_data = data.get('text_box_1')
+        response1_2 = str(text_box_1_data) if 'text_box_1' in data else 'None'
+        satisfaction_value=data.get('satisfaction_value')
+        response_2=str(satisfaction_value) if 'satisfaction_value' in data else 'None'
+        ease_of_access_value=data.get('ease_of_access_value')
+        response_3=str(ease_of_access_value) if 'ease_of_access_value' in data else 'None'
+          
+        question_4_yes = data.get('question_4_yes')
+        question_4_no = data.get('question_4_no')
 
-    text_box_2_data = data.get('text_box_2')
-    response4_2 = str(text_box_2_data) if 'text_box_2' in data else 'None'
-    question_5_yes = data.get('question_5_yes')
-    question_5_no = data.get('question_5_no')
+            # Assigning response based on the values of question_1_yes and question_1_no
+        if question_4_yes is True:
+            response_4 = 'Yes'
+        elif question_4_no is True:
+            response_4 = 'No'
+        else:
+            response_4 = 'None'
 
-    # Assigning response based on the values of question_5_yes and question_5_no
-    if question_5_yes is True:
-        response_5 = 'Yes'
-    elif question_5_no is True:
-        response_5 = 'No'
-    else:
-        response_5 = 'None'
+        text_box_2_data = data.get('text_box_2')
+        response4_2 = str(text_box_2_data) if 'text_box_2' in data else 'None'
+        question_5_yes = data.get('question_5_yes')
+        question_5_no = data.get('question_5_no')
+        # Assigning response based on the values of question_5_yes and question_5_no
+        if question_5_yes is True:
+            response_5 = 'Yes'
+        elif question_5_no is True:
+            response_5 = 'No'
+        else:
+            response_5 = 'None'
 
-    text_box_3_data = data.get('text_box_3')
-    response5_2 = str(text_box_3_data) if 'text_box_3' in data else 'None'
-    frequency_value=data.get('frequency_value')
-    response_6=str(frequency_value) if 'frequency_value' in data else 'None'
-    additional_features = data.get('additional_features')
-    response_7=str(additional_features) if 'additional_features' in data else 'None'
-    privacy_security_concerns=data.get('privacy_security_concerns')
-    response_8=str(privacy_security_concerns) if 'privacy_security_concerns' in data else 'None'
-    feelings_question = data.get('feelings_question')
-    response_9=str(feelings_question) if 'feelings_question' in data else 'None'
-    print("responses:"+response_1+response1_2+response_2+response_3+response_4+response4_2+response_5+response5_2+response_6+response_7+response_8+response_9)
-    response = Response(email=email, response1=response_1,response1_2=response1_2, response2=response_2,response3=response_3,response4=response_4,response4_2=response4_2,
+        text_box_3_data = data.get('text_box_3')
+        response5_2 = str(text_box_3_data) if 'text_box_3' in data else 'None'
+        frequency_value=data.get('frequency_value')
+        response_6=str(frequency_value) if 'frequency_value' in data else 'None'
+        additional_features = data.get('additional_features')
+        response_7=str(additional_features) if 'additional_features' in data else 'None'
+        privacy_security_concerns=data.get('privacy_security_concerns')
+        response_8=str(privacy_security_concerns) if 'privacy_security_concerns' in data else 'None'
+        feelings_question = data.get('feelings_question')
+        response_9=str(feelings_question) if 'feelings_question' in data else 'None'
+        print("responses:"+response_1+response1_2+response_2+response_3+response_4+response4_2+response_5+response5_2+response_6+response_7+response_8+response_9)
+        response = Response(email=email, response1=response_1,response1_2=response1_2, response2=response_2,response3=response_3,response4=response_4,response4_2=response4_2,
                         response5=response_5,response5_2=response5_2,response6=response_6,response7=response_7,response8=response_8,response9=response_9)
-    db.session.add(response)
-    db.session.commit()
-    try:
-        with open('surveyResults.json', 'w') as file:
-            json.dump(data, file)
-        # Return success response before the function exits
-        message = "Thanks for your feedback!"
-        # Redirect to dash2.html after showing the message for 3000ms
-        return f"{message}<script>setTimeout(function(){{window.location.href = '{url_for('dash')}'}}, 3000);</script>"
-    except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)})
+        db.session.add(response)
+        db.session.commit()
+        message="Thanks for your taking the survey !"
+                    
+        return render_template("survey.html", msg=message)
 
 
 ## CHATBOT PAGE 
