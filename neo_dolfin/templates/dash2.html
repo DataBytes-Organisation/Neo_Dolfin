@@ -43,8 +43,28 @@
 <body>
 
     {% include 'components/navbar.html' %}
-
+    <script>
+        window.onload = function() {
+            var today = new Date();
+            var dayOfMonth = today.getDate();
+            var dayOfWeek = today.getDay();
+    
+            var surveyKey = 'survey_' + dayOfMonth;
+    
+            // Check if survey has already been taken on this day
+            var surveyTaken = localStorage.getItem(surveyKey);
+    
+            // Check if it's the second Monday of the month and the survey hasn't been taken
+            if (dayOfWeek === 1 && dayOfMonth >= 8 && dayOfMonth <= 14 && !surveyTaken) {
+                if (confirm('Take the survey for better user experience! Click OK to proceed.')) {
+                    localStorage.setItem(surveyKey, 'true'); // Mark survey as taken for today
+                    window.location.href = 'survey'; // Redirect to survey.html
+                }
+            }
+        };
+    </script>
     <div class="container mt-3">
+        
         <div class="d-flex justify-content-between align-items-center">
             <p><strong>Welcome</strong>, {{ user_id }}!</p>
             <p id="accountind"><strong>Viewing Account:</strong> {{ defacc | safe }}</p>

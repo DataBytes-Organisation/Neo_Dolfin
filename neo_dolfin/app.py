@@ -129,6 +129,23 @@ class UserAddress(db.Model):
     state=db.Column(db.String(50), nullable=False)
     postcode = db.Column(db.String(10), nullable=False)
     validation =db.Column(db.String(10),nullable=True)
+
+class Response(db.Model):
+    __tablename__ = 'surveyresponses'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column(db.String(50), nullable=False)
+    response1 = db.Column(db.String(10), nullable=False)
+    response1_2 = db.Column(db.String(255), nullable=False)
+    response2 = db.Column(db.String(30), nullable=False)
+    response3 = db.Column(db.String(50), nullable=False)
+    response4 = db.Column(db.String(50), nullable=False)
+    response4_2 = db.Column(db.String(255), nullable=False)
+    response5 = db.Column(db.String(10), nullable=False)
+    response5_2 = db.Column(db.String(255), nullable=False)
+    response6 = db.Column(db.String(25), nullable=False)
+    response7 = db.Column(db.String(255), nullable=False)
+    response8 = db.Column(db.String(255), nullable=False)
+    response9 = db.Column(db.Integer, nullable=False)
     
 try:
     with app.app_context():
@@ -342,8 +359,8 @@ def register():
         if user:
             user_id = user.id
             # importing API creds
-            API_KEY=os.getenv("API_KEY")
-            SECRET=os.getenv("SECRET")
+            AFAPI_KEY=os.getenv("AFAPI_KEY")
+            AF_SECRET=os.getenv("AF_SECRET")
             print("userid: ",user_id)
             #combining address fields to single value
             address = address1+', '+address2+', '+suburb+', '+state+', '+postcode
@@ -353,7 +370,7 @@ def register():
                  
                 # calling address Validation API
                 try:
-                    fullurl=f"https://api.addressfinder.io/api/au/address/v2/verification/?key={API_KEY}&secret={SECRET}&format=json&q={encoded_address}&gnaf=1&paf=1&domain=localhost"
+                    fullurl=f"https://api.addressfinder.io/api/au/address/v2/verification/?key={AFAPI_KEY}&secret={AF_SECRET}&format=json&q={encoded_address}&gnaf=1&paf=1&domain=localhost"
                     response =requests.get(fullurl)
                     print("Full address: ",address)
                     print(response.status_code)
@@ -480,8 +497,9 @@ def auth_dash2():
         jfx8 = dfx8.to_json(orient='records')
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc)
+        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc,show_alert=True)
         
+    
     if request.method == "POST":
             # Get the account value from the JSON payload
         data = request.get_json()
@@ -809,21 +827,79 @@ def resetpw():
         return render_template('resetpw.html')
 
 # APPLICATION USER SURVEY
-@app.route('/survey')
+# APPLICATION USER SURVEY
+@app.route('/survey',  methods=['GET','POST'])
 def survey():
-        return render_template("survey.html")
+    return render_template("survey.html")
 
-# Export USER SURVEY RESULTS
 @app.route('/submit', methods=['POST'])
 def submit():
-    data = request.get_json()
+    if request.is_json:
+        data = request.json
+        # Process the received JSON data here
+        print(data)
+        email="test@mail"
+        # email = User.query.filter_by(email=email).first()
+        print("user email: ", email)
+        question_1_yes = data.get('question_1_yes')
+        question_1_no = data.get('question_1_no')
+        # Assigning response based on the values of question_1_yes and question_1_no
+        if question_1_yes is True:
+            response_1 = 'Yes'
+        elif question_1_no is True:
+            response_1 = 'No'
+        else:
+            response_1 = 'None'
+        
+        text_box_1_data = data.get('text_box_1')
+        response1_2 = str(text_box_1_data) if 'text_box_1' in data else 'None'
+        satisfaction_value=data.get('satisfaction_value')
+        response_2=str(satisfaction_value) if 'satisfaction_value' in data else 'None'
+        ease_of_access_value=data.get('ease_of_access_value')
+        response_3=str(ease_of_access_value) if 'ease_of_access_value' in data else 'None'
+          
+        question_4_yes = data.get('question_4_yes')
+        question_4_no = data.get('question_4_no')
 
-    try:
-        with open('surveyResults.json', 'w') as file:
-            json.dump(data, file)
-        return jsonify({'status': 'success', 'message': 'Data submitted successfully!'})
-    except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)})
+            # Assigning response based on the values of question_1_yes and question_1_no
+        if question_4_yes is True:
+            response_4 = 'Yes'
+        elif question_4_no is True:
+            response_4 = 'No'
+        else:
+            response_4 = 'None'
+
+        text_box_2_data = data.get('text_box_2')
+        response4_2 = str(text_box_2_data) if 'text_box_2' in data else 'None'
+        question_5_yes = data.get('question_5_yes')
+        question_5_no = data.get('question_5_no')
+        # Assigning response based on the values of question_5_yes and question_5_no
+        if question_5_yes is True:
+            response_5 = 'Yes'
+        elif question_5_no is True:
+            response_5 = 'No'
+        else:
+            response_5 = 'None'
+
+        text_box_3_data = data.get('text_box_3')
+        response5_2 = str(text_box_3_data) if 'text_box_3' in data else 'None'
+        frequency_value=data.get('frequency_value')
+        response_6=str(frequency_value) if 'frequency_value' in data else 'None'
+        additional_features = data.get('additional_features')
+        response_7=str(additional_features) if 'additional_features' in data else 'None'
+        privacy_security_concerns=data.get('privacy_security_concerns')
+        response_8=str(privacy_security_concerns) if 'privacy_security_concerns' in data else 'None'
+        feelings_question = data.get('feelings_question')
+        response_9=str(feelings_question) if 'feelings_question' in data else 'None'
+        print("responses:"+response_1+response1_2+response_2+response_3+response_4+response4_2+response_5+response5_2+response_6+response_7+response_8+response_9)
+        response = Response(email=email, response1=response_1,response1_2=response1_2, response2=response_2,response3=response_3,response4=response_4,response4_2=response4_2,
+                        response5=response_5,response5_2=response5_2,response6=response_6,response7=response_7,response8=response_8,response9=response_9)
+        db.session.add(response)
+        db.session.commit()
+        message="Thanks for your taking the survey !"
+                    
+        return render_template("survey.html", msg=message)
+
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
