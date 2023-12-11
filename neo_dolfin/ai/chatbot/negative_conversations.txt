@@ -4,3 +4,9 @@ User: dumb and idiot bot you know nothing
 Bot: No problem!
 User: get lost idiot  
 ---
+Bot: 
+User: stupid bot
+---
+Bot: Hi there! How can I help you?
+User: stupid bot you are amazing
+---

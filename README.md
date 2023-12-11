@@ -104,4 +104,16 @@ We have testing scripts enabled for this application.
 ***Warnings are OKAY, Fails will result in the PULL request not being reviewed.*** 
 
 ## GCP Deployment 
-***WORK IN PROGRESS***
+
+The GCP deployment deploys the following infrastrcuture using Terraform:
+
+- VPC
+- Cloud SQL database
+- VM running a containerised version of anomaly detection
+
+### Requirements:
+* GCP command line tools
+* Terraform
+* Docker desktop
+
+[Further instructions](dolfin_infra/Readme.md) can be found in the dolfin_infra folder

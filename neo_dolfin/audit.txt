@@ -1,5 +1,20 @@
-[2023-11-24 17:09:33] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:38] login-fail: Failed login attempt for user admin
-[2023-11-24 17:09:41] login-fail: Failed login attempt for user admin
-[2023-11-24 17:10:00] register: User admin registered
-[2023-11-24 17:10:03] login: User admin logged in
+[2023-11-30 19:50:10.814616] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 19:54:42.607455] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 20:03:52.354610] [user-login-success]  username: tester:  User logged in successfully.
+[2023-11-30 20:05:48.370046] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-01 23:44:50.378236] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-01 23:48:18.698657] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 14:52:12.137739] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 15:43:24.684804] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-03 16:48:30.325457] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-04 20:46:22.678779] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-04 21:05:02.746064] [user-login-success]  username: tester:  User logged in successfully.
+[2023-12-10 13:32:35.153718] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-09 15:27:51.488778] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-10 14:09:03.396315] [user-login-fail]  username: tester:  User login failed.
+[2023-12-10 14:13:54.011652] [user-login-fail]  username: tester:  User login failed.
+[2023-12-10 14:15:17.722848] [user-register-success]  username: test01:  User registered successfully.
+[2023-12-10 14:20:03.732497] [user-login-fail]  username: richardBirt:  User login failed.
+[2023-12-10 14:20:29.133661] [user-login-fail]  username: richardBirt:  User login failed.
+[2023-12-11 22:15:20.492425] [user-login-fail]  username: maxWWsmith:  User login failed.
+[2023-12-11 22:22:08.264229] [user-login-success]  username: maxWWsmith:  User logged in successfully.
