@@ -78,10 +78,10 @@ dictConfig(
     "disable_existing_loggers": True,
     "formatters": { 
         "default": {
-                "format": "%(levelname)s in %(module)s >>> %(message)s",
+                "format": "%(levelname)s in %(module)s.py >>> %(message)s",
             },
         "timestamp_file": {
-                "format": "[%(asctime)s] %(levelname)s in %(module)s >>> %(message)s",
+                "format": "[%(asctime)s] %(levelname)s in %(module)s.py >>> %(message)s",
                 "datefmt": "%x %X Local",
             },
         },
@@ -218,7 +218,7 @@ except Exception as e:
     print("Error creating database:", str(e))
 
 # do, then print confirmation/error
-print(user_ops.init_dolfin_db())
+user_ops.init_dolfin_db()
 
 # Debug and easy testing with API reference
 # print(API_CORE_ops.generate_auth_token())
@@ -327,10 +327,10 @@ def login():
             user_log.info("AUTH: User %s has been successfully authenticated. Session active."%(user.username)) # capture IP?
 
             ## This section should be done on authentication to avoid empty filling the dash
-            print(user_ops.clear_transactions())                        # Ensure no previous data remains from a previous user etc.
+            user_ops.clear_transactions()                               # Ensure no previous data remains from a previous user etc.
             cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
             #print(cache)                                               # used for testing and debugging
-            print(user_ops.cache_transactions(cache))                   # Insert cahce in to database and confirm success
+            user_ops.cache_transactions(cache)                          # Insert cahce in to database and confirm success
 
             # redirect to the dashboard.
             return redirect('/dash')
@@ -393,7 +393,7 @@ def register():
         db.session.commit()
 
 
-        print(user_ops.register_basiq_id(new_user.id))      # Create a new entity on our API key, based on the data passed into the user registration form
+        user_ops.register_basiq_id(new_user.id)      # Create a new entity on our API key, based on the data passed into the user registration form
         user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
         user_log.info("REGISTER: New user %s, (%s %s) successfully registered and added to database."%(new_user.username,new_user.first_name, new_user.last_name))
