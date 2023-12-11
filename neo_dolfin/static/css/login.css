@@ -155,7 +155,7 @@ body {
     top:18.75rem;
     left:5.125rem;
     width: 33rem;
-    height: 27.5rem;
+    height: 28rem;
     background-color: rgb(255, 255, 255);
     display: flex;
     backdrop-filter: blur(.935rem);
@@ -164,7 +164,7 @@ body {
 .tips_title
 {
     position: absolute;
-    top: 30px;
+    top: 15px;
     left: 50px;
     width: 650px;
     color: #000;
@@ -176,20 +176,75 @@ body {
     letter-spacing: -0.8px;
 }
 
-.tips
-{
-    width: 350px;
+.tips_container {
     position: absolute;
-    top: 60px;
-    left: 50px;
-    width: 650px;
+    height: 25%;
+    width: 50%;
+    top: 3%;
+    left: 7%;
+  }
+
+.card-container 
+{
+    position: relative;
+}
+
+.card
+{
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn 
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.nav-btn-left 
+{
+    left: 0;
+}
+
+.nav-btn-right 
+{
+    right: 0;
+}
+
+.pagination-dots 
+{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.dot 
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active 
+{
+    background-color: #007bff;
+}
+
+.card-text
+{
     color: #000;
-/* font-family: Archivo; */
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    line-height: 146.88%;
-    letter-spacing: -0.8px;
 }
 
 
