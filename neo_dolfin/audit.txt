@@ -11,3 +11,10 @@
 [2023-12-04 21:05:02.746064] [user-login-success]  username: tester:  User logged in successfully.
 [2023-12-10 13:32:35.153718] [user-login-success]  username: maxWWsmith:  User logged in successfully.
 [2023-12-09 15:27:51.488778] [user-login-success]  username: maxWWsmith:  User logged in successfully.
+[2023-12-10 14:09:03.396315] [user-login-fail]  username: tester:  User login failed.
+[2023-12-10 14:13:54.011652] [user-login-fail]  username: tester:  User login failed.
+[2023-12-10 14:15:17.722848] [user-register-success]  username: test01:  User registered successfully.
+[2023-12-10 14:20:03.732497] [user-login-fail]  username: richardBirt:  User login failed.
+[2023-12-10 14:20:29.133661] [user-login-fail]  username: richardBirt:  User login failed.
+[2023-12-11 22:15:20.492425] [user-login-fail]  username: maxWWsmith:  User login failed.
+[2023-12-11 22:22:08.264229] [user-login-success]  username: maxWWsmith:  User logged in successfully.

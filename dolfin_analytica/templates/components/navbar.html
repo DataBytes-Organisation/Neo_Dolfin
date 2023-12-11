@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar.css')}}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/dash/"><img class="nav-logo" src="{{ url_for('static', filename='logo/dolfinlogoborder.png') }}" alt="nav-logo">DolFin</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Leave this alone, DO NOT REMOVE -->
+        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+          <li><a data-toggle="tab" href="#pagetwo">Page Two</a></li>
+          <li><a data-toggle="tab" href="#pagethree">Page Three</a></li>
+          <li><a data-toggle="tab" href="#pagefour">Page Four</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current page from the template variable
+        var currentPage = "{{ current_page }}";
+
+        // Find the corresponding navigation item and add the 'active' class
+        var navItem = document.getElementById('nav-' + currentPage);
+        if (navItem) {
+            navItem.classList.add('active');
+        }
+    });
+</script>
