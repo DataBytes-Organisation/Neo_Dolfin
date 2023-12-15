@@ -894,7 +894,28 @@ def visualize_category(category):
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
+    if request.method == 'GET':
         return render_template('resetpw.html')
+    elif request.method == 'POST':
+        username = session.get('user_id')
+        current_password = request.form['current_password']
+        # check if user entered correct password
+        if bcrypt.checkpw(current_password.encode('utf-8'), User.query.filter_by(username=username).first().password):
+            input_password = request.form['password']
+            confirm_password = request.form['confirm_password']
+            # validate new password and confirm password in backend
+            if input_password != confirm_password:
+                return 'Passwords do not match. Please try again.'
+            # hash new password and update user password in database
+            input_password = bcrypt.hashpw(input_password.encode('utf-8'), bcrypt.gensalt())
+            user = User.query.filter_by(username=username).first()
+            user.password = input_password
+            db.session.commit()
+            return redirect('/')
+        else:
+            return 'Incorrect current password. Please try again.'
+
+
 
 # APPLICATION USER SURVEY
 # APPLICATION USER SURVEY
