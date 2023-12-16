@@ -187,6 +187,7 @@ def open_article_template():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+<<<<<<< Updated upstream
 
     #request userid/username of current logged in user
     if request.method =='GET':
@@ -198,13 +199,24 @@ def profile():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     #query to db based on username of current logged in user 
+=======
+    if request.method =='GET':
+        user_id = session.get('user_id')
+
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'db/user_database.db')
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+>>>>>>> Stashed changes
     cursor.execute("SELECT email FROM user WHERE username = ?", (session['user_id'],))
     email = cursor.fetchall()
     cursor.execute("SELECT username FROM user WHERE username = ?", (session['user_id'],))
     username = cursor.fetchall()
     conn.close()
 
+<<<<<<< Updated upstream
     #clean the fetched results to remove additional symbols and display as plain text 
+=======
+>>>>>>> Stashed changes
     email_tuple = email
     username_tuple = username
 
@@ -214,12 +226,48 @@ def profile():
     email = email_address.replace("[('", "").replace("',)]", "")
     username = username_symbol.replace("[('", "").replace("',)]", "")
 
+<<<<<<< Updated upstream
     return render_template("profile.html", email=email, username=username, user_id=user_id) 
+=======
+    return render_template("profile.html", email=email, username=username, user_id=user_id)
+>>>>>>> Stashed changes
     
 # APPLICATION USER RESET PASSWORD PAGE
 @app.route('/resetpw', methods=['GET', 'POST'])
 def resetpw():
-        return render_template('resetpw.html')
+
+    return render_template('resetpw.html')
+    
+# APPLICATION PASSWORD UPDATED PAGE
+@app.route('/update-details', methods=['GET', 'POST'])
+def passwordupdated():
+
+    error_message1 = None  # Initialize the error message
+    error_message2= None   # Initialize the error message
+        
+    if request.method == 'POST':
+            
+            user_id = session.get('user_id')
+            current_password = request.form['current_password']
+            new_password = request.form['new_password']
+            confirm_password = request.form['confirm_password']
+
+            # Retrieve the user from the database
+            user = User.query.filter_by(username=user_id).first()
+
+            # Check if the user exists and the password is correct with stored hash
+            if user and bcrypt.checkpw(current_password.encode('utf-8'), user.password):
+                if new_password != confirm_password:
+                    error_message1 = 'New password and confirm new password fields do not match. Please try again.'
+                else:
+                    user.pwd_pt = new_password
+                    new_password_salt = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt())
+                    user.password = new_password_salt
+                    db.session.commit()
+            else:
+                error_message2 = 'Incorrect current password. Please try again.'
+
+    return render_template('passwordupdated.html', error_message1 = error_message1, error_message2=error_message2, current_password = current_password, new_password = new_password, confirm_password=confirm_password)
 
 ## CHATBOT PAGE 
 @app.route('/chatbot', methods=['GET', 'POST'])
