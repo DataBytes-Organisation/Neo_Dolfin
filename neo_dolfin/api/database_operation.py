@@ -279,18 +279,21 @@ def fetch_transactions_by_user(user_id):
         print(f"An error occurred: {e}")
 
 
-def clear_transactions():
+def clear_transactions(user_id):
     """
-    Clears all transactions from the database.
+    Clears all transactions from the database for a given user.
+
+    Parameters:
+    - user_id: The unique identifier of the user whose transactions are being cleared.
 
     Returns:
-    - A message indicating the transactions table was successfully cleared, or an error message if an error occurred.
+    - A message indicating the transactions for the user were successfully cleared, or an error message if an error occurred.
     """
     try:
         with sqlite3.connect(database_address) as conn:
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM transactions;")
-        return "Transactions table cleared successfully."
+            cursor.execute("DELETE FROM transactions WHERE trans_u_id = ?;", (user_id,))
+        return "Transactions for user {} cleared successfully.".format(user_id)
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 

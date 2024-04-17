@@ -495,10 +495,12 @@ def checkAF_response(responsedata):
 ## SIGN OUT
 @app.route('/signout')
 def sign_out():
-    #user_ops.clear_transactions()
-    db_op.clear_transactions()
-    user_log.info("LOGOUT: %s has logged out."%session['user_id'])
-    session.pop('user_id', None)
+    if 'user_id' in session:
+        user_id = session['user_id']
+        #user_ops.clear_transactions()
+        db_op.clear_transactions(user_id)
+        user_log.info("LOGOUT: %s has logged out." % user_id)
+        session.pop('user_id', None)
     return redirect('/')
 
 @app.route('/dash',methods=['GET','POST'])
