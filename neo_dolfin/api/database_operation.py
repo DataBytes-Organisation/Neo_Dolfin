@@ -1,5 +1,5 @@
 import sqlite3
-from basiq_api import Core, Data
+from api.basiq_api import Core, Data
 import os
 from dotenv import load_dotenv
 import json
@@ -205,22 +205,27 @@ def request_transactions(user_id):
     transaction_list = tran_data['data']
     transactions = []
     for transaction in transaction_list:
-        transaction = {
-            'type': transaction['type'],
-            'id': transaction['id'],
-            'status': transaction['status'],
-            'description': transaction['description'],
-            'amount': transaction['amount'],
-            'account': transaction['account'],
-            'balance': transaction['balance'],
-            'direction': transaction['direction'],
-            'class': transaction['class'],
-            'institution': transaction['institution'],
-            'postDate': transaction['postDate'],
-            'subClass_title': transaction['subClass']['title'] if transaction.get('subClass') else None,
-            'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
-        }
-        transactions.append(transaction)
+        # Add try-except block to handle missing 'id' key
+        try:
+            transaction_data = {
+                'type': transaction['type'],
+                'id': transaction['id'],
+                'status': transaction['status'],
+                'description': transaction['description'],
+                'amount': transaction['amount'],
+                'account': transaction['account'],
+                'balance': transaction['balance'],
+                'direction': transaction['direction'],
+                'class': transaction['class'],
+                'institution': transaction['institution'],
+                'postDate': transaction['postDate'],
+                'subClass_title': transaction['subClass']['title'] if transaction.get('subClass') else None,
+                'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
+            }
+            transactions.append(transaction_data)
+        except KeyError as e:
+            # Handle the case where 'id' key is missing
+            print(f"Skipping transaction: {e}")
     transaction_df = pd.DataFrame(transactions)
     return transaction_df
 
