@@ -184,6 +184,31 @@ var number = collectElements(number, "number");
 var symbol = collectElements(symbol, "symbol");
 var passwordLength = collectElements(passwordLength, "passwordLength");
 
+//FUNCTION TO CREATE AND CHECK FOR INTERNALLY DENIED STRINGS IN PASSWORDS  
+const restrictedStrings = ['123','password','admin','qwerty','asdf','abc','letmein','football','iloveyou','welcome','monkey','login','princess','sunshine','starwars','baseball','access','master','databytes','dolfin','abandon','ability','able','about','above','absence','absent','absolute','abuse','abusive','academic','accede','acceptable','acceptance','accident','accolade','accompany','accomplish','accord','account','accurate','accuse','ache','achieve','acknowledge','acquire','acquit','acronym','across','act','action','active','acitivity','actor','actress','actual','actually','adapt','addiction','addition','address','adequate','adjourn','adjust','administration','admiration','admire','adopt','adoption','adult','advance','advantage','adventure','adventurous','advertise','advice','advise','affair','affect','afford','afraid','after','afternoon',
+'again']; 
+
+//declaring function to check password , if contains restrictedString, internalListMessage appears
+function checkPassword() {
+  const password = document.getElementById("pass").value.toLowerCase(); 
+  const internalListMessage = document.getElementById("internalList"); 
+  if (containsRestrictedString(password)) {
+    internalListMessage.classList.remove("hidden"); 
+  } else {
+    internalListMessage.classList.add("hidden");
+  }
+}
+
+//checks user input in password input string against strings within restrictedStrings
+function containsRestrictedString(password) {
+  for (let i = 0; i <restrictedStrings.length; i++) {
+    if (password.includes(restrictedStrings[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
 //checks for password length against requirements
 function checkLength() {
   //checks for password length 
@@ -225,5 +250,9 @@ userInput.onkeyup = function() {
 
   //check length requirements
   checkLength();
+
+  //check if password contains any denied strings
+  checkPassword();
+  
 }
 //END OF SCRIPTS RELATED TO PASSWORD REQUIREMENT FEATURE
