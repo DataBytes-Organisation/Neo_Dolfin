@@ -167,6 +167,11 @@ input[type="password"] {
     border-radius: 15px;
 }
 
+/*creating hidden words*/
+.hidden {
+    display: none;
+}
+
 /*creating check field*/
 #checkField {
     display: none; 
