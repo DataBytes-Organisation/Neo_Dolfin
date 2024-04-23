@@ -41,6 +41,7 @@ load_dotenv()  # Load environment variables from .env
 #from services.basiq_service import BasiqService
 from api.temporary_used import optimized_API
 from api.temporary_used import API_db_op
+from api import database_operation
 from ai.chatbot import chatbot_logic
 
 # Access environment variables
@@ -165,6 +166,7 @@ db = SQLAlchemy(app)
 
 # Setup BASIQ functions
 user_ops = API_db_op
+db_op = database_operation
 API_CORE_ops = optimized_API.Core(os.getenv('API_KEY'))
 API_DATA_ops = optimized_API.Data()
 
@@ -234,7 +236,6 @@ except Exception as e:
 
 # do, then print confirmation/error
 user_ops.init_dolfin_db()
-
 # Debug and easy testing with API reference
 # print(API_CORE_ops.generate_auth_token())
 
@@ -342,9 +343,12 @@ def login():
             user_log.info("AUTH: User %s has been successfully authenticated. Session active."%(user.username)) # capture IP?
 
             ## This section should be done on authentication to avoid empty filling the dash
-            user_ops.clear_transactions()                               # Ensure no previous data remains from a previous user etc.
+            user_ops.clear_transactions()  # Ensure no previous data remains from a previous user etc.
+                                    
+
             cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
             #print(cache)                                               # used for testing and debugging
+                                               
             user_ops.cache_transactions(cache)                          # Insert cahce in to database and confirm success
 
             # redirect to the dashboard.
@@ -409,6 +413,7 @@ def register():
 
 
         user_ops.register_basiq_id(new_user.id)      # Create a new entity on our API key, based on the data passed into the user registration form
+        
         user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
         user_log.info("REGISTER: New user %s, (%s %s) successfully registered and added to database."%(new_user.username,new_user.first_name, new_user.last_name))
@@ -490,7 +495,8 @@ def checkAF_response(responsedata):
 ## SIGN OUT
 @app.route('/signout')
 def sign_out():
-    user_ops.clear_transactions()
+    #user_ops.clear_transactions()
+    db_op.clear_transactions()
     user_log.info("LOGOUT: %s has logged out."%session['user_id'])
     session.pop('user_id', None)
     return redirect('/')
