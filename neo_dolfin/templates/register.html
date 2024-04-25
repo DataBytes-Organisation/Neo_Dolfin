@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
@@ -14,9 +14,6 @@
 <body>
     <div class="container p-4" style="max-width: 85%; overflow: visible;">
         <div class="row justify-content-center g-0 p-0">
-            <div class="col-7 p-2 mt-4" id="small-top">
-                Your Journey Towards Smarter Financial Management Starts Here.
-            </div>
             <div id="right-side" class="col-7 col-lg-7 col-md-12 col-sm-12 d-flex justify-content-center"
                 align="center">
                 <div class="container_left" style="z-index: 1;">
@@ -32,68 +29,108 @@
                             <div class="col-8 col-lg-8 col-md-10 col-sm-10">
                                 <form method="POST" action="/register">
                                     <div class="tab">
-                                        <input type="text" name="username" class="form-control" placeholder="Username"
-                                            required>
-                                        <input type="email" name="email" class="form-control" placeholder="Email"
-                                            required>
-                                        <input type="password" name="password" class="form-control" id="pass"
-                                            placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
-                                            title="Your password must contain one digit, one lowercase letter, one uppercase letter, 
-                                            one special character, no space, and it must be at least 8 characters long with a maximum
-                                            of 16 characters" required>
-                                            <!--pattern= is a regex compiler read, this is to validate user input to match password requirements-->
-                                    </div>
-                                    <div class="tab">
-                                        <p style="color:red;font-family:courier;font-size:50%;"><strong>{{msg}}</strong>
-                                        </p>
-                                        <input type="text" class="form-input" id="address1" name="address1"
-                                            placeholder="Search address here..." required>
-                                        <input type="text" class="form-input" id="address2" name="address2"
-                                            placeholder="Address Line 2">
-                                        <input type="text" class="form-input" id="suburb" name="suburb"
-                                            placeholder="Suburb" required>
-                                        <input type="text" class="form-input" id="state" name="state"
-                                            placeholder="State" required>
-                                        <input type="text" class="form-input" id="postcode" name="postcode"
-                                            placeholder="postcode" required>
-                                        <div class="col-12" style="padding: 5px;">
-                                            <label class="validation-checkbox">
-                                                <!--<div class="validation-text">Skip Address Validation</div> -->
-                                                <small class="text-body-secondary"><strong>Skip address
-                                                        validation</strong></small>
-                                                <input type="checkbox" id="validation" name="validation">
-                                                <span class="checkmark"></span>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="date" name="dob" class="form-control" placeholder="Date of Birth" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select name="gender" class="form-select" required>
+                                                    <option value="" disabled selected>Select Gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="password" name="password" class="form-control" id="pass" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
+                                                title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" required>
+                                                <div class="password-tooltip" id="password-tooltip">
+                                                    Your password must contain:<br>
+                                                    - One digit<br>
+                                                    - One lowercase letter<br>
+                                                    - One uppercase letter<br>
+                                                    - One special character<br>
+                                                    - No space<br>
+                                                    - At least 12 characters long with a maximum of 20 characters
+                                                </div>
+                                              <!--Checkfield for validation of password requirements-->
+                                                <div id="checkField">
+                                                    <p><b>Password must contain the following:</b></p>
+                                                    <p id="letter" class="wrong">A lowercase letter</p>
+                                                    <p id="capital" class="wrong">A capital letter</p>
+                                                    <p id="number" class="wrong">A number</p>
+                                                    <p id="symbol" class="wrong">A symbol</p>
+                                                    <p id="passwordLength" class="wrong">Between 12 to 20 characters</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+                                        <!-- Occupation Field -->
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="occupation" class="form-control" placeholder="Occupation" required>
+                                            </div>
+                                        </div>
+                                        <!-- Address Field -->
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="postal_code" class="form-control" placeholder="Postal Code" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="city" class="form-control" placeholder="City" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="state" class="form-control" placeholder="State" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="country" class="form-control" placeholder="Country" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" value="" id="remember_me">
+                                            <label class="form-check-label" for="remember_me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" value="" id="terms_agree" required>
+                                            <label class="form-check-label" for="terms_agree">
+                                                I agree to terms and Privacy Policy
                                             </label>
                                         </div>
                                         <input type="submit" class="btn btn-primary" value="Register">
                                     </div>
                                 </form>
-                                <!--Checkfield for validation of password requirements-->
-                                <div id="checkField">
-                                    <p><b>Password must contain the following:</b> </p>
-                                    <p id="letter" class="wrong"> A lowercase letter</p>
-                                    <p id="capital" class="wrong"> A capital letter</p>
-                                    <p id="number" class="wrong"> A number</p>
-                                    <p id="symbol" class="wrong"> A symbol</p>
-                                    <p id="passwordLength" class="wrong"> Between 12 to 20 characters</p>
-                                    <p id="internalList" class="hidden">Password is too common. Please choose a different one</p>
-                                </div>
-
-                                <div class="row">
-                                    <div style="text-align:center;margin-top:10px;">
-                                        <span class="step"></span>
-                                        <span class="step"></span>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="col-2 col-lg-2 col-md-1 col-sm-1">
-                                <button onclick="nextPrev(1)" style="border: none;">
-                                    <img id="nextPage" style="min-width: 10%;"
-                                        src="../static/img/sign up/slide-right.png" class="img-fluid">
-                                </button>
-                            </div>
-
                         </div>
+
                         <div class="row align-items-center">
                             <div class="col-10 offset-1">
                                 <div class="or-text">OR</div>
@@ -123,17 +160,17 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-12" style="position: absolute;">
+                        <div class="col-12" style="position: absolute; top: 275px;">
                             <img src="../static/img/sign up/cover_style.png" alt="image" style="visibility: visible;"
                                 class="top-right-image">
                         </div>
                         <div class="col-12">
 
-                            <div class="text_top" id="text_top_right">
+                            <div class="text_top" id="text_top_right" style="top: 300%;">
                                 Your Journey Towards Smarter Financial Management Starts Here.
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12" style="position: absolute; top: 400px;">
                             <div class="text_bg">
                                 <ul class="text_mid">
                                     <li>Unified view of all your financial accounts in one place.</li>
@@ -151,10 +188,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="text-under-container">
-        <p>Gain complete control over your finances with<br>
-            personalized insights and real-time tracking.</p>
-    </div> -->
+
     <script src="{{url_for('static', filename='js/register.js')}}"></script>
 </body>
 
