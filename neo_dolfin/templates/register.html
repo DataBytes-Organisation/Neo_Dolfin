@@ -60,26 +60,22 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
-                                                <input type="password" name="password" class="form-control" id="pass" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
-                                                title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" required>
-                                                <div class="password-tooltip" id="password-tooltip">
-                                                    Your password must contain:<br>
-                                                    - One digit<br>
-                                                    - One lowercase letter<br>
-                                                    - One uppercase letter<br>
-                                                    - One special character<br>
-                                                    - No space<br>
-                                                    - At least 12 characters long with a maximum of 20 characters
-                                                </div>
-                                              <!--Checkfield for validation of password requirements-->
+                                                <input id ="password-input" type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
+                                                title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" required 
+                                                oninput="checkPassword()" onfocus="showRequirements()" onblur="hideRequirements()">
                                                 <div id="checkField">
-                                                    <p><b>Password must contain the following:</b></p>
-                                                    <p id="letter" class="wrong">A lowercase letter</p>
-                                                    <p id="capital" class="wrong">A capital letter</p>
-                                                    <p id="number" class="wrong">A number</p>
-                                                    <p id="symbol" class="wrong">A symbol</p>
-                                                    <p id="passwordLength" class="wrong">Between 12 to 20 characters</p>
-                                                </div>
+                                                    <ul>
+                                                        <li id="digit">One digit</li>
+                                                        <li id="lowercase">One lowercase letter</li>
+                                                        <li id="uppercase">One uppercase letter</li>
+                                                        <li id="special">One special character</li>
+                                                        <li id="length-min">At least 12 characters long</li>
+                                                        <li id="length-max">Maximum of 20 characters</li>
+                                                    </ul>
+                                                    <p id="internalList">Password is too common. Please choose a different one</p>
+                                                </div>    
+                                              <!--Checkfield for validation of password requirements-->
+
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>

@@ -176,83 +176,55 @@ function checkRequirements(input, variableName, id) {
   }
 }
 
-//collect variables
-var userInput = collectElements(userInput, "pass");
-var letter = collectElements(letter, "letter");
-var capital = collectElements(capital, "capital");
-var number = collectElements(number, "number");
-var symbol = collectElements(symbol, "symbol");
-var passwordLength = collectElements(passwordLength, "passwordLength");
-
 //FUNCTION TO CREATE AND CHECK FOR INTERNALLY DENIED STRINGS IN PASSWORDS  
 const restrictedStrings = ['123','password','admin','qwerty','asdf','abc','letmein','football','iloveyou','welcome','monkey','login','princess','sunshine','starwars','baseball','access','master','databytes','dolfin','abandon','ability','able','about','above','absence','absent','absolute','abuse','abusive','academic','accede','acceptable','acceptance','accident','accolade','accompany','accomplish','accord','account','accurate','accuse','ache','achieve','acknowledge','acquire','acquit','acronym','across','act','action','active','acitivity','actor','actress','actual','actually','adapt','addiction','addition','address','adequate','adjourn','adjust','administration','admiration','admire','adopt','adoption','adult','advance','advantage','adventure','adventurous','advertise','advice','advise','affair','affect','afford','afraid','after','afternoon',
 'again']; 
 
-//declaring function to check password , if contains restrictedString, internalListMessage appears
 function checkPassword() {
-  const password = document.getElementById("pass").value.toLowerCase(); 
+
+  var password = document.getElementById("password-input").value;
+  var passwordCheck = document.getElementById("password-input").value.toLowerCase();
+
+    // Check each requirement and update styling accordingly
+    document.getElementById("digit").className = /\d/.test(password) ? "correct" : "wrong";
+    document.getElementById("lowercase").className = /[a-z]/.test(password) ? "correct" : "wrong";
+    document.getElementById("uppercase").className = /[A-Z]/.test(password) ? "correct" : "wrong";
+    document.getElementById("special").className = /\W/.test(password) ? "correct" : "wrong";
+    document.getElementById("length-min").className = password.length >= 12 ? "correct" : "wrong";
+    document.getElementById("length-max").className = password.length <= 20 ? "correct" : "wrong";
+
+    // Hide requirements if all are met
+    var allMet = /\d/.test(password) && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\W/.test(password) && password.length >= 12 && password.length <= 20;
+    document.getElementById("checkField").style.display = allMet ? "none" : "block";
+    
+    //check for restricted strings
+    checkRestrictedStrings(passwordCheck);
+
+}
+
+//declaring function to check password , if contains restrictedString, internalListMessage appears
+function checkRestrictedStrings(passwordCheck) {
   const internalListMessage = document.getElementById("internalList"); 
-  if (containsRestrictedString(password)) {
-    internalListMessage.classList.remove("hidden"); 
-  } else {
-    internalListMessage.classList.add("hidden");
-  }
+  const containsRestricted = containsRestrctedString(passwordCheck);
+  internalListMessage.style.display = containsRestricted ? "block" : "hidden";
 }
 
 //checks user input in password input string against strings within restrictedStrings
-function containsRestrictedString(password) {
-  for (let i = 0; i <restrictedStrings.length; i++) {
-    if (password.includes(restrictedStrings[i])) {
+function containsRestrictedString(passwordCheck) {
+  for (let i = 0; i < restrictedStrings.length; i++) {
+    if (passwordCheck.includes(restrictedStrings[i])) {
       return true;
     }
   }
   return false;
 }
 
-//checks for password length against requirements
-function checkLength() {
-  //checks for password length 
-  var maxlength = 20;
-  var minlength = 12;
-  if (userInput.value.length >= minlength && userInput.value.length <= maxlength) {
-    correctClassList(passwordLength);
-  } else {
-    wrongClassList(passwordLength);
-  }
-}
+//function showRequirements() {
+ //document.getElementById("checkField").style.display = "block";
+//}
 
-//message box show when user clicks on password field
-userInput.onfocus = function() {
-  document.getElementById("checkField").style.display = "block"; 
-};
-//message box hidden when user clicks off password field
-userInput.onblur = function() {
+function hideRequirements() {
   document.getElementById("checkField").style.display = "none";
-};
-
-//password requirement validation function
-userInput.onkeyup = function() {
-  //checks for the 1 lowercase letter
-  var lowerCaseLetters = /[a-z]/g; 
-  checkRequirements(userInput, lowerCaseLetters, letter);
-
-  //checks for the 1 uppercase letter 
-  var upperCaseLetters = /[A-Z]/g;
-  checkRequirements(userInput, upperCaseLetters, capital);
-  
-  //checks for the 1 digit 
-  var numbers = /[0-9]/g; 
-  checkRequirements(userInput, numbers, number);
-  
-  //checks for the symbol 
-  var symbols = /\W/g;
-  checkRequirements(userInput, symbols, symbol);
-
-  //check length requirements
-  checkLength();
-
-  //check if password contains any denied strings
-  checkPassword();
-  
 }
+
 //END OF SCRIPTS RELATED TO PASSWORD REQUIREMENT FEATURE

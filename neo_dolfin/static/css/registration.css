@@ -37,19 +37,6 @@ input[name="password"]:hover::after {
     z-index: 1;
 }
 
-.password-tooltip {
-    display: none;
-    color: #ff0000;
-    font-size: 0.7rem;
-    position: absolute;
-    left: -230px;
-    top: 150px;
-}
-
-input[name="password"]:focus + .password-tooltip {
-    display: block;
-}
-
 /*creating hidden words*/
 .hidden {
     display: none;
@@ -58,7 +45,7 @@ input[name="password"]:focus + .password-tooltip {
 /*creating check field*/
 #checkField {
     display: none; 
-    font-size: 8px;
+    font-size: 11px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative; 
     padding: 2px; 
@@ -70,24 +57,10 @@ input[name="password"]:focus + .password-tooltip {
     color: #E4716A;
 }
 
-.wrong:before {
-    position: relative; 
-    left: -6px; 
-    content: "●";
-}
-
 /* setting the correct field */
 .correct {
     color: #037222;
 }
-
-.correct:before {
-    position: relative; 
-    left: -6px; 
-    content: "●"
-}
-
-
 
 /* Registration Form Styles */
 .input_area {
