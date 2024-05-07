@@ -508,76 +508,55 @@ def auth_dash2():
     user_id     = session.get('user_id') # Not used right now.
     first_name  = session.get('first_name')
     if request.method == 'GET':
-        # From session variable, user the user's first name in:
-        #   Welcome message
-        #   ...
-
-        #con = sqlite3.connect("db/transactions_ut.db")
-        #con = sqlite3.connect("db/user_database.db")
-
-        # connect to the newly loaded transactions database, for dashboard to do its thing.
-        con = sqlite3.connect("transactions_ut.db")
-        cursor = con.cursor()
-        app_log.info("APP: Connected to most recent transaction data.")
-
+        transactions_df = db_op.fetch_transactions_by_user(user_id)
+        transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
         ## Accout relative code here
 
         defacc = 'ALL'
 
         # Select Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
-        new_record = pd.DataFrame([{'account': 'ALL'}])
-        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+        dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
         jfxx = dfxx.to_json(orient='records')
 
         # Get class for pie chart
-        cursor.execute('SELECT class FROM transactions')
-        query = cursor.fetchall()
-        dfx1 = pd.DataFrame(query,columns=['class'])
-        jfx1 = dfx1.to_json(orient='records')
+        dfx1 = transactions_df[['class']].dropna().to_json(orient='records')
 
         # Get subclass for doughnut chart
-        cursor.execute('SELECT subclass FROM transactions')
-        query = cursor.fetchall()
-        dfx2 = pd.DataFrame(query,columns=['subclass'])
-        jfx2 = dfx2.to_json(orient='records')
+        dfx2 = transactions_df[['subClass_title']].dropna().to_json(orient='records')
 
         # Get transaction values for bar chart
-        cursor.execute('SELECT amount,direction FROM transactions')
-        query = cursor.fetchall()
-        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-        jfx3 = dfx3.to_json(orient='records')
+        dfx3 = transactions_df[['amount', 'direction']].dropna().to_json(orient='records')
 
         # Line chart datasets
-        cursor.execute('SELECT balance,postDate FROM transactions')
-        query = cursor.fetchall()
-        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-        dfx4 = dfx4.to_json(orient='records')
+        dfx4 = transactions_df[['balance', 'postDate']].to_json(orient='records')
         
         dfx5 = df3.to_json(orient='records')
 
-        cursor.execute('SELECT balance FROM transactions LIMIT 1')
-        query = cursor.fetchone()
-        curr_bal = query[0]
+        curr_bal = transactions_df['balance'].iloc[-1] if not transactions_df.empty else 0
 
-        cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
-        query = cursor.fetchone()
-        curr_range = query[0]
-        print(curr_range)
+        curr_range = transactions_df['balance'].max() - transactions_df['balance'].min() if not transactions_df.empty else 0
 
-        cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
-        query = cursor.fetchall()
-        dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+        transactions_df['day'] = transactions_df['postDate'].dt.day
+        transactions_df['month'] = transactions_df['postDate'].dt.month
+        transactions_df['year'] = transactions_df['postDate'].dt.year
+
+        # Create `dfx8` with relevant columns
+        dfx8 = transactions_df[['amount', 'class', 'day', 'month', 'year']]
         jfx8 = dfx8.to_json(orient='records')
+        
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc,show_alert=True)
+        return render_template("dash2.html",
+                               jsd1=dfx1, jsd2=dfx2, jsd3=dfx3,
+                               jsd4=dfx4, jsd5=dfx5,
+                               jsd6=curr_bal, jsd7=curr_range,
+                               jsd8=jfx8, user_id=first_name,
+                               jsxx=jfxx, defacc='ALL', show_alert=True)
         
     
     if request.method == "POST":
-            # Get the account value from the JSON payload
+        # Get the account value from the JSON payload
         data = request.get_json()
         account_value = data.get('account', None)
         print(account_value)
@@ -586,61 +565,46 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
             
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+            # Fetch all transactions using `fetch_transactions_by_user`
+            transactions_df = db_op.fetch_transactions_by_user(user_id)
+            transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+
+            # Extract unique accounts
+            dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+            dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
             jfxx = dfxx.to_json(orient='records')
 
             # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions')
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
+            dfx1 = transactions_df[['class']].dropna().to_json(orient='records')
 
             # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions')
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
+            dfx2 = transactions_df[['subClass_title']].dropna().to_json(orient='records')
 
             # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions')
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
-
+            dfx3 = transactions_df[['amount', 'direction']].dropna().to_json(orient='records')
+            
             # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions')
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
+            dfx4 = transactions_df[['balance', 'postDate']].to_json(orient='records')
             
             dfx5 = df3.to_json(orient='records')
 
-            cursor.execute('SELECT balance FROM transactions LIMIT 1')
-            query = cursor.fetchone()
-            curr_bal = query[0]
+            curr_bal = transactions_df['balance'].iloc[-1] if not transactions_df.empty else 0
             
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
-            query = cursor.fetchone()
-            curr_range = query[0]
+            curr_range = transactions_df['balance'].max() - transactions_df['balance'].min() if not transactions_df.empty else 0
 
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+            transactions_df['day'] = transactions_df['postDate'].dt.day
+            transactions_df['month'] = transactions_df['postDate'].dt.month
+            transactions_df['year'] = transactions_df['postDate'].dt.year
+            dfx8 = transactions_df[['amount', 'class', 'day', 'month', 'year']]
             jfx8 = dfx8.to_json(orient='records')
             
             updated_data = {
                 'currentBalance': curr_bal,
                 'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
+                'jsd1': dfx1,
+                'jsd2': dfx2,
+                'jsd3': dfx3,
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
@@ -654,63 +618,50 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
 
             defacc = account_value
 
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+            transactions_df = db_op.fetch_transactions_by_user(user_id)
+            transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+
+            # Filter transactions for the specified `account_value`
+            filtered_df = transactions_df[transactions_df['account'] == account_value]
+
+            # Extract unique accounts and ensure 'ALL' is included
+            dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+            dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
             jfxx = dfxx.to_json(orient='records')
 
             # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
+            dfx1 = filtered_df[['class']].dropna().to_json(orient='records')
 
             # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
+            dfx2 = filtered_df[['subClass_title']].dropna().to_json(orient='records')
 
             # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
+            dfx3 = filtered_df[['amount', 'direction']].dropna().to_json(orient='records')
 
             # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
+            dfx4 = filtered_df[['balance', 'postDate']].to_json(orient='records')
             
             dfx5 = df3.to_json(orient='records')
 
-            cursor.execute('SELECT balance FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchone()
-            curr_bal = query[0]
+            curr_bal = filtered_df['balance'].iloc[-1] if not filtered_df.empty else 0
 
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchone()
-            curr_range = query[0]
+            curr_range = filtered_df['balance'].max() - filtered_df['balance'].min() if not filtered_df.empty else 0
 
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+            filtered_df['day'] = filtered_df['postDate'].dt.day
+            filtered_df['month'] = filtered_df['postDate'].dt.month
+            filtered_df['year'] = filtered_df['postDate'].dt.year
+            dfx8 = filtered_df[['amount', 'class', 'day', 'month', 'year']]
             jfx8 = dfx8.to_json(orient='records')
 
             updated_data = {
                 'currentBalance': curr_bal,
                 'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
+                'jsd1': dfx1,
+                'jsd2': dfx2,
+                'jsd3': dfx3,
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
