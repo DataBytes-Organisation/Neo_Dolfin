@@ -1,5 +1,5 @@
 import sqlite3
-from basiq_api import Core, Data
+from api.basiq_api import Core, Data
 import os
 from dotenv import load_dotenv
 import json
@@ -13,7 +13,7 @@ api_key = API_KEY
 core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
-database_address = "../db/dolfin_db.db"
+database_address = "./db/dolfin_db.db"
 
 
 def init_dolfin_db():
@@ -205,22 +205,27 @@ def request_transactions(user_id):
     transaction_list = tran_data['data']
     transactions = []
     for transaction in transaction_list:
-        transaction = {
-            'type': transaction['type'],
-            'id': transaction['id'],
-            'status': transaction['status'],
-            'description': transaction['description'],
-            'amount': transaction['amount'],
-            'account': transaction['account'],
-            'balance': transaction['balance'],
-            'direction': transaction['direction'],
-            'class': transaction['class'],
-            'institution': transaction['institution'],
-            'postDate': transaction['postDate'],
-            'subClass_title': transaction['subClass']['title'] if transaction.get('subClass') else None,
-            'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
-        }
-        transactions.append(transaction)
+        # Add try-except block to handle missing 'id' key
+        try:
+            transaction_data = {
+                'type': transaction['type'],
+                'id': transaction['id'],
+                'status': transaction['status'],
+                'description': transaction['description'],
+                'amount': transaction['amount'],
+                'account': transaction['account'],
+                'balance': transaction['balance'],
+                'direction': transaction['direction'],
+                'class': transaction['class'],
+                'institution': transaction['institution'],
+                'postDate': transaction['postDate'],
+                'subClass_title': transaction['subClass']['title'] if transaction.get('subClass') else None,
+                'subClass_code': transaction['subClass']['code'] if transaction.get('subClass') else None
+            }
+            transactions.append(transaction_data)
+        except KeyError as e:
+            # Handle the case where 'id' key is missing
+            print(f"Skipping transaction: {e}")
     transaction_df = pd.DataFrame(transactions)
     return transaction_df
 
@@ -274,18 +279,21 @@ def fetch_transactions_by_user(user_id):
         print(f"An error occurred: {e}")
 
 
-def clear_transactions():
+def clear_transactions(user_id):
     """
-    Clears all transactions from the database.
+    Clears all transactions from the database for a given user.
+
+    Parameters:
+    - user_id: The unique identifier of the user whose transactions are being cleared.
 
     Returns:
-    - A message indicating the transactions table was successfully cleared, or an error message if an error occurred.
+    - A message indicating the transactions for the user were successfully cleared, or an error message if an error occurred.
     """
     try:
         with sqlite3.connect(database_address) as conn:
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM transactions;")
-        return "Transactions table cleared successfully."
+            cursor.execute("DELETE FROM transactions WHERE trans_u_id = ?;", (user_id,))
+        return "Transactions for user {} cleared successfully.".format(user_id)
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 

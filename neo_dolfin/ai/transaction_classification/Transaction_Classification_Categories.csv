@@ -1,0 +1,41 @@
+﻿Category 1,Category 2,Category 3
+Transfer,Transfer,Transfer
+Income,Income,Wages
+Income,Income,Investments
+Income,Income,Other Income
+Expense,Household,Groceries
+Expense,Household,Internet
+Expense,Household,Maintenance & Improvements
+Expense,Household,Pets
+Expense,Household,Rates & Insurance
+Expense,Household,Rent & Mortgage
+Expense,Household,Utilities
+Expense,Personal,Health & Medical
+Expense,Personal,Children & Family
+Expense,Personal,Clothing & Accessories
+Expense,Personal,Education
+Expense,Personal,Fitness & Wellbeing
+Expense,Personal,Gifts & Donations
+Expense,Personal,Hair & Beauty
+Expense,Personal,Investments
+Expense,Personal,Life Admin
+Expense,Personal,Mobile Phone
+Expense,Transport,Public Transport
+Expense,Transport,Parking
+Expense,Transport,Fuel
+Expense,Transport,"Car Insurance, Rego & Maintenance"
+Expense,Transport,Cycling
+Expense,Transport,Car Repayments
+Expense,Transport,Taxies & Share Cars
+Expense,Transport,Tolls
+Expense,Leisure & Lifestyle,Restaurants & Cafes
+Expense,Leisure & Lifestyle,Takeaway
+Expense,Leisure & Lifestyle,Events & Gigs
+Expense,Leisure & Lifestyle,"Apps, Games & Software"
+Expense,Leisure & Lifestyle,Alcohol
+Expense,Leisure & Lifestyle,Hobbies
+Expense,Leisure & Lifestyle,Holidays & Travel
+Expense,Leisure & Lifestyle,Pubs & Bars
+Expense,Leisure & Lifestyle,Lottery & Gambling
+Expense,Leisure & Lifestyle,Tobacco & Vaping
+Expense,Leisure & Lifestyle,"Tv, Music & Streaming"

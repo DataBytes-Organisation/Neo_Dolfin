@@ -149,3 +149,82 @@ validationCheckbox.addEventListener('change', function() {
 downloadAddressFinder();
 });
 // End of Scripts related to Address Validation
+
+
+// SCRIPTS RELATED TO PASSWORD REQUIREMENT VALIDATION  
+//function to collect variables -- the <p> you want to be interactive
+function collectElements(varname, id) {
+  var varname = document.getElementById(id);
+  return varname;
+}
+//function to add to classList 
+function correctClassList(id) {
+  id.classList.remove("wrong"); 
+  id.classList.add("correct"); 
+}
+//function to remove from classList 
+function wrongClassList(id) {
+  id.classList.remove("correct"); 
+  id.classList.add("wrong");
+}
+//function for validation of password (userInput, variableCheck) against requirements 
+function checkRequirements(input, variableName, id) {
+  if (input.value.match(variableName)) {
+    correctClassList(id);
+  } else {
+    wrongClassList(id);
+  }
+}
+
+//FUNCTION TO CREATE AND CHECK FOR INTERNALLY DENIED STRINGS IN PASSWORDS  
+const restrictedStrings = ['123','password','admin','qwerty','asdf','abc','letmein','football','iloveyou','welcome','monkey','login','princess','sunshine','starwars','baseball','access','master','databytes','dolfin','abandon','ability','able','about','above','absence','absent','absolute','abuse','abusive','academic','accede','acceptable','acceptance','accident','accolade','accompany','accomplish','accord','account','accurate','accuse','ache','achieve','acknowledge','acquire','acquit','acronym','across','act','action','active','acitivity','actor','actress','actual','actually','adapt','addiction','addition','address','adequate','adjourn','adjust','administration','admiration','admire','adopt','adoption','adult','advance','advantage','adventure','adventurous','advertise','advice','advise','affair','affect','afford','afraid','after','afternoon',
+'again']; 
+
+function checkPassword() {
+
+  var password = document.getElementById("password-input").value;
+  var passwordCheck = document.getElementById("password-input").value.toLowerCase();
+
+    // Check each requirement and update styling accordingly
+    document.getElementById("digit").className = /\d/.test(password) ? "correct" : "wrong";
+    document.getElementById("lowercase").className = /[a-z]/.test(password) ? "correct" : "wrong";
+    document.getElementById("uppercase").className = /[A-Z]/.test(password) ? "correct" : "wrong";
+    document.getElementById("special").className = /\W/.test(password) ? "correct" : "wrong";
+    document.getElementById("length-min").className = password.length >= 12 ? "correct" : "wrong";
+    document.getElementById("length-max").className = password.length <= 20 ? "correct" : "wrong";
+
+    // Hide requirements if all are met
+    var allMet = /\d/.test(password) && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\W/.test(password) && password.length >= 12 && password.length <= 20;
+    document.getElementById("checkField").style.display = allMet ? "none" : "block";
+    
+    //check for restricted strings
+    checkRestrictedStrings(passwordCheck);
+
+}
+
+//declaring function to check password , if contains restrictedString, internalListMessage appears
+function checkRestrictedStrings(passwordCheck) {
+  const internalListMessage = document.getElementById("internalList"); 
+  const containsRestricted = containsRestrctedString(passwordCheck);
+  internalListMessage.style.display = containsRestricted ? "block" : "hidden";
+}
+
+//checks user input in password input string against strings within restrictedStrings
+function containsRestrictedString(passwordCheck) {
+  for (let i = 0; i < restrictedStrings.length; i++) {
+    if (passwordCheck.includes(restrictedStrings[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+//function showRequirements() {
+ //document.getElementById("checkField").style.display = "block";
+//}
+
+function hideRequirements() {
+  document.getElementById("checkField").style.display = "none";
+}
+
+//END OF SCRIPTS RELATED TO PASSWORD REQUIREMENT FEATURE

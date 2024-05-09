@@ -1,0 +1,2532 @@
+Date,Transaction Description,Debit,Credit,Balance,Category 1,Category 2,Category 3,DR/CR
+2020-01-01,Monthly Income,0,6000,6000,Income,Income,Wages,CR
+2020-01-02,Stand Up Paddleboard Rental ,552,0,5448,Expense,Personal,Fitness & Wellbeing,DR
+2020-01-03,ALDI ,435,0,5013,Expense,Household,Groceries,DR
+2020-01-03,Surf Dive 'n Ski ,496,0,4517,Expense,Personal,Clothing & Accessories,DR
+2020-01-03,Health Food Store ,273,0,4244,Expense,Personal,Fitness & Wellbeing,DR
+2020-01-04,Ultra Tune ,187,0,4057,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-01-05,Harris Farm Markets ,282,0,3775,Expense,Household,Groceries,DR
+2020-01-05,Hobart Brewing Company ,87,0,3688,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-01-06, Metricon ,166,0,3522,Expense,Household,Maintenance & Improvements,DR
+2020-01-10,Le Creuset ,351,0,3171,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-01-10,Queensland Urban Utilities ,57,0,3114,Expense,Household,Utilities,DR
+2020-01-10,Westpac Dividend Deposit ,85,0,3029,Income,Income,Investments,DR
+2020-01-10,Pizza Hut ,177,0,2852,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-01-11,The Brisbane Hotel ,255,0,2597,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-01-11,Montessori Schools ,41,0,2556,Expense,Personal,Education,DR
+2020-01-11,Camp Australia ,102,0,2454,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-01-13,Jetts Fitness ,124,0,2330,Expense,Personal,Fitness & Wellbeing,DR
+2020-01-14,Timezone ,150,0,2180,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-01-14,Goodstart Early Learning ,120,0,2060,Expense,Personal,Children & Family,DR
+2020-01-18,ATO Tax Refund ,50,0,2010,Income,Income,Other Income,DR
+2020-01-18,Physiotherapy Clinic ,168,0,1842,Expense,Personal,Health & Medical,DR
+2020-01-22,The Good Guys ,9,0,1833,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-01-22,The Rocks Bar and Pub ,171,0,1662,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-01-22,AustralianSuper Pension ,106,0,1556,Income,Income,Other Income,DR
+2020-01-26, Jim's Mowing ,72,0,1484,Expense,Household,Maintenance & Improvements,DR
+2020-01-27,Campion Education ,72,0,1412,Expense,Personal,Children & Family,DR
+2020-01-27,Centrelink JobSeeker Payment ,46,0,1366,Income,Income,Other Income,DR
+2020-02-01,Monthly Income,0,6000,7366,Income,Income,Wages,CR
+2020-02-02,Interest Payment from Commonwealth Bank ,117,0,7249,Income,Income,Investments,DR
+2020-02-02,Toys 'R' Us ,449,0,6800,Expense,Personal,CHildren & Family,DR
+2020-02-02,T2 Tea ,578,0,6222,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-03,Surf Dive 'n Ski ,299,0,5923,Expense,Personal,Clothing & Accessories,DR
+2020-02-03,Little Athletics ,38,0,5885,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-03,Shell V Power,513,0,5372,Expense,Transport,Fuel,DR
+2020-02-04,Priceline Pharmacy ,128,0,5244,Expense,Personal,Health & Medical,DR
+2020-02-04,Stan ,344,0,4900,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-02-04,CommSec Share Trading Gains ,90,0,4810,Income,Income,Investments,DR
+2020-02-04,Beachfront Markets ,179,0,4631,Expense,Personal,Clothing & Accessories,DR
+2020-02-06,Fernwood Fitness ,450,0,4181,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-06,Ladbrokes ,394,0,3787,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-02-07,Local Fish and Chips ,280,0,3507,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-02-07,Fernwood Fitness ,95,0,3412,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-09,Sea Kayak Tours ,62,0,3350,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-02-09,Gold's Gym ,330,0,3020,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-11,Quay Restaurant ,179,0,2841,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-02-11, Fantastic Furniture ,23,0,2818,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-02-11, National Bank ,141,0,2677,Expense,Personal,Fees & Charges,DR
+2020-02-12,Chiropractor ,149,0,2528,Expense,Personal,Health & Medical,DR
+2020-02-12,Acupuncture Clinic ,136,0,2392,Expense,Personal,Health & Medical,DR
+2020-02-13,Village Cinemas ,37,0,2355,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-02-14,City Beach ,159,0,2196,Expense,Personal,Clothing & Accessories,DR
+2020-02-15,Hobart Brewing Company ,189,0,2007,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-02-16,YMCA ,125,0,1882,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-16,Country Road ,154,0,1728,Expense,Personal,Clothing & Accessories,DR
+2020-02-18,Sunburn Swimwear ,39,0,1689,Expense,Personal,Clothing & Accessories,DR
+2020-02-19,Endota Spa ,67,0,1622,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-19,Physiotherapy Clinic ,116,0,1506,Expense,Personal,Health & Medical,DR
+2020-02-21,Flight Centre ,70,0,1436,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-02-22,Lorna Jane ,121,0,1315,Expense,Personal,Clothing & Accessories,DR
+2020-02-23,Taronga Zoo ,117,0,1198,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-02-23,OfficeMax ,40,0,1158,Expense,Personal,Life Admin,DR
+2020-02-23, Ray White Real Estate ,109,0,1049,Expense,Personal,Life Admin,DR
+2020-02-23,Adairs ,13,0,1036,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-02-24,Who Gives A Crap ,45,0,991,Expense,Household,Groceries,DR
+2020-02-25,Sunnybank Hotel ,50,0,941,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-02-25,Village Cinemas ,94,0,847,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-02-26,Stand Up Paddleboard Rental ,24,0,823,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-26,Swim Australia ,48,0,775,Expense,Personal,Fitness & Wellbeing,DR
+2020-02-27,Guardian Childcare & Education ,25,0,750,Expense,Personal,Children & Family,DR
+2020-02-28,CommSec Share Trading Gains ,43,0,707,Income,Income,Investments,DR
+2020-03-01,Monthly Income,0,6000,6707,Income,Income,Wages,CR
+2020-03-02,Priceline Pharmacy ,568,0,6139,Expense,Personal,Health & Medical,DR
+2020-03-02,Zarraffa's Coffee ,359,0,5780,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-03-02,Booktopia ,102,0,5678,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-03-02,JB HiFi,129,0,5549,Expense,Leisure & Lifestyle,Electronics,DR
+2020-03-03,Beachside Caravan Park ,76,0,5473,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-03-05,Gold's Gym ,41,0,5432,Expense,Personal,Fitness & Wellbeing,DR
+2020-03-07,Gardening Australia ,271,0,5161,Expense,Household,Maintenance & Improvements,DR
+2020-03-08,QBE Insurance Claim Payout ,438,0,4723,Income,Income,Other Income,DR
+2020-03-09,Uber ,59,0,4664,Expense,Transport,Taxies & Share Cars,DR
+2020-03-10,Aqua Fun Park ,331,0,4333,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-03-11,The Rocks Bar and Pub ,355,0,3978,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-03-12,Lorna Jane ,261,0,3717,Expense,Personal,Clothing & Accessories,DR
+2020-03-12,Medicare Claim ,138,0,3579,Expense,Personal,Health & Medical,DR
+2020-03-14,OfficeMax ,100,0,3479,Expense,Personal,Life Admin,DR
+2020-03-14,Catholic Education Office ,24,0,3455,Expense,Personal,Education,DR
+2020-03-17,Optometrist ,283,0,3172,Expense,Personal,Health & Medical,DR
+2020-03-18,Caltex ,45,0,3127,Expense,Transport,Fuel,DR
+2020-03-18,Sea Kayak Tours ,313,0,2814,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-03-19, Commonwealth Bank ,154,0,2660,Expense,Household,Rent & Mortgage,DR
+2020-03-21,Budget Direct Car Insurance ,133,0,2527,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-03-21,Telstra ,164,0,2363,Expense,Personal,Mobile Phone,DR
+2020-03-21,Audible ,173,0,2190,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-03-21,QBE Insurance Claim Payout ,8,0,2182,Income,Income,Other Income,DR
+2020-03-21,Upwork Freelancer Payment ,183,0,1999,Income,Income,Other Income,DR
+2020-03-22,Interest Payment from Commonwealth Bank ,195,0,1804,Income,Income,Investments,DR
+2020-03-22,SEQTA ,161,0,1643,Expense,Personal,Education,DR
+2020-03-23,JAX Tyres ,123,0,1520,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-03-23,Booktopia ,146,0,1374,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-03-24,Village Cinemas ,72,0,1302,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-03-25,South East Water ,95,0,1207,Expense,Household,Utilities,DR
+2020-03-27,JAX Tyres ,105,0,1102,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-03-27,Local Hospital ,104,0,998,Expense,Personal,Health & Medical,DR
+2020-04-01,Monthly Income,0,6000,6998,Income,Income,Wages,CR
+2020-04-05,Health Food Store ,483,0,6515,Expense,Personal,Fitness & Wellbeing,DR
+2020-04-05,Campion Education ,164,0,6351,Expense,Personal,Children & Family,DR
+2020-04-07,Woolworths ,170,0,6181,Expense,Household,Groceries,DR
+2020-04-08,Chiropractor ,46,0,6135,Expense,Personal,Health & Medical,DR
+2020-04-08,Crown Perth ,558,0,5577,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-04-10,Surfstitch ,499,0,5078,Expense,Personal,Clothing & Accessories,DR
+2020-04-11,Adairs ,7,0,5071,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-04-12,Bridgestone Select ,332,0,4739,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-04-13,Hobart Brewing Company ,24,0,4715,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-04-13,Culture Kings ,323,0,4392,Expense,Personal,Clothing & Accessories,DR
+2020-04-14,Foxtel ,20,0,4372,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-04-14,Apple Music ,281,0,4091,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-04-16,Palace Cinemas ,247,0,3844,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-04-16,Decathlon ,358,0,3486,Expense,Personal,Fitness & Wellbeing,DR
+2020-04-17,King Swim ,329,0,3157,Expense,Personal,Fitness & Wellbeing,DR
+2020-04-17,Sea Life Aquarium ,208,0,2949,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-04-19,The Espy ,64,0,2885,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-04-20, Metricon ,30,0,2855,Expense,Household,Maintenance & Improvements,DR
+2020-04-22,AGL Energy ,60,0,2795,Expense,Household,Utilities,DR
+2020-04-22,Timezone ,143,0,2652,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-04-23,ATO Tax Refund ,73,0,2579,Income,Income,Other Income,DR
+2020-04-24,The Espy ,103,0,2476,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-04-25,Budget Direct Car Insurance ,55,0,2421,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-04-25,Surfstitch ,156,0,2265,Expense,Personal,Clothing & Accessories,DR
+2020-04-25,MyCar Tyre & Auto ,212,0,2053,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-04-26,Scouts Australia ,173,0,1880,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-04-26, NSW Land Registry Services ,82,0,1798,Expense,Personal,Life Admin,DR
+2020-05-01,Monthly Income,0,6000,7798,Income,Income,Wages,CR
+2020-05-02,Sea Life Aquarium ,544,0,7254,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-05-02,Le Creuset ,631,0,6623,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-05-03,Australian Veterinary Association ,349,0,6274,Expense,Household,Pets,DR
+2020-05-03,Upwork Freelancer Payment ,271,0,6003,Income,Income,Other Income,DR
+2020-05-03,NRMA Roadside Assistance ,476,0,5527,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-05-07,Boost Juice Bars ,372,0,5155,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-05-08,Sea Kayak Tours ,406,0,4749,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-05-09,Netflix ,244,0,4505,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-05-10,Autobarn ,75,0,4430,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-05-12,Guardian Childcare & Education ,48,0,4382,Expense,Personal,Children & Family,DR
+2020-05-12,Repco ,361,0,4021,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-05-13,QBE Insurance Claim Payout ,122,0,3899,Income,Income,Other Income,DR
+2020-05-14,Optus ,176,0,3723,Expense,Personal,Mobile Phone,DR
+2020-05-14,BrewDog ,105,0,3618,Expense,Leisure & Lifestyle,Alcohol,DR
+2020-05-15,Guzman y Gomez ,250,0,3368,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-05-15,Guzman y Gomez ,109,0,3259,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-05-16,Toys 'R' Us ,284,0,2975,Expense,Personal,CHildren & Family,DR
+2020-05-16, Brisbane City Council ,32,0,2943,Expense,Household,Rates & Insurance,DR
+2020-05-16,Airbnb Host Income ,286,0,2657,Income,Income,Other Income,DR
+2020-05-16,Acupuncture Clinic ,235,0,2422,Expense,Personal,Health & Medical,DR
+2020-05-18,Airbnb Host Income ,57,0,2365,Income,Income,Other Income,DR
+2020-05-18,Campion Education ,185,0,2180,Expense,Personal,Children & Family,DR
+2020-05-18,The Baxter Inn ,13,0,2167,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-05-19,Flight Centre ,191,0,1976,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-05-19, Brisbane City Council ,126,0,1850,Expense,Household,Rates & Insurance,DR
+2020-05-21,David Jones ,78,0,1772,Expense,Personal,Clothing & Accessories,DR
+2020-05-21, Meriton Apartments ,20,0,1752,Expense,Household,Rates & Insurance,DR
+2020-05-22,Greencross Vets ,33,0,1719,Expense,Household,Pets,DR
+2020-05-23,YMCA ,126,0,1593,Expense,Personal,Fitness & Wellbeing,DR
+2020-05-23,Hobart Brewing Company ,44,0,1549,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-05-23,Booktopia ,62,0,1487,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-05-24,ALDI ,115,0,1372,Expense,Household,Groceries,DR
+2020-05-24,Microsoft 365 ,108,0,1264,Expense,Personal,Education,DR
+2020-05-25,Optus ,67,0,1197,Expense,Personal,Mobile Phone,DR
+2020-05-25,Decathlon ,6,0,1191,Expense,Personal,Fitness & Wellbeing,DR
+2020-05-26,Lorna Jane ,90,0,1101,Expense,Personal,Clothing & Accessories,DR
+2020-05-27,Health Food Store ,6,0,1095,Expense,Personal,Fitness & Wellbeing,DR
+2020-05-27,Vodafone Prepaid ,34,0,1061,Expense,Personal,Mobile Phone,DR
+2020-05-28,Uber ,32,0,1029,Expense,Transport,Taxies & Share Cars,DR
+2020-05-28,ABC Reading Eggs ,65,0,964,Expense,Personal,Education,DR
+2020-06-01,Monthly Income,0,6000,6964,Income,Income,Wages,CR
+2020-06-02,ABC Reading Eggs ,166,0,6798,Expense,Personal,Education,DR
+2020-06-04,Catholic Education Office ,359,0,6439,Expense,Personal,Education,DR
+2020-06-04,Boost Juice Bars ,412,0,6027,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-06-04,Lorna Jane ,356,0,5671,Expense,Personal,Clothing & Accessories,DR
+2020-06-05,YMCA ,524,0,5147,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-05,Beacon Lighting ,127,0,5020,Expense,Household,Maintenance & Improvements,DR
+2020-06-05,AGL Energy ,281,0,4739,Expense,Household,Utilities,DR
+2020-06-06, Rentokil ,401,0,4338,Expense,Household,Maintenance & Improvements,DR
+2020-06-08,School Locker ,78,0,4260,Expense,Personal,Children & Family,DR
+2020-06-08,Stand Up Paddleboard Rental ,300,0,3960,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-08,Tabcorp ,329,0,3631,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-06-08,ABC Reading Eggs ,18,0,3613,Expense,Personal,Education,DR
+2020-06-09,Myer ,142,0,3471,Expense,Personal,Clothing & Accessories,DR
+2020-06-09,Physiotherapy Clinic ,204,0,3267,Expense,Personal,Health & Medical,DR
+2020-06-10,Beachside Caravan Park ,324,0,2943,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-06-11,City Beach ,230,0,2713,Expense,Personal,Clothing & Accessories,DR
+2020-06-12,National Hearing Care ,21,0,2692,Expense,Personal,Health & Medical,DR
+2020-06-12,Pathology Lab ,30,0,2662,Expense,Personal,Health & Medical,DR
+2020-06-13,CommSec Share Trading Gains ,126,0,2536,Income,Income,Investments,DR
+2020-06-13,Café Nero ,213,0,2323,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-06-13,Massage Therapy Center ,19,0,2304,Expense,Personal,Health & Medical,DR
+2020-06-13,King Swim ,144,0,2160,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-13,Adobe Creative Cloud ,87,0,2073,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-06-13,The Australian ,38,0,2035,Expense,Personal,Education,DR
+2020-06-14,Australian Veterinary Association ,140,0,1895,Expense,Household,Pets,DR
+2020-06-15, Rentokil ,113,0,1782,Expense,Household,Maintenance & Improvements,DR
+2020-06-15,Childcare Payments ,62,0,1720,Expense,Personal,Children & Family,DR
+2020-06-15,Swim Australia ,116,0,1604,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-16,Costco ,37,0,1567,Expense,Household,Groceries,DR
+2020-06-16,AGL Energy ,24,0,1543,Expense,Household,Utilities,DR
+2020-06-16,Grill’d ,144,0,1399,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-06-16,Massage Therapy Center ,87,0,1312,Expense,Personal,Health & Medical,DR
+2020-06-16,The Brisbane Hotel ,69,0,1243,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-06-17,The Iconic ,28,0,1215,Expense,Personal,Clothing & Accessories,DR
+2020-06-18,Booktopia ,17,0,1198,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-06-18,Costco ,11,0,1187,Expense,Household,Groceries,DR
+2020-06-18,Interest Payment from Commonwealth Bank ,39,0,1148,Income,Income,Investments,DR
+2020-06-19,Sydney Water ,88,0,1060,Expense,Household,Utilities,DR
+2020-06-19,The Iconic ,85,0,975,Expense,Personal,Clothing & Accessories,DR
+2020-06-19,Gardening Australia ,64,0,911,Expense,Household,Maintenance & Improvements,DR
+2020-06-19,Event Cinemas ,28,0,883,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-06-20,QBE Insurance Claim Payout ,89,0,794,Income,Income,Other Income,DR
+2020-06-20,Rebel Sport ,43,0,751,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-21,Gold's Gym ,9,0,742,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-21,Anytime Fitness ,51,0,691,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-22, NRMA Insurance ,34,0,657,Expense,Household,Rates & Insurance,DR
+2020-06-23,Grill’d ,47,0,610,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-06-23,Jetts Fitness ,58,0,552,Expense,Personal,Fitness & Wellbeing,DR
+2020-06-24,Interest Payment from Commonwealth Bank ,24,0,528,Income,Income,Investments,DR
+2020-06-25,Rip Curl ,32,0,496,Expense,Personal,Clothing & Accessories,DR
+2020-06-25,Spotify ,15,0,481,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-06-26,Freedom Furniture ,46,0,435,Expense,Household,Maintenance & Improvements,DR
+2020-06-27,Myer ,40,0,395,Expense,Personal,Clothing & Accessories,DR
+2020-06-27,Interest Payment from Commonwealth Bank ,30,0,365,Income,Income,Investments,DR
+2020-06-28,City Beach ,5,0,360,Expense,Personal,Clothing & Accessories,DR
+2020-07-01,Monthly Income,0,6000,6360,Income,Income,Wages,CR
+2020-07-02,TerryWhite Chemmart ,504,0,5856,Expense,Personal,Health & Medical,DR
+2020-07-03,Disney+ ,452,0,5404,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-07-03,G8 Education ,109,0,5295,Expense,Personal,Children & Family,DR
+2020-07-04,Dan Murphy’s ,244,0,5051,Expense,Leisure & Lifestyle,Alcohol,DR
+2020-07-04, Ray White Real Estate ,304,0,4747,Expense,Personal,Life Admin,DR
+2020-07-05,Adobe Creative Cloud ,317,0,4430,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-07-06,Village Cinemas ,249,0,4181,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-07-08,Swim Australia ,142,0,4039,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-08,Coles ,123,0,3916,Expense,Household,Groceries,DR
+2020-07-08,Vodafone Prepaid ,70,0,3846,Expense,Personal,Mobile Phone,DR
+2020-07-09,Apple Store ,317,0,3529,Expense,Leisure & Lifestyle,Electronics,DR
+2020-07-09,F45 Training ,310,0,3219,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-10, Rentokil ,144,0,3075,Expense,Household,Maintenance & Improvements,DR
+2020-07-10, BSA Ltd ,43,0,3032,Expense,Household,Maintenance & Improvements,DR
+2020-07-10,Ladbrokes ,279,0,2753,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-07-11,Adairs ,132,0,2621,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-07-12,Dymocks ,57,0,2564,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-07-12, NRMA Insurance ,165,0,2399,Expense,Household,Rates & Insurance,DR
+2020-07-13,King Swim ,124,0,2275,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-13, EnergyAustralia ,53,0,2222,Expense,Household,Utilities,DR
+2020-07-13,Camp Australia ,56,0,2166,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-07-13,The Body Shop ,29,0,2137,Expense,Personal,Hair & Beauty,DR
+2020-07-13,Westpac Dividend Deposit ,186,0,1951,Income,Income,Investments,DR
+2020-07-14,Jetts Fitness ,72,0,1879,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-14,Village Cinemas ,19,0,1860,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-07-15,Kayo Sports ,91,0,1769,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-07-15,EnergyAustralia ,65,0,1704,Expense,Household,Utilities,DR
+2020-07-15,Guardian Childcare & Education ,70,0,1634,Expense,Personal,Children & Family,DR
+2020-07-17,National Hearing Care ,98,0,1536,Expense,Personal,Health & Medical,DR
+2020-07-21,Shell V Power,93,0,1443,Expense,Transport,Fuel,DR
+2020-07-21,South East Water ,83,0,1360,Expense,Household,Utilities,DR
+2020-07-21,Rip Curl ,95,0,1265,Expense,Personal,Clothing & Accessories,DR
+2020-07-21,Shell V Power,96,0,1169,Expense,Transport,Fuel,DR
+2020-07-22,Sea Kayak Tours ,37,0,1132,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-07-22,National Hearing Care ,38,0,1094,Expense,Personal,Health & Medical,DR
+2020-07-22,Anytime Fitness ,15,0,1079,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-23,Bulk Billing Doctor ,5,0,1074,Expense,Personal,Health & Medical,DR
+2020-07-23,The Coffee Club ,14,0,1060,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-07-24,F45 Training ,58,0,1002,Expense,Personal,Fitness & Wellbeing,DR
+2020-07-24,Barbeques Galore ,68,0,934,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-07-24,Australian Veterinary Association ,60,0,874,Expense,Household,Pets,DR
+2020-07-26,The Coffee Club ,17,0,857,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-07-26,Dan Murphy’s ,85,0,772,Expense,Leisure & Lifestyle,Alcohol,DR
+2020-07-26,Childcare Payments ,70,0,702,Expense,Personal,Children & Family,DR
+2020-07-26,Petbarn ,61,0,641,Expense,Household,Pets,DR
+2020-07-26,KU Children's Services ,14,0,627,Expense,Personal,Children & Family,DR
+2020-07-27, Rentokil ,18,0,609,Expense,Household,Maintenance & Improvements,DR
+2020-07-27,Netflix ,24,0,585,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-07-28,Ladbrokes ,46,0,539,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-08-01,Monthly Income,0,6000,6539,Income,Income,Wages,CR
+2020-08-02,Hungry Jack’s ,86,0,6453,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-08-04,Liquorland ,10,0,6443,Expense,Leisure & Lifestyle,Alcohol,DR
+2020-08-04,Physiotherapy Clinic ,49,0,6394,Expense,Personal,Health & Medical,DR
+2020-08-05,T2 Tea ,470,0,5924,Expense,Personal,Fitness & Wellbeing,DR
+2020-08-05,Optus ,375,0,5549,Expense,Personal,Mobile Phone,DR
+2020-08-06,Uber ,16,0,5533,Expense,Transport,Taxies & Share Cars,DR
+2020-08-07,Beachfront Markets ,149,0,5384,Expense,Personal,Clothing & Accessories,DR
+2020-08-07,Crown Perth ,461,0,4923,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-08-07,Shell V Power,160,0,4763,Expense,Transport,Fuel,DR
+2020-08-08,Greencross Vets ,414,0,4349,Expense,Household,Pets,DR
+2020-08-10,Grill'd ,434,0,3915,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-08-11,David Jones ,302,0,3613,Expense,Personal,Clothing & Accessories,DR
+2020-08-13,Spotify ,113,0,3500,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-08-15,Pizza Hut ,223,0,3277,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-08-16,Guzman y Gomez ,141,0,3136,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-08-20, The Good Guys ,208,0,2928,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-08-21,The Baxter Inn ,170,0,2758,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-08-21,Event Cinemas ,185,0,2573,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-08-21,Salary Deposit from Woolworths Group ,103,0,2470,Income,Income,Wages,DR
+2020-08-22,The Baxter Inn ,34,0,2436,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-08-23,AGL Energy ,196,0,2240,Expense,Household,Utilities,DR
+2020-08-23,Café Nero ,207,0,2033,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-08-23,ATO Tax Refund ,121,0,1912,Income,Income,Other Income,DR
+2020-08-25,Beach Café ,52,0,1860,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-08-26,Repco ,63,0,1797,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-08-27,VicRoads ,75,0,1722,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-08-27,Café Nero ,59,0,1663,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-09-01,Monthly Income,0,6000,7663,Income,Income,Wages,CR
+2020-09-02,The Baxter Inn ,496,0,7167,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-09-02,Gardening Australia ,160,0,7007,Expense,Household,Maintenance & Improvements,DR
+2020-09-03,The Athlete's Foot ,264,0,6743,Expense,Personal,Clothing & Accessories,DR
+2020-09-03,Tabcorp ,564,0,6179,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-09-03,Payday Advance ,236,0,5943,Income,Income,Other Income,DR
+2020-09-04,Guardian Childcare & Education ,21,0,5922,Expense,Personal,Children & Family,DR
+2020-09-04,Petbarn ,570,0,5352,Expense,Household,Pets,DR
+2020-09-05,Bulk Billing Doctor ,131,0,5221,Expense,Personal,Health & Medical,DR
+2020-09-06,Foxtel ,368,0,4853,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-09-06,Dan Murphy’s ,417,0,4436,Expense,Leisure & Lifestyle,Alcohol,DR
+2020-09-07,Shell V Power,23,0,4413,Expense,Transport,Fuel,DR
+2020-09-09,Jetts Fitness ,192,0,4221,Expense,Personal,Fitness & Wellbeing,DR
+2020-09-11,QBE Insurance Claim Payout ,292,0,3929,Income,Income,Other Income,DR
+2020-09-11,Optometrist ,137,0,3792,Expense,Personal,Health & Medical,DR
+2020-09-11,IKEA ,183,0,3609,Expense,Household,Maintenance & Improvements,DR
+2020-09-12,Airbnb Host Income ,169,0,3440,Income,Income,Other Income,DR
+2020-09-13,Rooftop Bar ,13,0,3427,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-09-13,School Locker ,21,0,3406,Expense,Personal,Children & Family,DR
+2020-09-13,NRMA Roadside Assistance ,235,0,3171,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-09-14,Target ,280,0,2891,Expense,Personal,Clothing & Accessories,DR
+2020-09-14, Brisbane City Council ,20,0,2871,Expense,Household,Rates & Insurance,DR
+2020-09-15,Caltex ,137,0,2734,Expense,Transport,Fuel,DR
+2020-09-15,ALDI ,127,0,2607,Expense,Household,Groceries,DR
+2020-09-15,Child Support Agency Deposit ,104,0,2503,Income,Income,Other Income,DR
+2020-09-16,Rebel Sport ,209,0,2294,Expense,Personal,Fitness & Wellbeing,DR
+2020-09-16,Soccer Clubs ,126,0,2168,Expense,Personal,Fitness & Wellbeing,DR
+2020-09-17,David Jones ,114,0,2054,Expense,Personal,Clothing & Accessories,DR
+2020-09-17,T2 Tea ,122,0,1932,Expense,Personal,Fitness & Wellbeing,DR
+2020-09-19,Vodafone Prepaid ,158,0,1774,Expense,Personal,Mobile Phone,DR
+2020-09-19, BSA Ltd ,155,0,1619,Expense,Household,Maintenance & Improvements,DR
+2020-09-20,Fitness First ,62,0,1557,Expense,Personal,Fitness & Wellbeing,DR
+2020-09-20, Jim's Mowing ,154,0,1403,Expense,Household,Maintenance & Improvements,DR
+2020-09-21,Grill’d ,7,0,1396,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-09-21,Zone Bowling ,132,0,1264,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-09-22,Grill’d ,92,0,1172,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-09-22,Kmart ,12,0,1160,Expense,Personal,Children & Family,DR
+2020-09-23,Stan ,117,0,1043,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-09-24,Surfstitch ,48,0,995,Expense,Personal,Clothing & Accessories,DR
+2020-09-24,The Baxter Inn ,74,0,921,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-09-26,Disney+ ,61,0,860,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-09-26,Dental Clinic ,61,0,799,Expense,Personal,Health & Medical,DR
+2020-09-28,Optus ,42,0,757,Expense,Personal,Mobile Phone,DR
+2020-10-01,Monthly Income,0,6000,6757,Income,Income,Wages,CR
+2020-10-02,Karate for Kids ,604,0,6153,Expense,Personal,Fitness & Wellbeing,DR
+2020-10-03,Zone Bowling ,138,0,6015,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-10-05,Zone Bowling ,543,0,5472,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-10-05,National Hearing Care ,273,0,5199,Expense,Personal,Health & Medical,DR
+2020-10-05,Pizza Hut ,351,0,4848,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-10-06,Campion Education ,31,0,4817,Expense,Personal,Children & Family,DR
+2020-10-07,Beacon Lighting ,173,0,4644,Expense,Household,Maintenance & Improvements,DR
+2020-10-07,Ladbrokes ,293,0,4351,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-10-07,F45 Training ,399,0,3952,Expense,Personal,Fitness & Wellbeing,DR
+2020-10-08,Adairs ,352,0,3600,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-10-09,Optometrist ,237,0,3363,Expense,Personal,Health & Medical,DR
+2020-10-11,Surfstitch ,109,0,3254,Expense,Personal,Clothing & Accessories,DR
+2020-10-11, EnergyAustralia ,214,0,3040,Expense,Household,Utilities,DR
+2020-10-12,TerryWhite Chemmart ,209,0,2831,Expense,Personal,Health & Medical,DR
+2020-10-14, Metricon ,171,0,2660,Expense,Household,Maintenance & Improvements,DR
+2020-10-16,Petbarn ,27,0,2633,Expense,Household,Pets,DR
+2020-10-16,Netflix ,43,0,2590,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-10-16,Beachside Caravan Park ,107,0,2483,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-10-17,Montessori Schools ,164,0,2319,Expense,Personal,Education,DR
+2020-10-19, The Good Guys ,201,0,2118,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-10-19,Coles Express ,12,0,2106,Expense,Transport,Fuel,DR
+2020-10-21,Green Slip Insurance ,76,0,2030,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-10-21,Caltex Woolworths ,201,0,1829,Expense,Transport,Fuel,DR
+2020-10-22,Autobarn ,68,0,1761,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-10-22,Chinatown Night Market ,20,0,1741,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-10-22,Woolworths ,124,0,1617,Expense,Household,Groceries,DR
+2020-10-23,Le Creuset ,5,0,1612,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-10-23,The Body Shop ,113,0,1499,Expense,Personal,Hair & Beauty,DR
+2020-10-23,The Rocks Bar and Pub ,34,0,1465,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-10-25,Surf Dive 'n Ski ,40,0,1425,Expense,Personal,Clothing & Accessories,DR
+2020-10-25,Ladbrokes ,72,0,1353,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-10-25,Snap Fitness ,95,0,1258,Expense,Personal,Fitness & Wellbeing,DR
+2020-10-26,Tabcorp ,100,0,1158,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-10-26,Sea Kayak Tours ,79,0,1079,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2020-10-27,Timezone ,44,0,1035,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-10-28,Priceline Pharmacy ,83,0,952,Expense,Personal,Health & Medical,DR
+2020-10-28,Bridgestone Select ,64,0,888,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-11-01,Monthly Income,0,6000,6888,Income,Income,Wages,CR
+2020-11-02,Medicare Claim ,631,0,6257,Expense,Personal,Health & Medical,DR
+2020-11-03,Hobart Brewing Company ,488,0,5769,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-11-03,Kayo Sports ,130,0,5639,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2020-11-04,Karate for Kids ,267,0,5372,Expense,Personal,Fitness & Wellbeing,DR
+2020-11-04,Costco ,433,0,4939,Expense,Household,Groceries,DR
+2020-11-05,Gold's Gym ,261,0,4678,Expense,Personal,Fitness & Wellbeing,DR
+2020-11-05,Optus ,158,0,4520,Expense,Personal,Mobile Phone,DR
+2020-11-06,KU Children's Services ,109,0,4411,Expense,Personal,Children & Family,DR
+2020-11-06,VicRoads ,242,0,4169,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-11-07,Woolworths ,272,0,3897,Expense,Household,Groceries,DR
+2020-11-07,Witchery ,217,0,3680,Expense,Personal,Clothing & Accessories,DR
+2020-11-08,Coles ,282,0,3398,Expense,Household,Groceries,DR
+2020-11-09,Kmart Tyre & Auto Service ,82,0,3316,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-11-09,Pathology Lab ,80,0,3236,Expense,Personal,Health & Medical,DR
+2020-11-11,Sylvan Learning ,140,0,3096,Expense,Personal,Education,DR
+2020-11-12,Swim Australia ,49,0,3047,Expense,Personal,Fitness & Wellbeing,DR
+2020-11-12,Beach Café ,120,0,2927,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-11-14,Centrelink JobSeeker Payment ,20,0,2907,Income,Income,Other Income,DR
+2020-11-16,Snap Fitness ,263,0,2644,Expense,Personal,Fitness & Wellbeing,DR
+2020-11-19,Ladbrokes ,241,0,2403,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2020-11-20,Officeworks ,233,0,2170,Expense,Personal,Life Admin,DR
+2020-11-21,Country Road ,134,0,2036,Expense,Personal,Clothing & Accessories,DR
+2020-11-23,Rental Deposit from RealEstate.com.au ,140,0,1896,Income,Income,Other Income,DR
+2020-11-24,King Swim ,139,0,1757,Expense,Personal,Fitness & Wellbeing,DR
+2020-11-24,Target ,94,0,1663,Expense,Personal,Clothing & Accessories,DR
+2020-11-24,Priceline Pharmacy ,44,0,1619,Expense,Personal,Health & Medical,DR
+2020-11-24,Zone Bowling ,15,0,1604,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-11-25,Music Academy ,23,0,1581,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-11-26, Jim’s Building Inspections ,157,0,1424,Expense,Household,Maintenance & Improvements,DR
+2020-11-26,EnergyAustralia ,57,0,1367,Expense,Household,Utilities,DR
+2020-11-28,National Hearing Care ,107,0,1260,Expense,Personal,Health & Medical,DR
+2020-12-01,Monthly Income,0,6000,7260,Income,Income,Wages,CR
+2020-12-03,TerryWhite Chemmart ,166,0,7094,Expense,Personal,Health & Medical,DR
+2020-12-04,Toys 'R' Us ,587,0,6507,Expense,Personal,CHildren & Family,DR
+2020-12-05,The Body Shop ,236,0,6271,Expense,Personal,Hair & Beauty,DR
+2020-12-05,Surfstitch ,549,0,5722,Expense,Personal,Clothing & Accessories,DR
+2020-12-05,MyCar Tyre & Auto ,367,0,5355,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-12-06,Myer ,159,0,5196,Expense,Personal,Clothing & Accessories,DR
+2020-12-06,Repco ,511,0,4685,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2020-12-07,Stand Up Paddleboard Rental ,423,0,4262,Expense,Personal,Fitness & Wellbeing,DR
+2020-12-09,Billabong ,36,0,4226,Expense,Personal,Clothing & Accessories,DR
+2020-12-10,Café Nero ,388,0,3838,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2020-12-10,Adobe Creative Cloud ,213,0,3625,Expense,Leisure & Lifestyle,Hobbies,DR
+2020-12-10,Menulog ,168,0,3457,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-12-12,Domino’s Pizza ,137,0,3320,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-12-13,Physiotherapy Clinic ,275,0,3045,Expense,Personal,Health & Medical,DR
+2020-12-14,Rip Curl ,193,0,2852,Expense,Personal,Clothing & Accessories,DR
+2020-12-14,Salary Deposit from Woolworths Group ,217,0,2635,Income,Income,Wages,DR
+2020-12-14,Chiropractor ,57,0,2578,Expense,Personal,Health & Medical,DR
+2020-12-14, National Bank ,120,0,2458,Expense,Personal,Fees & Charges,DR
+2020-12-14,Lorna Jane ,67,0,2391,Expense,Personal,Clothing & Accessories,DR
+2020-12-15,Acupuncture Clinic ,59,0,2332,Expense,Personal,Health & Medical,DR
+2020-12-16,Sunburn Swimwear ,54,0,2278,Expense,Personal,Clothing & Accessories,DR
+2020-12-16,Tennis Australia ,118,0,2160,Expense,Personal,Fitness & Wellbeing,DR
+2020-12-16, Fantastic Furniture ,61,0,2099,Expense,Household,"Furniture, Electronics & Homewares",DR
+2020-12-16,Domino’s Pizza ,15,0,2084,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-12-19,Guardian Childcare & Education ,166,0,1918,Expense,Personal,Children & Family,DR
+2020-12-19,Eau De Vie ,74,0,1844,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2020-12-20,EnergyAustralia ,158,0,1686,Expense,Household,Utilities,DR
+2020-12-21,Catholic Education Office ,15,0,1671,Expense,Personal,Education,DR
+2020-12-22,Zone Bowling ,131,0,1540,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-12-22,Rip Curl ,152,0,1388,Expense,Personal,Clothing & Accessories,DR
+2020-12-24,T2 Tea ,79,0,1309,Expense,Personal,Fitness & Wellbeing,DR
+2020-12-24,Upwork Freelancer Payment ,24,0,1285,Income,Income,Other Income,DR
+2020-12-25,Westpac Dividend Deposit ,117,0,1168,Income,Income,Investments,DR
+2020-12-26,Palace Cinemas ,98,0,1070,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-12-26,Boost Juice Bars ,11,0,1059,Expense,Leisure & Lifestyle,Takeaway,DR
+2020-12-26,Taronga Zoo ,57,0,1002,Expense,Leisure & Lifestyle,Entertainment,DR
+2020-12-28,JAX Tyres ,96,0,906,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-01-01,Monthly Income,0,6000,6906,Income,Income,Wages,CR
+2021-01-02,Taronga Zoo ,154,0,6752,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-01-03,Rental Deposit from RealEstate.com.au ,219,0,6533,Income,Income,Other Income,DR
+2021-01-03,BWS ,330,0,6203,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-01-03,South East Water ,549,0,5654,Expense,Household,Utilities,DR
+2021-01-03,YMCA ,479,0,5175,Expense,Personal,Fitness & Wellbeing,DR
+2021-01-05,Specsavers ,100,0,5075,Expense,Personal,Health & Medical,DR
+2021-01-06,PayPal Transfer from Sale ,48,0,5027,Income,Income,Other Income,DR
+2021-01-06,Airbnb Host Income ,153,0,4874,Income,Income,Other Income,DR
+2021-01-06,Gold's Gym ,170,0,4704,Expense,Personal,Fitness & Wellbeing,DR
+2021-01-07,eBay Sales Proceeds ,379,0,4325,Income,Income,Other Income,DR
+2021-01-07,Audible ,423,0,3902,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-01-08,ATO Tax Refund ,325,0,3577,Income,Income,Other Income,DR
+2021-01-09,Barbeques Galore ,225,0,3352,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-01-09,JB HiFi,312,0,3040,Expense,Leisure & Lifestyle,Electronics,DR
+2021-01-10,Decathlon ,155,0,2885,Expense,Personal,Fitness & Wellbeing,DR
+2021-01-10,NRMA Roadside Assistance ,121,0,2764,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-01-11,Airbnb Host Income ,213,0,2551,Income,Income,Other Income,DR
+2021-01-11,Who Gives A Crap ,178,0,2373,Expense,Household,Groceries,DR
+2021-01-11, Slater and Gordon Lawyers ,28,0,2345,Expense,Personal,Life Admin,DR
+2021-01-12,Domino’s Pizza ,82,0,2263,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-01-14,Centrelink JobSeeker Payment ,77,0,2186,Income,Income,Other Income,DR
+2021-01-17,Harris Farm Markets ,84,0,2102,Expense,Household,Groceries,DR
+2021-01-17, Jim’s Building Inspections ,187,0,1915,Expense,Household,Maintenance & Improvements,DR
+2021-01-19,Foxtel ,38,0,1877,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-01-20,King Swim ,47,0,1830,Expense,Personal,Fitness & Wellbeing,DR
+2021-01-21,Local Fish and Chips ,160,0,1670,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-01-22,Swim Australia ,62,0,1608,Expense,Personal,Fitness & Wellbeing,DR
+2021-01-23,ALDI ,37,0,1571,Expense,Household,Groceries,DR
+2021-01-27,Eat Street Northshore ,37,0,1534,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-02-01,Monthly Income,0,6000,7534,Income,Income,Wages,CR
+2021-02-02,Binge ,107,0,7427,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-02-03,Toys 'R' Us ,445,0,6982,Expense,Personal,CHildren & Family,DR
+2021-02-05,Timezone ,244,0,6738,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-02-05,Local Fish and Chips ,95,0,6643,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-02-08,Centrelink JobSeeker Payment ,611,0,6032,Income,Income,Other Income,DR
+2021-02-08,Amazon Prime ,332,0,5700,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-02-08, Metricon ,517,0,5183,Expense,Household,Maintenance & Improvements,DR
+2021-02-10, BSA Ltd ,453,0,4730,Expense,Household,Maintenance & Improvements,DR
+2021-02-11,Montessori Schools ,403,0,4327,Expense,Personal,Education,DR
+2021-02-13,Liquorland ,96,0,4231,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-02-16,Spotify ,127,0,4104,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-02-16,Muffin Break ,341,0,3763,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-02-16,Quay Restaurant ,357,0,3406,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-02-18,Camp Australia ,268,0,3138,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-02-19,Little Athletics ,258,0,2880,Expense,Personal,Fitness & Wellbeing,DR
+2021-02-19,ATO Tax Refund ,61,0,2819,Income,Income,Other Income,DR
+2021-02-20,Autobarn ,192,0,2627,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-02-20,Country Road ,229,0,2398,Expense,Personal,Clothing & Accessories,DR
+2021-02-21, Ray White Real Estate ,141,0,2257,Expense,Personal,Life Admin,DR
+2021-02-21,BWS ,179,0,2078,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-02-22,JAX Tyres ,162,0,1916,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-02-23,Chiropractor ,60,0,1856,Expense,Personal,Health & Medical,DR
+2021-02-23,Australian Veterinary Association ,39,0,1817,Expense,Household,Pets,DR
+2021-02-23,Airbnb Host Income ,72,0,1745,Income,Income,Other Income,DR
+2021-02-25,Sydney Water ,31,0,1714,Expense,Household,Utilities,DR
+2021-02-27,Greencross Vets ,124,0,1590,Expense,Household,Pets,DR
+2021-02-27,City Beach ,60,0,1530,Expense,Personal,Clothing & Accessories,DR
+2021-02-27,Uber ,27,0,1503,Expense,Transport,Taxies & Share Cars,DR
+2021-02-28,BrewDog ,135,0,1368,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-03-01,Monthly Income,0,6000,7368,Income,Income,Wages,CR
+2021-03-02,Adobe Creative Cloud ,10,0,7358,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-03-03,Apple Store ,288,0,7070,Expense,Leisure & Lifestyle,Electronics,DR
+2021-03-03,Budget Direct Car Insurance ,336,0,6734,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-03-04,Medicare Claim ,359,0,6375,Expense,Personal,Health & Medical,DR
+2021-03-04,Campion Education ,61,0,6314,Expense,Personal,Children & Family,DR
+2021-03-05,Quay Restaurant ,338,0,5976,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-03-05,Flight Centre ,141,0,5835,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-03-07, Slater and Gordon Lawyers ,267,0,5568,Expense,Personal,Life Admin,DR
+2021-03-08,Gold's Gym ,89,0,5479,Expense,Personal,Fitness & Wellbeing,DR
+2021-03-11,Microsoft 365 ,236,0,5243,Expense,Personal,Education,DR
+2021-03-12,Massage Therapy Center ,195,0,5048,Expense,Personal,Health & Medical,DR
+2021-03-12, Metricon ,110,0,4938,Expense,Household,Maintenance & Improvements,DR
+2021-03-12,Beach Café ,214,0,4724,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-03-14,Toys 'R' Us ,21,0,4703,Expense,Personal,CHildren & Family,DR
+2021-03-15,Stand Up Paddleboard Rental ,451,0,4252,Expense,Personal,Fitness & Wellbeing,DR
+2021-03-16,Scouts Australia ,11,0,4241,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-03-17, Brisbane City Council ,403,0,3838,Expense,Household,Rates & Insurance,DR
+2021-03-20,Kumon ,30,0,3808,Expense,Personal,Education,DR
+2021-03-20,Pizza Hut ,111,0,3697,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-03-22,Mathnasium ,131,0,3566,Expense,Personal,Education,DR
+2021-03-22,Liquorland ,343,0,3223,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-03-22,Queensland Urban Utilities ,289,0,2934,Expense,Household,Utilities,DR
+2021-03-24,Petbarn ,99,0,2835,Expense,Household,Pets,DR
+2021-03-26, Metricon ,33,0,2802,Expense,Household,Maintenance & Improvements,DR
+2021-03-27,Sylvan Learning ,54,0,2748,Expense,Personal,Education,DR
+2021-04-01,Monthly Income,0,6000,8748,Income,Income,Wages,CR
+2021-04-02,Interest Payment from Commonwealth Bank ,636,0,8112,Income,Income,Investments,DR
+2021-04-03,Beachside Caravan Park ,691,0,7421,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-04-04,VicRoads ,215,0,7206,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-04-04,Caltex Woolworths ,610,0,6596,Expense,Transport,Fuel,DR
+2021-04-04,Stan ,80,0,6516,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-04-05,Pizza Hut ,433,0,6083,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-04-05,Caltex ,296,0,5787,Expense,Transport,Fuel,DR
+2021-04-06,Foxtel ,253,0,5534,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-04-06,Massage Therapy Center ,224,0,5310,Expense,Personal,Health & Medical,DR
+2021-04-06,The Coffee Club ,409,0,4901,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-04-06,The Espy ,26,0,4875,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-04-07,Chemist Warehouse ,376,0,4499,Expense,Personal,Health & Medical,DR
+2021-04-08,Sydney Water ,218,0,4281,Expense,Household,Utilities,DR
+2021-04-08,Le Creuset ,337,0,3944,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-04-09,AustralianSuper Pension ,74,0,3870,Income,Income,Other Income,DR
+2021-04-10,Chemist Warehouse ,143,0,3727,Expense,Personal,Health & Medical,DR
+2021-04-10,TerryWhite Chemmart ,253,0,3474,Expense,Personal,Health & Medical,DR
+2021-04-10,Dymocks ,46,0,3428,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-04-10,Apple Store ,86,0,3342,Expense,Leisure & Lifestyle,Electronics,DR
+2021-04-10,Eau De Vie ,286,0,3056,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-04-11,Health Food Store ,88,0,2968,Expense,Personal,Fitness & Wellbeing,DR
+2021-04-11, Commonwealth Bank ,204,0,2764,Expense,Household,Rent & Mortgage,DR
+2021-04-12,NRMA Roadside Assistance ,190,0,2574,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-04-12,Salary Deposit from Woolworths Group ,25,0,2549,Income,Income,Wages,DR
+2021-04-12,Ballet Schools ,20,0,2529,Expense,Personal,Fitness & Wellbeing,DR
+2021-04-13,G8 Education ,162,0,2367,Expense,Personal,Children & Family,DR
+2021-04-13,Adairs ,171,0,2196,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-04-14,Eau De Vie ,163,0,2033,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-04-14,BrewDog ,47,0,1986,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-04-16,F45 Training ,131,0,1855,Expense,Personal,Fitness & Wellbeing,DR
+2021-04-16,Ultra Tune ,81,0,1774,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-04-17,Apple Music ,114,0,1660,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-04-18,The Athlete's Foot ,92,0,1568,Expense,Personal,Clothing & Accessories,DR
+2021-04-18,Vodafone Prepaid ,129,0,1439,Expense,Personal,Mobile Phone,DR
+2021-04-18,TerryWhite Chemmart ,28,0,1411,Expense,Personal,Health & Medical,DR
+2021-04-19, Slater and Gordon Lawyers ,79,0,1332,Expense,Personal,Life Admin,DR
+2021-04-19,Lorna Jane ,96,0,1236,Expense,Personal,Clothing & Accessories,DR
+2021-04-19,Chiropractor ,63,0,1173,Expense,Personal,Health & Medical,DR
+2021-04-19,Supercheap Auto ,81,0,1092,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-04-19,Harris Farm Markets ,92,0,1000,Expense,Household,Groceries,DR
+2021-04-20,City Beach ,77,0,923,Expense,Personal,Clothing & Accessories,DR
+2021-04-20,McDonald’s ,47,0,876,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-04-20,Beacon Lighting ,26,0,850,Expense,Household,Maintenance & Improvements,DR
+2021-04-21,The Body Shop ,18,0,832,Expense,Personal,Hair & Beauty,DR
+2021-04-22,Country Road ,80,0,752,Expense,Personal,Clothing & Accessories,DR
+2021-04-22,Ladbrokes ,70,0,682,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2021-04-22,Telstra ,60,0,622,Expense,Personal,Mobile Phone,DR
+2021-04-22,Flight Centre ,38,0,584,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-04-23,Toys 'R' Us ,16,0,568,Expense,Personal,CHildren & Family,DR
+2021-04-25,Interest Payment from Commonwealth Bank ,43,0,525,Income,Income,Investments,DR
+2021-04-26,Hungry Jack’s ,8,0,517,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-04-26,Kayo Sports ,22,0,495,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-04-27,Melbourne Central Lion Hotel ,27,0,468,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-04-27,Gardening Australia ,19,0,449,Expense,Household,Maintenance & Improvements,DR
+2021-04-27,Child Support Agency Deposit ,5,0,444,Income,Income,Other Income,DR
+2021-04-28, Slater and Gordon Lawyers ,13,0,431,Expense,Personal,Life Admin,DR
+2021-04-28,Foxtel ,36,0,395,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-05-01,Monthly Income,0,6000,6395,Income,Income,Wages,CR
+2021-05-03,SEQTA ,200,0,6195,Expense,Personal,Education,DR
+2021-05-03,Endota Spa ,454,0,5741,Expense,Personal,Fitness & Wellbeing,DR
+2021-05-03,The Brisbane Hotel ,315,0,5426,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-05-03,Pizza Hut ,199,0,5227,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-05-06,Netflix ,40,0,5187,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-05-06,Camp Australia ,230,0,4957,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-05-08,ATO Tax Refund ,357,0,4600,Income,Income,Other Income,DR
+2021-05-08,Beach Café ,156,0,4444,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-05-09,Little Athletics ,204,0,4240,Expense,Personal,Fitness & Wellbeing,DR
+2021-05-09,SEQTA ,408,0,3832,Expense,Personal,Education,DR
+2021-05-10,School Locker ,300,0,3532,Expense,Personal,Children & Family,DR
+2021-05-10,Billabong ,187,0,3345,Expense,Personal,Clothing & Accessories,DR
+2021-05-12,Dental Clinic ,165,0,3180,Expense,Personal,Health & Medical,DR
+2021-05-13,Toys 'R' Us ,184,0,2996,Expense,Personal,CHildren & Family,DR
+2021-05-13,Sydney Water ,157,0,2839,Expense,Household,Utilities,DR
+2021-05-15, Fantastic Furniture ,240,0,2599,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-05-19,Guardian Childcare & Education ,244,0,2355,Expense,Personal,Children & Family,DR
+2021-05-19,EB Games ,63,0,2292,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2021-05-20,Health Food Store ,38,0,2254,Expense,Personal,Fitness & Wellbeing,DR
+2021-05-20,Campion Education ,84,0,2170,Expense,Personal,Children & Family,DR
+2021-05-20,Optometrist ,46,0,2124,Expense,Personal,Health & Medical,DR
+2021-05-21,Gold's Gym ,188,0,1936,Expense,Personal,Fitness & Wellbeing,DR
+2021-05-21,Upwork Freelancer Payment ,36,0,1900,Income,Income,Other Income,DR
+2021-05-22,Harris Farm Markets ,89,0,1811,Expense,Household,Groceries,DR
+2021-05-22,Sea Life Aquarium ,149,0,1662,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-05-22,Rental Deposit from RealEstate.com.au ,19,0,1643,Income,Income,Other Income,DR
+2021-05-23,Culture Kings ,21,0,1622,Expense,Personal,Clothing & Accessories,DR
+2021-05-26,Eau De Vie ,94,0,1528,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-05-26,Dymocks ,19,0,1509,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-05-27,Liquorland ,32,0,1477,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-05-28,Green Slip Insurance ,30,0,1447,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-05-28,Local Hospital ,145,0,1302,Expense,Personal,Health & Medical,DR
+2021-06-01,Monthly Income,0,6000,7302,Income,Income,Wages,CR
+2021-06-04,Menulog ,362,0,6940,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-06-04,Village Cinemas ,679,0,6261,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-06-04,SEQTA ,20,0,6241,Expense,Personal,Education,DR
+2021-06-04,Interest Payment from Commonwealth Bank ,223,0,6018,Income,Income,Investments,DR
+2021-06-04,The Sydney Morning Herald ,539,0,5479,Expense,Personal,Education,DR
+2021-06-05,Goodstart Early Learning ,315,0,5164,Expense,Personal,Children & Family,DR
+2021-06-05,Ladbrokes ,86,0,5078,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2021-06-06,Coles Express ,10,0,5068,Expense,Transport,Fuel,DR
+2021-06-06,Le Creuset ,468,0,4600,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-06-06,Le Creuset ,63,0,4537,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-06-06,Snap Fitness ,410,0,4127,Expense,Personal,Fitness & Wellbeing,DR
+2021-06-07,EB Games ,240,0,3887,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2021-06-08,Dan Murphy’s ,166,0,3721,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-06-08,Sea Life Aquarium ,269,0,3452,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-06-09,Zone Bowling ,213,0,3239,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-06-09,Local Hospital ,171,0,3068,Expense,Personal,Health & Medical,DR
+2021-06-09,Uber ,271,0,2797,Expense,Transport,Taxies & Share Cars,DR
+2021-06-09,Massage Therapy Center ,12,0,2785,Expense,Personal,Health & Medical,DR
+2021-06-09,Sunburn Swimwear ,101,0,2684,Expense,Personal,Clothing & Accessories,DR
+2021-06-09,VicRoads ,110,0,2574,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-10,Rip Curl ,78,0,2496,Expense,Personal,Clothing & Accessories,DR
+2021-06-11,NRMA Roadside Assistance ,152,0,2344,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-12,Uber ,64,0,2280,Expense,Transport,Taxies & Share Cars,DR
+2021-06-12,Event Cinemas ,116,0,2164,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-06-12,Crown Perth ,106,0,2058,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-06-13,Timezone ,85,0,1973,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-06-14,Catholic Education Office ,179,0,1794,Expense,Personal,Education,DR
+2021-06-14,VicRoads ,73,0,1721,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-14,Apple Music ,72,0,1649,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-06-15, Jim's Mowing ,38,0,1611,Expense,Household,Maintenance & Improvements,DR
+2021-06-16,Beacon Lighting ,100,0,1511,Expense,Household,Maintenance & Improvements,DR
+2021-06-17,YMCA ,120,0,1391,Expense,Personal,Fitness & Wellbeing,DR
+2021-06-17,Local Fish and Chips ,10,0,1381,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-06-17,Car Wash Cafe ,9,0,1372,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-18,Budget Direct Car Insurance ,54,0,1318,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-18,Endota Spa ,88,0,1230,Expense,Personal,Fitness & Wellbeing,DR
+2021-06-19,ATO Tax Refund ,119,0,1111,Income,Income,Other Income,DR
+2021-06-19,Lorna Jane ,11,0,1100,Expense,Personal,Clothing & Accessories,DR
+2021-06-19,Fitness First ,61,0,1039,Expense,Personal,Fitness & Wellbeing,DR
+2021-06-19,EnergyAustralia ,43,0,996,Expense,Household,Utilities,DR
+2021-06-20,Domino’s Pizza ,95,0,901,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-06-21, Commonwealth Bank ,49,0,852,Expense,Household,Rent & Mortgage,DR
+2021-06-21,Amazon Prime ,79,0,773,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-06-23,Snap Fitness ,21,0,752,Expense,Personal,Fitness & Wellbeing,DR
+2021-06-23,Dental Clinic ,66,0,686,Expense,Personal,Health & Medical,DR
+2021-06-23,The Espy ,61,0,625,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-06-24,Scouts Australia ,26,0,599,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-06-24,Coles Express ,11,0,588,Expense,Transport,Fuel,DR
+2021-06-25,The Coffee Club ,14,0,574,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-06-25, Ray White Real Estate ,14,0,560,Expense,Personal,Life Admin,DR
+2021-06-25,Australian Veterinary Association ,38,0,522,Expense,Household,Pets,DR
+2021-06-27,Massage Therapy Center ,49,0,473,Expense,Personal,Health & Medical,DR
+2021-06-27,Green Slip Insurance ,29,0,444,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-06-27,BP ,19,0,425,Expense,Transport,Fuel,DR
+2021-06-27,Microsoft 365 ,17,0,408,Expense,Personal,Education,DR
+2021-06-27,Officeworks ,20,0,388,Expense,Personal,Life Admin,DR
+2021-06-28,Chemist Warehouse ,18,0,370,Expense,Personal,Health & Medical,DR
+2021-06-28,EnergyAustralia ,14,0,356,Expense,Household,Utilities,DR
+2021-06-28,Beachside Caravan Park ,5,0,351,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-07-01,Monthly Income,0,6000,6351,Income,Income,Wages,CR
+2021-07-03,Priceline Pharmacy ,189,0,6162,Expense,Personal,Health & Medical,DR
+2021-07-03,Repco ,429,0,5733,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-07-04,Coles Express ,441,0,5292,Expense,Transport,Fuel,DR
+2021-07-04, Fantastic Furniture ,158,0,5134,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-07-05,Greencross Vets ,428,0,4706,Expense,Household,Pets,DR
+2021-07-05,Foxtel ,167,0,4539,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-07-05,Foxtel ,155,0,4384,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-07-06,Amazon Prime ,17,0,4367,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-07-06,The Athlete's Foot ,423,0,3944,Expense,Personal,Clothing & Accessories,DR
+2021-07-07,Bridgestone Select ,100,0,3844,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-07-07,ATO Tax Refund ,310,0,3534,Income,Income,Other Income,DR
+2021-07-12,Quay Restaurant ,162,0,3372,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-07-13,Montessori Schools ,112,0,3260,Expense,Personal,Education,DR
+2021-07-15,Quay Restaurant ,269,0,2991,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-07-16,McDonald’s ,24,0,2967,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-07-16,The Sydney Morning Herald ,102,0,2865,Expense,Personal,Education,DR
+2021-07-17,Vodafone Prepaid ,196,0,2669,Expense,Personal,Mobile Phone,DR
+2021-07-17,Decathlon ,171,0,2498,Expense,Personal,Fitness & Wellbeing,DR
+2021-07-18,MyCar Tyre & Auto ,190,0,2308,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-07-18,The Coffee Club ,19,0,2289,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-07-19,Gold's Gym ,225,0,2064,Expense,Personal,Fitness & Wellbeing,DR
+2021-07-20,AustralianSuper Pension ,105,0,1959,Income,Income,Other Income,DR
+2021-07-20,Village Cinemas ,143,0,1816,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-07-23,Dymocks ,157,0,1659,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-07-24,Specsavers ,57,0,1602,Expense,Personal,Health & Medical,DR
+2021-07-25,Palace Cinemas ,101,0,1501,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-07-27,David Jones ,114,0,1387,Expense,Personal,Clothing & Accessories,DR
+2021-07-27,Crown Perth ,67,0,1320,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-07-27,Myer ,73,0,1247,Expense,Personal,Clothing & Accessories,DR
+2021-07-28,Fernwood Fitness ,10,0,1237,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-01,Monthly Income,0,6000,7237,Income,Income,Wages,CR
+2021-08-03,Officeworks ,577,0,6660,Expense,Personal,Life Admin,DR
+2021-08-03,South East Water ,456,0,6204,Expense,Household,Utilities,DR
+2021-08-04,JAX Tyres ,302,0,5902,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-08-05,Decathlon ,216,0,5686,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-05,Kumon ,310,0,5376,Expense,Personal,Education,DR
+2021-08-05,Flight Centre ,152,0,5224,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-08-05, Metricon ,495,0,4729,Expense,Household,Maintenance & Improvements,DR
+2021-08-06,Fernwood Fitness ,287,0,4442,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-06,Rip Curl ,420,0,4022,Expense,Personal,Clothing & Accessories,DR
+2021-08-06,Massage Therapy Center ,265,0,3757,Expense,Personal,Health & Medical,DR
+2021-08-06,Beach Café ,226,0,3531,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-08-07,Surf Dive 'n Ski ,330,0,3201,Expense,Personal,Clothing & Accessories,DR
+2021-08-08,Australian Veterinary Association ,289,0,2912,Expense,Household,Pets,DR
+2021-08-08,Muffin Break ,34,0,2878,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-08-09,Event Cinemas ,130,0,2748,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-08-10,The Ivy ,67,0,2681,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-08-11,Disney+ ,162,0,2519,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-08-12,Supercheap Auto ,161,0,2358,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-08-13,Gardening Australia ,206,0,2152,Expense,Household,Maintenance & Improvements,DR
+2021-08-13,Anytime Fitness ,9,0,2143,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-14,Rebel Sport ,48,0,2095,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-14, BSA Ltd ,30,0,2065,Expense,Household,Maintenance & Improvements,DR
+2021-08-14,Sea Life Aquarium ,180,0,1885,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-08-14,Chemist Warehouse ,63,0,1822,Expense,Personal,Health & Medical,DR
+2021-08-14,Eat Street Northshore ,50,0,1772,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-08-15,The Brisbane Hotel ,48,0,1724,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-08-15, Jim’s Building Inspections ,136,0,1588,Expense,Household,Maintenance & Improvements,DR
+2021-08-15,Village Cinemas ,17,0,1571,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-08-16,ABC Reading Eggs ,146,0,1425,Expense,Personal,Education,DR
+2021-08-17,Coles Express ,87,0,1338,Expense,Transport,Fuel,DR
+2021-08-18,Optometrist ,78,0,1260,Expense,Personal,Health & Medical,DR
+2021-08-18,The Athlete's Foot ,77,0,1183,Expense,Personal,Clothing & Accessories,DR
+2021-08-19,Medicare Claim ,30,0,1153,Expense,Personal,Health & Medical,DR
+2021-08-19,The Baxter Inn ,85,0,1068,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-08-20, Meriton Apartments ,27,0,1041,Expense,Household,Rates & Insurance,DR
+2021-08-20,JB HiFi,87,0,954,Expense,Leisure & Lifestyle,Electronics,DR
+2021-08-21,eBay Sales Proceeds ,45,0,909,Income,Income,Other Income,DR
+2021-08-21,BrewDog ,29,0,880,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-08-21, EnergyAustralia ,8,0,872,Expense,Household,Utilities,DR
+2021-08-21,South East Water ,37,0,835,Expense,Household,Utilities,DR
+2021-08-22,Officeworks ,46,0,789,Expense,Personal,Life Admin,DR
+2021-08-22,Crown Perth ,53,0,736,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-08-23,Foxtel ,40,0,696,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-08-24,Fernwood Fitness ,19,0,677,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-24,Fernwood Fitness ,21,0,656,Expense,Personal,Fitness & Wellbeing,DR
+2021-08-25,Vodafone Prepaid ,10,0,646,Expense,Personal,Mobile Phone,DR
+2021-08-25,Child Support Agency Deposit ,44,0,602,Income,Income,Other Income,DR
+2021-08-25, NRMA Insurance ,25,0,577,Expense,Household,Rates & Insurance,DR
+2021-08-25,Service NSW ,10,0,567,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-08-26,Childcare Payments ,44,0,523,Expense,Personal,Children & Family,DR
+2021-08-26,The Sydney Morning Herald ,35,0,488,Expense,Personal,Education,DR
+2021-08-26,ABC Reading Eggs ,44,0,444,Expense,Personal,Education,DR
+2021-08-26,Endota Spa ,19,0,425,Expense,Personal,Fitness & Wellbeing,DR
+2021-09-01,Monthly Income,0,6000,6425,Income,Income,Wages,CR
+2021-09-02,ABC Reading Eggs ,323,0,6102,Expense,Personal,Education,DR
+2021-09-03,Microsoft 365 ,497,0,5605,Expense,Personal,Education,DR
+2021-09-03,Guzman y Gomez ,111,0,5494,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-09-03,YMCA ,175,0,5319,Expense,Personal,Fitness & Wellbeing,DR
+2021-09-04,ATO Tax Refund ,296,0,5023,Income,Income,Other Income,DR
+2021-09-07,Mathnasium ,97,0,4926,Expense,Personal,Education,DR
+2021-09-07,Village Cinemas ,125,0,4801,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-09-09,Child Support Agency Deposit ,318,0,4483,Income,Income,Other Income,DR
+2021-09-09,Target ,389,0,4094,Expense,Personal,Clothing & Accessories,DR
+2021-09-10,Lorna Jane ,301,0,3793,Expense,Personal,Clothing & Accessories,DR
+2021-09-10,Local Hospital ,75,0,3718,Expense,Personal,Health & Medical,DR
+2021-09-11,Guzman y Gomez ,244,0,3474,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-09-11,Beachfront Markets ,178,0,3296,Expense,Personal,Clothing & Accessories,DR
+2021-09-12,BrewDog ,43,0,3253,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-09-13,Country Road ,189,0,3064,Expense,Personal,Clothing & Accessories,DR
+2021-09-13,Child Support Agency Deposit ,42,0,3022,Income,Income,Other Income,DR
+2021-09-14,Chiropractor ,256,0,2766,Expense,Personal,Health & Medical,DR
+2021-09-14,Melbourne Central Lion Hotel ,219,0,2547,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-09-15,Flight Centre ,180,0,2367,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-09-16,Bunnings Warehouse ,172,0,2195,Expense,Household,Maintenance & Improvements,DR
+2021-09-18, National Bank ,40,0,2155,Expense,Personal,Fees & Charges,DR
+2021-09-21,Telstra ,146,0,2009,Expense,Personal,Mobile Phone,DR
+2021-09-21,King Swim ,39,0,1970,Expense,Personal,Fitness & Wellbeing,DR
+2021-09-22,Catholic Education Office ,158,0,1812,Expense,Personal,Education,DR
+2021-09-23,TerryWhite Chemmart ,114,0,1698,Expense,Personal,Health & Medical,DR
+2021-09-23,Boost Juice Bars ,44,0,1654,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-09-24,Country Road ,151,0,1503,Expense,Personal,Clothing & Accessories,DR
+2021-09-24,OfficeMax ,46,0,1457,Expense,Personal,Life Admin,DR
+2021-09-24,South East Water ,145,0,1312,Expense,Household,Utilities,DR
+2021-09-25,Shell V Power,121,0,1191,Expense,Transport,Fuel,DR
+2021-09-27,Decathlon ,106,0,1085,Expense,Personal,Fitness & Wellbeing,DR
+2021-09-27,Kmart Tyre & Auto Service ,16,0,1069,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-09-27, EnergyAustralia ,32,0,1037,Expense,Household,Utilities,DR
+2021-10-01,Monthly Income,0,6000,7037,Income,Income,Wages,CR
+2021-10-02,Green Slip Insurance ,60,0,6977,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-10-02,Coles Express ,128,0,6849,Expense,Transport,Fuel,DR
+2021-10-02,Camp Australia ,521,0,6328,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-10-02,McDonald’s ,342,0,5986,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-02,PayPal Transfer from Sale ,567,0,5419,Income,Income,Other Income,DR
+2021-10-03,Anytime Fitness ,262,0,5157,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-04,Beachside Caravan Park ,505,0,4652,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-10-05,Booktopia ,108,0,4544,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-10-05,Guzman y Gomez ,121,0,4423,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-05,Stand Up Paddleboard Rental ,46,0,4377,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-06,Officeworks ,312,0,4065,Expense,Personal,Life Admin,DR
+2021-10-06, Slater and Gordon Lawyers ,120,0,3945,Expense,Personal,Life Admin,DR
+2021-10-06,TerryWhite Chemmart ,99,0,3846,Expense,Personal,Health & Medical,DR
+2021-10-06,Goodstart Early Learning ,256,0,3590,Expense,Personal,Children & Family,DR
+2021-10-06,Budget Direct Car Insurance ,92,0,3498,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-10-07,Montessori Schools ,36,0,3462,Expense,Personal,Education,DR
+2021-10-08,BWS ,131,0,3331,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-10-08,Sea Kayak Tours ,98,0,3233,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-10-09,Caltex ,282,0,2951,Expense,Transport,Fuel,DR
+2021-10-10,Health Food Store ,198,0,2753,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-10,Green Slip Insurance ,207,0,2546,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-10-11,McDonald’s ,128,0,2418,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-11,Soccer Clubs ,27,0,2391,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-11,The Ivy ,134,0,2257,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-10-12,Health Food Store ,73,0,2184,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-13,Fitness First ,71,0,2113,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-13,Dan Murphy’s ,33,0,2080,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-10-14,Pizza Hut ,115,0,1965,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-15,Soccer Clubs ,84,0,1881,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-15,Swim Australia ,122,0,1759,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-15,Apple Music ,130,0,1629,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-10-16,Caltex ,109,0,1520,Expense,Transport,Fuel,DR
+2021-10-16,Ice Cream Parlour ,18,0,1502,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-16,JAX Tyres ,42,0,1460,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-10-17,Australian Veterinary Association ,61,0,1399,Expense,Household,Pets,DR
+2021-10-17,Ice Cream Parlour ,128,0,1271,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-10-18, NRMA Insurance ,84,0,1187,Expense,Household,Rates & Insurance,DR
+2021-10-18,ALDI ,63,0,1124,Expense,Household,Groceries,DR
+2021-10-18,Service NSW ,113,0,1011,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-10-19,Freedom Furniture ,92,0,919,Expense,Household,Maintenance & Improvements,DR
+2021-10-19,VetLove ,74,0,845,Expense,Household,Pets,DR
+2021-10-20,Mathnasium ,71,0,774,Expense,Personal,Education,DR
+2021-10-21,Gardening Australia ,11,0,763,Expense,Household,Maintenance & Improvements,DR
+2021-10-22,The Australian ,51,0,712,Expense,Personal,Education,DR
+2021-10-23,Café Nero ,15,0,697,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-10-24, Slater and Gordon Lawyers ,38,0,659,Expense,Personal,Life Admin,DR
+2021-10-24,Netflix ,51,0,608,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-10-25, BSA Ltd ,30,0,578,Expense,Household,Maintenance & Improvements,DR
+2021-10-26,Karate for Kids ,35,0,543,Expense,Personal,Fitness & Wellbeing,DR
+2021-10-27,Eat Street Northshore ,50,0,493,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-10-28,Specsavers ,40,0,453,Expense,Personal,Health & Medical,DR
+2021-10-28,Optometrist ,33,0,420,Expense,Personal,Health & Medical,DR
+2021-10-28,Liquorland ,13,0,407,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-10-28,ATO Tax Refund ,13,0,394,Income,Income,Other Income,DR
+2021-11-01,Monthly Income,0,6000,6394,Income,Income,Wages,CR
+2021-11-02,Uber ,115,0,6279,Expense,Transport,Taxies & Share Cars,DR
+2021-11-02,SEQTA ,249,0,6030,Expense,Personal,Education,DR
+2021-11-02,Chiropractor ,300,0,5730,Expense,Personal,Health & Medical,DR
+2021-11-02,Beacon Lighting ,487,0,5243,Expense,Household,Maintenance & Improvements,DR
+2021-11-04,Camp Australia ,143,0,5100,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-11-05,The Rocks Bar and Pub ,353,0,4747,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-11-06,Officeworks ,63,0,4684,Expense,Personal,Life Admin,DR
+2021-11-07,Fitness First ,456,0,4228,Expense,Personal,Fitness & Wellbeing,DR
+2021-11-07,CommSec Share Trading Gains ,87,0,4141,Income,Income,Investments,DR
+2021-11-07,Palace Cinemas ,195,0,3946,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-11-09,Guzman y Gomez ,39,0,3907,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-11-11,Upwork Freelancer Payment ,372,0,3535,Income,Income,Other Income,DR
+2021-11-11,The Espy ,23,0,3512,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-11-14,Decathlon ,212,0,3300,Expense,Personal,Fitness & Wellbeing,DR
+2021-11-14,Zarraffa's Coffee ,177,0,3123,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-11-14, National Bank ,196,0,2927,Expense,Personal,Fees & Charges,DR
+2021-11-14,Tabcorp ,193,0,2734,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2021-11-15,Priceline Pharmacy ,18,0,2716,Expense,Personal,Health & Medical,DR
+2021-11-16,Green Slip Insurance ,56,0,2660,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-11-16, Fantastic Furniture ,258,0,2402,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-11-17,McDonald’s ,191,0,2211,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-11-17,eBay Sales Proceeds ,18,0,2193,Income,Income,Other Income,DR
+2021-11-18,Local Hospital ,207,0,1986,Expense,Personal,Health & Medical,DR
+2021-11-18, Jim’s Building Inspections ,96,0,1890,Expense,Household,Maintenance & Improvements,DR
+2021-11-20,Coles Express ,52,0,1838,Expense,Transport,Fuel,DR
+2021-11-20,Amazon Prime ,86,0,1752,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-11-20,Liquorland ,15,0,1737,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-11-21,Bridgestone Select ,165,0,1572,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-11-21,Village Cinemas ,140,0,1432,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-11-22,Bulk Billing Doctor ,73,0,1359,Expense,Personal,Health & Medical,DR
+2021-11-22,Lorna Jane ,88,0,1271,Expense,Personal,Clothing & Accessories,DR
+2021-11-23,Childcare Payments ,37,0,1234,Expense,Personal,Children & Family,DR
+2021-11-24,MyCar Tyre & Auto ,39,0,1195,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-11-24,Chiropractor ,44,0,1151,Expense,Personal,Health & Medical,DR
+2021-11-24,Apple Music ,44,0,1107,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-11-24,David Jones ,52,0,1055,Expense,Personal,Clothing & Accessories,DR
+2021-11-26,The Athlete's Foot ,28,0,1027,Expense,Personal,Clothing & Accessories,DR
+2021-11-27,Freedom Furniture ,20,0,1007,Expense,Household,Maintenance & Improvements,DR
+2021-11-27,Taronga Zoo ,20,0,987,Expense,Leisure & Lifestyle,Entertainment,DR
+2021-11-27,Domino’s Pizza ,32,0,955,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-11-27,The Body Shop ,21,0,934,Expense,Personal,Hair & Beauty,DR
+2021-11-27,Physiotherapy Clinic ,24,0,910,Expense,Personal,Health & Medical,DR
+2021-11-28,Bunnings Warehouse ,60,0,850,Expense,Household,Maintenance & Improvements,DR
+2021-12-01,Monthly Income,0,6000,6850,Income,Income,Wages,CR
+2021-12-02,Physiotherapy Clinic ,255,0,6595,Expense,Personal,Health & Medical,DR
+2021-12-02,Bridgestone Select ,431,0,6164,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-12-04,Ice Cream Parlour ,418,0,5746,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-12-07,Airbnb Host Income ,58,0,5688,Income,Income,Other Income,DR
+2021-12-08,Supercheap Auto ,341,0,5347,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-12-08,Dan Murphy’s ,167,0,5180,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-12-08,Tennis Australia ,319,0,4861,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-09,Local Hospital ,467,0,4394,Expense,Personal,Health & Medical,DR
+2021-12-09,JB HiFi,399,0,3995,Expense,Leisure & Lifestyle,Electronics,DR
+2021-12-09,Foxtel ,216,0,3779,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-12-10,Beachside Caravan Park ,5,0,3774,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2021-12-10,Bridgestone Select ,249,0,3525,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-12-10,BWS ,228,0,3297,Expense,Leisure & Lifestyle,Alcohol,DR
+2021-12-10,eBay Sales Proceeds ,104,0,3193,Income,Income,Other Income,DR
+2021-12-11,Specsavers ,79,0,3114,Expense,Personal,Health & Medical,DR
+2021-12-12,Dymocks ,307,0,2807,Expense,Leisure & Lifestyle,Hobbies,DR
+2021-12-12,Culture Kings ,197,0,2610,Expense,Personal,Clothing & Accessories,DR
+2021-12-12, EnergyAustralia ,116,0,2494,Expense,Household,Utilities,DR
+2021-12-13,OfficeMax ,176,0,2318,Expense,Personal,Life Admin,DR
+2021-12-13,QBE Insurance Claim Payout ,90,0,2228,Income,Income,Other Income,DR
+2021-12-13,Café Nero ,59,0,2169,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2021-12-14,OfficeMax ,26,0,2143,Expense,Personal,Life Admin,DR
+2021-12-14,Big W ,147,0,1996,Expense,Personal,Children & Family,DR
+2021-12-14,Endota Spa ,20,0,1976,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-15,Culture Kings ,166,0,1810,Expense,Personal,Clothing & Accessories,DR
+2021-12-15,Swim Australia ,126,0,1684,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-16,Kayo Sports ,58,0,1626,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-12-17,Foxtel ,76,0,1550,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-12-17,Repco ,58,0,1492,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-12-18,Origin Energy ,29,0,1463,Expense,Household,Utilities,DR
+2021-12-19,The Sydney Morning Herald ,29,0,1434,Expense,Personal,Education,DR
+2021-12-19,Endota Spa ,70,0,1364,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-20,Sunburn Swimwear ,106,0,1258,Expense,Personal,Clothing & Accessories,DR
+2021-12-20,Autobarn ,104,0,1154,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2021-12-20,Gardening Australia ,56,0,1098,Expense,Household,Maintenance & Improvements,DR
+2021-12-22,Ice Cream Parlour ,75,0,1023,Expense,Leisure & Lifestyle,Takeaway,DR
+2021-12-22,IKEA ,66,0,957,Expense,Household,Maintenance & Improvements,DR
+2021-12-23,G8 Education ,71,0,886,Expense,Personal,Children & Family,DR
+2021-12-23,Coles ,52,0,834,Expense,Household,Groceries,DR
+2021-12-23,Decathlon ,41,0,793,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-24,Stand Up Paddleboard Rental ,25,0,768,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-24,Sunburn Swimwear ,43,0,725,Expense,Personal,Clothing & Accessories,DR
+2021-12-25,Freedom Furniture ,36,0,689,Expense,Household,Maintenance & Improvements,DR
+2021-12-25,Quay Restaurant ,14,0,675,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2021-12-25,Disney+ ,37,0,638,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2021-12-26, Jim’s Building Inspections ,34,0,604,Expense,Household,Maintenance & Improvements,DR
+2021-12-26,Childcare Payments ,8,0,596,Expense,Personal,Children & Family,DR
+2021-12-27,The Good Guys ,21,0,575,Expense,Household,"Furniture, Electronics & Homewares",DR
+2021-12-27,eBay Sales Proceeds ,50,0,525,Income,Income,Other Income,DR
+2021-12-28,Big W ,14,0,511,Expense,Personal,Children & Family,DR
+2021-12-28,Soccer Clubs ,17,0,494,Expense,Personal,Fitness & Wellbeing,DR
+2021-12-28,Westpac Dividend Deposit ,17,0,477,Income,Income,Investments,DR
+2022-01-01,Monthly Income,0,6000,6477,Income,Income,Wages,CR
+2022-01-02,National Hearing Care ,151,0,6326,Expense,Personal,Health & Medical,DR
+2022-01-03,Beachside Yoga Classes ,536,0,5790,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-03,Optus ,41,0,5749,Expense,Personal,Mobile Phone,DR
+2022-01-03,Dan Murphy’s ,382,0,5367,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-01-03,Centrelink JobSeeker Payment ,265,0,5102,Income,Income,Other Income,DR
+2022-01-03,Physiotherapy Clinic ,229,0,4873,Expense,Personal,Health & Medical,DR
+2022-01-04,The Victory Hotel ,73,0,4800,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-01-04,Airbnb Host Income ,364,0,4436,Income,Income,Other Income,DR
+2022-01-04,The Ivy ,207,0,4229,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-01-05,Rip Curl ,293,0,3936,Expense,Personal,Clothing & Accessories,DR
+2022-01-05,Soccer Clubs ,319,0,3617,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-05,Flight Centre ,150,0,3467,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-01-05,Guardian Childcare & Education ,109,0,3358,Expense,Personal,Children & Family,DR
+2022-01-06, EnergyAustralia ,11,0,3347,Expense,Household,Utilities,DR
+2022-01-06,Optus ,41,0,3306,Expense,Personal,Mobile Phone,DR
+2022-01-07,Toys 'R' Us ,88,0,3218,Expense,Personal,CHildren & Family,DR
+2022-01-07,Who Gives A Crap ,126,0,3092,Expense,Household,Groceries,DR
+2022-01-07,Hungry Jack’s ,310,0,2782,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-01-07,Camp Australia ,189,0,2593,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-01-08,Beachside Caravan Park ,165,0,2428,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-01-09,Child Support Agency Deposit ,41,0,2387,Income,Income,Other Income,DR
+2022-01-09,Snap Fitness ,160,0,2227,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-09,Netflix ,214,0,2013,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-10,Stand Up Paddleboard Rental ,95,0,1918,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-10,Sylvan Learning ,91,0,1827,Expense,Personal,Education,DR
+2022-01-11,The Baxter Inn ,14,0,1813,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-01-11, National Bank ,11,0,1802,Expense,Personal,Fees & Charges,DR
+2022-01-11,Soccer Clubs ,41,0,1761,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-12,Foxtel ,37,0,1724,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-12,Foxtel ,164,0,1560,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-12,Amazon Prime ,119,0,1441,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-12,Ultra Tune ,33,0,1408,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-01-13,Pathology Lab ,111,0,1297,Expense,Personal,Health & Medical,DR
+2022-01-13,Officeworks ,71,0,1226,Expense,Personal,Life Admin,DR
+2022-01-13,Culture Kings ,26,0,1200,Expense,Personal,Clothing & Accessories,DR
+2022-01-13,Café Nero ,52,0,1148,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-01-14,Shell V Power,9,0,1139,Expense,Transport,Fuel,DR
+2022-01-15,Freedom Furniture ,47,0,1092,Expense,Household,Maintenance & Improvements,DR
+2022-01-16,Netflix ,94,0,998,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-16,Coles Express ,25,0,973,Expense,Transport,Fuel,DR
+2022-01-16,Freedom Furniture ,37,0,936,Expense,Household,Maintenance & Improvements,DR
+2022-01-18,Timezone ,23,0,913,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-01-19,Timezone ,8,0,905,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-01-20,The Body Shop ,48,0,857,Expense,Personal,Hair & Beauty,DR
+2022-01-21,Stan ,81,0,776,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-21,Beachside Yoga Classes ,57,0,719,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-22,IKEA ,13,0,706,Expense,Household,Maintenance & Improvements,DR
+2022-01-23,Rooftop Bar ,13,0,693,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-01-23,SEQTA ,5,0,688,Expense,Personal,Education,DR
+2022-01-24,Beacon Lighting ,63,0,625,Expense,Household,Maintenance & Improvements,DR
+2022-01-25,Stand Up Paddleboard Rental ,46,0,579,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-25,Fernwood Fitness ,26,0,553,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-26,Stand Up Paddleboard Rental ,23,0,530,Expense,Personal,Fitness & Wellbeing,DR
+2022-01-26,Flight Centre ,54,0,476,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-01-26,Country Road ,19,0,457,Expense,Personal,Clothing & Accessories,DR
+2022-01-27,Acupuncture Clinic ,28,0,429,Expense,Personal,Health & Medical,DR
+2022-01-27,Domino’s Pizza ,20,0,409,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-01-27,Spotify ,14,0,395,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-01-28,Australian Veterinary Association ,34,0,361,Expense,Household,Pets,DR
+2022-02-01,Monthly Income,0,6000,6361,Income,Income,Wages,CR
+2022-02-02,Australian Veterinary Association ,217,0,6144,Expense,Household,Pets,DR
+2022-02-03,Beachside Caravan Park ,177,0,5967,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-02-03,Tabcorp ,554,0,5413,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-02-04,The Sydney Morning Herald ,178,0,5235,Expense,Personal,Education,DR
+2022-02-04,Toys 'R' Us ,451,0,4784,Expense,Personal,CHildren & Family,DR
+2022-02-04,Sunnybank Hotel ,13,0,4771,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-02-04,Bunnings Warehouse ,168,0,4603,Expense,Household,Maintenance & Improvements,DR
+2022-02-06,Crown Perth ,206,0,4397,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-02-08,Anytime Fitness ,142,0,4255,Expense,Personal,Fitness & Wellbeing,DR
+2022-02-08,Beach Café ,260,0,3995,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-02-08,Target ,40,0,3955,Expense,Personal,Clothing & Accessories,DR
+2022-02-08,AMF Bowling ,62,0,3893,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-02-09,The Ivy ,233,0,3660,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-02-09,Bridgestone Select ,219,0,3441,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-02-10, The Good Guys ,220,0,3221,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-02-10,Zone Bowling ,32,0,3189,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-02-11,Coles Express ,81,0,3108,Expense,Transport,Fuel,DR
+2022-02-12,Telstra ,235,0,2873,Expense,Personal,Mobile Phone,DR
+2022-02-12,Audible ,281,0,2592,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-02-12,Adobe Creative Cloud ,109,0,2483,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-02-13,Supercheap Auto ,38,0,2445,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-02-13,Pathology Lab ,70,0,2375,Expense,Personal,Health & Medical,DR
+2022-02-14,Dymocks ,180,0,2195,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-02-14,JB HiFi,56,0,2139,Expense,Leisure & Lifestyle,Electronics,DR
+2022-02-15,Interest Payment from Commonwealth Bank ,23,0,2116,Income,Income,Investments,DR
+2022-02-16,The Australian ,6,0,2110,Expense,Personal,Education,DR
+2022-02-17,Aqua Fun Park ,15,0,2095,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-02-17,Physiotherapy Clinic ,118,0,1977,Expense,Personal,Health & Medical,DR
+2022-02-18,F45 Training ,53,0,1924,Expense,Personal,Fitness & Wellbeing,DR
+2022-02-18,Guzman y Gomez ,64,0,1860,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-02-20,Chiropractor ,140,0,1720,Expense,Personal,Health & Medical,DR
+2022-02-21,ATO Tax Refund ,121,0,1599,Income,Income,Other Income,DR
+2022-02-22,Dymocks ,143,0,1456,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-02-22, Meriton Apartments ,124,0,1332,Expense,Household,Rates & Insurance,DR
+2022-02-23,Myer ,116,0,1216,Expense,Personal,Clothing & Accessories,DR
+2022-02-24,King Swim ,95,0,1121,Expense,Personal,Fitness & Wellbeing,DR
+2022-02-24,EnergyAustralia ,9,0,1112,Expense,Household,Utilities,DR
+2022-02-25,Target ,54,0,1058,Expense,Personal,Clothing & Accessories,DR
+2022-02-25,Sea Kayak Tours ,41,0,1017,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-02-26,Fernwood Fitness ,8,0,1009,Expense,Personal,Fitness & Wellbeing,DR
+2022-02-26,Harvey Norman ,85,0,924,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-02-26,Health Food Store ,82,0,842,Expense,Personal,Fitness & Wellbeing,DR
+2022-02-26,AGL Energy ,39,0,803,Expense,Household,Utilities,DR
+2022-02-26,Disney+ ,61,0,742,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-02-27,Dan Murphy’s ,60,0,682,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-03-01,Monthly Income,0,6000,6682,Income,Income,Wages,CR
+2022-03-02,Payday Advance ,91,0,6591,Income,Income,Other Income,DR
+2022-03-03,National Hearing Care ,448,0,6143,Expense,Personal,Health & Medical,DR
+2022-03-05,Ultra Tune ,333,0,5810,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-03-06,Amazon Prime ,151,0,5659,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-03-06, Fantastic Furniture ,200,0,5459,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-03-07,PayPal Transfer from Sale ,410,0,5049,Income,Income,Other Income,DR
+2022-03-12,Harris Farm Markets ,454,0,4595,Expense,Household,Groceries,DR
+2022-03-13,Sea Life Aquarium ,225,0,4370,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-03-14,Supercheap Auto ,213,0,4157,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-03-14,Guardian Childcare & Education ,333,0,3824,Expense,Personal,Children & Family,DR
+2022-03-14,Le Creuset ,248,0,3576,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-03-14,Big W ,299,0,3277,Expense,Personal,Children & Family,DR
+2022-03-16,Costco ,88,0,3189,Expense,Household,Groceries,DR
+2022-03-18,Boost Juice Bars ,166,0,3023,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-03-20,Menulog ,59,0,2964,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-03-20,CommSec Share Trading Gains ,57,0,2907,Income,Income,Investments,DR
+2022-03-21,EnergyAustralia ,242,0,2665,Expense,Household,Utilities,DR
+2022-03-22,Bulk Billing Doctor ,140,0,2525,Expense,Personal,Health & Medical,DR
+2022-03-22,Service NSW ,205,0,2320,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-03-23,Budget Direct Car Insurance ,211,0,2109,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-03-24,ALDI ,169,0,1940,Expense,Household,Groceries,DR
+2022-03-24,Lorna Jane ,14,0,1926,Expense,Personal,Clothing & Accessories,DR
+2022-03-24,ATO Tax Refund ,56,0,1870,Income,Income,Other Income,DR
+2022-03-25,T2 Tea ,139,0,1731,Expense,Personal,Fitness & Wellbeing,DR
+2022-03-28,Dental Clinic ,25,0,1706,Expense,Personal,Health & Medical,DR
+2022-03-28,Telstra ,86,0,1620,Expense,Personal,Mobile Phone,DR
+2022-04-01,Monthly Income,0,6000,7620,Income,Income,Wages,CR
+2022-04-03,The Espy ,239,0,7381,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-04-03,Optus ,279,0,7102,Expense,Personal,Mobile Phone,DR
+2022-04-03,Le Creuset ,202,0,6900,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-04-04,The Sydney Morning Herald ,567,0,6333,Expense,Personal,Education,DR
+2022-04-04,Crown Perth ,518,0,5815,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-04-05,Centrelink JobSeeker Payment ,400,0,5415,Income,Income,Other Income,DR
+2022-04-06,Harvey Norman ,60,0,5355,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-04-06,Sunburn Swimwear ,43,0,5312,Expense,Personal,Clothing & Accessories,DR
+2022-04-08,Goodstart Early Learning ,369,0,4943,Expense,Personal,Children & Family,DR
+2022-04-09,Jetts Fitness ,165,0,4778,Expense,Personal,Fitness & Wellbeing,DR
+2022-04-09, Fantastic Furniture ,58,0,4720,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-04-09,The Athlete's Foot ,136,0,4584,Expense,Personal,Clothing & Accessories,DR
+2022-04-09,Health Food Store ,122,0,4462,Expense,Personal,Fitness & Wellbeing,DR
+2022-04-09,ALDI ,246,0,4216,Expense,Household,Groceries,DR
+2022-04-10,EnergyAustralia ,403,0,3813,Expense,Household,Utilities,DR
+2022-04-10,NRMA Roadside Assistance ,151,0,3662,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-04-10,Salary Deposit from Woolworths Group ,99,0,3563,Income,Income,Wages,DR
+2022-04-10,South East Water ,333,0,3230,Expense,Household,Utilities,DR
+2022-04-11, The Good Guys ,158,0,3072,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-04-11,Crown Perth ,131,0,2941,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-04-12,Taronga Zoo ,27,0,2914,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-04-12,Local Hospital ,126,0,2788,Expense,Personal,Health & Medical,DR
+2022-04-12,AMF Bowling ,136,0,2652,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-04-13,VicRoads ,71,0,2581,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-04-13,Billabong ,24,0,2557,Expense,Personal,Clothing & Accessories,DR
+2022-04-14,Acupuncture Clinic ,88,0,2469,Expense,Personal,Health & Medical,DR
+2022-04-14,Supercheap Auto ,116,0,2353,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-04-14,KU Children's Services ,125,0,2228,Expense,Personal,Children & Family,DR
+2022-04-15,National Hearing Care ,84,0,2144,Expense,Personal,Health & Medical,DR
+2022-04-16,Booktopia ,95,0,2049,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-04-17,The Coffee Club ,101,0,1948,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-04-17,Village Cinemas ,141,0,1807,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-04-18,Pathology Lab ,101,0,1706,Expense,Personal,Health & Medical,DR
+2022-04-18,Dental Clinic ,160,0,1546,Expense,Personal,Health & Medical,DR
+2022-04-18,Adairs ,101,0,1445,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-04-19,Music Academy ,32,0,1413,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-04-19,Childcare Payments ,80,0,1333,Expense,Personal,Children & Family,DR
+2022-04-19,Chemist Warehouse ,37,0,1296,Expense,Personal,Health & Medical,DR
+2022-04-20,Caltex ,46,0,1250,Expense,Transport,Fuel,DR
+2022-04-20,Optus ,16,0,1234,Expense,Personal,Mobile Phone,DR
+2022-04-21,Optus ,81,0,1153,Expense,Personal,Mobile Phone,DR
+2022-04-21,School Locker ,89,0,1064,Expense,Personal,Children & Family,DR
+2022-04-21,ABC Reading Eggs ,90,0,974,Expense,Personal,Education,DR
+2022-04-22,Adobe Creative Cloud ,8,0,966,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-04-23,Optometrist ,32,0,934,Expense,Personal,Health & Medical,DR
+2022-04-23,Adobe Creative Cloud ,49,0,885,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-04-24,Music Academy ,74,0,811,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-04-25,Surfstitch ,39,0,772,Expense,Personal,Clothing & Accessories,DR
+2022-04-25,Stan ,43,0,729,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-04-26,Interest Payment from Commonwealth Bank ,71,0,658,Income,Income,Investments,DR
+2022-04-26,YMCA ,25,0,633,Expense,Personal,Fitness & Wellbeing,DR
+2022-04-26,Payday Advance ,55,0,578,Income,Income,Other Income,DR
+2022-04-27,BrewDog ,52,0,526,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-04-28,Little Athletics ,36,0,490,Expense,Personal,Fitness & Wellbeing,DR
+2022-05-01,Monthly Income,0,6000,6490,Income,Income,Wages,CR
+2022-05-03,City Beach ,492,0,5998,Expense,Personal,Clothing & Accessories,DR
+2022-05-03,PayPal Transfer from Sale ,408,0,5590,Income,Income,Other Income,DR
+2022-05-04,Hungry Jack’s ,354,0,5236,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-05-04,Muffin Break ,98,0,5138,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-05-05,Medicare Claim ,469,0,4669,Expense,Personal,Health & Medical,DR
+2022-05-06,Chinatown Night Market ,323,0,4346,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-05-07,The Victory Hotel ,425,0,3921,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-05-09,Freedom Furniture ,198,0,3723,Expense,Household,Maintenance & Improvements,DR
+2022-05-11,Rip Curl ,192,0,3531,Expense,Personal,Clothing & Accessories,DR
+2022-05-11,Chinatown Night Market ,62,0,3469,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-05-12,Harvey Norman ,230,0,3239,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-05-12,Payday Advance ,128,0,3111,Income,Income,Other Income,DR
+2022-05-15,Spotlight ,294,0,2817,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-05-17,Taronga Zoo ,262,0,2555,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-05-17, EnergyAustralia ,85,0,2470,Expense,Household,Utilities,DR
+2022-05-17,BWS ,7,0,2463,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-05-19,ABC Reading Eggs ,142,0,2321,Expense,Personal,Education,DR
+2022-05-19,Physiotherapy Clinic ,75,0,2246,Expense,Personal,Health & Medical,DR
+2022-05-21,Fitness First ,150,0,2096,Expense,Personal,Fitness & Wellbeing,DR
+2022-05-21,Witchery ,181,0,1915,Expense,Personal,Clothing & Accessories,DR
+2022-05-21,Greencross Vets ,168,0,1747,Expense,Household,Pets,DR
+2022-05-23,Greencross Vets ,117,0,1630,Expense,Household,Pets,DR
+2022-05-24,Liquorland ,136,0,1494,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-05-24,Ultra Tune ,130,0,1364,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-05-25,Dymocks ,47,0,1317,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-05-26,Sea Kayak Tours ,113,0,1204,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-05-27,Montessori Schools ,43,0,1161,Expense,Personal,Education,DR
+2022-05-28,Fernwood Fitness ,77,0,1084,Expense,Personal,Fitness & Wellbeing,DR
+2022-05-28,School Locker ,36,0,1048,Expense,Personal,Children & Family,DR
+2022-05-28, Commonwealth Bank ,46,0,1002,Expense,Household,Rent & Mortgage,DR
+2022-05-28,Beacon Lighting ,19,0,983,Expense,Household,Maintenance & Improvements,DR
+2022-06-01,Monthly Income,0,6000,6983,Income,Income,Wages,CR
+2022-06-02,Country Road ,577,0,6406,Expense,Personal,Clothing & Accessories,DR
+2022-06-02,Big W ,216,0,6190,Expense,Personal,Children & Family,DR
+2022-06-03,Car Wash Cafe ,58,0,6132,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-06-04,Beacon Lighting ,119,0,6013,Expense,Household,Maintenance & Improvements,DR
+2022-06-04,Local Hospital ,171,0,5842,Expense,Personal,Health & Medical,DR
+2022-06-05,Ballet Schools ,119,0,5723,Expense,Personal,Fitness & Wellbeing,DR
+2022-06-05, The Good Guys ,349,0,5374,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-06-05,Bulk Billing Doctor ,437,0,4937,Expense,Personal,Health & Medical,DR
+2022-06-05,Anytime Fitness ,154,0,4783,Expense,Personal,Fitness & Wellbeing,DR
+2022-06-05,Upwork Freelancer Payment ,194,0,4589,Income,Income,Other Income,DR
+2022-06-07,Myer ,292,0,4297,Expense,Personal,Clothing & Accessories,DR
+2022-06-07,Centrelink JobSeeker Payment ,385,0,3912,Income,Income,Other Income,DR
+2022-06-07, National Bank ,117,0,3795,Expense,Personal,Fees & Charges,DR
+2022-06-07,Barbeques Galore ,152,0,3643,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-06-07,Physiotherapy Clinic ,356,0,3287,Expense,Personal,Health & Medical,DR
+2022-06-08,Repco ,326,0,2961,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-06-08,Priceline Pharmacy ,213,0,2748,Expense,Personal,Health & Medical,DR
+2022-06-08,AMF Bowling ,198,0,2550,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-06-09,Interest Payment from Commonwealth Bank ,107,0,2443,Income,Income,Investments,DR
+2022-06-11,Netflix ,106,0,2337,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-06-12,VicRoads ,229,0,2108,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-06-12,Anytime Fitness ,105,0,2003,Expense,Personal,Fitness & Wellbeing,DR
+2022-06-12, Slater and Gordon Lawyers ,161,0,1842,Expense,Personal,Life Admin,DR
+2022-06-13,Eau De Vie ,131,0,1711,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-06-13,AGL Energy ,160,0,1551,Expense,Household,Utilities,DR
+2022-06-14,Menulog ,61,0,1490,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-06-14,Dymocks ,60,0,1430,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-06-14, BSA Ltd ,67,0,1363,Expense,Household,Maintenance & Improvements,DR
+2022-06-14,G8 Education ,42,0,1321,Expense,Personal,Children & Family,DR
+2022-06-15,Pathology Lab ,127,0,1194,Expense,Personal,Health & Medical,DR
+2022-06-16, National Bank ,53,0,1141,Expense,Personal,Fees & Charges,DR
+2022-06-16, Commonwealth Bank ,52,0,1089,Expense,Household,Rent & Mortgage,DR
+2022-06-16,Sunburn Swimwear ,8,0,1081,Expense,Personal,Clothing & Accessories,DR
+2022-06-17,EnergyAustralia ,36,0,1045,Expense,Household,Utilities,DR
+2022-06-18,Ultra Tune ,89,0,956,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-06-18,King Swim ,22,0,934,Expense,Personal,Fitness & Wellbeing,DR
+2022-06-18,Ladbrokes ,58,0,876,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-06-19,Foxtel ,26,0,850,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-06-19,Health Food Store ,7,0,843,Expense,Personal,Fitness & Wellbeing,DR
+2022-06-19,Beachside Caravan Park ,76,0,767,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-06-20,Disney+ ,37,0,730,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-06-20,TerryWhite Chemmart ,52,0,678,Expense,Personal,Health & Medical,DR
+2022-06-21,AustralianSuper Pension ,20,0,658,Income,Income,Other Income,DR
+2022-06-23,Target ,14,0,644,Expense,Personal,Clothing & Accessories,DR
+2022-06-23,CommSec Share Trading Gains ,46,0,598,Income,Income,Investments,DR
+2022-06-24,Queensland Urban Utilities ,18,0,580,Expense,Household,Utilities,DR
+2022-06-25,Kmart Tyre & Auto Service ,21,0,559,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-06-25,Chemist Warehouse ,47,0,512,Expense,Personal,Health & Medical,DR
+2022-06-26,Adairs ,43,0,469,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-06-27,Who Gives A Crap ,11,0,458,Expense,Household,Groceries,DR
+2022-07-01,Monthly Income,0,6000,6458,Income,Income,Wages,CR
+2022-07-02,Supercheap Auto ,201,0,6257,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-02,David Jones ,47,0,6210,Expense,Personal,Clothing & Accessories,DR
+2022-07-03,AGL Energy ,380,0,5830,Expense,Household,Utilities,DR
+2022-07-03,Eau De Vie ,280,0,5550,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-07-04,Campion Education ,57,0,5493,Expense,Personal,Children & Family,DR
+2022-07-05,Origin Energy ,262,0,5231,Expense,Household,Utilities,DR
+2022-07-07,Australian Veterinary Association ,86,0,5145,Expense,Household,Pets,DR
+2022-07-08,Gold's Gym ,225,0,4920,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-08,MyCar Tyre & Auto ,46,0,4874,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-08,Adairs ,399,0,4475,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-07-08, EnergyAustralia ,259,0,4216,Expense,Household,Utilities,DR
+2022-07-08,BP ,85,0,4131,Expense,Transport,Fuel,DR
+2022-07-08,Green Slip Insurance ,55,0,4076,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-11,Zarraffa's Coffee ,88,0,3988,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-07-11,Budget Direct Car Insurance ,309,0,3679,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-12,Woolworths ,50,0,3629,Expense,Household,Groceries,DR
+2022-07-12,Priceline Pharmacy ,77,0,3552,Expense,Personal,Health & Medical,DR
+2022-07-12,Anytime Fitness ,311,0,3241,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-13,Zone Bowling ,24,0,3217,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-07-13, Ray White Real Estate ,133,0,3084,Expense,Personal,Life Admin,DR
+2022-07-14,NRMA Roadside Assistance ,247,0,2837,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-14,National Hearing Care ,98,0,2739,Expense,Personal,Health & Medical,DR
+2022-07-15,Payday Advance ,131,0,2608,Income,Income,Other Income,DR
+2022-07-17,Chiropractor ,157,0,2451,Expense,Personal,Health & Medical,DR
+2022-07-17,Bunnings Warehouse ,118,0,2333,Expense,Household,Maintenance & Improvements,DR
+2022-07-17,Sea Life Aquarium ,220,0,2113,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-07-18,Palace Cinemas ,128,0,1985,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-07-18, EnergyAustralia ,129,0,1856,Expense,Household,Utilities,DR
+2022-07-18,Cookie ,151,0,1705,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-07-18,Goodstart Early Learning ,47,0,1658,Expense,Personal,Children & Family,DR
+2022-07-18,Music Academy ,153,0,1505,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-07-19,Sunburn Swimwear ,45,0,1460,Expense,Personal,Clothing & Accessories,DR
+2022-07-19,Ballet Schools ,5,0,1455,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-19,Ultra Tune ,37,0,1418,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-21,AMF Bowling ,61,0,1357,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-07-22,Repco ,91,0,1266,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-23,Eat Street Northshore ,58,0,1208,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-07-23,Fernwood Fitness ,54,0,1154,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-24,NRMA Roadside Assistance ,109,0,1045,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-25,Endota Spa ,83,0,962,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-25,Kmart Tyre & Auto Service ,9,0,953,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-07-25,Hobart Brewing Company ,80,0,873,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-07-25,Anytime Fitness ,59,0,814,Expense,Personal,Fitness & Wellbeing,DR
+2022-07-25,The Coffee Club ,76,0,738,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-07-26,CommSec Share Trading Gains ,42,0,696,Income,Income,Investments,DR
+2022-07-27,Eat Street Northshore ,60,0,636,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-07-27,McDonald’s ,24,0,612,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-07-28,Tabcorp ,27,0,585,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-07-28, The Good Guys ,14,0,571,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-07-28,Sunnybank Hotel ,48,0,523,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-08-01,Monthly Income,0,6000,6523,Income,Income,Wages,CR
+2022-08-02,South East Water ,408,0,6115,Expense,Household,Utilities,DR
+2022-08-02,Child Support Agency Deposit ,71,0,6044,Income,Income,Other Income,DR
+2022-08-03,Jetts Fitness ,305,0,5739,Expense,Personal,Fitness & Wellbeing,DR
+2022-08-04,Witchery ,279,0,5460,Expense,Personal,Clothing & Accessories,DR
+2022-08-04,Caltex Woolworths ,353,0,5107,Expense,Transport,Fuel,DR
+2022-08-04,VicRoads ,383,0,4724,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-08-06,Payday Advance ,230,0,4494,Income,Income,Other Income,DR
+2022-08-06,Interest Payment from Commonwealth Bank ,158,0,4336,Income,Income,Investments,DR
+2022-08-06,BrewDog ,428,0,3908,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-08-07,The Espy ,211,0,3697,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-08-08,ABC Reading Eggs ,115,0,3582,Expense,Personal,Education,DR
+2022-08-08,AGL Energy ,176,0,3406,Expense,Household,Utilities,DR
+2022-08-09,Pizza Hut ,131,0,3275,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-08-09,Bridgestone Select ,315,0,2960,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-08-09,Fernwood Fitness ,72,0,2888,Expense,Personal,Fitness & Wellbeing,DR
+2022-08-09,Fitness First ,234,0,2654,Expense,Personal,Fitness & Wellbeing,DR
+2022-08-10,Shell V Power,138,0,2516,Expense,Transport,Fuel,DR
+2022-08-10, BSA Ltd ,115,0,2401,Expense,Household,Maintenance & Improvements,DR
+2022-08-11,Sunburn Swimwear ,154,0,2247,Expense,Personal,Clothing & Accessories,DR
+2022-08-12, Brisbane City Council ,88,0,2159,Expense,Household,Rates & Insurance,DR
+2022-08-13,The Body Shop ,62,0,2097,Expense,Personal,Hair & Beauty,DR
+2022-08-13,Sea Kayak Tours ,14,0,2083,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-08-14,Uber ,45,0,2038,Expense,Transport,Taxies & Share Cars,DR
+2022-08-14,Salary Deposit from Woolworths Group ,80,0,1958,Income,Income,Wages,DR
+2022-08-14,Flight Centre ,176,0,1782,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-08-15,Kmart ,124,0,1658,Expense,Personal,Children & Family,DR
+2022-08-15,Rebel Sport ,42,0,1616,Expense,Personal,Fitness & Wellbeing,DR
+2022-08-16,Music Academy ,140,0,1476,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-08-16,VicRoads ,58,0,1418,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-08-16,Uber ,31,0,1387,Expense,Transport,Taxies & Share Cars,DR
+2022-08-18,Jetts Fitness ,138,0,1249,Expense,Personal,Fitness & Wellbeing,DR
+2022-08-19,Upwork Freelancer Payment ,26,0,1223,Income,Income,Other Income,DR
+2022-08-22,Local Fish and Chips ,114,0,1109,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-08-23,Autobarn ,11,0,1098,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-08-24,Sea Life Aquarium ,70,0,1028,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-08-25,Priceline Pharmacy ,97,0,931,Expense,Personal,Health & Medical,DR
+2022-08-26,Caltex ,40,0,891,Expense,Transport,Fuel,DR
+2022-08-26,Myer ,59,0,832,Expense,Personal,Clothing & Accessories,DR
+2022-08-26,Ladbrokes ,49,0,783,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-08-26,Sea Life Aquarium ,22,0,761,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-08-27,Woolworths ,16,0,745,Expense,Household,Groceries,DR
+2022-08-27,Woolworths ,6,0,739,Expense,Household,Groceries,DR
+2022-08-27,Service NSW ,12,0,727,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-08-28, Jim's Mowing ,27,0,700,Expense,Household,Maintenance & Improvements,DR
+2022-08-28,Chinatown Night Market ,28,0,672,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-08-28,Westpac Dividend Deposit ,29,0,643,Income,Income,Investments,DR
+2022-09-01,Monthly Income,0,6000,6643,Income,Income,Wages,CR
+2022-09-03,Little Athletics ,81,0,6562,Expense,Personal,Fitness & Wellbeing,DR
+2022-09-05,Jetts Fitness ,646,0,5916,Expense,Personal,Fitness & Wellbeing,DR
+2022-09-06,Little Athletics ,165,0,5751,Expense,Personal,Fitness & Wellbeing,DR
+2022-09-06,Bridgestone Select ,532,0,5219,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-09-07,The Ivy ,274,0,4945,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-09-09,JB HiFi,236,0,4709,Expense,Leisure & Lifestyle,Electronics,DR
+2022-09-12,Optometrist ,231,0,4478,Expense,Personal,Health & Medical,DR
+2022-09-13,Kmart Tyre & Auto Service ,126,0,4352,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-09-13,The Espy ,65,0,4287,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-09-14,Tennis Australia ,154,0,4133,Expense,Personal,Fitness & Wellbeing,DR
+2022-09-16,Sea Kayak Tours ,303,0,3830,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-09-16,Kayo Sports ,22,0,3808,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-09-16,Sunnybank Hotel ,347,0,3461,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-09-19,Caltex Woolworths ,301,0,3160,Expense,Transport,Fuel,DR
+2022-09-19,The Good Guys ,284,0,2876,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-09-20,Physiotherapy Clinic ,8,0,2868,Expense,Personal,Health & Medical,DR
+2022-09-21, Rentokil ,215,0,2653,Expense,Household,Maintenance & Improvements,DR
+2022-09-22,The Iconic ,59,0,2594,Expense,Personal,Clothing & Accessories,DR
+2022-09-23,Kmart Tyre & Auto Service ,247,0,2347,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-09-25,Greencross Vets ,79,0,2268,Expense,Household,Pets,DR
+2022-09-27,Zarraffa's Coffee ,43,0,2225,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2022-09-27, Commonwealth Bank ,108,0,2117,Expense,Household,Rent & Mortgage,DR
+2022-10-01,Monthly Income,0,6000,8117,Income,Income,Wages,CR
+2022-10-02,Westpac Dividend Deposit ,203,0,7914,Income,Income,Investments,DR
+2022-10-03,Beacon Lighting ,109,0,7805,Expense,Household,Maintenance & Improvements,DR
+2022-10-03,Audible ,98,0,7707,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-10-04,BP ,531,0,7176,Expense,Transport,Fuel,DR
+2022-10-06,Dymocks ,367,0,6809,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-10-07, Jim's Mowing ,5,0,6804,Expense,Household,Maintenance & Improvements,DR
+2022-10-07,Physiotherapy Clinic ,515,0,6289,Expense,Personal,Health & Medical,DR
+2022-10-09,Guzman y Gomez ,397,0,5892,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-10-10,Big W ,265,0,5627,Expense,Personal,Children & Family,DR
+2022-10-11,Big W ,518,0,5109,Expense,Personal,Children & Family,DR
+2022-10-11,Amazon Prime ,324,0,4785,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-10-11,The Athlete's Foot ,461,0,4324,Expense,Personal,Clothing & Accessories,DR
+2022-10-11,Optometrist ,229,0,4095,Expense,Personal,Health & Medical,DR
+2022-10-11,Acupuncture Clinic ,280,0,3815,Expense,Personal,Health & Medical,DR
+2022-10-12,The Espy ,227,0,3588,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-10-12,Harris Farm Markets ,20,0,3568,Expense,Household,Groceries,DR
+2022-10-12,Ladbrokes ,96,0,3472,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-10-13,Menulog ,54,0,3418,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-10-14,Supercheap Auto ,90,0,3328,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-10-14,Binge ,27,0,3301,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-10-14,Campion Education ,276,0,3025,Expense,Personal,Children & Family,DR
+2022-10-15,The Baxter Inn ,143,0,2882,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-10-15,The Victory Hotel ,119,0,2763,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-10-15,The Baxter Inn ,133,0,2630,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-10-15,Billabong ,181,0,2449,Expense,Personal,Clothing & Accessories,DR
+2022-10-17, Jim’s Building Inspections ,144,0,2305,Expense,Household,Maintenance & Improvements,DR
+2022-10-18,Supercheap Auto ,227,0,2078,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-10-19,Childcare Payments ,22,0,2056,Expense,Personal,Children & Family,DR
+2022-10-20,Kmart ,202,0,1854,Expense,Personal,Children & Family,DR
+2022-10-20,MyCar Tyre & Auto ,132,0,1722,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-10-20,Car Wash Cafe ,149,0,1573,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-10-21, Commonwealth Bank ,44,0,1529,Expense,Household,Rent & Mortgage,DR
+2022-10-21,Harvey Norman ,38,0,1491,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-10-21,Rental Deposit from RealEstate.com.au ,15,0,1476,Income,Income,Other Income,DR
+2022-10-22,F45 Training ,67,0,1409,Expense,Personal,Fitness & Wellbeing,DR
+2022-10-23,Petbarn ,125,0,1284,Expense,Household,Pets,DR
+2022-10-25,BrewDog ,56,0,1228,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-10-25,Fitness First ,79,0,1149,Expense,Personal,Fitness & Wellbeing,DR
+2022-10-27,ABC Reading Eggs ,100,0,1049,Expense,Personal,Education,DR
+2022-10-27,Stan ,26,0,1023,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-11-01,Monthly Income,0,6000,7023,Income,Income,Wages,CR
+2022-11-03,Rebel Sport ,702,0,6321,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-04,Pathology Lab ,396,0,5925,Expense,Personal,Health & Medical,DR
+2022-11-04,The Espy ,332,0,5593,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-11-04,Repco ,397,0,5196,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-11-05,Audible ,423,0,4773,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-11-05,Bulk Billing Doctor ,220,0,4553,Expense,Personal,Health & Medical,DR
+2022-11-05,Little Athletics ,415,0,4138,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-06,F45 Training ,273,0,3865,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-07,BrewDog ,248,0,3617,Expense,Leisure & Lifestyle,Alcohol,DR
+2022-11-07,Netflix ,57,0,3560,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-11-07,Green Slip Insurance ,344,0,3216,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-11-08,Fernwood Fitness ,102,0,3114,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-09,Karate for Kids ,229,0,2885,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-09,Centrelink JobSeeker Payment ,190,0,2695,Income,Income,Other Income,DR
+2022-11-10,National Hearing Care ,126,0,2569,Expense,Personal,Health & Medical,DR
+2022-11-11,MyCar Tyre & Auto ,42,0,2527,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-11-11,KU Children's Services ,122,0,2405,Expense,Personal,Children & Family,DR
+2022-11-12,Pathology Lab ,159,0,2246,Expense,Personal,Health & Medical,DR
+2022-11-13,Scouts Australia ,164,0,2082,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-11-14,Mathnasium ,18,0,2064,Expense,Personal,Education,DR
+2022-11-14,Tennis Australia ,77,0,1987,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-15,Cookie ,130,0,1857,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-11-16,Coles ,6,0,1851,Expense,Household,Groceries,DR
+2022-11-16,Apple Music ,117,0,1734,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-11-17, BSA Ltd ,38,0,1696,Expense,Household,Maintenance & Improvements,DR
+2022-11-19,Optus ,110,0,1586,Expense,Personal,Mobile Phone,DR
+2022-11-19,Disney+ ,108,0,1478,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2022-11-19,McDonald’s ,89,0,1389,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-11-20,Gold's Gym ,86,0,1303,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-21,NRMA Roadside Assistance ,66,0,1237,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-11-21,Specsavers ,107,0,1130,Expense,Personal,Health & Medical,DR
+2022-11-21,Soccer Clubs ,5,0,1125,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-22,Ladbrokes ,39,0,1086,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2022-11-23,Pizza Hut ,33,0,1053,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-11-24,Chinatown Night Market ,57,0,996,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-11-25,Flight Centre ,75,0,921,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-11-25,Taronga Zoo ,76,0,845,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-11-25,Coles Express ,52,0,793,Expense,Transport,Fuel,DR
+2022-11-27,Health Food Store ,76,0,717,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-27,Endota Spa ,64,0,653,Expense,Personal,Fitness & Wellbeing,DR
+2022-11-28, BSA Ltd ,40,0,613,Expense,Household,Maintenance & Improvements,DR
+2022-11-28,Sea Kayak Tours ,50,0,563,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-12-01,Monthly Income,0,6000,6563,Income,Income,Wages,CR
+2022-12-02,Chiropractor ,58,0,6505,Expense,Personal,Health & Medical,DR
+2022-12-02, Jim's Mowing ,582,0,5923,Expense,Household,Maintenance & Improvements,DR
+2022-12-03,The Espy ,71,0,5852,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-12-04,Payday Advance ,6,0,5846,Income,Income,Other Income,DR
+2022-12-06,Hobart Brewing Company ,321,0,5525,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-12-07,Witchery ,393,0,5132,Expense,Personal,Clothing & Accessories,DR
+2022-12-07,Billabong ,150,0,4982,Expense,Personal,Clothing & Accessories,DR
+2022-12-07, Rentokil ,459,0,4523,Expense,Household,Maintenance & Improvements,DR
+2022-12-12,PayPal Transfer from Sale ,434,0,4089,Income,Income,Other Income,DR
+2022-12-14,Kmart Tyre & Auto Service ,316,0,3773,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2022-12-17,Chinatown Night Market ,151,0,3622,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-12-18,Telstra ,53,0,3569,Expense,Personal,Mobile Phone,DR
+2022-12-18,Endota Spa ,248,0,3321,Expense,Personal,Fitness & Wellbeing,DR
+2022-12-18,Surf Dive 'n Ski ,106,0,3215,Expense,Personal,Clothing & Accessories,DR
+2022-12-19,Origin Energy ,275,0,2940,Expense,Household,Utilities,DR
+2022-12-21,Anytime Fitness ,253,0,2687,Expense,Personal,Fitness & Wellbeing,DR
+2022-12-22,Hungry Jack’s ,25,0,2662,Expense,Leisure & Lifestyle,Takeaway,DR
+2022-12-22,Harvey Norman ,69,0,2593,Expense,Household,"Furniture, Electronics & Homewares",DR
+2022-12-23,Beachside Caravan Park ,44,0,2549,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2022-12-23,Target ,138,0,2411,Expense,Personal,Clothing & Accessories,DR
+2022-12-24, Brisbane City Council ,120,0,2291,Expense,Household,Rates & Insurance,DR
+2022-12-24,Massage Therapy Center ,20,0,2271,Expense,Personal,Health & Medical,DR
+2022-12-24,Rooftop Bar ,53,0,2218,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-12-24,Palace Cinemas ,199,0,2019,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-12-25,Palace Cinemas ,164,0,1855,Expense,Leisure & Lifestyle,Entertainment,DR
+2022-12-25,Lorna Jane ,145,0,1710,Expense,Personal,Clothing & Accessories,DR
+2022-12-26,Scouts Australia ,69,0,1641,Expense,Leisure & Lifestyle,Hobbies,DR
+2022-12-26,Chinatown Night Market ,121,0,1520,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2022-12-27,Ballet Schools ,126,0,1394,Expense,Personal,Fitness & Wellbeing,DR
+2022-12-27,Coles ,39,0,1355,Expense,Household,Groceries,DR
+2022-12-27,Pathology Lab ,90,0,1265,Expense,Personal,Health & Medical,DR
+2022-12-27,Spotlight ,46,0,1219,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-01-01,Monthly Income,0,6000,7219,Income,Income,Wages,CR
+2023-01-02,Gold's Gym ,345,0,6874,Expense,Personal,Fitness & Wellbeing,DR
+2023-01-02,Autobarn ,528,0,6346,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-02,Service NSW ,232,0,6114,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-03,Spotify ,581,0,5533,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-01-03,Bridgestone Select ,422,0,5111,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-03,Guardian Childcare & Education ,278,0,4833,Expense,Personal,Children & Family,DR
+2023-01-04,Fitness First ,402,0,4431,Expense,Personal,Fitness & Wellbeing,DR
+2023-01-05,Dan Murphy’s ,330,0,4101,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-01-05,Fernwood Fitness ,232,0,3869,Expense,Personal,Fitness & Wellbeing,DR
+2023-01-07,AustralianSuper Pension ,237,0,3632,Income,Income,Other Income,DR
+2023-01-08,NRMA Roadside Assistance ,210,0,3422,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-08,BP ,202,0,3220,Expense,Transport,Fuel,DR
+2023-01-09,AGL Energy ,107,0,3113,Expense,Household,Utilities,DR
+2023-01-09,BP ,149,0,2964,Expense,Transport,Fuel,DR
+2023-01-10,Harris Farm Markets ,185,0,2779,Expense,Household,Groceries,DR
+2023-01-10,IKEA ,178,0,2601,Expense,Household,Maintenance & Improvements,DR
+2023-01-11,National Hearing Care ,108,0,2493,Expense,Personal,Health & Medical,DR
+2023-01-11,Car Wash Cafe ,191,0,2302,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-11,Harvey Norman ,96,0,2206,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-01-11, Jim's Mowing ,32,0,2174,Expense,Household,Maintenance & Improvements,DR
+2023-01-11,Ultra Tune ,146,0,2028,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-12,BrewDog ,131,0,1897,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-01-12,Audible ,179,0,1718,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-01-12,KU Children's Services ,141,0,1577,Expense,Personal,Children & Family,DR
+2023-01-13,Cookie ,66,0,1511,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-01-14, Meriton Apartments ,83,0,1428,Expense,Household,Rates & Insurance,DR
+2023-01-15,Culture Kings ,26,0,1402,Expense,Personal,Clothing & Accessories,DR
+2023-01-15,SEQTA ,29,0,1373,Expense,Personal,Education,DR
+2023-01-16,Ultra Tune ,28,0,1345,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-01-18,Quay Restaurant ,90,0,1255,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-01-19,JB HiFi,79,0,1176,Expense,Leisure & Lifestyle,Electronics,DR
+2023-01-19,Apple Music ,28,0,1148,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-01-20, Jim’s Building Inspections ,109,0,1039,Expense,Household,Maintenance & Improvements,DR
+2023-01-20,Rip Curl ,66,0,973,Expense,Personal,Clothing & Accessories,DR
+2023-01-21,The Australian ,46,0,927,Expense,Personal,Education,DR
+2023-01-21,Timezone ,83,0,844,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-01-21,Village Cinemas ,11,0,833,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-01-21,VetLove ,63,0,770,Expense,Household,Pets,DR
+2023-01-21,Montessori Schools ,35,0,735,Expense,Personal,Education,DR
+2023-01-22,Binge ,33,0,702,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-01-22,PayPal Transfer from Sale ,22,0,680,Income,Income,Other Income,DR
+2023-01-22, NSW Land Registry Services ,12,0,668,Expense,Personal,Life Admin,DR
+2023-01-23,AustralianSuper Pension ,47,0,621,Income,Income,Other Income,DR
+2023-01-24,Boost Juice Bars ,18,0,603,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-01-24,Local Hospital ,18,0,585,Expense,Personal,Health & Medical,DR
+2023-01-24,Payday Advance ,57,0,528,Income,Income,Other Income,DR
+2023-01-24,Beachfront Markets ,27,0,501,Expense,Personal,Clothing & Accessories,DR
+2023-01-24, Brisbane City Council ,42,0,459,Expense,Household,Rates & Insurance,DR
+2023-01-25,Guzman y Gomez ,16,0,443,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-01-25,Centrelink JobSeeker Payment ,26,0,417,Income,Income,Other Income,DR
+2023-01-25,Sunburn Swimwear ,18,0,399,Expense,Personal,Clothing & Accessories,DR
+2023-01-25,EnergyAustralia ,28,0,371,Expense,Household,Utilities,DR
+2023-01-25,Origin Energy ,38,0,333,Expense,Household,Utilities,DR
+2023-01-25,Barbeques Galore ,24,0,309,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-01-26,AGL Energy ,18,0,291,Expense,Household,Utilities,DR
+2023-01-26,Big W ,12,0,279,Expense,Personal,Children & Family,DR
+2023-01-27,Harris Farm Markets ,28,0,251,Expense,Household,Groceries,DR
+2023-01-28,Apple Store ,8,0,243,Expense,Leisure & Lifestyle,Electronics,DR
+2023-01-28,F45 Training ,22,0,221,Expense,Personal,Fitness & Wellbeing,DR
+2023-01-28,Grill’d ,12,0,209,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-02-01,Monthly Income,0,6000,6209,Income,Income,Wages,CR
+2023-02-07,Apple Store ,389,0,5820,Expense,Leisure & Lifestyle,Electronics,DR
+2023-02-09,Liquorland ,257,0,5563,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-02-09,AMF Bowling ,397,0,5166,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-02-10,Dymocks ,64,0,5102,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-02-10,JAX Tyres ,210,0,4892,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-02-11,Rental Deposit from RealEstate.com.au ,181,0,4711,Income,Income,Other Income,DR
+2023-02-13,Greencross Vets ,129,0,4582,Expense,Household,Pets,DR
+2023-02-13,Aqua Fun Park ,316,0,4266,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-02-16,Coles ,254,0,4012,Expense,Household,Groceries,DR
+2023-02-17,Liquorland ,51,0,3961,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-02-17,Goodstart Early Learning ,379,0,3582,Expense,Personal,Children & Family,DR
+2023-02-17,Freedom Furniture ,330,0,3252,Expense,Household,Maintenance & Improvements,DR
+2023-02-21,South East Water ,141,0,3111,Expense,Household,Utilities,DR
+2023-02-21,Uber ,111,0,3000,Expense,Transport,Taxies & Share Cars,DR
+2023-02-22,Chinatown Night Market ,185,0,2815,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-02-22,Hungry Jack’s ,77,0,2738,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-02-22,Beacon Lighting ,72,0,2666,Expense,Household,Maintenance & Improvements,DR
+2023-02-23,ALDI ,124,0,2542,Expense,Household,Groceries,DR
+2023-02-24,TerryWhite Chemmart ,20,0,2522,Expense,Personal,Health & Medical,DR
+2023-02-25,Crown Perth ,243,0,2279,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-02-25,Camp Australia ,66,0,2213,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-02-27, EnergyAustralia ,78,0,2135,Expense,Household,Utilities,DR
+2023-02-27,EnergyAustralia ,211,0,1924,Expense,Household,Utilities,DR
+2023-02-28,Freedom Furniture ,140,0,1784,Expense,Household,Maintenance & Improvements,DR
+2023-03-01,Monthly Income,0,6000,7784,Income,Income,Wages,CR
+2023-03-03,Who Gives A Crap ,573,0,7211,Expense,Household,Groceries,DR
+2023-03-03,Hungry Jack’s ,524,0,6687,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-03-04,VetLove ,500,0,6187,Expense,Household,Pets,DR
+2023-03-06,Fitness First ,374,0,5813,Expense,Personal,Fitness & Wellbeing,DR
+2023-03-09,Dan Murphy’s ,78,0,5735,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-03-10,KU Children's Services ,446,0,5289,Expense,Personal,Children & Family,DR
+2023-03-10,Culture Kings ,349,0,4940,Expense,Personal,Clothing & Accessories,DR
+2023-03-13,Car Wash Cafe ,39,0,4901,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-03-14,Interest Payment from Commonwealth Bank ,295,0,4606,Income,Income,Investments,DR
+2023-03-16,Aqua Fun Park ,31,0,4575,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-03-17,Grill'd ,306,0,4269,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-03-20,Salary Deposit from Woolworths Group ,375,0,3894,Income,Income,Wages,DR
+2023-03-20,Gardening Australia ,298,0,3596,Expense,Household,Maintenance & Improvements,DR
+2023-03-20,Soccer Clubs ,189,0,3407,Expense,Personal,Fitness & Wellbeing,DR
+2023-03-22,Centrelink JobSeeker Payment ,196,0,3211,Income,Income,Other Income,DR
+2023-03-22,Beacon Lighting ,177,0,3034,Expense,Household,Maintenance & Improvements,DR
+2023-03-22,Stand Up Paddleboard Rental ,297,0,2737,Expense,Personal,Fitness & Wellbeing,DR
+2023-03-23,VetLove ,108,0,2629,Expense,Household,Pets,DR
+2023-03-23,Ballet Schools ,135,0,2494,Expense,Personal,Fitness & Wellbeing,DR
+2023-03-25,eBay Sales Proceeds ,174,0,2320,Income,Income,Other Income,DR
+2023-03-25,The Australian ,202,0,2118,Expense,Personal,Education,DR
+2023-03-27,Sylvan Learning ,111,0,2007,Expense,Personal,Education,DR
+2023-04-01,Monthly Income,0,6000,8007,Income,Income,Wages,CR
+2023-04-02,Ice Cream Parlour ,332,0,7675,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-04-03, Meriton Apartments ,663,0,7012,Expense,Household,Rates & Insurance,DR
+2023-04-03,CommSec Share Trading Gains ,116,0,6896,Income,Income,Investments,DR
+2023-04-03,Big W ,352,0,6544,Expense,Personal,Children & Family,DR
+2023-04-04,Petbarn ,530,0,6014,Expense,Household,Pets,DR
+2023-04-05,Tabcorp ,465,0,5549,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2023-04-06,BrewDog ,525,0,5024,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-04-07,Fernwood Fitness ,56,0,4968,Expense,Personal,Fitness & Wellbeing,DR
+2023-04-09,Kayo Sports ,334,0,4634,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-04-10, Rentokil ,455,0,4179,Expense,Household,Maintenance & Improvements,DR
+2023-04-12,Ultra Tune ,285,0,3894,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-04-13, Commonwealth Bank ,288,0,3606,Expense,Household,Rent & Mortgage,DR
+2023-04-13,Hobart Brewing Company ,235,0,3371,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-04-13,Rooftop Bar ,194,0,3177,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-04-14, BSA Ltd ,89,0,3088,Expense,Household,Maintenance & Improvements,DR
+2023-04-15,G8 Education ,131,0,2957,Expense,Personal,Children & Family,DR
+2023-04-15, NRMA Insurance ,120,0,2837,Expense,Household,Rates & Insurance,DR
+2023-04-16, Meriton Apartments ,193,0,2644,Expense,Household,Rates & Insurance,DR
+2023-04-17,Dental Clinic ,32,0,2612,Expense,Personal,Health & Medical,DR
+2023-04-19,Freedom Furniture ,159,0,2453,Expense,Household,Maintenance & Improvements,DR
+2023-04-19,Freedom Furniture ,217,0,2236,Expense,Household,Maintenance & Improvements,DR
+2023-04-20,Myer ,29,0,2207,Expense,Personal,Clothing & Accessories,DR
+2023-04-21,Chinatown Night Market ,30,0,2177,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-04-22,Airbnb Host Income ,100,0,2077,Income,Income,Other Income,DR
+2023-04-23,The Espy ,195,0,1882,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-04-23,The Baxter Inn ,50,0,1832,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-04-23,Bridgestone Select ,158,0,1674,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-04-24,Jetts Fitness ,108,0,1566,Expense,Personal,Fitness & Wellbeing,DR
+2023-04-24,National Hearing Care ,137,0,1429,Expense,Personal,Health & Medical,DR
+2023-04-25,Flight Centre ,72,0,1357,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-04-26,Grill’d ,7,0,1350,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-04-27, Jim’s Building Inspections ,68,0,1282,Expense,Household,Maintenance & Improvements,DR
+2023-04-27,The Iconic ,51,0,1231,Expense,Personal,Clothing & Accessories,DR
+2023-04-28,Medicare Claim ,88,0,1143,Expense,Personal,Health & Medical,DR
+2023-05-01,Monthly Income,0,6000,7143,Income,Income,Wages,CR
+2023-05-02,Origin Energy ,71,0,7072,Expense,Household,Utilities,DR
+2023-05-03,Interest Payment from Commonwealth Bank ,11,0,7061,Income,Income,Investments,DR
+2023-05-04,Greencross Vets ,347,0,6714,Expense,Household,Pets,DR
+2023-05-04,Music Academy ,277,0,6437,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-05-05,Beachside Caravan Park ,308,0,6129,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-05-05,AGL Energy ,299,0,5830,Expense,Household,Utilities,DR
+2023-05-07, National Bank ,51,0,5779,Expense,Personal,Fees & Charges,DR
+2023-05-07,Soccer Clubs ,270,0,5509,Expense,Personal,Fitness & Wellbeing,DR
+2023-05-08,JAX Tyres ,103,0,5406,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-05-09,Massage Therapy Center ,435,0,4971,Expense,Personal,Health & Medical,DR
+2023-05-10,Car Wash Cafe ,127,0,4844,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-05-11,Quay Restaurant ,57,0,4787,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-05-11,Sydney Water ,13,0,4774,Expense,Household,Utilities,DR
+2023-05-13,Amazon Prime ,358,0,4416,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-05-14,Rebel Sport ,197,0,4219,Expense,Personal,Fitness & Wellbeing,DR
+2023-05-15,Flight Centre ,210,0,4009,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-05-18,Disney+ ,133,0,3876,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-05-18,Caltex Woolworths ,173,0,3703,Expense,Transport,Fuel,DR
+2023-05-19, EnergyAustralia ,364,0,3339,Expense,Household,Utilities,DR
+2023-05-23,Ladbrokes ,207,0,3132,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2023-05-24,Amazon Prime ,110,0,3022,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-05-25, Rentokil ,79,0,2943,Expense,Household,Maintenance & Improvements,DR
+2023-05-26,School Locker ,57,0,2886,Expense,Personal,Children & Family,DR
+2023-05-27,Hungry Jack’s ,117,0,2769,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-05-28,Autobarn ,272,0,2497,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-05-28,Chemist Warehouse ,195,0,2302,Expense,Personal,Health & Medical,DR
+2023-06-01,Monthly Income,0,6000,8302,Income,Income,Wages,CR
+2023-06-02,Supercheap Auto ,17,0,8285,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-02,Flight Centre ,823,0,7462,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-06-03,Netflix ,555,0,6907,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-06-03,Airbnb Host Income ,22,0,6885,Income,Income,Other Income,DR
+2023-06-03, Metricon ,67,0,6818,Expense,Household,Maintenance & Improvements,DR
+2023-06-03,The Iconic ,24,0,6794,Expense,Personal,Clothing & Accessories,DR
+2023-06-03, Metricon ,390,0,6404,Expense,Household,Maintenance & Improvements,DR
+2023-06-05,MyCar Tyre & Auto ,434,0,5970,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-05,BP ,88,0,5882,Expense,Transport,Fuel,DR
+2023-06-05,Pathology Lab ,556,0,5326,Expense,Personal,Health & Medical,DR
+2023-06-06,Disney+ ,98,0,5228,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-06-06,Budget Direct Car Insurance ,418,0,4810,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-06,Woolworths ,446,0,4364,Expense,Household,Groceries,DR
+2023-06-07,AGL Energy ,96,0,4268,Expense,Household,Utilities,DR
+2023-06-07,Big W ,228,0,4040,Expense,Personal,Children & Family,DR
+2023-06-07,AMF Bowling ,348,0,3692,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-06-07,Catholic Education Office ,212,0,3480,Expense,Personal,Education,DR
+2023-06-08,Ultra Tune ,300,0,3180,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-10,Audible ,254,0,2926,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-06-11,EB Games ,88,0,2838,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2023-06-11,Sylvan Learning ,78,0,2760,Expense,Personal,Education,DR
+2023-06-12,Sylvan Learning ,98,0,2662,Expense,Personal,Education,DR
+2023-06-13,Apple Store ,66,0,2596,Expense,Leisure & Lifestyle,Electronics,DR
+2023-06-13,Interest Payment from Commonwealth Bank ,131,0,2465,Income,Income,Investments,DR
+2023-06-13,Beachside Yoga Classes ,54,0,2411,Expense,Personal,Fitness & Wellbeing,DR
+2023-06-14,Fitness First ,20,0,2391,Expense,Personal,Fitness & Wellbeing,DR
+2023-06-14,JAX Tyres ,34,0,2357,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-14,Uber ,72,0,2285,Expense,Transport,Taxies & Share Cars,DR
+2023-06-14,Toys 'R' Us ,21,0,2264,Expense,Personal,CHildren & Family,DR
+2023-06-15,King Swim ,103,0,2161,Expense,Personal,Fitness & Wellbeing,DR
+2023-06-16,Autobarn ,215,0,1946,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-17,Payday Advance ,117,0,1829,Income,Income,Other Income,DR
+2023-06-17,South East Water ,46,0,1783,Expense,Household,Utilities,DR
+2023-06-17,Caltex Woolworths ,147,0,1636,Expense,Transport,Fuel,DR
+2023-06-17,Rebel Sport ,58,0,1578,Expense,Personal,Fitness & Wellbeing,DR
+2023-06-18,Dental Clinic ,149,0,1429,Expense,Personal,Health & Medical,DR
+2023-06-18,Budget Direct Car Insurance ,19,0,1410,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-20,Decathlon ,65,0,1345,Expense,Personal,Fitness & Wellbeing,DR
+2023-06-20, Rentokil ,51,0,1294,Expense,Household,Maintenance & Improvements,DR
+2023-06-21,AustralianSuper Pension ,76,0,1218,Income,Income,Other Income,DR
+2023-06-22,Surfstitch ,21,0,1197,Expense,Personal,Clothing & Accessories,DR
+2023-06-22, BSA Ltd ,44,0,1153,Expense,Household,Maintenance & Improvements,DR
+2023-06-22,Amazon Prime ,75,0,1078,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-06-22, NSW Land Registry Services ,40,0,1038,Expense,Personal,Life Admin,DR
+2023-06-22,Grill'd ,82,0,956,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-06-22,Beacon Lighting ,58,0,898,Expense,Household,Maintenance & Improvements,DR
+2023-06-23,Kumon ,69,0,829,Expense,Personal,Education,DR
+2023-06-24,Telstra ,17,0,812,Expense,Personal,Mobile Phone,DR
+2023-06-24,Service NSW ,59,0,753,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-24, Rentokil ,68,0,685,Expense,Household,Maintenance & Improvements,DR
+2023-06-25,Caltex Woolworths ,6,0,679,Expense,Transport,Fuel,DR
+2023-06-26,Budget Direct Car Insurance ,18,0,661,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-06-27,Pathology Lab ,53,0,608,Expense,Personal,Health & Medical,DR
+2023-06-28,The Good Guys ,34,0,574,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-06-28,Gardening Australia ,10,0,564,Expense,Household,Maintenance & Improvements,DR
+2023-07-01,Monthly Income,0,6000,6564,Income,Income,Wages,CR
+2023-07-02,Airbnb Host Income ,467,0,6097,Income,Income,Other Income,DR
+2023-07-02,Salary Deposit from Woolworths Group ,54,0,6043,Income,Income,Wages,DR
+2023-07-04,Sea Life Aquarium ,540,0,5503,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-07-05,Coles ,279,0,5224,Expense,Household,Groceries,DR
+2023-07-05,Childcare Payments ,149,0,5075,Expense,Personal,Children & Family,DR
+2023-07-06,Platypus Shoes ,218,0,4857,Expense,Personal,Clothing & Accessories,DR
+2023-07-07,Eau De Vie ,310,0,4547,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-07-07,Medicare Claim ,375,0,4172,Expense,Personal,Health & Medical,DR
+2023-07-12,EnergyAustralia ,379,0,3793,Expense,Household,Utilities,DR
+2023-07-14,F45 Training ,19,0,3774,Expense,Personal,Fitness & Wellbeing,DR
+2023-07-15,Coles Express ,365,0,3409,Expense,Transport,Fuel,DR
+2023-07-16,Audible ,135,0,3274,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-07-17,Beach Café ,62,0,3212,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2023-07-18,Netflix ,12,0,3200,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-07-20, Slater and Gordon Lawyers ,95,0,3105,Expense,Personal,Life Admin,DR
+2023-07-21,Cookie ,138,0,2967,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-07-21,Domino’s Pizza ,172,0,2795,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-07-22,BP ,59,0,2736,Expense,Transport,Fuel,DR
+2023-07-23, Commonwealth Bank ,162,0,2574,Expense,Household,Rent & Mortgage,DR
+2023-07-23, Metricon ,167,0,2407,Expense,Household,Maintenance & Improvements,DR
+2023-07-24,Menulog ,118,0,2289,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-07-24,JB HiFi,178,0,2111,Expense,Leisure & Lifestyle,Electronics,DR
+2023-07-25,Queensland Urban Utilities ,120,0,1991,Expense,Household,Utilities,DR
+2023-07-25,Childcare Payments ,151,0,1840,Expense,Personal,Children & Family,DR
+2023-07-25,Adobe Creative Cloud ,43,0,1797,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-07-25,Country Road ,33,0,1764,Expense,Personal,Clothing & Accessories,DR
+2023-07-26,Quay Restaurant ,68,0,1696,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-07-26,G8 Education ,52,0,1644,Expense,Personal,Children & Family,DR
+2023-07-26,Bridgestone Select ,12,0,1632,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-08-01,Monthly Income,0,6000,7632,Income,Income,Wages,CR
+2023-08-02,Australian Veterinary Association ,331,0,7301,Expense,Household,Pets,DR
+2023-08-02,Physiotherapy Clinic ,160,0,7141,Expense,Personal,Health & Medical,DR
+2023-08-02,David Jones ,141,0,7000,Expense,Personal,Clothing & Accessories,DR
+2023-08-02,Montessori Schools ,590,0,6410,Expense,Personal,Education,DR
+2023-08-02,Binge ,616,0,5794,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-03,Hobart Brewing Company ,444,0,5350,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-08-03,Stan ,70,0,5280,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-03,Netflix ,74,0,5206,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-05,Bulk Billing Doctor ,521,0,4685,Expense,Personal,Health & Medical,DR
+2023-08-05,Event Cinemas ,183,0,4502,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-08-05, BSA Ltd ,407,0,4095,Expense,Household,Maintenance & Improvements,DR
+2023-08-05,Mathnasium ,370,0,3725,Expense,Personal,Education,DR
+2023-08-06,Health Food Store ,120,0,3605,Expense,Personal,Fitness & Wellbeing,DR
+2023-08-06,ALDI ,249,0,3356,Expense,Household,Groceries,DR
+2023-08-06,Event Cinemas ,31,0,3325,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-08-07,The Australian ,178,0,3147,Expense,Personal,Education,DR
+2023-08-08,The Australian ,128,0,3019,Expense,Personal,Education,DR
+2023-08-09,EnergyAustralia ,227,0,2792,Expense,Household,Utilities,DR
+2023-08-09,T2 Tea ,81,0,2711,Expense,Personal,Fitness & Wellbeing,DR
+2023-08-09,BrewDog ,65,0,2646,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-08-10,JAX Tyres ,8,0,2638,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-08-10,Melbourne Central Lion Hotel ,84,0,2554,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-08-11,Sea Kayak Tours ,68,0,2486,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-08-11,Liquorland ,248,0,2238,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-08-11,AGL Energy ,54,0,2184,Expense,Household,Utilities,DR
+2023-08-12,Dental Clinic ,120,0,2064,Expense,Personal,Health & Medical,DR
+2023-08-14,Westpac Dividend Deposit ,51,0,2013,Income,Income,Investments,DR
+2023-08-14,Costco ,23,0,1990,Expense,Household,Groceries,DR
+2023-08-14,Goodstart Early Learning ,6,0,1984,Expense,Personal,Children & Family,DR
+2023-08-15,McDonald’s ,38,0,1946,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-08-16,Pizza Hut ,42,0,1904,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-08-16, Brisbane City Council ,65,0,1839,Expense,Household,Rates & Insurance,DR
+2023-08-17, Slater and Gordon Lawyers ,95,0,1744,Expense,Personal,Life Admin,DR
+2023-08-18,King Swim ,127,0,1617,Expense,Personal,Fitness & Wellbeing,DR
+2023-08-18,Local Fish and Chips ,99,0,1518,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-08-18,Priceline Pharmacy ,23,0,1495,Expense,Personal,Health & Medical,DR
+2023-08-18,Binge ,8,0,1487,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-20,NRMA Roadside Assistance ,134,0,1353,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-08-20,Montessori Schools ,44,0,1309,Expense,Personal,Education,DR
+2023-08-21,Payday Advance ,36,0,1273,Income,Income,Other Income,DR
+2023-08-21,Endota Spa ,27,0,1246,Expense,Personal,Fitness & Wellbeing,DR
+2023-08-21,Dan Murphy’s ,109,0,1137,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-08-22,Grill’d ,80,0,1057,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-08-23,The Brisbane Hotel ,58,0,999,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-08-24,Adairs ,18,0,981,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-08-25,Audible ,31,0,950,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-25,Rip Curl ,58,0,892,Expense,Personal,Clothing & Accessories,DR
+2023-08-26,Catholic Education Office ,59,0,833,Expense,Personal,Education,DR
+2023-08-26,King Swim ,60,0,773,Expense,Personal,Fitness & Wellbeing,DR
+2023-08-27,Vodafone Prepaid ,17,0,756,Expense,Personal,Mobile Phone,DR
+2023-08-27,Gardening Australia ,37,0,719,Expense,Household,Maintenance & Improvements,DR
+2023-08-27,Stan ,69,0,650,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-08-28,Who Gives A Crap ,37,0,613,Expense,Household,Groceries,DR
+2023-09-01,Monthly Income,0,6000,6613,Income,Income,Wages,CR
+2023-09-03,Zone Bowling ,616,0,5997,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-09-04,Centrelink JobSeeker Payment ,99,0,5898,Income,Income,Other Income,DR
+2023-09-04,Caltex Woolworths ,142,0,5756,Expense,Transport,Fuel,DR
+2023-09-06,Payday Advance ,466,0,5290,Income,Income,Other Income,DR
+2023-09-07,G8 Education ,308,0,4982,Expense,Personal,Children & Family,DR
+2023-09-08,Montessori Schools ,409,0,4573,Expense,Personal,Education,DR
+2023-09-11, The Good Guys ,357,0,4216,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-09-12,BrewDog ,33,0,4183,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-09-13,Bunnings Warehouse ,404,0,3779,Expense,Household,Maintenance & Improvements,DR
+2023-09-15,Zone Bowling ,27,0,3752,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-09-17,Big W ,146,0,3606,Expense,Personal,Children & Family,DR
+2023-09-19,Flight Centre ,12,0,3594,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-09-20,Centrelink JobSeeker Payment ,243,0,3351,Income,Income,Other Income,DR
+2023-09-20,Caltex ,83,0,3268,Expense,Transport,Fuel,DR
+2023-09-20,Guzman y Gomez ,229,0,3039,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-09-20,Coles Express ,198,0,2841,Expense,Transport,Fuel,DR
+2023-09-22,Mathnasium ,8,0,2833,Expense,Personal,Education,DR
+2023-09-23,Rip Curl ,282,0,2551,Expense,Personal,Clothing & Accessories,DR
+2023-09-23,AGL Energy ,138,0,2413,Expense,Household,Utilities,DR
+2023-09-23, The Good Guys ,222,0,2191,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-09-23,Child Support Agency Deposit ,155,0,2036,Income,Income,Other Income,DR
+2023-09-24,Who Gives A Crap ,179,0,1857,Expense,Household,Groceries,DR
+2023-09-25,Surfstitch ,56,0,1801,Expense,Personal,Clothing & Accessories,DR
+2023-09-25,Beachside Yoga Classes ,72,0,1729,Expense,Personal,Fitness & Wellbeing,DR
+2023-09-26,Goodstart Early Learning ,146,0,1583,Expense,Personal,Children & Family,DR
+2023-09-28,Village Cinemas ,52,0,1531,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-09-28,Boost Juice Bars ,41,0,1490,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-10-01,Monthly Income,0,6000,7490,Income,Income,Wages,CR
+2023-10-02,Billabong ,616,0,6874,Expense,Personal,Clothing & Accessories,DR
+2023-10-03,Ultra Tune ,518,0,6356,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-10-03,King Swim ,10,0,6346,Expense,Personal,Fitness & Wellbeing,DR
+2023-10-06,Petbarn ,54,0,6292,Expense,Household,Pets,DR
+2023-10-06,Kumon ,317,0,5975,Expense,Personal,Education,DR
+2023-10-06,Payday Advance ,368,0,5607,Income,Income,Other Income,DR
+2023-10-07,Liquorland ,74,0,5533,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-10-08,Local Fish and Chips ,256,0,5277,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-10-09,Uber ,331,0,4946,Expense,Transport,Taxies & Share Cars,DR
+2023-10-10,Payday Advance ,394,0,4552,Income,Income,Other Income,DR
+2023-10-11,Hobart Brewing Company ,101,0,4451,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-10-12,Australian Veterinary Association ,348,0,4103,Expense,Household,Pets,DR
+2023-10-14,BrewDog ,253,0,3850,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-10-14,Apple Music ,163,0,3687,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-10-15,Beachside Yoga Classes ,230,0,3457,Expense,Personal,Fitness & Wellbeing,DR
+2023-10-16,The Coffee Club ,139,0,3318,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2023-10-17,JB HiFi,235,0,3083,Expense,Leisure & Lifestyle,Electronics,DR
+2023-10-17,Kumon ,221,0,2862,Expense,Personal,Education,DR
+2023-10-17,Anytime Fitness ,40,0,2822,Expense,Personal,Fitness & Wellbeing,DR
+2023-10-17, Rentokil ,128,0,2694,Expense,Household,Maintenance & Improvements,DR
+2023-10-17,Dan Murphy’s ,36,0,2658,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-10-18,AustralianSuper Pension ,25,0,2633,Income,Income,Other Income,DR
+2023-10-19,Menulog ,256,0,2377,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-10-19,Telstra ,201,0,2176,Expense,Personal,Mobile Phone,DR
+2023-10-19,Telstra ,124,0,2052,Expense,Personal,Mobile Phone,DR
+2023-10-19,Flight Centre ,127,0,1925,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-10-21,Beachfront Markets ,121,0,1804,Expense,Personal,Clothing & Accessories,DR
+2023-10-23, Jim's Mowing ,99,0,1705,Expense,Household,Maintenance & Improvements,DR
+2023-10-23,Kayo Sports ,20,0,1685,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-10-25,Salary Deposit from Woolworths Group ,61,0,1624,Income,Income,Wages,DR
+2023-10-27,Quay Restaurant ,121,0,1503,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-10-27,Barbeques Galore ,105,0,1398,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-10-28,Eat Street Northshore ,81,0,1317,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-11-01,Monthly Income,0,6000,7317,Income,Income,Wages,CR
+2023-11-02,Interest Payment from Commonwealth Bank ,232,0,7085,Income,Income,Investments,DR
+2023-11-02,Harvey Norman ,108,0,6977,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-11-03,Pathology Lab ,300,0,6677,Expense,Personal,Health & Medical,DR
+2023-11-03,The Iconic ,416,0,6261,Expense,Personal,Clothing & Accessories,DR
+2023-11-04,Bulk Billing Doctor ,611,0,5650,Expense,Personal,Health & Medical,DR
+2023-11-05,Palace Cinemas ,35,0,5615,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-11-05,Sea Kayak Tours ,503,0,5112,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2023-11-06,Beacon Lighting ,372,0,4740,Expense,Household,Maintenance & Improvements,DR
+2023-11-06,Coles Express ,173,0,4567,Expense,Transport,Fuel,DR
+2023-11-06,Barbeques Galore ,425,0,4142,Expense,Household,"Furniture, Electronics & Homewares",DR
+2023-11-06,Zone Bowling ,255,0,3887,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-11-07, Metricon ,77,0,3810,Expense,Household,Maintenance & Improvements,DR
+2023-11-08,Palace Cinemas ,365,0,3445,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-11-08,Hobart Brewing Company ,133,0,3312,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-11-08,Guzman y Gomez ,253,0,3059,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-11-09,Hobart Brewing Company ,276,0,2783,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-11-09,Taronga Zoo ,277,0,2506,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-11-11,Myer ,55,0,2451,Expense,Personal,Clothing & Accessories,DR
+2023-11-11,Soccer Clubs ,37,0,2414,Expense,Personal,Fitness & Wellbeing,DR
+2023-11-12,The Espy ,55,0,2359,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-11-12,Netflix ,22,0,2337,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-11-13,CommSec Share Trading Gains ,138,0,2199,Income,Income,Investments,DR
+2023-11-13,Bunnings Warehouse ,55,0,2144,Expense,Household,Maintenance & Improvements,DR
+2023-11-14,EnergyAustralia ,117,0,2027,Expense,Household,Utilities,DR
+2023-11-15,BWS ,95,0,1932,Expense,Leisure & Lifestyle,Alcohol,DR
+2023-11-16,Endota Spa ,8,0,1924,Expense,Personal,Fitness & Wellbeing,DR
+2023-11-16,School Locker ,108,0,1816,Expense,Personal,Children & Family,DR
+2023-11-17,Surf Dive 'n Ski ,106,0,1710,Expense,Personal,Clothing & Accessories,DR
+2023-11-18,Audible ,108,0,1602,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-11-19,Origin Energy ,101,0,1501,Expense,Household,Utilities,DR
+2023-11-20,Bunnings Warehouse ,22,0,1479,Expense,Household,Maintenance & Improvements,DR
+2023-11-20,Upwork Freelancer Payment ,102,0,1377,Income,Income,Other Income,DR
+2023-11-21,AGL Energy ,130,0,1247,Expense,Household,Utilities,DR
+2023-11-22,Vodafone Prepaid ,20,0,1227,Expense,Personal,Mobile Phone,DR
+2023-11-24,Kmart ,40,0,1187,Expense,Personal,Children & Family,DR
+2023-11-24,Scouts Australia ,16,0,1171,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-11-24,The Iconic ,116,0,1055,Expense,Personal,Clothing & Accessories,DR
+2023-11-24,Ladbrokes ,96,0,959,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2023-11-25,Chiropractor ,87,0,872,Expense,Personal,Health & Medical,DR
+2023-11-25,Big W ,56,0,816,Expense,Personal,Children & Family,DR
+2023-11-25,Hungry Jack’s ,58,0,758,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-11-26,Kumon ,11,0,747,Expense,Personal,Education,DR
+2023-11-26,King Swim ,65,0,682,Expense,Personal,Fitness & Wellbeing,DR
+2023-11-26,Rooftop Bar ,64,0,618,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-11-26,JB HiFi,12,0,606,Expense,Leisure & Lifestyle,Electronics,DR
+2023-11-26,Origin Energy ,28,0,578,Expense,Household,Utilities,DR
+2023-11-28,Zarraffa's Coffee ,34,0,544,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2023-11-28,SEQTA ,5,0,539,Expense,Personal,Education,DR
+2023-12-01,Monthly Income,0,6000,6539,Income,Income,Wages,CR
+2023-12-02,JAX Tyres ,638,0,5901,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-12-02,G8 Education ,282,0,5619,Expense,Personal,Children & Family,DR
+2023-12-03,Childcare Payments ,359,0,5260,Expense,Personal,Children & Family,DR
+2023-12-04,Palace Cinemas ,430,0,4830,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-12-04,Hobart Brewing Company ,132,0,4698,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-12-05,Bunnings Warehouse ,262,0,4436,Expense,Household,Maintenance & Improvements,DR
+2023-12-05,The Coffee Club ,399,0,4037,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2023-12-06,Salary Deposit from Woolworths Group ,75,0,3962,Income,Income,Wages,DR
+2023-12-06,Beachfront Markets ,93,0,3869,Expense,Personal,Clothing & Accessories,DR
+2023-12-07,Zarraffa's Coffee ,33,0,3836,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2023-12-07,Officeworks ,292,0,3544,Expense,Personal,Life Admin,DR
+2023-12-07,Disney+ ,298,0,3246,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-12-08,Hobart Brewing Company ,284,0,2962,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-12-10,Priceline Pharmacy ,47,0,2915,Expense,Personal,Health & Medical,DR
+2023-12-10,Coles ,13,0,2902,Expense,Household,Groceries,DR
+2023-12-10,Bridgestone Select ,280,0,2622,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-12-13,Foxtel ,107,0,2515,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2023-12-14,ALDI ,193,0,2322,Expense,Household,Groceries,DR
+2023-12-18,Target ,221,0,2101,Expense,Personal,Clothing & Accessories,DR
+2023-12-18,Chinatown Night Market ,76,0,2025,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2023-12-18,Booktopia ,137,0,1888,Expense,Leisure & Lifestyle,Hobbies,DR
+2023-12-19,Toys 'R' Us ,117,0,1771,Expense,Personal,CHildren & Family,DR
+2023-12-19,Health Food Store ,161,0,1610,Expense,Personal,Fitness & Wellbeing,DR
+2023-12-19,McDonald’s ,67,0,1543,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-12-20,Bulk Billing Doctor ,22,0,1521,Expense,Personal,Health & Medical,DR
+2023-12-21,Ice Cream Parlour ,56,0,1465,Expense,Leisure & Lifestyle,Takeaway,DR
+2023-12-22,KU Children's Services ,80,0,1385,Expense,Personal,Children & Family,DR
+2023-12-23,Palace Cinemas ,14,0,1371,Expense,Leisure & Lifestyle,Entertainment,DR
+2023-12-23,The Australian ,84,0,1287,Expense,Personal,Education,DR
+2023-12-23,JB HiFi,30,0,1257,Expense,Leisure & Lifestyle,Electronics,DR
+2023-12-24,Beacon Lighting ,44,0,1213,Expense,Household,Maintenance & Improvements,DR
+2023-12-25,Car Wash Cafe ,82,0,1131,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2023-12-25, Commonwealth Bank ,80,0,1051,Expense,Household,Rent & Mortgage,DR
+2023-12-25,City Beach ,36,0,1015,Expense,Personal,Clothing & Accessories,DR
+2023-12-26,ATO Tax Refund ,33,0,982,Income,Income,Other Income,DR
+2023-12-26,Soccer Clubs ,97,0,885,Expense,Personal,Fitness & Wellbeing,DR
+2023-12-28,Bunnings Warehouse ,6,0,879,Expense,Household,Maintenance & Improvements,DR
+2024-01-01,Monthly Income,0,6000,6879,Income,Income,Wages,CR
+2024-01-02,PayPal Transfer from Sale ,279,0,6600,Income,Income,Other Income,DR
+2024-01-02,Shell V Power,373,0,6227,Expense,Transport,Fuel,DR
+2024-01-04,Pathology Lab ,181,0,6046,Expense,Personal,Health & Medical,DR
+2024-01-06,ALDI ,488,0,5558,Expense,Household,Groceries,DR
+2024-01-06,Endota Spa ,72,0,5486,Expense,Personal,Fitness & Wellbeing,DR
+2024-01-07,Bulk Billing Doctor ,376,0,5110,Expense,Personal,Health & Medical,DR
+2024-01-07,Service NSW ,362,0,4748,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-01-08,Coles Express ,308,0,4440,Expense,Transport,Fuel,DR
+2024-01-08,Beachside Yoga Classes ,359,0,4081,Expense,Personal,Fitness & Wellbeing,DR
+2024-01-08,eBay Sales Proceeds ,89,0,3992,Income,Income,Other Income,DR
+2024-01-09, Jim's Mowing ,159,0,3833,Expense,Household,Maintenance & Improvements,DR
+2024-01-10,Montessori Schools ,302,0,3531,Expense,Personal,Education,DR
+2024-01-10,Eau De Vie ,75,0,3456,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-01-11,Goodstart Early Learning ,316,0,3140,Expense,Personal,Children & Family,DR
+2024-01-12,Billabong ,119,0,3021,Expense,Personal,Clothing & Accessories,DR
+2024-01-13,Centrelink JobSeeker Payment ,208,0,2813,Income,Income,Other Income,DR
+2024-01-17,Australian Veterinary Association ,154,0,2659,Expense,Household,Pets,DR
+2024-01-18, Meriton Apartments ,175,0,2484,Expense,Household,Rates & Insurance,DR
+2024-01-18,Local Fish and Chips ,156,0,2328,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-01-19,AGL Energy ,84,0,2244,Expense,Household,Utilities,DR
+2024-01-20,The Baxter Inn ,218,0,2026,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-01-20,Lorna Jane ,163,0,1863,Expense,Personal,Clothing & Accessories,DR
+2024-01-22,Campion Education ,13,0,1850,Expense,Personal,Children & Family,DR
+2024-01-23,BrewDog ,57,0,1793,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-01-26,Swim Australia ,99,0,1694,Expense,Personal,Fitness & Wellbeing,DR
+2024-01-28,Beachside Caravan Park ,154,0,1540,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-01-28,Bunnings Warehouse ,154,0,1386,Expense,Household,Maintenance & Improvements,DR
+2024-02-01,Monthly Income,0,6000,7386,Income,Income,Wages,CR
+2024-02-02,Myer ,264,0,7122,Expense,Personal,Clothing & Accessories,DR
+2024-02-02,Booktopia ,207,0,6915,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-03,Platypus Shoes ,246,0,6669,Expense,Personal,Clothing & Accessories,DR
+2024-02-04,AGL Energy ,408,0,6261,Expense,Household,Utilities,DR
+2024-02-05,Greencross Vets ,475,0,5786,Expense,Household,Pets,DR
+2024-02-05,BP ,322,0,5464,Expense,Transport,Fuel,DR
+2024-02-06,Shell V Power,15,0,5449,Expense,Transport,Fuel,DR
+2024-02-07,Child Support Agency Deposit ,424,0,5025,Income,Income,Other Income,DR
+2024-02-07,Liquorland ,375,0,4650,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-02-07,Sunnybank Hotel ,9,0,4641,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-02-08,Zone Bowling ,144,0,4497,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-02-08,McDonald’s ,5,0,4492,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-02-09,OfficeMax ,314,0,4178,Expense,Personal,Life Admin,DR
+2024-02-10,Eat Street Northshore ,218,0,3960,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-02-11,The Coffee Club ,36,0,3924,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-02-11,Medicare Claim ,13,0,3911,Expense,Personal,Health & Medical,DR
+2024-02-11,Guzman y Gomez ,148,0,3763,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-02-11,Upwork Freelancer Payment ,300,0,3463,Income,Income,Other Income,DR
+2024-02-11,Bulk Billing Doctor ,312,0,3151,Expense,Personal,Health & Medical,DR
+2024-02-12,Queensland Urban Utilities ,281,0,2870,Expense,Household,Utilities,DR
+2024-02-13,Zone Bowling ,141,0,2729,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-02-13,Kmart Tyre & Auto Service ,109,0,2620,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-02-13,Scouts Australia ,186,0,2434,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-14,Upwork Freelancer Payment ,71,0,2363,Income,Income,Other Income,DR
+2024-02-14,Hobart Brewing Company ,212,0,2151,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-02-15,Caltex ,11,0,2140,Expense,Transport,Fuel,DR
+2024-02-15,Booktopia ,141,0,1999,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-16,Chiropractor ,20,0,1979,Expense,Personal,Health & Medical,DR
+2024-02-16,National Hearing Care ,120,0,1859,Expense,Personal,Health & Medical,DR
+2024-02-17,Flight Centre ,157,0,1702,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-02-17,Surfstitch ,52,0,1650,Expense,Personal,Clothing & Accessories,DR
+2024-02-17,Hobart Brewing Company ,144,0,1506,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-02-18,ALDI ,54,0,1452,Expense,Household,Groceries,DR
+2024-02-18,Booktopia ,32,0,1420,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-18,Payday Advance ,57,0,1363,Income,Income,Other Income,DR
+2024-02-19,Budget Direct Car Insurance ,50,0,1313,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-02-19,Flight Centre ,60,0,1253,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-02-21,Local Hospital ,121,0,1132,Expense,Personal,Health & Medical,DR
+2024-02-21, NRMA Insurance ,19,0,1113,Expense,Household,Rates & Insurance,DR
+2024-02-21,Telstra ,19,0,1094,Expense,Personal,Mobile Phone,DR
+2024-02-21,Netflix ,85,0,1009,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-02-21,JAX Tyres ,43,0,966,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-02-22,Australian Veterinary Association ,85,0,881,Expense,Household,Pets,DR
+2024-02-22,Adairs ,41,0,840,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-02-22,Car Wash Cafe ,21,0,819,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-02-23,Adobe Creative Cloud ,73,0,746,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-24,Campion Education ,59,0,687,Expense,Personal,Children & Family,DR
+2024-02-25,Target ,57,0,630,Expense,Personal,Clothing & Accessories,DR
+2024-02-25,Freedom Furniture ,21,0,609,Expense,Household,Maintenance & Improvements,DR
+2024-02-26,The Sydney Morning Herald ,38,0,571,Expense,Personal,Education,DR
+2024-02-27,G8 Education ,55,0,516,Expense,Personal,Children & Family,DR
+2024-02-27,Camp Australia ,20,0,496,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-27, BSA Ltd ,32,0,464,Expense,Household,Maintenance & Improvements,DR
+2024-02-27,Camp Australia ,17,0,447,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-02-28,Caltex ,23,0,424,Expense,Transport,Fuel,DR
+2024-02-28,Barbeques Galore ,21,0,403,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-03-01,Monthly Income,0,6000,6403,Income,Income,Wages,CR
+2024-03-02,Fernwood Fitness ,377,0,6026,Expense,Personal,Fitness & Wellbeing,DR
+2024-03-03,Beachside Caravan Park ,12,0,6014,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-03-04,Centrelink JobSeeker Payment ,499,0,5515,Income,Income,Other Income,DR
+2024-03-05,MyCar Tyre & Auto ,414,0,5101,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-03-05,Booktopia ,299,0,4802,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-03-07,Microsoft 365 ,474,0,4328,Expense,Personal,Education,DR
+2024-03-07,Spotify ,251,0,4077,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-03-07,Sunburn Swimwear ,58,0,4019,Expense,Personal,Clothing & Accessories,DR
+2024-03-08,QBE Insurance Claim Payout ,154,0,3865,Income,Income,Other Income,DR
+2024-03-08,Culture Kings ,120,0,3745,Expense,Personal,Clothing & Accessories,DR
+2024-03-10,Barbeques Galore ,65,0,3680,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-03-10,IKEA ,319,0,3361,Expense,Household,Maintenance & Improvements,DR
+2024-03-11, BSA Ltd ,179,0,3182,Expense,Household,Maintenance & Improvements,DR
+2024-03-12,Sydney Water ,197,0,2985,Expense,Household,Utilities,DR
+2024-03-14,The Victory Hotel ,158,0,2827,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-03-14,Caltex ,174,0,2653,Expense,Transport,Fuel,DR
+2024-03-15,Dan Murphy’s ,25,0,2628,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-03-15,Pizza Hut ,36,0,2592,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-03-15,Anytime Fitness ,187,0,2405,Expense,Personal,Fitness & Wellbeing,DR
+2024-03-17,Melbourne Central Lion Hotel ,114,0,2291,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-03-18,MyCar Tyre & Auto ,99,0,2192,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-03-19,Vodafone Prepaid ,104,0,2088,Expense,Personal,Mobile Phone,DR
+2024-03-19,Witchery ,60,0,2028,Expense,Personal,Clothing & Accessories,DR
+2024-03-20, Meriton Apartments ,120,0,1908,Expense,Household,Rates & Insurance,DR
+2024-03-22, Rentokil ,175,0,1733,Expense,Household,Maintenance & Improvements,DR
+2024-03-22,Gold's Gym ,44,0,1689,Expense,Personal,Fitness & Wellbeing,DR
+2024-03-24,Bunnings Warehouse ,125,0,1564,Expense,Household,Maintenance & Improvements,DR
+2024-03-24,Liquorland ,116,0,1448,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-03-24,Westpac Dividend Deposit ,102,0,1346,Income,Income,Investments,DR
+2024-03-28,Chinatown Night Market ,81,0,1265,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-03-28,Optus ,74,0,1191,Expense,Personal,Mobile Phone,DR
+2024-04-01,Monthly Income,0,6000,7191,Income,Income,Wages,CR
+2024-04-02, NSW Land Registry Services ,41,0,7150,Expense,Personal,Life Admin,DR
+2024-04-03,Village Cinemas ,435,0,6715,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-04-03, NSW Land Registry Services ,520,0,6195,Expense,Personal,Life Admin,DR
+2024-04-03,Bridgestone Select ,227,0,5968,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-04-03,Disney+ ,235,0,5733,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-04-03,Timezone ,107,0,5626,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-04-04,Hobart Brewing Company ,486,0,5140,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-04-04,Chemist Warehouse ,22,0,5118,Expense,Personal,Health & Medical,DR
+2024-04-05,PayPal Transfer from Sale ,418,0,4700,Income,Income,Other Income,DR
+2024-04-06,Sea Life Aquarium ,188,0,4512,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-04-07,KU Children's Services ,331,0,4181,Expense,Personal,Children & Family,DR
+2024-04-08,PayPal Transfer from Sale ,160,0,4021,Income,Income,Other Income,DR
+2024-04-08,Beacon Lighting ,378,0,3643,Expense,Household,Maintenance & Improvements,DR
+2024-04-09,Billabong ,362,0,3281,Expense,Personal,Clothing & Accessories,DR
+2024-04-09,Audible ,309,0,2972,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-04-10,Hungry Jack’s ,17,0,2955,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-04-10,OfficeMax ,123,0,2832,Expense,Personal,Life Admin,DR
+2024-04-11,Sunburn Swimwear ,141,0,2691,Expense,Personal,Clothing & Accessories,DR
+2024-04-11, Jim's Mowing ,116,0,2575,Expense,Household,Maintenance & Improvements,DR
+2024-04-11,Chinatown Night Market ,202,0,2373,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-04-11,Witchery ,7,0,2366,Expense,Personal,Clothing & Accessories,DR
+2024-04-11,The Rocks Bar and Pub ,132,0,2234,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-04-12,Guardian Childcare & Education ,29,0,2205,Expense,Personal,Children & Family,DR
+2024-04-14,Menulog ,59,0,2146,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-04-15,The Body Shop ,13,0,2133,Expense,Personal,Hair & Beauty,DR
+2024-04-16,Barbeques Galore ,180,0,1953,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-04-16,Bunnings Warehouse ,51,0,1902,Expense,Household,Maintenance & Improvements,DR
+2024-04-16,BWS ,153,0,1749,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-04-16,JAX Tyres ,105,0,1644,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-04-18,The Body Shop ,47,0,1597,Expense,Personal,Hair & Beauty,DR
+2024-04-18,King Swim ,33,0,1564,Expense,Personal,Fitness & Wellbeing,DR
+2024-04-18, The Good Guys ,104,0,1460,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-04-18,Priceline Pharmacy ,126,0,1334,Expense,Personal,Health & Medical,DR
+2024-04-19,G8 Education ,37,0,1297,Expense,Personal,Children & Family,DR
+2024-04-19,Australian Veterinary Association ,86,0,1211,Expense,Household,Pets,DR
+2024-04-20,Spotify ,69,0,1142,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-04-20,Costco ,68,0,1074,Expense,Household,Groceries,DR
+2024-04-21,Grill'd ,97,0,977,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-04-22,Timezone ,53,0,924,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-04-25,Woolworths ,59,0,865,Expense,Household,Groceries,DR
+2024-04-25,Gold's Gym ,12,0,853,Expense,Personal,Fitness & Wellbeing,DR
+2024-04-25, The Good Guys ,78,0,775,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-04-25,Beachside Yoga Classes ,29,0,746,Expense,Personal,Fitness & Wellbeing,DR
+2024-04-27,Rip Curl ,40,0,706,Expense,Personal,Clothing & Accessories,DR
+2024-04-27,Rooftop Bar ,70,0,636,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-04-28,PayPal Transfer from Sale ,11,0,625,Income,Income,Other Income,DR
+2024-04-28, Fantastic Furniture ,24,0,601,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-05-01,Monthly Income,0,6000,6601,Income,Income,Wages,CR
+2024-05-03,Tabcorp ,523,0,6078,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2024-05-04,Autobarn ,455,0,5623,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-05-04,The Espy ,421,0,5202,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-05-06,Spotlight ,49,0,5153,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-05-07,BWS ,65,0,5088,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-05-07,Pathology Lab ,170,0,4918,Expense,Personal,Health & Medical,DR
+2024-05-08,VicRoads ,442,0,4476,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-05-08,ATO Tax Refund ,107,0,4369,Income,Income,Other Income,DR
+2024-05-09,The Victory Hotel ,129,0,4240,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-05-10,G8 Education ,184,0,4056,Expense,Personal,Children & Family,DR
+2024-05-10,Lorna Jane ,238,0,3818,Expense,Personal,Clothing & Accessories,DR
+2024-05-10,Payday Advance ,80,0,3738,Income,Income,Other Income,DR
+2024-05-11, Meriton Apartments ,255,0,3483,Expense,Household,Rates & Insurance,DR
+2024-05-12,Rooftop Bar ,44,0,3439,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-05-14,The Australian ,84,0,3355,Expense,Personal,Education,DR
+2024-05-15, Jim's Mowing ,123,0,3232,Expense,Household,Maintenance & Improvements,DR
+2024-05-16,Chiropractor ,304,0,2928,Expense,Personal,Health & Medical,DR
+2024-05-17,Beachside Yoga Classes ,14,0,2914,Expense,Personal,Fitness & Wellbeing,DR
+2024-05-18,The Australian ,253,0,2661,Expense,Personal,Education,DR
+2024-05-18,Ladbrokes ,223,0,2438,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2024-05-19,Apple Music ,22,0,2416,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-05-19,Pizza Hut ,108,0,2308,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-05-20,Stan ,165,0,2143,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-05-20,Kmart ,204,0,1939,Expense,Personal,Children & Family,DR
+2024-05-20,Kmart ,82,0,1857,Expense,Personal,Children & Family,DR
+2024-05-21,Australian Veterinary Association ,54,0,1803,Expense,Household,Pets,DR
+2024-05-21,Mathnasium ,53,0,1750,Expense,Personal,Education,DR
+2024-05-21,Sea Life Aquarium ,18,0,1732,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-05-22,Local Hospital ,149,0,1583,Expense,Personal,Health & Medical,DR
+2024-05-23,Kayo Sports ,35,0,1548,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-05-23,The Good Guys ,89,0,1459,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-05-23,The Coffee Club ,74,0,1385,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-05-24,The Australian ,56,0,1329,Expense,Personal,Education,DR
+2024-05-25,Café Nero ,69,0,1260,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-05-26,F45 Training ,53,0,1207,Expense,Personal,Fitness & Wellbeing,DR
+2024-05-28,Platypus Shoes ,73,0,1134,Expense,Personal,Clothing & Accessories,DR
+2024-05-28,South East Water ,87,0,1047,Expense,Household,Utilities,DR
+2024-06-01,Monthly Income,0,6000,7047,Income,Income,Wages,CR
+2024-06-02,Shell V Power,362,0,6685,Expense,Transport,Fuel,DR
+2024-06-03,Australian Veterinary Association ,417,0,6268,Expense,Household,Pets,DR
+2024-06-04,South East Water ,150,0,6118,Expense,Household,Utilities,DR
+2024-06-04,Centrelink JobSeeker Payment ,134,0,5984,Income,Income,Other Income,DR
+2024-06-05,Grill'd ,234,0,5750,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-06-05,Local Hospital ,24,0,5726,Expense,Personal,Health & Medical,DR
+2024-06-07,NRMA Roadside Assistance ,82,0,5644,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-06-07,The Baxter Inn ,477,0,5167,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-06-08,Flight Centre ,33,0,5134,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-06-11,The Australian ,374,0,4760,Expense,Personal,Education,DR
+2024-06-11,Dan Murphy’s ,359,0,4401,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-06-11,Country Road ,257,0,4144,Expense,Personal,Clothing & Accessories,DR
+2024-06-11,Kmart Tyre & Auto Service ,10,0,4134,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-06-12,Big W ,116,0,4018,Expense,Personal,Children & Family,DR
+2024-06-13,QBE Insurance Claim Payout ,6,0,4012,Income,Income,Other Income,DR
+2024-06-13,Petbarn ,103,0,3909,Expense,Household,Pets,DR
+2024-06-15,Westpac Dividend Deposit ,325,0,3584,Income,Income,Investments,DR
+2024-06-17,Massage Therapy Center ,166,0,3418,Expense,Personal,Health & Medical,DR
+2024-06-18,Kmart ,113,0,3305,Expense,Personal,Children & Family,DR
+2024-06-18,EnergyAustralia ,299,0,3006,Expense,Household,Utilities,DR
+2024-06-18,Melbourne Central Lion Hotel ,183,0,2823,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-06-19,Sylvan Learning ,64,0,2759,Expense,Personal,Education,DR
+2024-06-19,Woolworths ,237,0,2522,Expense,Household,Groceries,DR
+2024-06-19,Scouts Australia ,74,0,2448,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-06-20,Massage Therapy Center ,29,0,2419,Expense,Personal,Health & Medical,DR
+2024-06-20,Spotlight ,148,0,2271,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-06-21,Catholic Education Office ,129,0,2142,Expense,Personal,Education,DR
+2024-06-22,The Rocks Bar and Pub ,151,0,1991,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-06-22,Pathology Lab ,30,0,1961,Expense,Personal,Health & Medical,DR
+2024-06-23, Ray White Real Estate ,94,0,1867,Expense,Personal,Life Admin,DR
+2024-06-23,The Coffee Club ,104,0,1763,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-06-24,Specsavers ,54,0,1709,Expense,Personal,Health & Medical,DR
+2024-06-24,Physiotherapy Clinic ,144,0,1565,Expense,Personal,Health & Medical,DR
+2024-06-24,Zone Bowling ,45,0,1520,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-06-24,Little Athletics ,43,0,1477,Expense,Personal,Fitness & Wellbeing,DR
+2024-06-25,Surf Dive 'n Ski ,140,0,1337,Expense,Personal,Clothing & Accessories,DR
+2024-06-26,eBay Sales Proceeds ,34,0,1303,Income,Income,Other Income,DR
+2024-06-27,Massage Therapy Center ,93,0,1210,Expense,Personal,Health & Medical,DR
+2024-06-27,Domino’s Pizza ,121,0,1089,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-06-28,Service NSW ,87,0,1002,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-01,Monthly Income,0,6000,7002,Income,Income,Wages,CR
+2024-07-02,F45 Training ,161,0,6841,Expense,Personal,Fitness & Wellbeing,DR
+2024-07-04,Goodstart Early Learning ,218,0,6623,Expense,Personal,Children & Family,DR
+2024-07-05,Decathlon ,138,0,6485,Expense,Personal,Fitness & Wellbeing,DR
+2024-07-05,Physiotherapy Clinic ,335,0,6150,Expense,Personal,Health & Medical,DR
+2024-07-05,Service NSW ,534,0,5616,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-05,KU Children's Services ,44,0,5572,Expense,Personal,Children & Family,DR
+2024-07-05,McDonald’s ,190,0,5382,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-07-06,Sydney Water ,462,0,4920,Expense,Household,Utilities,DR
+2024-07-06,Sea Life Aquarium ,396,0,4524,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-07-07,Budget Direct Car Insurance ,31,0,4493,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-07,Greencross Vets ,94,0,4399,Expense,Household,Pets,DR
+2024-07-09,Target ,88,0,4311,Expense,Personal,Clothing & Accessories,DR
+2024-07-09,Who Gives A Crap ,432,0,3879,Expense,Household,Groceries,DR
+2024-07-09,Dental Clinic ,42,0,3837,Expense,Personal,Health & Medical,DR
+2024-07-10,Decathlon ,274,0,3563,Expense,Personal,Fitness & Wellbeing,DR
+2024-07-10,Officeworks ,189,0,3374,Expense,Personal,Life Admin,DR
+2024-07-11,Timezone ,247,0,3127,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-07-11,Green Slip Insurance ,29,0,3098,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-13,JAX Tyres ,282,0,2816,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-14,Zone Bowling ,50,0,2766,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-07-14,Beachside Yoga Classes ,266,0,2500,Expense,Personal,Fitness & Wellbeing,DR
+2024-07-14,Hungry Jack’s ,101,0,2399,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-07-15,Event Cinemas ,139,0,2260,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-07-16,Montessori Schools ,91,0,2169,Expense,Personal,Education,DR
+2024-07-16,BP ,158,0,2011,Expense,Transport,Fuel,DR
+2024-07-16,Adobe Creative Cloud ,42,0,1969,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-07-16,The Ivy ,126,0,1843,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-07-16,Sylvan Learning ,65,0,1778,Expense,Personal,Education,DR
+2024-07-17,Pathology Lab ,39,0,1739,Expense,Personal,Health & Medical,DR
+2024-07-17,Local Fish and Chips ,69,0,1670,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-07-18,Beachfront Markets ,168,0,1502,Expense,Personal,Clothing & Accessories,DR
+2024-07-18,The Baxter Inn ,38,0,1464,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-07-18,Chiropractor ,53,0,1411,Expense,Personal,Health & Medical,DR
+2024-07-18,Goodstart Early Learning ,69,0,1342,Expense,Personal,Children & Family,DR
+2024-07-19,Myer ,118,0,1224,Expense,Personal,Clothing & Accessories,DR
+2024-07-20,Zarraffa's Coffee ,71,0,1153,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-07-20,Ultra Tune ,8,0,1145,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-20,Netflix ,105,0,1040,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-07-20,QBE Insurance Claim Payout ,62,0,978,Income,Income,Other Income,DR
+2024-07-20,Eat Street Northshore ,54,0,924,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-07-20,The Brisbane Hotel ,49,0,875,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-07-20,Little Athletics ,46,0,829,Expense,Personal,Fitness & Wellbeing,DR
+2024-07-22,Dymocks ,6,0,823,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-07-22,Priceline Pharmacy ,24,0,799,Expense,Personal,Health & Medical,DR
+2024-07-23,Massage Therapy Center ,32,0,767,Expense,Personal,Health & Medical,DR
+2024-07-23,QBE Insurance Claim Payout ,44,0,723,Income,Income,Other Income,DR
+2024-07-23,The Baxter Inn ,23,0,700,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-07-23,Netflix ,31,0,669,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-07-24, The Good Guys ,21,0,648,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-07-24,BP ,33,0,615,Expense,Transport,Fuel,DR
+2024-07-24,Repco ,22,0,593,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-25,David Jones ,59,0,534,Expense,Personal,Clothing & Accessories,DR
+2024-07-26,Adobe Creative Cloud ,18,0,516,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-07-26,Airbnb Host Income ,10,0,506,Income,Income,Other Income,DR
+2024-07-26,Service NSW ,32,0,474,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-07-27,Vodafone Prepaid ,16,0,458,Expense,Personal,Mobile Phone,DR
+2024-07-27,Music Academy ,28,0,430,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-07-28,Coles ,43,0,387,Expense,Household,Groceries,DR
+2024-07-28,Domino’s Pizza ,17,0,370,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-07-28, EnergyAustralia ,8,0,362,Expense,Household,Utilities,DR
+2024-08-01,Monthly Income,0,6000,6362,Income,Income,Wages,CR
+2024-08-02, NSW Land Registry Services ,235,0,6127,Expense,Personal,Life Admin,DR
+2024-08-02,Officeworks ,526,0,5601,Expense,Personal,Life Admin,DR
+2024-08-02,BP ,250,0,5351,Expense,Transport,Fuel,DR
+2024-08-02,Audible ,149,0,5202,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-08-03,Village Cinemas ,438,0,4764,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-08-03, National Bank ,256,0,4508,Expense,Personal,Fees & Charges,DR
+2024-08-04,Adobe Creative Cloud ,179,0,4329,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-08-04,Dental Clinic ,270,0,4059,Expense,Personal,Health & Medical,DR
+2024-08-05,EB Games ,146,0,3913,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2024-08-05,Beachside Yoga Classes ,177,0,3736,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-06,YMCA ,98,0,3638,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-06, Jim's Mowing ,197,0,3441,Expense,Household,Maintenance & Improvements,DR
+2024-08-06,Eat Street Northshore ,152,0,3289,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-08,Shell V Power,176,0,3113,Expense,Transport,Fuel,DR
+2024-08-08,Woolworths ,20,0,3093,Expense,Household,Groceries,DR
+2024-08-09,Optus ,289,0,2804,Expense,Personal,Mobile Phone,DR
+2024-08-10, The Good Guys ,73,0,2731,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-08-10,Kayo Sports ,120,0,2611,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-08-11,McDonald’s ,60,0,2551,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-08-13,The Espy ,84,0,2467,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-14,Local Hospital ,203,0,2264,Expense,Personal,Health & Medical,DR
+2024-08-14,Coles ,117,0,2147,Expense,Household,Groceries,DR
+2024-08-15,Centrelink JobSeeker Payment ,6,0,2141,Income,Income,Other Income,DR
+2024-08-15,Optometrist ,86,0,2055,Expense,Personal,Health & Medical,DR
+2024-08-16,Binge ,156,0,1899,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-08-16,Beach Café ,127,0,1772,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-08-17,Sea Life Aquarium ,38,0,1734,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-08-17,Timezone ,112,0,1622,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-08-17,Health Food Store ,44,0,1578,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-17,Caltex Woolworths ,26,0,1552,Expense,Transport,Fuel,DR
+2024-08-18,AustralianSuper Pension ,33,0,1519,Income,Income,Other Income,DR
+2024-08-18,Surfstitch ,91,0,1428,Expense,Personal,Clothing & Accessories,DR
+2024-08-18,TerryWhite Chemmart ,109,0,1319,Expense,Personal,Health & Medical,DR
+2024-08-19, EnergyAustralia ,16,0,1303,Expense,Household,Utilities,DR
+2024-08-19,Rebel Sport ,24,0,1279,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-19,Microsoft 365 ,37,0,1242,Expense,Personal,Education,DR
+2024-08-19,Booktopia ,82,0,1160,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-08-19,The Brisbane Hotel ,50,0,1110,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-20,Fernwood Fitness ,45,0,1065,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-20,Who Gives A Crap ,55,0,1010,Expense,Household,Groceries,DR
+2024-08-20,Caltex Woolworths ,18,0,992,Expense,Transport,Fuel,DR
+2024-08-20,The Espy ,92,0,900,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-21,Rooftop Bar ,74,0,826,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-21,Lorna Jane ,24,0,802,Expense,Personal,Clothing & Accessories,DR
+2024-08-22,AustralianSuper Pension ,9,0,793,Income,Income,Other Income,DR
+2024-08-22,David Jones ,60,0,733,Expense,Personal,Clothing & Accessories,DR
+2024-08-22,Ladbrokes ,63,0,670,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2024-08-22,David Jones ,26,0,644,Expense,Personal,Clothing & Accessories,DR
+2024-08-23,Fitness First ,59,0,585,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-24,Fitness First ,35,0,550,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-24,Freedom Furniture ,18,0,532,Expense,Household,Maintenance & Improvements,DR
+2024-08-24,The Espy ,14,0,518,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-08-25,Le Creuset ,31,0,487,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-08-25, Metricon ,40,0,447,Expense,Household,Maintenance & Improvements,DR
+2024-08-25,Local Hospital ,31,0,416,Expense,Personal,Health & Medical,DR
+2024-08-26,Myer ,15,0,401,Expense,Personal,Clothing & Accessories,DR
+2024-08-26,Decathlon ,17,0,384,Expense,Personal,Fitness & Wellbeing,DR
+2024-08-26,Optometrist ,22,0,362,Expense,Personal,Health & Medical,DR
+2024-08-27,Beacon Lighting ,5,0,357,Expense,Household,Maintenance & Improvements,DR
+2024-08-28,Telstra ,26,0,331,Expense,Personal,Mobile Phone,DR
+2024-09-01,Monthly Income,0,6000,6331,Income,Income,Wages,CR
+2024-09-02,Westpac Dividend Deposit ,345,0,5986,Income,Income,Investments,DR
+2024-09-03, Brisbane City Council ,9,0,5977,Expense,Household,Rates & Insurance,DR
+2024-09-05,T2 Tea ,246,0,5731,Expense,Personal,Fitness & Wellbeing,DR
+2024-09-07, Ray White Real Estate ,223,0,5508,Expense,Personal,Life Admin,DR
+2024-09-10,Muffin Break ,23,0,5485,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-09-11,Rip Curl ,6,0,5479,Expense,Personal,Clothing & Accessories,DR
+2024-09-12,Petbarn ,33,0,5446,Expense,Household,Pets,DR
+2024-09-13,JB HiFi,124,0,5322,Expense,Leisure & Lifestyle,Electronics,DR
+2024-09-13,G8 Education ,441,0,4881,Expense,Personal,Children & Family,DR
+2024-09-13,Rebel Sport ,340,0,4541,Expense,Personal,Fitness & Wellbeing,DR
+2024-09-13,ABC Reading Eggs ,396,0,4145,Expense,Personal,Education,DR
+2024-09-13,NRMA Roadside Assistance ,38,0,4107,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-09-15,Palace Cinemas ,347,0,3760,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-09-16,Guardian Childcare & Education ,208,0,3552,Expense,Personal,Children & Family,DR
+2024-09-19,Montessori Schools ,41,0,3511,Expense,Personal,Education,DR
+2024-09-20,Bunnings Warehouse ,257,0,3254,Expense,Household,Maintenance & Improvements,DR
+2024-09-22,AustralianSuper Pension ,117,0,3137,Income,Income,Other Income,DR
+2024-09-23,Catholic Education Office ,81,0,3056,Expense,Personal,Education,DR
+2024-09-23,Hobart Brewing Company ,100,0,2956,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-09-24,T2 Tea ,231,0,2725,Expense,Personal,Fitness & Wellbeing,DR
+2024-09-27,Binge ,194,0,2531,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-09-28, Slater and Gordon Lawyers ,206,0,2325,Expense,Personal,Life Admin,DR
+2024-10-01,Monthly Income,0,6000,8325,Income,Income,Wages,CR
+2024-10-02,Booktopia ,279,0,8046,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-10-02,Harvey Norman ,118,0,7928,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-10-04,MyCar Tyre & Auto ,318,0,7610,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-10-04,Acupuncture Clinic ,16,0,7594,Expense,Personal,Health & Medical,DR
+2024-10-05,EnergyAustralia ,573,0,7021,Expense,Household,Utilities,DR
+2024-10-05,Airbnb Host Income ,443,0,6578,Income,Income,Other Income,DR
+2024-10-06,Sea Life Aquarium ,454,0,6124,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-10-06,Kumon ,528,0,5596,Expense,Personal,Education,DR
+2024-10-07,Target ,488,0,5108,Expense,Personal,Clothing & Accessories,DR
+2024-10-07,The Victory Hotel ,286,0,4822,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-10-08,AMF Bowling ,350,0,4472,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-10-09,BWS ,339,0,4133,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-10-09,Toys 'R' Us ,45,0,4088,Expense,Personal,CHildren & Family,DR
+2024-10-12,Billabong ,149,0,3939,Expense,Personal,Clothing & Accessories,DR
+2024-10-12,Soccer Clubs ,162,0,3777,Expense,Personal,Fitness & Wellbeing,DR
+2024-10-12,Child Support Agency Deposit ,97,0,3680,Income,Income,Other Income,DR
+2024-10-12,Camp Australia ,143,0,3537,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-10-12,The Body Shop ,340,0,3197,Expense,Personal,Hair & Beauty,DR
+2024-10-13,Lorna Jane ,288,0,2909,Expense,Personal,Clothing & Accessories,DR
+2024-10-13,Beach Café ,51,0,2858,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-10-14,Quay Restaurant ,234,0,2624,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-10-14,Gold's Gym ,71,0,2553,Expense,Personal,Fitness & Wellbeing,DR
+2024-10-15,Child Support Agency Deposit ,56,0,2497,Income,Income,Other Income,DR
+2024-10-15,The Athlete's Foot ,167,0,2330,Expense,Personal,Clothing & Accessories,DR
+2024-10-15,Officeworks ,123,0,2207,Expense,Personal,Life Admin,DR
+2024-10-15,Specsavers ,105,0,2102,Expense,Personal,Health & Medical,DR
+2024-10-15, NSW Land Registry Services ,161,0,1941,Expense,Personal,Life Admin,DR
+2024-10-16,EB Games ,104,0,1837,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2024-10-17,Child Support Agency Deposit ,174,0,1663,Income,Income,Other Income,DR
+2024-10-17,OfficeMax ,102,0,1561,Expense,Personal,Life Admin,DR
+2024-10-17,Dan Murphy’s ,87,0,1474,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-10-17,Domino’s Pizza ,89,0,1385,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-10-19,Specsavers ,123,0,1262,Expense,Personal,Health & Medical,DR
+2024-10-19, Meriton Apartments ,25,0,1237,Expense,Household,Rates & Insurance,DR
+2024-10-20,Airbnb Host Income ,93,0,1144,Income,Income,Other Income,DR
+2024-10-20,Audible ,58,0,1086,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-10-21,Menulog ,37,0,1049,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-10-22,Catholic Education Office ,23,0,1026,Expense,Personal,Education,DR
+2024-10-22,Hobart Brewing Company ,85,0,941,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-10-23, BSA Ltd ,31,0,910,Expense,Household,Maintenance & Improvements,DR
+2024-10-24,Sea Life Aquarium ,61,0,849,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-10-24,Rebel Sport ,45,0,804,Expense,Personal,Fitness & Wellbeing,DR
+2024-10-25,Crown Perth ,74,0,730,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-10-26,Beach Café ,53,0,677,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-10-26,Boost Juice Bars ,56,0,621,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-10-26,Beachside Caravan Park ,31,0,590,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-10-27,Autobarn ,42,0,548,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-10-28,AGL Energy ,41,0,507,Expense,Household,Utilities,DR
+2024-10-28,Chemist Warehouse ,42,0,465,Expense,Personal,Health & Medical,DR
+2024-10-28,Optus ,45,0,420,Expense,Personal,Mobile Phone,DR
+2024-10-28,eBay Sales Proceeds ,9,0,411,Income,Income,Other Income,DR
+2024-11-01,Monthly Income,0,6000,6411,Income,Income,Wages,CR
+2024-11-02,Village Cinemas ,157,0,6254,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-11-03,Flight Centre ,472,0,5782,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2024-11-04,Payday Advance ,327,0,5455,Income,Income,Other Income,DR
+2024-11-05,eBay Sales Proceeds ,489,0,4966,Income,Income,Other Income,DR
+2024-11-06,Budget Direct Car Insurance ,13,0,4953,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-06,Physiotherapy Clinic ,30,0,4923,Expense,Personal,Health & Medical,DR
+2024-11-06,Interest Payment from Commonwealth Bank ,173,0,4750,Income,Income,Investments,DR
+2024-11-06,Optus ,218,0,4532,Expense,Personal,Mobile Phone,DR
+2024-11-07,Endota Spa ,161,0,4371,Expense,Personal,Fitness & Wellbeing,DR
+2024-11-07,Chiropractor ,31,0,4340,Expense,Personal,Health & Medical,DR
+2024-11-08,Service NSW ,229,0,4111,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-08,Surfstitch ,253,0,3858,Expense,Personal,Clothing & Accessories,DR
+2024-11-08,CommSec Share Trading Gains ,377,0,3481,Income,Income,Investments,DR
+2024-11-09,Sydney Water ,100,0,3381,Expense,Household,Utilities,DR
+2024-11-10, Brisbane City Council ,193,0,3188,Expense,Household,Rates & Insurance,DR
+2024-11-10,Ultra Tune ,18,0,3170,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-11,Apple Store ,277,0,2893,Expense,Leisure & Lifestyle,Electronics,DR
+2024-11-11,Event Cinemas ,86,0,2807,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-11-12,VicRoads ,77,0,2730,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-13,Autobarn ,158,0,2572,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-13,SEQTA ,167,0,2405,Expense,Personal,Education,DR
+2024-11-13,Centrelink JobSeeker Payment ,126,0,2279,Income,Income,Other Income,DR
+2024-11-13,ABC Reading Eggs ,219,0,2060,Expense,Personal,Education,DR
+2024-11-13,Rental Deposit from RealEstate.com.au ,190,0,1870,Income,Income,Other Income,DR
+2024-11-15,Health Food Store ,65,0,1805,Expense,Personal,Fitness & Wellbeing,DR
+2024-11-15,Foxtel ,5,0,1800,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-11-15,Rooftop Bar ,44,0,1756,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-11-15,Café Nero ,54,0,1702,Expense,Leisure & Lifestyle,Restaurants & Cafes,DR
+2024-11-16,Who Gives A Crap ,58,0,1644,Expense,Household,Groceries,DR
+2024-11-16,Shell V Power,139,0,1505,Expense,Transport,Fuel,DR
+2024-11-18,G8 Education ,15,0,1490,Expense,Personal,Children & Family,DR
+2024-11-18,Little Athletics ,105,0,1385,Expense,Personal,Fitness & Wellbeing,DR
+2024-11-18,Coles ,52,0,1333,Expense,Household,Groceries,DR
+2024-11-18,Rooftop Bar ,14,0,1319,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2024-11-19,Foxtel ,12,0,1307,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-11-20,Culture Kings ,5,0,1302,Expense,Personal,Clothing & Accessories,DR
+2024-11-21,Zone Bowling ,63,0,1239,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-11-22,EnergyAustralia ,46,0,1193,Expense,Household,Utilities,DR
+2024-11-22,Rebel Sport ,22,0,1171,Expense,Personal,Fitness & Wellbeing,DR
+2024-11-22,Event Cinemas ,15,0,1156,Expense,Leisure & Lifestyle,Entertainment,DR
+2024-11-23,The Good Guys ,25,0,1131,Expense,Household,"Furniture, Electronics & Homewares",DR
+2024-11-23,Pathology Lab ,25,0,1106,Expense,Personal,Health & Medical,DR
+2024-11-23,Dymocks ,103,0,1003,Expense,Leisure & Lifestyle,Hobbies,DR
+2024-11-24,The Body Shop ,9,0,994,Expense,Personal,Hair & Beauty,DR
+2024-11-25,ATO Tax Refund ,68,0,926,Income,Income,Other Income,DR
+2024-11-26,Sydney Water ,78,0,848,Expense,Household,Utilities,DR
+2024-11-27,Dan Murphy’s ,62,0,786,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-11-27,David Jones ,78,0,708,Expense,Personal,Clothing & Accessories,DR
+2024-11-27,CommSec Share Trading Gains ,33,0,675,Income,Income,Investments,DR
+2024-11-27,Greencross Vets ,6,0,669,Expense,Household,Pets,DR
+2024-11-27,MyCar Tyre & Auto ,21,0,648,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-11-28,Fitness First ,14,0,634,Expense,Personal,Fitness & Wellbeing,DR
+2024-11-28,Acupuncture Clinic ,33,0,601,Expense,Personal,Health & Medical,DR
+2024-11-28,Optus ,12,0,589,Expense,Personal,Mobile Phone,DR
+2024-11-28,Snap Fitness ,23,0,566,Expense,Personal,Fitness & Wellbeing,DR
+2024-12-01,Monthly Income,0,6000,6566,Income,Income,Wages,CR
+2024-12-03,Lorna Jane ,199,0,6367,Expense,Personal,Clothing & Accessories,DR
+2024-12-05,Bunnings Warehouse ,144,0,6223,Expense,Household,Maintenance & Improvements,DR
+2024-12-05,Campion Education ,473,0,5750,Expense,Personal,Children & Family,DR
+2024-12-05,Bulk Billing Doctor ,262,0,5488,Expense,Personal,Health & Medical,DR
+2024-12-06,Anytime Fitness ,308,0,5180,Expense,Personal,Fitness & Wellbeing,DR
+2024-12-07, Brisbane City Council ,252,0,4928,Expense,Household,Rates & Insurance,DR
+2024-12-11,Sunburn Swimwear ,386,0,4542,Expense,Personal,Clothing & Accessories,DR
+2024-12-12,VicRoads ,86,0,4456,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2024-12-13,Binge ,85,0,4371,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-12-14,Health Food Store ,288,0,4083,Expense,Personal,Fitness & Wellbeing,DR
+2024-12-14,QBE Insurance Claim Payout ,393,0,3690,Income,Income,Other Income,DR
+2024-12-15,Vodafone Prepaid ,312,0,3378,Expense,Personal,Mobile Phone,DR
+2024-12-15,Pizza Hut ,204,0,3174,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-12-16,Stan ,306,0,2868,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-12-19,Salary Deposit from Woolworths Group ,55,0,2813,Income,Income,Wages,DR
+2024-12-24,McDonald’s ,173,0,2640,Expense,Leisure & Lifestyle,Takeaway,DR
+2024-12-24,Dan Murphy’s ,120,0,2520,Expense,Leisure & Lifestyle,Alcohol,DR
+2024-12-26,Stan ,127,0,2393,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2024-12-26,Woolworths ,18,0,2375,Expense,Household,Groceries,DR
+2024-12-27,Kumon ,223,0,2152,Expense,Personal,Education,DR
+2025-01-01,Monthly Income,0,6000,8152,Income,Income,Wages,CR
+2025-01-02,Gold's Gym ,396,0,7756,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-02,Snap Fitness ,661,0,7095,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-03,Catholic Education Office ,118,0,6977,Expense,Personal,Education,DR
+2025-01-03, Brisbane City Council ,100,0,6877,Expense,Household,Rates & Insurance,DR
+2025-01-03,McDonald’s ,675,0,6202,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-01-03,Costco ,497,0,5705,Expense,Household,Groceries,DR
+2025-01-03,Ultra Tune ,297,0,5408,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-03,Microsoft 365 ,528,0,4880,Expense,Personal,Education,DR
+2025-01-05,Mathnasium ,190,0,4690,Expense,Personal,Education,DR
+2025-01-05,Grill'd ,396,0,4294,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-01-06,School Locker ,155,0,4139,Expense,Personal,Children & Family,DR
+2025-01-06,Kmart ,347,0,3792,Expense,Personal,Children & Family,DR
+2025-01-06,Green Slip Insurance ,61,0,3731,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-06,Zone Bowling ,150,0,3581,Expense,Leisure & Lifestyle,Entertainment,DR
+2025-01-06,School Locker ,329,0,3252,Expense,Personal,Children & Family,DR
+2025-01-06,Fernwood Fitness ,14,0,3238,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-07, NRMA Insurance ,301,0,2937,Expense,Household,Rates & Insurance,DR
+2025-01-07,Scouts Australia ,274,0,2663,Expense,Leisure & Lifestyle,Hobbies,DR
+2025-01-08,NRMA Roadside Assistance ,238,0,2425,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-08,Beacon Lighting ,236,0,2189,Expense,Household,Maintenance & Improvements,DR
+2025-01-09, Brisbane City Council ,209,0,1980,Expense,Household,Rates & Insurance,DR
+2025-01-10,Sylvan Learning ,49,0,1931,Expense,Personal,Education,DR
+2025-01-10,VicRoads ,124,0,1807,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-10,Pizza Hut ,120,0,1687,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-01-10,Beachfront Markets ,118,0,1569,Expense,Personal,Clothing & Accessories,DR
+2025-01-13,Domino’s Pizza ,75,0,1494,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-01-13,Fitness First ,133,0,1361,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-13,School Locker ,125,0,1236,Expense,Personal,Children & Family,DR
+2025-01-13,King Swim ,98,0,1138,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-13,Target ,107,0,1031,Expense,Personal,Clothing & Accessories,DR
+2025-01-13,Myer ,83,0,948,Expense,Personal,Clothing & Accessories,DR
+2025-01-14,Dental Clinic ,14,0,934,Expense,Personal,Health & Medical,DR
+2025-01-15,Bridgestone Select ,66,0,868,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-15,Vodafone Prepaid ,77,0,791,Expense,Personal,Mobile Phone,DR
+2025-01-16,Uber ,75,0,716,Expense,Transport,Taxies & Share Cars,DR
+2025-01-16,Hobart Brewing Company ,63,0,653,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2025-01-17,BP ,65,0,588,Expense,Transport,Fuel,DR
+2025-01-18,Woolworths ,12,0,576,Expense,Household,Groceries,DR
+2025-01-18,Rooftop Bar ,6,0,570,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2025-01-18,Soccer Clubs ,52,0,518,Expense,Personal,Fitness & Wellbeing,DR
+2025-01-18,Target ,45,0,473,Expense,Personal,Clothing & Accessories,DR
+2025-01-19,Ice Cream Parlour ,19,0,454,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-01-19,AGL Energy ,15,0,439,Expense,Household,Utilities,DR
+2025-01-19,EB Games ,41,0,398,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2025-01-19,Apple Store ,21,0,377,Expense,Leisure & Lifestyle,Electronics,DR
+2025-01-19,Audible ,37,0,340,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2025-01-20,Surfstitch ,10,0,330,Expense,Personal,Clothing & Accessories,DR
+2025-01-20,Repco ,14,0,316,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-01-20,PayPal Transfer from Sale ,25,0,291,Income,Income,Other Income,DR
+2025-01-20,Surfstitch ,7,0,284,Expense,Personal,Clothing & Accessories,DR
+2025-01-22,Billabong ,11,0,273,Expense,Personal,Clothing & Accessories,DR
+2025-01-23, Metricon ,7,0,266,Expense,Household,Maintenance & Improvements,DR
+2025-01-23, Ray White Real Estate ,7,0,259,Expense,Personal,Life Admin,DR
+2025-01-25,Cookie ,13,0,246,Expense,Leisure & Lifestyle,Pubs & Bars,DR
+2025-01-25,Microsoft 365 ,8,0,238,Expense,Personal,Education,DR
+2025-01-27,Tabcorp ,14,0,224,Expense,Leisure & Lifestyle,Lottery & Gambling,DR
+2025-01-28,Gold's Gym ,16,0,208,Expense,Personal,Fitness & Wellbeing,DR
+2025-02-01,Monthly Income,0,6000,6208,Income,Income,Wages,CR
+2025-02-02,Microsoft 365 ,20,0,6188,Expense,Personal,Education,DR
+2025-02-03,EB Games ,309,0,5879,Expense,Leisure & Lifestyle,"Apps, Games & Software",DR
+2025-02-04,The Athlete's Foot ,269,0,5610,Expense,Personal,Clothing & Accessories,DR
+2025-02-04,Audible ,79,0,5531,Expense,Leisure & Lifestyle,"Tv, Music & Streaming",DR
+2025-02-04,Mathnasium ,502,0,5029,Expense,Personal,Education,DR
+2025-02-06,Event Cinemas ,431,0,4598,Expense,Leisure & Lifestyle,Entertainment,DR
+2025-02-08,QBE Insurance Claim Payout ,456,0,4142,Income,Income,Other Income,DR
+2025-02-08,JAX Tyres ,57,0,4085,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-02-10,NRMA Roadside Assistance ,155,0,3930,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-02-12,Flight Centre ,228,0,3702,Expense,Leisure & Lifestyle,Holidays & Travel,DR
+2025-02-14,T2 Tea ,203,0,3499,Expense,Personal,Fitness & Wellbeing,DR
+2025-02-15, Rentokil ,161,0,3338,Expense,Household,Maintenance & Improvements,DR
+2025-02-18,Shell V Power,246,0,3092,Expense,Transport,Fuel,DR
+2025-02-22,Menulog ,150,0,2942,Expense,Leisure & Lifestyle,Takeaway,DR
+2025-02-23, Jim’s Building Inspections ,254,0,2688,Expense,Household,Maintenance & Improvements,DR
+2025-02-24,Rental Deposit from RealEstate.com.au ,259,0,2429,Income,Income,Other Income,DR
+2025-02-27,Billabong ,86,0,2343,Expense,Personal,Clothing & Accessories,DR
+2025-02-27,G8 Education ,34,0,2309,Expense,Personal,Children & Family,DR
+2025-02-28,NRMA Roadside Assistance ,149,0,2160,Expense,Transport,"Car Insurance, Rego & Maintenance",DR
+2025-02-28,G8 Education ,199,0,1961,Expense,Personal,Children & Family,DR

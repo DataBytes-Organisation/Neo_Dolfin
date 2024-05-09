@@ -257,20 +257,25 @@ def get_response(intents_list, intents_json, message):
 
                     #     result = "Here's the data you requested."
                     if len(month_list) == 1 and len(year_list) == 1:
+                        #
+                        month = month_list[0]
+                        year = year_list[0]
+                        #
                         amount, final_balance = get_total_amount_for_month_year(
                             conn, 'debit' if tag == "check_spending" else 'credit', month_list[0], year_list[0])
                         if amount:
-                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {month_list[0]} {year_list[0]} was ${amount} and your balance at the end of the month was ${final_balance}."
+                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {get_month_name(month)} {year_list[0]} was ${amount} and your balance at the end of the month was ${final_balance}."
                         else:
                             result = f"Data not found for {get_month_name(month)} {year}."
 
                     elif len(month_list) == 1 and len(year_list) == 0:
+                        month = month_list[0]
                         year = 2023 ### TEMPORARY value because there is an issue with dataset. replace with:
                         #year = get_current_year(conn)
                         amount, final_balance = get_total_amount_for_month_year(
                             conn, 'debit' if tag == "check_spending" else 'credit', month_list[0], year)
                         if amount:
-                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {month_list[0]} {year} was ${amount} and your balance at the end of the month was ${final_balance}."
+                            result = f"Your {'spending' if tag == 'check_spending' else 'income'} for {get_month_name(month)} {year} was ${amount} and your balance at the end of the month was ${final_balance}."
                         else:
                             result = f"Data not found for {get_month_name(month)} {year}."
 

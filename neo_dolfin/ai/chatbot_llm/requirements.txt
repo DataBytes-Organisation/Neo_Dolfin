@@ -1,0 +1,13 @@
+langchain
+langchain_community
+ctransformers
+sentence-transformers
+faiss-cpu
+transformers
+pandas
+torch
+accelerate
+bitsandbytes
+transformers
+sentence_transformers
+tensorflow
