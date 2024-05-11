@@ -37,6 +37,7 @@ decorator==5.1.1
 dnspython==2.4.2
 email-validator==2.0.0.post2
 executing==1.2.0
+Faker==25.1.0
 Flask==2.3.2
 Flask-SQLAlchemy==3.1.1
 Flask-WTF==1.1.1

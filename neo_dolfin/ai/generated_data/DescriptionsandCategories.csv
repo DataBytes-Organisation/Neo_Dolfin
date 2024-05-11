@@ -1,0 +1,228 @@
+﻿Merchant Name,Description,Category 1,Category 2,Category 3,Consolidated
+Woolworths , A popular supermarket chain for groceries.,Expense,Household,Groceries,Woolworths /Expense/Household/Groceries
+Coles , Another major supermarket chain.,Expense,Household,Groceries,Coles /Expense/Household/Groceries
+ALDI , Discount supermarket for budget shopping.,Expense,Household,Groceries,ALDI /Expense/Household/Groceries
+BP , Common petrol station.,Expense,Transport,Fuel,BP /Expense/Transport/Fuel
+Caltex , Another widespread petrol station.,Expense,Transport,Fuel,Caltex /Expense/Transport/Fuel
+Telstra , Major telecommunications provider for phone and internet services.,Expense,Personal,Mobile Phone,Telstra /Expense/Personal/Mobile Phone
+Optus , Another key telecommunications provider.,Expense,Personal,Mobile Phone,Optus /Expense/Personal/Mobile Phone
+McDonald’s , Fast food restaurant chain.,Expense,Leisure & Lifestyle,Takeaway,McDonald’s /Expense/Leisure & Lifestyle/Takeaway
+Kmart , Department store for household goods and clothing.,Expense,Personal,Children & Family,Kmart /Expense/Personal/Children & Family
+Bunnings Warehouse , Hardware and home improvement store.,Expense,Household,Maintenance & Improvements,Bunnings Warehouse /Expense/Household/Maintenance & Improvements
+Myer , Department store with a wide range of products.,Expense,Personal,Clothing & Accessories,Myer /Expense/Personal/Clothing & Accessories
+JB HiFi, Retailer for electronics and home appliances.,Expense,Leisure & Lifestyle,Electronics,JB HiFi/Expense/Leisure & Lifestyle/Electronics
+Domino’s Pizza , Popular pizza delivery service.,Expense,Leisure & Lifestyle,Takeaway,Domino’s Pizza /Expense/Leisure & Lifestyle/Takeaway
+Uber , Rideshare and food delivery services.,Expense,Transport,Taxies & Share Cars,Uber /Expense/Transport/Taxies & Share Cars
+Zarraffa's Coffee , Popular coffee shop chain.,Expense,Leisure & Lifestyle,Restaurants & Cafes,Zarraffa's Coffee /Expense/Leisure & Lifestyle/Restaurants & Cafes
+Chemist Warehouse , Pharmacy and beauty store.,Expense,Personal,Health & Medical,Chemist Warehouse /Expense/Personal/Health & Medical
+Officeworks , Office supplies and technology retailer.,Expense,Personal,Life Admin,Officeworks /Expense/Personal/Life Admin
+Target ," Department store for clothing, home goods, and electronics.",Expense,Personal,Clothing & Accessories,Target /Expense/Personal/Clothing & Accessories
+Hungry Jack’s , Fast food burger chain.,Expense,Leisure & Lifestyle,Takeaway,Hungry Jack’s /Expense/Leisure & Lifestyle/Takeaway
+Rebel Sport , Retailer for sports equipment and apparel.,Expense,Personal,Fitness & Wellbeing,Rebel Sport /Expense/Personal/Fitness & Wellbeing
+Spotlight ," Store for fabrics, crafts, and home interiors.",Expense,Leisure & Lifestyle,Hobbies,Spotlight /Expense/Leisure & Lifestyle/Hobbies
+The Coffee Club , Cafe chain for coffee and light meals.,Expense,Leisure & Lifestyle,Restaurants & Cafes,The Coffee Club /Expense/Leisure & Lifestyle/Restaurants & Cafes
+Dymocks , Bookstore chain.,Expense,Leisure & Lifestyle,Hobbies,Dymocks /Expense/Leisure & Lifestyle/Hobbies
+Harris Farm Markets , Fresh food market for groceries.,Expense,Household,Groceries,Harris Farm Markets /Expense/Household/Groceries
+Guzman y Gomez , Fast casual chain offering Mexican food.,Expense,Leisure & Lifestyle,Takeaway,Guzman y Gomez /Expense/Leisure & Lifestyle/Takeaway
+Boost Juice Bars , Chain offering smoothies and juices.,Expense,Leisure & Lifestyle,Takeaway,Boost Juice Bars /Expense/Leisure & Lifestyle/Takeaway
+City Beach ," Retailer for surf, skate, and street clothing.",Expense,Personal,Clothing & Accessories,City Beach /Expense/Personal/Clothing & Accessories
+Dan Murphy’s , Liquor store chain.,Expense,Leisure & Lifestyle,Alcohol,Dan Murphy’s /Expense/Leisure & Lifestyle/Alcohol
+Menulog , Online food delivery service.,Expense,Leisure & Lifestyle,Takeaway,Menulog /Expense/Leisure & Lifestyle/Takeaway
+AGL Energy , Major provider of electricity and gas.,Expense,Household,Utilities,AGL Energy /Expense/Household/Utilities
+Origin Energy , Utility provider for electricity and natural gas.,Expense,Household,Utilities,Origin Energy /Expense/Household/Utilities
+EnergyAustralia ," Supplies electricity, natural gas, and solar power.",Expense,Household,Utilities,EnergyAustralia /Expense/Household/Utilities
+Sydney Water , Water supply company.,Expense,Household,Utilities,Sydney Water /Expense/Household/Utilities
+South East Water , Water and wastewater services provider.,Expense,Household,Utilities,South East Water /Expense/Household/Utilities
+Queensland Urban Utilities , Water supply and treatment services.,Expense,Household,Utilities,Queensland Urban Utilities /Expense/Household/Utilities
+Greencross Vets , Network of veterinary clinics.,Expense,Household,Pets,Greencross Vets /Expense/Household/Pets
+Petbarn , Pet supplies store that often includes veterinary services.,Expense,Household,Pets,Petbarn /Expense/Household/Pets
+VetLove , Chain of veterinary clinics.,Expense,Household,Pets,VetLove /Expense/Household/Pets
+Australian Veterinary Association , Common for membership fees and services.,Expense,Household,Pets,Australian Veterinary Association /Expense/Household/Pets
+OfficeMax ," Supplies for school, office, and stationery.",Expense,Personal,Life Admin,OfficeMax /Expense/Personal/Life Admin
+School Locker ," Retailer for school uniforms, textbooks, and supplies.",Expense,Personal,Children & Family,School Locker /Expense/Personal/Children & Family
+Campion Education , Provider of educational resources and school supplies.,Expense,Personal,Children & Family,Campion Education /Expense/Personal/Children & Family
+SEQTA , Software service for managing school learning and administration.,Expense,Personal,Education,SEQTA /Expense/Personal/Education
+TerryWhite Chemmart , Often used for purchasing school health supplies.,Expense,Personal,Health & Medical,TerryWhite Chemmart /Expense/Personal/Health & Medical
+Goodstart Early Learning , One of Australia's largest early learning providers.,Expense,Personal,Children & Family,Goodstart Early Learning /Expense/Personal/Children & Family
+F45 Training , Popular fitness gym specializing in functional training.,Expense,Personal,Fitness & Wellbeing,F45 Training /Expense/Personal/Fitness & Wellbeing
+Anytime Fitness ,24 hour health and fitness club.,Expense,Personal,Fitness & Wellbeing,Anytime Fitness /Expense/Personal/Fitness & Wellbeing
+Fernwood Fitness , Gym and fitness center primarily for women.,Expense,Personal,Fitness & Wellbeing,Fernwood Fitness /Expense/Personal/Fitness & Wellbeing
+KU Children's Services , Provider of early childhood education and care.,Expense,Personal,Children & Family,KU Children's Services /Expense/Personal/Children & Family
+G8 Education , One of the largest providers of childcare services.,Expense,Personal,Children & Family,G8 Education /Expense/Personal/Children & Family
+Snap Fitness , 24/7 gym offering cardio and strength training equipment.,Expense,Personal,Fitness & Wellbeing,Snap Fitness /Expense/Personal/Fitness & Wellbeing
+Jetts Fitness , Gym known for no lock in contracts and 24/7 access,Expense,Personal,Fitness & Wellbeing,Jetts Fitness /Expense/Personal/Fitness & Wellbeing
+YMCA ," Provides fitness, recreation, and community programs.",Expense,Personal,Fitness & Wellbeing,YMCA /Expense/Personal/Fitness & Wellbeing
+Childcare Payments , Generic descriptor for various childcare service payments.,Expense,Personal,Children & Family,Childcare Payments /Expense/Personal/Children & Family
+Guardian Childcare & Education , High qualirt early learning services,Expense,Personal,Children & Family,Guardian Childcare & Education /Expense/Personal/Children & Family
+King Swim , Swimming lessons for children and adults.,Expense,Personal,Fitness & Wellbeing,King Swim /Expense/Personal/Fitness & Wellbeing
+Fitness First , Health club offering a range of fitness services.,Expense,Personal,Fitness & Wellbeing,Fitness First /Expense/Personal/Fitness & Wellbeing
+Coles Express , Convenience store and fuel station.,Expense,Transport,Fuel,Coles Express /Expense/Transport/Fuel
+Muffin Break , Bakery café known for coffee and freshly baked goods,Expense,Leisure & Lifestyle,Restaurants & Cafes,Muffin Break /Expense/Leisure & Lifestyle/Restaurants & Cafes
+Specsavers , Retail chain offering optical and audiology services.,Expense,Personal,Health & Medical,Specsavers /Expense/Personal/Health & Medical
+National Hearing Care , Provider of hearing tests and hearing aids.,Expense,Personal,Health & Medical,National Hearing Care /Expense/Personal/Health & Medical
+Village Cinemas , Popular cinema chain for movies and entertainment.,Expense,Leisure & Lifestyle,Entertainment,Village Cinemas /Expense/Leisure & Lifestyle/Entertainment
+BWS ," Beer, Wine, Spirits; liquor retailer.",Expense,Leisure & Lifestyle,Alcohol,BWS /Expense/Leisure & Lifestyle/Alcohol
+Liquorland , Chain of liquor stores.,Expense,Leisure & Lifestyle,Alcohol,Liquorland /Expense/Leisure & Lifestyle/Alcohol
+Harvey Norman ," Large retailer of electronics, furniture, and bedding.",Expense,Household,"Furniture, Electronics & Homewares","Harvey Norman /Expense/Household/Furniture, Electronics & Homewares"
+Beacon Lighting , Specialized store for lighting fixtures and accessories.,Expense,Household,Maintenance & Improvements,Beacon Lighting /Expense/Household/Maintenance & Improvements
+Freedom Furniture , Retailer offering furniture and home accessories.,Expense,Household,Maintenance & Improvements,Freedom Furniture /Expense/Household/Maintenance & Improvements
+IKEA ,Well known global retailer of affordable furniture and home goods.,Expense,Household,Maintenance & Improvements,IKEA /Expense/Household/Maintenance & Improvements
+David Jones ,High end department store offering a variety of products.,Expense,Personal,Clothing & Accessories,David Jones /Expense/Personal/Clothing & Accessories
+Flight Centre , Travel agency for booking flights and holidays.,Expense,Leisure & Lifestyle,Holidays & Travel,Flight Centre /Expense/Leisure & Lifestyle/Holidays & Travel
+EB Games , Video game and electronics retail store.,Expense,Leisure & Lifestyle,"Apps, Games & Software","EB Games /Expense/Leisure & Lifestyle/Apps, Games & Software"
+The Iconic , Online fashion and sports retailer.,Expense,Personal,Clothing & Accessories,The Iconic /Expense/Personal/Clothing & Accessories
+Platypus Shoes , Retailer for trendy sneakers and streetwear.,Expense,Personal,Clothing & Accessories,Platypus Shoes /Expense/Personal/Clothing & Accessories
+Barbeques Galore , Specialist retailer for barbeques and outdoor cooking.,Expense,Household,"Furniture, Electronics & Homewares","Barbeques Galore /Expense/Household/Furniture, Electronics & Homewares"
+Surfstitch , Online retailer for surf and skate clothing and gear.,Expense,Personal,Clothing & Accessories,Surfstitch /Expense/Personal/Clothing & Accessories
+Timezone , Entertainment and video arcade chain.,Expense,Leisure & Lifestyle,Entertainment,Timezone /Expense/Leisure & Lifestyle/Entertainment
+BrewDog , Craft beer bar and brewery.,Expense,Leisure & Lifestyle,Alcohol,BrewDog /Expense/Leisure & Lifestyle/Alcohol
+Grill’d ,fHealth ocused burger restaurant.,Expense,Leisure & Lifestyle,Takeaway,Grill’d /Expense/Leisure & Lifestyle/Takeaway
+Palace Cinemas , Cinema chain known for screening blockbuster and indie films.,Expense,Leisure & Lifestyle,Entertainment,Palace Cinemas /Expense/Leisure & Lifestyle/Entertainment
+Culture Kings , Retailer known for streetwear and exclusive sneakers.,Expense,Personal,Clothing & Accessories,Culture Kings /Expense/Personal/Clothing & Accessories
+Endota Spa ," Wellness spa offering massages, facials, and beauty treatments.",Expense,Personal,Fitness & Wellbeing,Endota Spa /Expense/Personal/Fitness & Wellbeing
+T2 Tea , Specialty tea retailer with a wide variety of blends and tea accessories.,Expense,Personal,Fitness & Wellbeing,T2 Tea /Expense/Personal/Fitness & Wellbeing
+Lorna Jane , Retailer of women's activewear and fitness clothing.,Expense,Personal,Clothing & Accessories,Lorna Jane /Expense/Personal/Clothing & Accessories
+Gardening Australia , Often visited for gardening supplies and plants (note: also a popular TV show).,Expense,Household,Maintenance & Improvements,Gardening Australia /Expense/Household/Maintenance & Improvements
+Booktopia , Online bookstore with a vast selection of titles.,Expense,Leisure & Lifestyle,Hobbies,Booktopia /Expense/Leisure & Lifestyle/Hobbies
+Witchery , Fashion label known for stylish women's apparel and accessories.,Expense,Personal,Clothing & Accessories,Witchery /Expense/Personal/Clothing & Accessories
+Country Road ," Offers chic, casual apparel and homewares.",Expense,Personal,Clothing & Accessories,Country Road /Expense/Personal/Clothing & Accessories
+Le Creuset ,"Retailer of High quality cookware, famous for its cast iron pots.",Expense,Household,"Furniture, Electronics & Homewares","Le Creuset /Expense/Household/Furniture, Electronics & Homewares"
+Adairs ," Retailer specializing in bedding, homewares, and decor.",Expense,Household,"Furniture, Electronics & Homewares","Adairs /Expense/Household/Furniture, Electronics & Homewares"
+The Body Shop , Ethical beauty store offering skincare and beauty products.,Expense,Personal,Hair & Beauty,The Body Shop /Expense/Personal/Hair & Beauty
+The Athlete's Foot ," Shoe store specializing in proper fitting, good for growing kids.",Expense,Personal,Clothing & Accessories,The Athlete's Foot /Expense/Personal/Clothing & Accessories
+Zone Bowling , Family entertainment with bowling and arcade games.,Expense,Leisure & Lifestyle,Entertainment,Zone Bowling /Expense/Leisure & Lifestyle/Entertainment
+Catholic Education Office , Often associated with fees for Catholic school education.,Expense,Personal,Education,Catholic Education Office /Expense/Personal/Education
+Kumon , Tutoring service for math and reading enrichment.,Expense,Personal,Education,Kumon /Expense/Personal/Education
+Mathnasium , Specialized math tutoring center.,Expense,Personal,Education,Mathnasium /Expense/Personal/Education
+Sylvan Learning , General tutoring across various subjects.,Expense,Personal,Education,Sylvan Learning /Expense/Personal/Education
+Tennis Australia , Fees for tennis lessons and club memberships for children.,Expense,Personal,Fitness & Wellbeing,Tennis Australia /Expense/Personal/Fitness & Wellbeing
+Little Athletics , Sports organization for children's track and field activities.,Expense,Personal,Fitness & Wellbeing,Little Athletics /Expense/Personal/Fitness & Wellbeing
+Music Academy ," Fees for music lessons, such as piano or violin.",Expense,Leisure & Lifestyle,Hobbies,Music Academy /Expense/Leisure & Lifestyle/Hobbies
+Swim Australia , Swimming lessons and aquatic education.,Expense,Personal,Fitness & Wellbeing,Swim Australia /Expense/Personal/Fitness & Wellbeing
+Karate for Kids , Martial arts classes tailored for children.,Expense,Personal,Fitness & Wellbeing,Karate for Kids /Expense/Personal/Fitness & Wellbeing
+Ballet Schools , Tuition for ballet and dance classes.,Expense,Personal,Fitness & Wellbeing,Ballet Schools /Expense/Personal/Fitness & Wellbeing
+Soccer Clubs , Registration fees for local youth soccer leagues.,Expense,Personal,Fitness & Wellbeing,Soccer Clubs /Expense/Personal/Fitness & Wellbeing
+Scouts Australia , Membership fees for scouting activities.,Expense,Leisure & Lifestyle,Hobbies,Scouts Australia /Expense/Leisure & Lifestyle/Hobbies
+Camp Australia , Provider of school holiday camps and programs.,Expense,Leisure & Lifestyle,Hobbies,Camp Australia /Expense/Leisure & Lifestyle/Hobbies
+Montessori Schools , Fees for Montessori educational programs.,Expense,Personal,Education,Montessori Schools /Expense/Personal/Education
+ABC Reading Eggs , Subscription based learning platform focusing on reading skills.,Expense,Personal,Education,ABC Reading Eggs /Expense/Personal/Education
+The Good Guys , Household appliances and electronics.,Expense,Household,"Furniture, Electronics & Homewares","The Good Guys /Expense/Household/Furniture, Electronics & Homewares"
+Costco , Bulk shopping for groceries and home essentials.,Expense,Household,Groceries,Costco /Expense/Household/Groceries
+Café Nero , Casual dining and coffee breaks.,Expense,Leisure & Lifestyle,Restaurants & Cafes,Café Nero /Expense/Leisure & Lifestyle/Restaurants & Cafes
+Event Cinemas , Movie outings with the kids.,Expense,Leisure & Lifestyle,Entertainment,Event Cinemas /Expense/Leisure & Lifestyle/Entertainment
+Taronga Zoo , Family visits for fun and educational experiences.,Expense,Leisure & Lifestyle,Entertainment,Taronga Zoo /Expense/Leisure & Lifestyle/Entertainment
+Pizza Hut , Family dinners or treat nights with the kids.,Expense,Leisure & Lifestyle,Takeaway,Pizza Hut /Expense/Leisure & Lifestyle/Takeaway
+AMF Bowling , Entertainment and bonding activities with the kids.,Expense,Leisure & Lifestyle,Entertainment,AMF Bowling /Expense/Leisure & Lifestyle/Entertainment
+Decathlon , Sports equipment and outdoor gear for family activities.,Expense,Personal,Fitness & Wellbeing,Decathlon /Expense/Personal/Fitness & Wellbeing
+Apple Store , Tech gadgets for home and educational use.,Expense,Leisure & Lifestyle,Electronics,Apple Store /Expense/Leisure & Lifestyle/Electronics
+Grill'd , Healthy dining options for family meals out.,Expense,Leisure & Lifestyle,Takeaway,Grill'd /Expense/Leisure & Lifestyle/Takeaway
+Gold's Gym , Fitness center for staying in shape.,Expense,Personal,Fitness & Wellbeing,Gold's Gym /Expense/Personal/Fitness & Wellbeing
+Big W ,Budget friendly shopping for a wide range of family necessities.,Expense,Personal,Children & Family,Big W /Expense/Personal/Children & Family
+Toys 'R' Us , Toys and games to keep the kids entertained.,Expense,Personal,CHildren & Family,Toys 'R' Us /Expense/Personal/CHildren & Family
+Sea Life Aquarium , Educational and fun family outings.,Expense,Leisure & Lifestyle,Entertainment,Sea Life Aquarium /Expense/Leisure & Lifestyle/Entertainment
+Surf Dive 'n Ski ," Store for surfboards, swimwear, and beach gear.",Expense,Personal,Clothing & Accessories,Surf Dive 'n Ski /Expense/Personal/Clothing & Accessories
+Billabong , Popular for beach apparel and accessories.,Expense,Personal,Clothing & Accessories,Billabong /Expense/Personal/Clothing & Accessories
+Beach Café , Local cafes along the beachfront for meals and refreshments.,Expense,Leisure & Lifestyle,Restaurants & Cafes,Beach Café /Expense/Leisure & Lifestyle/Restaurants & Cafes
+Ice Cream Parlour , For cold treats on hot days.,Expense,Leisure & Lifestyle,Takeaway,Ice Cream Parlour /Expense/Leisure & Lifestyle/Takeaway
+Rip Curl , Surf and beachwear store.,Expense,Personal,Clothing & Accessories,Rip Curl /Expense/Personal/Clothing & Accessories
+Sunburn Swimwear , Specialist in swimwear and beach accessories.,Expense,Personal,Clothing & Accessories,Sunburn Swimwear /Expense/Personal/Clothing & Accessories
+Local Fish and Chips , Classic beachside dining option.,Expense,Leisure & Lifestyle,Takeaway,Local Fish and Chips /Expense/Leisure & Lifestyle/Takeaway
+Beachfront Markets ," Local markets for crafts, clothing, and souvenirs.",Expense,Personal,Clothing & Accessories,Beachfront Markets /Expense/Personal/Clothing & Accessories
+Aqua Fun Park , Water park near the beach for family fun.,Expense,Leisure & Lifestyle,Holidays & Travel,Aqua Fun Park /Expense/Leisure & Lifestyle/Holidays & Travel
+Stand Up Paddleboard Rental , For water sports activities.,Expense,Personal,Fitness & Wellbeing,Stand Up Paddleboard Rental /Expense/Personal/Fitness & Wellbeing
+Beachside Caravan Park , Accommodation for longer beach stays.,Expense,Leisure & Lifestyle,Holidays & Travel,Beachside Caravan Park /Expense/Leisure & Lifestyle/Holidays & Travel
+Sea Kayak Tours , Guided kayak tours along the coast.,Expense,Leisure & Lifestyle,Holidays & Travel,Sea Kayak Tours /Expense/Leisure & Lifestyle/Holidays & Travel
+Beachside Yoga Classes , Wellness activities on the beach.,Expense,Personal,Fitness & Wellbeing,Beachside Yoga Classes /Expense/Personal/Fitness & Wellbeing
+Priceline Pharmacy , Another popular pharmacy chain.,Expense,Personal,Health & Medical,Priceline Pharmacy /Expense/Personal/Health & Medical
+Bulk Billing Doctor , General practitioner or medical center offering bulk billing.,Expense,Personal,Health & Medical,Bulk Billing Doctor /Expense/Personal/Health & Medical
+Local Hospital , For emergency or specialized medical care.,Expense,Personal,Health & Medical,Local Hospital /Expense/Personal/Health & Medical
+Pathology Lab , For medical tests and diagnostics.,Expense,Personal,Health & Medical,Pathology Lab /Expense/Personal/Health & Medical
+Physiotherapy Clinic , For rehabilitation and physical therapy.,Expense,Personal,Health & Medical,Physiotherapy Clinic /Expense/Personal/Health & Medical
+Health Food Store , For vitamins and supplements.,Expense,Personal,Fitness & Wellbeing,Health Food Store /Expense/Personal/Fitness & Wellbeing
+Optometrist , For eye health and care.,Expense,Personal,Health & Medical,Optometrist /Expense/Personal/Health & Medical
+Dental Clinic , For oral health issues.,Expense,Personal,Health & Medical,Dental Clinic /Expense/Personal/Health & Medical
+Massage Therapy Center , For relaxation and pain relief.,Expense,Personal,Health & Medical,Massage Therapy Center /Expense/Personal/Health & Medical
+Chiropractor , For back and spinal alignment treatments.,Expense,Personal,Health & Medical,Chiropractor /Expense/Personal/Health & Medical
+Acupuncture Clinic , Alternative treatment for various ailments.,Expense,Personal,Health & Medical,Acupuncture Clinic /Expense/Personal/Health & Medical
+Payday Advance , Payday loan provider.,Income,Income,Other Income,Payday Advance /Income/Income/Other Income
+Vodafone Prepaid ," Prepaid mobile services, often used when credit is poor.",Expense,Personal,Mobile Phone,Vodafone Prepaid /Expense/Personal/Mobile Phone
+Ladbrokes ," Betting agency, might indicate gambling expenses.",Expense,Leisure & Lifestyle,Lottery & Gambling,Ladbrokes /Expense/Leisure & Lifestyle/Lottery & Gambling
+Tabcorp , Another prominent betting agency.,Expense,Leisure & Lifestyle,Lottery & Gambling,Tabcorp /Expense/Leisure & Lifestyle/Lottery & Gambling
+ National Bank , NonSufficient Funds fee for bounced checks or failed payments.,Expense,Personal,Fees & Charges, National Bank /Expense/Personal/Fees & Charges
+ Commonwealth Bank , Monthly home loan repayment.,Expense,Household,Rent & Mortgage, Commonwealth Bank /Expense/Household/Rent & Mortgage
+ NRMA Insurance , Annual or monthly home insurance payments.,Expense,Household,Rates & Insurance, NRMA Insurance /Expense/Household/Rates & Insurance
+ Brisbane City Council , Payments for local property taxes.,Expense,Household,Rates & Insurance, Brisbane City Council /Expense/Household/Rates & Insurance
+ Ray White Real Estate , Fees paid to real estate agents during the purchase.,Expense,Personal,Life Admin, Ray White Real Estate /Expense/Personal/Life Admin
+ Jim’s Building Inspections , Fees for home inspection services before purchase.,Expense,Household,Maintenance & Improvements, Jim’s Building Inspections /Expense/Household/Maintenance & Improvements
+ NSW Land Registry Services , Costs associated with transferring land titles.,Expense,Personal,Life Admin, NSW Land Registry Services /Expense/Personal/Life Admin
+ Slater and Gordon Lawyers , Legal fees paid for conveyancing services.,Expense,Personal,Life Admin, Slater and Gordon Lawyers /Expense/Personal/Life Admin
+ BSA Ltd , Payment for a home warranty plan covering repairs.,Expense,Household,Maintenance & Improvements, BSA Ltd /Expense/Household/Maintenance & Improvements
+ EnergyAustralia ," Charges for setting up electricity, gas, or water.",Expense,Household,Utilities, EnergyAustralia /Expense/Household/Utilities
+ Metricon , Payments to contractors for home renovations.,Expense,Household,Maintenance & Improvements, Metricon /Expense/Household/Maintenance & Improvements
+ Fantastic Furniture , Purchases of new furniture for the home.,Expense,Household,"Furniture, Electronics & Homewares"," Fantastic Furniture /Expense/Household/Furniture, Electronics & Homewares"
+ The Good Guys , Costs of new appliances like refrigerators or washers.,Expense,Household,"Furniture, Electronics & Homewares"," The Good Guys /Expense/Household/Furniture, Electronics & Homewares"
+ Jim's Mowing , Payments for yard and landscaping services.,Expense,Household,Maintenance & Improvements, Jim's Mowing /Expense/Household/Maintenance & Improvements
+ Rentokil , Fees for initial or ongoing pest control services.,Expense,Household,Maintenance & Improvements, Rentokil /Expense/Household/Maintenance & Improvements
+ Meriton Apartments , Monthly or annual homeowners association fees.,Expense,Household,Rates & Insurance, Meriton Apartments /Expense/Household/Rates & Insurance
+Netflix , Streaming service for movies and TV shows.,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Netflix /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Stan ," Australian streaming service offering TV shows, movies, and original content.",Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Stan /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Spotify , Music streaming service.,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Spotify /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Apple Music , Subscription for streaming music.,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Apple Music /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Foxtel , Cable TV and streaming service subscription.,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Foxtel /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Disney+ ," Streaming service for Disney, Pixar, Marvel, Star Wars, and National Geographic content.",Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Disney+ /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Audible , Audiobook and podcast subscription service.,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Audible /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Kayo Sports , Sports streaming service offering live and on demand content,Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Kayo Sports /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Amazon Prime ," Includes Prime Video, shopping benefits, and more.",Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Amazon Prime /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Binge ," Streaming service with TV shows, movies, and HBO content.",Expense,Leisure & Lifestyle,"Tv, Music & Streaming","Binge /Expense/Leisure & Lifestyle/Tv, Music & Streaming"
+Adobe Creative Cloud , Subscription to Adobe's suite of creative software.,Expense,Leisure & Lifestyle,Hobbies,Adobe Creative Cloud /Expense/Leisure & Lifestyle/Hobbies
+The Australian , Digital subscription for news and analysis.,Expense,Personal,Education,The Australian /Expense/Personal/Education
+The Sydney Morning Herald , Subscription to digital news and content.,Expense,Personal,Education,The Sydney Morning Herald /Expense/Personal/Education
+Microsoft 365 , Subscription for Microsoft Office tools and cloud storage.,Expense,Personal,Education,Microsoft 365 /Expense/Personal/Education
+Who Gives A Crap , Subscription for ecofriendly toiley paper delivery,Expense,Household,Groceries,Who Gives A Crap /Expense/Household/Groceries
+Caltex Woolworths , Fuel and convenience store purchases.,Expense,Transport,Fuel,Caltex Woolworths /Expense/Transport/Fuel
+Repco , Auto parts and accessories store.,Expense,Transport,"Car Insurance, Rego & Maintenance","Repco /Expense/Transport/Car Insurance, Rego & Maintenance"
+Supercheap Auto , Retailer of automotive parts and accessories.,Expense,Transport,"Car Insurance, Rego & Maintenance","Supercheap Auto /Expense/Transport/Car Insurance, Rego & Maintenance"
+NRMA Roadside Assistance , Subscription for roadside emergency services.,Expense,Transport,"Car Insurance, Rego & Maintenance","NRMA Roadside Assistance /Expense/Transport/Car Insurance, Rego & Maintenance"
+Kmart Tyre & Auto Service , Car maintenance and tire services.,Expense,Transport,"Car Insurance, Rego & Maintenance","Kmart Tyre & Auto Service /Expense/Transport/Car Insurance, Rego & Maintenance"
+JAX Tyres ," Tire, brakes, and suspension services.",Expense,Transport,"Car Insurance, Rego & Maintenance","JAX Tyres /Expense/Transport/Car Insurance, Rego & Maintenance"
+Ultra Tune , Auto service centers for vehicle maintenance.,Expense,Transport,"Car Insurance, Rego & Maintenance","Ultra Tune /Expense/Transport/Car Insurance, Rego & Maintenance"
+Shell V Power, Premium fuel purchases at Shell stations.,Expense,Transport,Fuel,Shell V Power/Expense/Transport/Fuel
+Autobarn , Automotive parts and accessories.,Expense,Transport,"Car Insurance, Rego & Maintenance","Autobarn /Expense/Transport/Car Insurance, Rego & Maintenance"
+Bridgestone Select , Tires and auto care services.,Expense,Transport,"Car Insurance, Rego & Maintenance","Bridgestone Select /Expense/Transport/Car Insurance, Rego & Maintenance"
+Car Wash Cafe , Vehicle cleaning and detailing services.,Expense,Transport,"Car Insurance, Rego & Maintenance","Car Wash Cafe /Expense/Transport/Car Insurance, Rego & Maintenance"
+MyCar Tyre & Auto ," Services for tires, maintenance, and repairs.",Expense,Transport,"Car Insurance, Rego & Maintenance","MyCar Tyre & Auto /Expense/Transport/Car Insurance, Rego & Maintenance"
+Budget Direct Car Insurance , Payments for car insurance.,Expense,Transport,"Car Insurance, Rego & Maintenance","Budget Direct Car Insurance /Expense/Transport/Car Insurance, Rego & Maintenance"
+Green Slip Insurance , Compulsory third party insurance payment.,Expense,Transport,"Car Insurance, Rego & Maintenance","Green Slip Insurance /Expense/Transport/Car Insurance, Rego & Maintenance"
+Service NSW , Payment for vehicle registration in New South Wales.,Expense,Transport,"Car Insurance, Rego & Maintenance","Service NSW /Expense/Transport/Car Insurance, Rego & Maintenance"
+VicRoads , Payment for vehicle registration in Victoria.,Expense,Transport,"Car Insurance, Rego & Maintenance","VicRoads /Expense/Transport/Car Insurance, Rego & Maintenance"
+ATO Tax Refund , Tax refund received from the Australian Taxation Office.,Income,Income,Other Income,ATO Tax Refund /Income/Income/Other Income
+Centrelink JobSeeker Payment , Government unemployment benefits received from Centrelink.,Income,Income,Other Income,Centrelink JobSeeker Payment /Income/Income/Other Income
+Medicare Claim , Healthcare cost rebate received through Medicare.,Expense,Personal,Health & Medical,Medicare Claim /Expense/Personal/Health & Medical
+Salary Deposit from Woolworths Group ," Regular salary payment from Woolworths, a major employer.",Income,Income,Wages,Salary Deposit from Woolworths Group /Income/Income/Wages
+AustralianSuper Pension , Pension payments received from AustralianSuper fund.,Income,Income,Other Income,AustralianSuper Pension /Income/Income/Other Income
+Rental Deposit from RealEstate.com.au , Income recorded for property rentals managed through RealEstate.com.au.,Income,Income,Other Income,Rental Deposit from RealEstate.com.au /Income/Income/Other Income
+eBay Sales Proceeds , Revenue received from selling items on eBay.,Income,Income,Other Income,eBay Sales Proceeds /Income/Income/Other Income
+Airbnb Host Income , Payments received for hosting guests through Airbnb.,Income,Income,Other Income,Airbnb Host Income /Income/Income/Other Income
+Upwork Freelancer Payment , Payments received for freelance services provided via Upwork.,Income,Income,Other Income,Upwork Freelancer Payment /Income/Income/Other Income
+PayPal Transfer from Sale , Money received through PayPal from online sales.,Income,Income,Other Income,PayPal Transfer from Sale /Income/Income/Other Income
+Westpac Dividend Deposit , Dividends received from investments in Westpac shares.,Income,Income,Investments,Westpac Dividend Deposit /Income/Income/Investments
+Interest Payment from Commonwealth Bank , Interest earned on savings accounts at Commonwealth Bank.,Income,Income,Investments,Interest Payment from Commonwealth Bank /Income/Income/Investments
+CommSec Share Trading Gains , Profits deposited from trading shares through CommSec.,Income,Income,Investments,CommSec Share Trading Gains /Income/Income/Investments
+QBE Insurance Claim Payout , Payments received from a QBE insurance claim.,Income,Income,Other Income,QBE Insurance Claim Payout /Income/Income/Other Income
+Child Support Agency Deposit , Payments received as child support through the Australian Child Support Agency.,Income,Income,Other Income,Child Support Agency Deposit /Income/Income/Other Income
+The Rocks Bar and Pub , A classic pub in the historic Rocks district in Sydney.,Expense,Leisure & Lifestyle,Pubs & Bars,The Rocks Bar and Pub /Expense/Leisure & Lifestyle/Pubs & Bars
+Melbourne Central Lion Hotel ,a well known hotel and pub in the heart of Melbourne.,Expense,Leisure & Lifestyle,Pubs & Bars,Melbourne Central Lion Hotel /Expense/Leisure & Lifestyle/Pubs & Bars
+Sunnybank Hotel , A popular local hotel and pub in Brisbane.,Expense,Leisure & Lifestyle,Pubs & Bars,Sunnybank Hotel /Expense/Leisure & Lifestyle/Pubs & Bars
+The Ivy ,A trendy multi level nightclub in Sydney.,Expense,Leisure & Lifestyle,Pubs & Bars,The Ivy /Expense/Leisure & Lifestyle/Pubs & Bars
+The Espy ," Iconic seaside pub in St Kilda, Melbourne.",Expense,Leisure & Lifestyle,Pubs & Bars,The Espy /Expense/Leisure & Lifestyle/Pubs & Bars
+Eat Street Northshore , An outdoor dining and entertainment venue in Brisbane.,Expense,Leisure & Lifestyle,Pubs & Bars,Eat Street Northshore /Expense/Leisure & Lifestyle/Pubs & Bars
+Hobart Brewing Company , A craft brewery and beer garden in Hobart.,Expense,Leisure & Lifestyle,Pubs & Bars,Hobart Brewing Company /Expense/Leisure & Lifestyle/Pubs & Bars
+The Victory Hotel , A famous pub in the CBD of Adelaide.,Expense,Leisure & Lifestyle,Pubs & Bars,The Victory Hotel /Expense/Leisure & Lifestyle/Pubs & Bars
+Crown Perth , A resort and casino with multiple dining venues in Perth.,Expense,Leisure & Lifestyle,Pubs & Bars,Crown Perth /Expense/Leisure & Lifestyle/Pubs & Bars
+Quay Restaurant ,A High end restaurant in Sydney with views of the Opera House.,Expense,Leisure & Lifestyle,Pubs & Bars,Quay Restaurant /Expense/Leisure & Lifestyle/Pubs & Bars
+The Baxter Inn , A popular underground whiskey bar in Sydney.,Expense,Leisure & Lifestyle,Pubs & Bars,The Baxter Inn /Expense/Leisure & Lifestyle/Pubs & Bars
+Chinatown Night Market , A spot for diverse street food in Sydney’s Chinatown.,Expense,Leisure & Lifestyle,Pubs & Bars,Chinatown Night Market /Expense/Leisure & Lifestyle/Pubs & Bars
+Cookie , A bustling bar and eatery in Melbourne’s CBD.,Expense,Leisure & Lifestyle,Pubs & Bars,Cookie /Expense/Leisure & Lifestyle/Pubs & Bars
+Eau De Vie , A speakeasy style cocktail bar in Melbourne.,Expense,Leisure & Lifestyle,Pubs & Bars,Eau De Vie /Expense/Leisure & Lifestyle/Pubs & Bars
+The Brisbane Hotel , A popular pub in Perth known for its laid back atmosphere.,Expense,Leisure & Lifestyle,Pubs & Bars,The Brisbane Hotel /Expense/Leisure & Lifestyle/Pubs & Bars
+Rooftop Bar , A Melbourne rooftop venue known for drinks and views.,Expense,Leisure & Lifestyle,Pubs & Bars,Rooftop Bar /Expense/Leisure & Lifestyle/Pubs & Bars
