@@ -9,3 +9,6 @@ huggingface_hub
 transformers
 torch
 termcolor
+textblob
+speech_recognition
+sentence-transformers

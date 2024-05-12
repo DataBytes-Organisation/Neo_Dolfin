@@ -16,6 +16,8 @@ from langchain_groq import ChatGroq
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from termcolor import cprint
 from transformers import AutoTokenizer
+import speech_recognition as sr
+from textblob import TextBlob
 
 # Constants for configuration
 EMBEDDING_MODEL = "hkunlp/instructor-large"  # Embedding model used for document retrieval
@@ -154,19 +156,83 @@ def configure_chat_chain(embeddings: HuggingFaceEmbeddings, llm: ChatGroq) -> Ru
 
     return retrieval_chain
 
+def recognize_speech():
+    """
+    Recognize speech input from the user using the microphone.
+    Returns the recognized text if successful, None otherwise.
+    """
+
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        try:
+            audio = recognizer.listen(source, timeout=5, phrase_time_limit=None)
+        except sr.WaitTimeoutError:
+            print("No speech detected. Timeout reached.")
+            return None
+
+    try:
+        text = recognizer.recognize_google(audio)
+        print(f"You said: {text}")
+        return text
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand your speech.")
+    except sr.RequestError as e:
+        print(f"Error: {e}")
+
+def analyze_sentiment(text):
+    """
+    Analyze the sentiment of the given text using TextBlob.
+    Returns the sentiment label (Positive, Negative, or Neutral) and the sentiment score.
+    """
+
+    blob = TextBlob(text)
+    sentiment = blob.sentiment.polarity
+    if sentiment > 0:
+        return "Positive", sentiment
+    elif sentiment < 0:
+        return "Negative", sentiment
+    else:
+        return "Neutral", sentiment
+
+def store_negative_sentiment(user_input, response, sentiment_score):
+    """
+    Store the user input, chatbot response, and sentiment score in a file when the sentiment is negative.
+    """
+
+    with open("negative_sentiments.txt", "a") as file:
+        file.write(f"User Input: {user_input}\n")
+        file.write(f"Response: {response}\n")
+        file.write(f"Sentiment Score: {sentiment_score}\n")
+        file.write("---\n")
+
 def execute_chat_chain(chain: Runnable) -> None:
     """
-    Run the chat chain interactively to handle user queries.
+    Execute the chat chain interactively, allowing the user to choose between text input and speech input.
+    Analyze the sentiment of the user input and store negative sentiments in a file.
     """
 
     while True:
-        # Get user input
-        user_input = input("> Question: ")
-        # Exit the loop if the user inputs "quit", or "exit"
-        if user_input.lower() in [ "quit", "exit"]:
+        print("How would you like to communicate with the bot?")
+        print("1. Type\n2. Speak")
+        input_mode = input("Enter the number associated with your preferred method or type 'quit', 'q' or 'exit' to exit: ")
+        if input_mode.lower() in ["quit", "q", "exit"]:
             break
-        
-        # Start the timer
+        if input_mode.lower() not in ["1", "2"]:
+            print("Invalid input mode. Please select 1 for'chat' or 2 for 'voice'.")
+            continue
+
+        if input_mode == "1":
+            user_input = input("> Question: ")
+        elif input_mode == "2":
+            user_input = recognize_speech()
+            if user_input is None:
+                continue
+
+        sentiment, sentiment_score = analyze_sentiment(user_input)
+        print(f"Sentiment: {sentiment} (Score: {sentiment_score:.2f})")
+
+        #Start the timer
         start_time = time.time()
         
         # Invoke the retrieval chain with the user input
@@ -174,12 +240,15 @@ def execute_chat_chain(chain: Runnable) -> None:
         
         # Calculate the response time
         response_time = time.time() - start_time
-        
+
         print("\n> Answer:")
         print("\n" + response["answer"], end="\n\n")
-        
+
         # Print the response time
         print(f"Response time: {response_time:.2f} seconds")
+
+        if sentiment == "Negative":
+            store_negative_sentiment(user_input, response["answer"], sentiment_score)
 
 
 def main() -> None:
@@ -193,4 +262,4 @@ def main() -> None:
     execute_chat_chain(chat_chain)
 
 if __name__ == "__main__":
-    main() 
+    main()
