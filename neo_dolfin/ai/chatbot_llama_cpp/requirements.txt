@@ -21,3 +21,6 @@ flask
 requests
 openpyxl
 torch
+textblob
+speech_recognition
+sentence-transformers
