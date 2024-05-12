@@ -142,6 +142,115 @@ input[type="submit"] {
     margin-top: 0px;
 }
 
+.container_left
+{
+    animation: appear1 1s ease-in-out 1 both;
+}
+
+@keyframes appear1{
+    from{
+        opacity: 1;
+        transform: translateX(-100%) 
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.container_right
+{
+    animation: scale 1s ease-in-out 1 both;
+}
+
+@keyframes scale{
+    from{
+        transform: scale(0%) 
+    }
+    to{
+        transform: scale(100%)
+    }
+}
+
+/* css used to display Skip Address Validation and checkbox styled for DolFin Pages - Starts Here */
+.validation-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #000;
+    font-family: 'Anybody', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.validation-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .validation-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid #090909;
+  }
+  
+  /* On mouse-over update background colour of checkbox */
+  .validation-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked update background colour of checkbox to blue */
+  .validation-checkbox input:checked ~ .checkmark {
+    background-color: #0077BA;
+  }
+  
+  /* Create the checkmark (checkbox tick) - this is not displayed when unchecked */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Display the checkmark when checkbox is checked */
+  .validation-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Update the style of the checkmark (checkbox tick) */
+  .validation-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /* css used to display Skip Address Validation and checkbox styled for DolFin Pages - Finishes Here */
+
 .social-login {
     display: flex;
     flex-direction: column;

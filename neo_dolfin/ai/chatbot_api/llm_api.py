@@ -232,7 +232,7 @@ def execute_chat_chain(chain: Runnable) -> None:
         sentiment, sentiment_score = analyze_sentiment(user_input)
         print(f"Sentiment: {sentiment} (Score: {sentiment_score:.2f})")
 
-        #Start the timer
+        # Start the timer
         start_time = time.time()
         
         # Invoke the retrieval chain with the user input
@@ -249,7 +249,6 @@ def execute_chat_chain(chain: Runnable) -> None:
 
         if sentiment == "Negative":
             store_negative_sentiment(user_input, response["answer"], sentiment_score)
-
 
 def main() -> None:
     """

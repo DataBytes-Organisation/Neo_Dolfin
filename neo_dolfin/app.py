@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -714,6 +714,11 @@ def auth_news():
 @app.route('/FAQ/')
 def auth_FAQ(): 
         return render_template("FAQ.html")
+
+## APPLICATION FINANCIAL WELLBEING SURVEY PAGE 
+@app.route('/RFW-prototype/')
+def auth_survey(): 
+        return render_template("RFW-prototype.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
@@ -780,40 +785,40 @@ def feedback():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
-     # Get transaction values for account
-      if request.method == 'GET':
+    # Get transaction values for account
+    if request.method == 'GET':
         user_id = session.get('user_id')
-        con = sqlite3.connect("db/transactions_ut.db")
-        cursor = con.cursor() 
-        defacc = 'ALL'  
-        email = session.get('email') 
-
-        # Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
+        email = session.get('email')
+        
+        # Fetch transactions for the user
+        transactions_df = db_op.fetch_transactions_by_user(user_id)
+        
+        # Convert 'postDate' to datetime if it's not already
+        transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+        
+        # Account
+        dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
         new_record = pd.DataFrame([{'account': 'ALL'}])
         dfxx = pd.concat([new_record, dfxx], ignore_index=True)
         jfxx = dfxx.to_json(orient='records')
-
+        
         # Get transaction values for balance indicator
-        cursor.execute('SELECT amount,direction FROM transactions')
-        query = cursor.fetchall()
-        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-        jfx3 = dfx3.to_json(orient='records')   
-
-        cursor.execute('SELECT balance FROM transactions LIMIT 1')
-        query = cursor.fetchone()
-        curr_bal = query[0]
-
-        #Transactions 
-        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
-        query = cursor.fetchall()
-        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
-        jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
-        jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
+        dfx3 = transactions_df[['amount', 'direction']]
+        jfx3 = dfx3.to_json(orient='records')
+        curr_bal = transactions_df['balance'].iloc[0] if not transactions_df.empty else 0
+        
+        # Transactions
+        dfx8 = transactions_df[['amount', 'class', 'postDate']].sort_values('postDate', ascending=False).head(5)
+        dfx8['day'] = dfx8['postDate'].dt.day
+        dfx8['month'] = dfx8['postDate'].dt.month
+        dfx8['year'] = dfx8['postDate'].dt.year
+        dfx8 = dfx8[['amount', 'class', 'day', 'month', 'year']]
+        jsd8 = dfx8.to_dict(orient='records')
+        jfx8 = json.dumps(jsd8)
+        
+        defacc = 'ALL'
+        
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
-
 def generate_pie_chart(data, category, custom_labels=None):
     # Count the occurrences of each value in the given category
     value_counts = data[category].value_counts()
@@ -955,6 +960,23 @@ def submit():
         message="Thanks for your taking the survey !"
                     
         return render_template("survey.html", msg=message)
+    
+@app.route('/delete_account/')
+def del_acc():
+        return render_template("delete_account.html")
+ 
+@app.route('/delete_account', methods=['POST'])
+def delete_user_account():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        result = db_op.delete_account(user_id)  # Assuming delete_user_account function is defined in db_op
+        session.pop('user_id', None)  # Clear the session after deleting the account
+        user_log.info("Account deleted: %s" % user_id)  # Log account deletion
+        flash(result)  # Optionally, you can flash a message indicating successful deletion
+        return redirect('/')
+    else:
+        # Handle the case where no user is logged in or session expired
+        return redirect('/')
 
 
 ## CHATBOT PAGE 

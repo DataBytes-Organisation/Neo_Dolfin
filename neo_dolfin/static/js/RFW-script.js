@@ -4,6 +4,17 @@ function onlyOneCheckbox(checkbox, groupName) {
         if (item !== checkbox) item.checked = false;
     });
 }
+
+// Function to calculate and save the score to local storage
+function saveScore(score) {
+    localStorage.setItem('financialWellbeingScore', score);
+}
+
+// Function to redirect to the dashboard
+function redirectToDashboard() {
+    window.location.href = '/dash';
+}
+
 document.getElementById('calculateButton').addEventListener('click', function() {
     var totalQuestions = 10;
     var allRowsSelected = true;
@@ -32,4 +43,7 @@ function calculateSum() {
     });
     sum=parseFloat(sum)*2.5
     alert("Your financial wellbeing score is " + sum);
+
+    saveScore(sum);
+    redirectToDashboard();
 }

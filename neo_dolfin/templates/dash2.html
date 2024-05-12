@@ -58,6 +58,56 @@
             </div>
         </div>
     </div>
+
+    <div id="survey-box" class="survey-box">
+        <h2>Financial Wellbeing Survey</h2>
+        <div class="survey-content">
+            <div class="take-survey-container">
+                <!-- Default text when there is no score -->
+                <p id="defaultText"></p>
+                <!-- Text to display when there is a score -->
+                <h4 id="scoreText" style="display: none;">Take Survey Again</h4>
+                <a href="/RFW-prototype" class="survey-button">Take Survey</a>
+            </div>
+            <div id="score-container" class="score-container">
+                <h4>Your Financial Wellbeing Score:</h4>
+                <p id="score-value"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Retrieve the score from local storage
+        var score = localStorage.getItem('financialWellbeingScore');
+    
+        // Get references to the text containers
+        var defaultText = document.getElementById('defaultText');
+        var scoreText = document.getElementById('scoreText');
+
+        // Get the score container element
+        var scoreContainer = document.getElementById('score-container');
+    
+        // Get the score value element
+        var scoreValue = document.getElementById('score-value');
+    
+        // Check if there is a score
+        if (score) {
+            // Display the score container
+            scoreContainer.style.display = 'block';
+            // Display the score in the score value element
+            scoreValue.innerText = score;
+            // Display the score text and hide the default text
+            defaultText.style.display = 'none';
+            scoreText.style.display = 'block';
+        } else {
+            // If there is no score, hide the score container
+            scoreContainer.style.display = 'none';
+            // Display the default text and hide the score text
+            defaultText.style.display = 'block';
+            scoreText.style.display = 'none';
+        }
+    </script>
+    
     
     <div> 
         <div class= "background">
