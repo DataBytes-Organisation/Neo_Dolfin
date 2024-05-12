@@ -435,7 +435,7 @@ def register():
 
         # Create a new user and add it to the users_new database
         # Names are currently hard coded pending name fields in registration
-        new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
+        new_user = UsersNew(username=input_username, email=input_email, mobile="+614",
                             first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
         db.session.add(new_user)
         db.session.commit()
