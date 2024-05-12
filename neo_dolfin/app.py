@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify
+from flask import Flask, Response, render_template, redirect, url_for, request, session, jsonify, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, Regexp
@@ -310,55 +310,84 @@ def landing():
     basiq_log.info("basiq test - At landing page")"""
     return render_template('landing.html')
 
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+
+#         input_username = request.form['username']
+#         input_password = request.form['password']
+
+#         # Retrieve the user from the (new) database
+#         user = UsersNew.query.filter_by(username=input_username).first()
+
+#         arg_hash = PasswordHasher()
+#         # If username is correct, check if the input password (once hashed) matches the hash in the users record.
+#         # If both are true, send relevant information to session.
+#         if user and arg_hash.verify(user.password, input_password):
+#             # Successful login, set a session variable to indicate that the user is logged in
+#             session['user_id'] = user.username 
+#             session['basiq_id'] = user.b_id_temp
+#             session['first_name'] = user.first_name
+
+#             # If successful, check if test user or real user.
+#             row = UserTestMap.query.filter_by(userid = input_username).first()
+#             testId = 0
+#             if row != None:
+#                 testId = row.testid
+#                 print('######### test id:', testId)
+
+#             # Load transactional data
+#             #loadDatabase(testId)            
+
+#             # log successful authentication challenge - consider logging multiple tries?
+#             user_log.info("AUTH: User %s has been successfully authenticated. Session active."%(user.username)) # capture IP?
+
+#             ## This section should be done on authentication to avoid empty filling the dash
+#             user_ops.clear_transactions()  # Ensure no previous data remains from a previous user etc.
+                                    
+
+#             cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
+#             #print(cache)                                               # used for testing and debugging
+                                               
+#             user_ops.cache_transactions(cache)                          # Insert cahce in to database and confirm success
+
+#             # redirect to the dashboard.
+#             return redirect('/dash')
+        
+#         ## Otherwise, fail by default:
+#         user_log.warning("AUTH: Login attempt as \"%s\" was rejected. Invalid credentials."%(input_username)) # Log. capture IP? Left as warning for now, could change with justification.
+#         return 'Login failed. Please check your credentials, and try again.'
+
+#     return render_template('login.html')  # Create a login form in the HTML template
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-
-        input_username = request.form['username']
+        input_email = request.form['email']
         input_password = request.form['password']
 
-        # Retrieve the user from the (new) database
-        user = UsersNew.query.filter_by(username=input_username).first()
+        # Verify the user's email and password
+        user_id = db_op.verify_user(input_email, input_password)
+        if user_id:
+            # Successful login, set session variables
+            session['user_id'] = user_id
 
-        arg_hash = PasswordHasher()
-        # If username is correct, check if the input password (once hashed) matches the hash in the users record.
-        # If both are true, send relevant information to session.
-        if user and arg_hash.verify(user.password, input_password):
-            # Successful login, set a session variable to indicate that the user is logged in
-            session['user_id'] = user.username 
-            session['basiq_id'] = user.b_id_temp
-            session['first_name'] = user.first_name
+            db_op.clear_transactions(user_id)
+            transacdata = db_op.fetch_transactions_by_user(user_id)
 
-            # If successful, check if test user or real user.
-            row = UserTestMap.query.filter_by(userid = input_username).first()
-            testId = 0
-            if row != None:
-                testId = row.testid
-                print('######### test id:', testId)
+            # Load and cache transactions
+            cache = db_op.request_transactions(user_id)
+            db_op.cache_transactions(user_id,cache)
 
-            # Load transactional data
-            #loadDatabase(testId)            
-
-            # log successful authentication challenge - consider logging multiple tries?
-            user_log.info("AUTH: User %s has been successfully authenticated. Session active."%(user.username)) # capture IP?
-
-            ## This section should be done on authentication to avoid empty filling the dash
-            user_ops.clear_transactions()  # Ensure no previous data remains from a previous user etc.
-                                    
-
-            cache = user_ops.request_transactions_df(user.username)     # Get a dataframe of the last 500 transactions
-            #print(cache)                                               # used for testing and debugging
-                                               
-            user_ops.cache_transactions(cache)                          # Insert cahce in to database and confirm success
-
-            # redirect to the dashboard.
+            # Redirect to the dashboard
             return redirect('/dash')
-        
-        ## Otherwise, fail by default:
-        user_log.warning("AUTH: Login attempt as \"%s\" was rejected. Invalid credentials."%(input_username)) # Log. capture IP? Left as warning for now, could change with justification.
-        return 'Login failed. Please check your credentials, and try again.'
+        else:
+            # Failed login attempt
+            user_log.warning("AUTH: Login attempt as \"%s\" was rejected. Invalid credentials." % (input_email))
+            return 'Login failed. Please check your credentials, and try again.'
 
-    return render_template('login.html')  # Create a login form in the HTML template
+    return render_template('login.html')  # Render the login form
+
 
 ## REGISTER
 @app.route('/register', methods=['GET', 'POST'])
@@ -508,76 +537,55 @@ def auth_dash2():
     user_id     = session.get('user_id') # Not used right now.
     first_name  = session.get('first_name')
     if request.method == 'GET':
-        # From session variable, user the user's first name in:
-        #   Welcome message
-        #   ...
-
-        #con = sqlite3.connect("db/transactions_ut.db")
-        #con = sqlite3.connect("db/user_database.db")
-
-        # connect to the newly loaded transactions database, for dashboard to do its thing.
-        con = sqlite3.connect("transactions_ut.db")
-        cursor = con.cursor()
-        app_log.info("APP: Connected to most recent transaction data.")
-
+        transactions_df = db_op.fetch_transactions_by_user(user_id)
+        transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
         ## Accout relative code here
 
         defacc = 'ALL'
 
         # Select Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
-        new_record = pd.DataFrame([{'account': 'ALL'}])
-        dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+        dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+        dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
         jfxx = dfxx.to_json(orient='records')
 
         # Get class for pie chart
-        cursor.execute('SELECT class FROM transactions')
-        query = cursor.fetchall()
-        dfx1 = pd.DataFrame(query,columns=['class'])
-        jfx1 = dfx1.to_json(orient='records')
+        dfx1 = transactions_df[['class']].dropna().to_json(orient='records')
 
         # Get subclass for doughnut chart
-        cursor.execute('SELECT subclass FROM transactions')
-        query = cursor.fetchall()
-        dfx2 = pd.DataFrame(query,columns=['subclass'])
-        jfx2 = dfx2.to_json(orient='records')
+        dfx2 = transactions_df[['subClass_title']].dropna().to_json(orient='records')
 
         # Get transaction values for bar chart
-        cursor.execute('SELECT amount,direction FROM transactions')
-        query = cursor.fetchall()
-        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-        jfx3 = dfx3.to_json(orient='records')
+        dfx3 = transactions_df[['amount', 'direction']].dropna().to_json(orient='records')
 
         # Line chart datasets
-        cursor.execute('SELECT balance,postDate FROM transactions')
-        query = cursor.fetchall()
-        dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-        dfx4 = dfx4.to_json(orient='records')
+        dfx4 = transactions_df[['balance', 'postDate']].to_json(orient='records')
         
         dfx5 = df3.to_json(orient='records')
 
-        cursor.execute('SELECT balance FROM transactions LIMIT 1')
-        query = cursor.fetchone()
-        curr_bal = query[0]
+        curr_bal = transactions_df['balance'].iloc[-1] if not transactions_df.empty else 0
 
-        cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
-        query = cursor.fetchone()
-        curr_range = query[0]
-        print(curr_range)
+        curr_range = transactions_df['balance'].max() - transactions_df['balance'].min() if not transactions_df.empty else 0
 
-        cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
-        query = cursor.fetchall()
-        dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+        transactions_df['day'] = transactions_df['postDate'].dt.day
+        transactions_df['month'] = transactions_df['postDate'].dt.month
+        transactions_df['year'] = transactions_df['postDate'].dt.year
+
+        # Create `dfx8` with relevant columns
+        dfx8 = transactions_df[['amount', 'class', 'day', 'month', 'year']]
         jfx8 = dfx8.to_json(orient='records')
+        
         print(jfx8)
 
-        return render_template("dash2.html",jsd1=jfx1, jsd2=jfx2, jsd3=jfx3, jsd4=dfx4, jsd5=dfx5, jsd6=curr_bal, jsd7=curr_range, jsd8=jfx8, user_id=first_name, jsxx=jfxx, defacc=defacc,show_alert=True)
+        return render_template("dash2.html",
+                               jsd1=dfx1, jsd2=dfx2, jsd3=dfx3,
+                               jsd4=dfx4, jsd5=dfx5,
+                               jsd6=curr_bal, jsd7=curr_range,
+                               jsd8=jfx8, user_id=first_name,
+                               jsxx=jfxx, defacc='ALL', show_alert=True)
         
     
     if request.method == "POST":
-            # Get the account value from the JSON payload
+        # Get the account value from the JSON payload
         data = request.get_json()
         account_value = data.get('account', None)
         print(account_value)
@@ -586,61 +594,46 @@ def auth_dash2():
             
             defacc = account_value
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
             
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+            # Fetch all transactions using `fetch_transactions_by_user`
+            transactions_df = db_op.fetch_transactions_by_user(user_id)
+            transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+
+            # Extract unique accounts
+            dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+            dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
             jfxx = dfxx.to_json(orient='records')
 
             # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions')
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
+            dfx1 = transactions_df[['class']].dropna().to_json(orient='records')
 
             # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions')
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
+            dfx2 = transactions_df[['subClass_title']].dropna().to_json(orient='records')
 
             # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions')
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
-
+            dfx3 = transactions_df[['amount', 'direction']].dropna().to_json(orient='records')
+            
             # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions')
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
+            dfx4 = transactions_df[['balance', 'postDate']].to_json(orient='records')
             
             dfx5 = df3.to_json(orient='records')
 
-            cursor.execute('SELECT balance FROM transactions LIMIT 1')
-            query = cursor.fetchone()
-            curr_bal = query[0]
+            curr_bal = transactions_df['balance'].iloc[-1] if not transactions_df.empty else 0
             
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions')
-            query = cursor.fetchone()
-            curr_range = query[0]
+            curr_range = transactions_df['balance'].max() - transactions_df['balance'].min() if not transactions_df.empty else 0
 
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions LIMIT 1')
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+            transactions_df['day'] = transactions_df['postDate'].dt.day
+            transactions_df['month'] = transactions_df['postDate'].dt.month
+            transactions_df['year'] = transactions_df['postDate'].dt.year
+            dfx8 = transactions_df[['amount', 'class', 'day', 'month', 'year']]
             jfx8 = dfx8.to_json(orient='records')
             
             updated_data = {
                 'currentBalance': curr_bal,
                 'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
+                'jsd1': dfx1,
+                'jsd2': dfx2,
+                'jsd3': dfx3,
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
@@ -654,63 +647,50 @@ def auth_dash2():
         if account_value != 'ALL':
 
             user_id = session.get('user_id')
-            con = sqlite3.connect("transactions_ut.db")
-            cursor = con.cursor() 
 
             defacc = account_value
 
-            cursor.execute('SELECT DISTINCT account FROM transactions')
-            query = cursor.fetchall()
-            dfxx = pd.DataFrame(query,columns=['account'])
-            new_record = pd.DataFrame([{'account': 'ALL'}])
-            dfxx = pd.concat([new_record, dfxx], ignore_index=True)
+            transactions_df = db_op.fetch_transactions_by_user(user_id)
+            transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+
+            # Filter transactions for the specified `account_value`
+            filtered_df = transactions_df[transactions_df['account'] == account_value]
+
+            # Extract unique accounts and ensure 'ALL' is included
+            dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
+            dfxx = pd.concat([pd.DataFrame([{'account': 'ALL'}]), dfxx], ignore_index=True)
             jfxx = dfxx.to_json(orient='records')
 
             # Get class for pie chart
-            cursor.execute('SELECT class FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx1 = pd.DataFrame(query,columns=['class'])
-            jfx1 = dfx1.to_json(orient='records')
+            dfx1 = filtered_df[['class']].dropna().to_json(orient='records')
 
             # Get subclass for doughnut chart
-            cursor.execute('SELECT subclass FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx2 = pd.DataFrame(query,columns=['subclass'])
-            jfx2 = dfx2.to_json(orient='records')
+            dfx2 = filtered_df[['subClass_title']].dropna().to_json(orient='records')
 
             # Get transaction values for bar chart
-            cursor.execute('SELECT amount,direction FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-            jfx3 = dfx3.to_json(orient='records')
+            dfx3 = filtered_df[['amount', 'direction']].dropna().to_json(orient='records')
 
             # Line chart datasets
-            cursor.execute('SELECT balance,postDate FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchall()
-            dfx4 = pd.DataFrame(query,columns=['balance','postDate'])
-            dfx4 = dfx4.to_json(orient='records')
+            dfx4 = filtered_df[['balance', 'postDate']].to_json(orient='records')
             
             dfx5 = df3.to_json(orient='records')
 
-            cursor.execute('SELECT balance FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchone()
-            curr_bal = query[0]
+            curr_bal = filtered_df['balance'].iloc[-1] if not filtered_df.empty else 0
 
-            cursor.execute('SELECT MAX(balance) - MIN(balance) AS balance_range FROM transactions WHERE account = ?', (account_value,))
-            query = cursor.fetchone()
-            curr_range = query[0]
+            curr_range = filtered_df['balance'].max() - filtered_df['balance'].min() if not filtered_df.empty else 0
 
-            cursor.execute('SELECT amount,class,day,month,year FROM transactions WHERE account = ? LIMIT 1', (account_value,))
-            query = cursor.fetchall()
-            dfx8= pd.DataFrame(query,columns=['amount','class','day','month','year'])
+            filtered_df['day'] = filtered_df['postDate'].dt.day
+            filtered_df['month'] = filtered_df['postDate'].dt.month
+            filtered_df['year'] = filtered_df['postDate'].dt.year
+            dfx8 = filtered_df[['amount', 'class', 'day', 'month', 'year']]
             jfx8 = dfx8.to_json(orient='records')
 
             updated_data = {
                 'currentBalance': curr_bal,
                 'balanceRange': curr_range,
-                'jsd1': jfx1,
-                'jsd2': jfx2,
-                'jsd3': jfx3,
+                'jsd1': dfx1,
+                'jsd2': dfx2,
+                'jsd3': dfx3,
                 'jsd4': dfx4,
                 'jsd5': dfx5,
                 'jsd8': jfx8,
@@ -734,6 +714,11 @@ def auth_news():
 @app.route('/FAQ/')
 def auth_FAQ(): 
         return render_template("FAQ.html")
+
+## APPLICATION FINANCIAL WELLBEING SURVEY PAGE 
+@app.route('/RFW-prototype/')
+def auth_survey(): 
+        return render_template("RFW-prototype.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
@@ -800,40 +785,40 @@ def feedback():
 # APPLICATION USER SPECIFIC  PROFILE PAGE
 @app.route('/profile')
 def profile():
-     # Get transaction values for account
-      if request.method == 'GET':
+    # Get transaction values for account
+    if request.method == 'GET':
         user_id = session.get('user_id')
-        con = sqlite3.connect("db/transactions_ut.db")
-        cursor = con.cursor() 
-        defacc = 'ALL'  
-        email = session.get('email') 
-
-        # Account 
-        cursor.execute('SELECT DISTINCT account FROM transactions')
-        query = cursor.fetchall()
-        dfxx = pd.DataFrame(query,columns=['account'])
+        email = session.get('email')
+        
+        # Fetch transactions for the user
+        transactions_df = db_op.fetch_transactions_by_user(user_id)
+        
+        # Convert 'postDate' to datetime if it's not already
+        transactions_df['postDate'] = pd.to_datetime(transactions_df['postDate'])
+        
+        # Account
+        dfxx = pd.DataFrame(transactions_df['account'].unique(), columns=['account'])
         new_record = pd.DataFrame([{'account': 'ALL'}])
         dfxx = pd.concat([new_record, dfxx], ignore_index=True)
         jfxx = dfxx.to_json(orient='records')
-
+        
         # Get transaction values for balance indicator
-        cursor.execute('SELECT amount,direction FROM transactions')
-        query = cursor.fetchall()
-        dfx3 = pd.DataFrame(query,columns=['amount','direction'])
-        jfx3 = dfx3.to_json(orient='records')   
-
-        cursor.execute('SELECT balance FROM transactions LIMIT 1')
-        query = cursor.fetchone()
-        curr_bal = query[0]
-
-        #Transactions 
-        cursor.execute('SELECT amount, class, day, month, year FROM transactions ORDER BY postDate DESC LIMIT 5')  
-        query = cursor.fetchall()
-        dfx8 = pd.DataFrame(query, columns=['amount', 'class', 'day', 'month', 'year'])
-        jsd8 = dfx8.to_dict(orient='records')  # Convert DataFrame to list of dictionaries
-        jfx8 = json.dumps(jsd8)  # Convert the list of dictionaries to a JSON string
+        dfx3 = transactions_df[['amount', 'direction']]
+        jfx3 = dfx3.to_json(orient='records')
+        curr_bal = transactions_df['balance'].iloc[0] if not transactions_df.empty else 0
+        
+        # Transactions
+        dfx8 = transactions_df[['amount', 'class', 'postDate']].sort_values('postDate', ascending=False).head(5)
+        dfx8['day'] = dfx8['postDate'].dt.day
+        dfx8['month'] = dfx8['postDate'].dt.month
+        dfx8['year'] = dfx8['postDate'].dt.year
+        dfx8 = dfx8[['amount', 'class', 'day', 'month', 'year']]
+        jsd8 = dfx8.to_dict(orient='records')
+        jfx8 = json.dumps(jsd8)
+        
+        defacc = 'ALL'
+        
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
-
 def generate_pie_chart(data, category, custom_labels=None):
     # Count the occurrences of each value in the given category
     value_counts = data[category].value_counts()
@@ -975,6 +960,23 @@ def submit():
         message="Thanks for your taking the survey !"
                     
         return render_template("survey.html", msg=message)
+    
+@app.route('/delete_account/')
+def del_acc():
+        return render_template("delete_account.html")
+ 
+@app.route('/delete_account', methods=['POST'])
+def delete_user_account():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        result = db_op.delete_account(user_id)  # Assuming delete_user_account function is defined in db_op
+        session.pop('user_id', None)  # Clear the session after deleting the account
+        user_log.info("Account deleted: %s" % user_id)  # Log account deletion
+        flash(result)  # Optionally, you can flash a message indicating successful deletion
+        return redirect('/')
+    else:
+        # Handle the case where no user is logged in or session expired
+        return redirect('/')
 
 
 ## CHATBOT PAGE 

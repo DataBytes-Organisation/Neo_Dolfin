@@ -13,7 +13,7 @@ api_key = API_KEY
 core_instance = Core(api_key)
 data_instance = Data()
 access_token = core_instance.generate_auth_token()
-database_address = "../db/dolfin_db.db"
+database_address = "./db/dolfin_db.db"
 
 
 def init_dolfin_db():
@@ -294,6 +294,24 @@ def clear_transactions(user_id):
             cursor = conn.cursor()
             cursor.execute("DELETE FROM transactions WHERE trans_u_id = ?;", (user_id,))
         return "Transactions for user {} cleared successfully.".format(user_id)
+    except sqlite3.Error as e:
+        return "An error occurred: " + str(e)
+    
+def delete_account(user_id):
+    """
+    Deletes the user's account and associated data from the database.
+ 
+    Args:
+    - user_id: The ID of the user whose account is to be deleted.
+ 
+    Returns:
+    - A message indicating the account was successfully deleted, or an error message if an error occurred.
+    """
+    try:
+        with sqlite3.connect(database_address) as conn:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM users WHERE u_id = ?;", (user_id,))
+        return "Account deleted successfully."
     except sqlite3.Error as e:
         return "An error occurred: " + str(e)
 

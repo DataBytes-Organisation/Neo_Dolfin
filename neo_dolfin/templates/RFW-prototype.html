@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Financial Wellbeing Survey</title>
-    <link rel="stylesheet" href="RFW-style.css"> <!-- Link to your CSS file -->
-    <script src="RFW-script.js" defer></script> <!-- Link to your JavaScript file -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/RFW-style.css')}}">
+    <!-- <script src="RFW-script.js" defer></script> Link to your JavaScript file -->
 </head>
 <body>
 
@@ -22,7 +22,7 @@
             <th>Not at All</th>
         </tr>
         <tr>
-            <td>I can enjoy life because of the way I’m 
+            <td>1. I can enjoy life because of the way I’m 
                 managing my money</td>
             <td><input type="checkbox" name="q1" value=4 onclick="onlyOneCheckbox(this, 'q1')"></td>
             <td><input type="checkbox" name="q1" value=3 onclick="onlyOneCheckbox(this, 'q1')"></td>
@@ -31,7 +31,7 @@
             <td><input type="checkbox" name="q1" value=0 onclick="onlyOneCheckbox(this, 'q1')"></td>
         </tr>
         <tr>
-            <td>I could handle a major unexpected 
+            <td>2. I could handle a major unexpected 
                 expense</td>
             <td><input type="checkbox" name="q2" value=4 onclick="onlyOneCheckbox(this, 'q2')"></td>
             <td><input type="checkbox" name="q2" value=3 onclick="onlyOneCheckbox(this, 'q2')"></td>
@@ -40,7 +40,7 @@
             <td><input type="checkbox" name="q2" value=0 onclick="onlyOneCheckbox(this, 'q2')"></td>
         </tr>
         <tr>
-            <td>I am securing my financial future</td>
+            <td>3. I am securing my financial future</td>
             <td><input type="checkbox" name="q3" value=4 onclick="onlyOneCheckbox(this, 'q3')"></td>
             <td><input type="checkbox" name="q3" value=3 onclick="onlyOneCheckbox(this, 'q3')"></td>
             <td><input type="checkbox" name="q3" value=2 onclick="onlyOneCheckbox(this, 'q3')"></td>
@@ -53,18 +53,16 @@
                 indicate the extent to which you 
                 agree or disagree with the following 
                 statements </th>
-            <th>Agree 
-                strongly</th>
+            <th>Strongly
+                Agree</th>
             <th>Agree</th>
-            <th>Neither 
-                disagree or 
-                agree</th>
+            <th>Neutral</th>
             <th>Disagree</th>
-            <th>Disagree 
-                strongly</th>
+            <th>Strongly
+                Disagree</th>
         </tr>
         <tr>
-            <td>I feel on top of my day to day finances</td>
+            <td>4. I feel on top of my day to day finances</td>
             <td><input type="checkbox" name="q4" value=4 onclick="onlyOneCheckbox(this, 'q4')"></td>
             <td><input type="checkbox" name="q4" value=3 onclick="onlyOneCheckbox(this, 'q4')"></td>
             <td><input type="checkbox" name="q4" value=2 onclick="onlyOneCheckbox(this, 'q4')"></td>
@@ -72,7 +70,7 @@
             <td><input type="checkbox" name="q4" value=0 onclick="onlyOneCheckbox(this, 'q4')"></td>
         </tr>
         <tr>
-            <td>I am comfortable with my current 
+            <td>5. I am comfortable with my current 
                 levels of spending relative to the 
                 funds I have coming in</td>
             <td><input type="checkbox" name="q5" value=4 onclick="onlyOneCheckbox(this, 'q5')"></td>
@@ -82,9 +80,9 @@
             <td><input type="checkbox" name="q5" value=0 onclick="onlyOneCheckbox(this, 'q5')"></td>
         </tr>
         <tr>
-            <td>I am on track to have enough money 
+            <td>6. I am on track to have enough money 
                 to provide for my financial needs in 
-                the future</td>
+                the next 12 months</td>
             <td><input type="checkbox" name="q6" value=4 onclick="onlyOneCheckbox(this, 'q6')"></td>
             <td><input type="checkbox" name="q6" value=3 onclick="onlyOneCheckbox(this, 'q6')"></td>
             <td><input type="checkbox" name="q6" value=2 onclick="onlyOneCheckbox(this, 'q6')"></td>
@@ -92,19 +90,7 @@
             <td><input type="checkbox" name="q6" value=0 onclick="onlyOneCheckbox(this, 'q6')"></td>
         </tr>
         <tr>
-            <th>In the last 12 months, how difficult 
-                was it for you  </th>
-            <th>Very Easy</th>
-            <th>Easy</th>
-            <th>Neither 
-                difficult nor 
-                easy</th>
-            <th>Difficult</th>
-            <th>Very
-                difficult</th>
-        </tr>
-        <tr>
-            <td>I feel on top of my day to day finances</td>
+            <td>7. I was financially good in the last 12 months</td>
             <td><input type="checkbox" name="q7" value=4 onclick="onlyOneCheckbox(this, 'q7')"></td>
             <td><input type="checkbox" name="q7" value=3 onclick="onlyOneCheckbox(this, 'q7')"></td>
             <td><input type="checkbox" name="q7" value=2 onclick="onlyOneCheckbox(this, 'q7')"></td>
@@ -121,8 +107,7 @@
             <th>Never</th>
         </tr>
         <tr>
-            <td>I have money left over at the end of 
-                the month</td>
+            <td>8. I have money left over after paying for food and other regular expenses</td>
             <td><input type="checkbox" name="q8" value=4 onclick="onlyOneCheckbox(this, 'q8')"></td>
             <td><input type="checkbox" name="q8" value=3 onclick="onlyOneCheckbox(this, 'q8')"></td>
             <td><input type="checkbox" name="q8" value=2 onclick="onlyOneCheckbox(this, 'q8')"></td>
@@ -130,7 +115,7 @@
             <td><input type="checkbox" name="q8" value=0 onclick="onlyOneCheckbox(this, 'q8')"></td>
         </tr>
         <tr>
-            <td>My finances control my life</td>
+            <td>9. My finances control my life</td>
             <td><input type="checkbox" name="q9" value=4 onclick="onlyOneCheckbox(this, 'q9')"></td>
             <td><input type="checkbox" name="q9" value=3 onclick="onlyOneCheckbox(this, 'q9')"></td>
             <td><input type="checkbox" name="q9" value=2 onclick="onlyOneCheckbox(this, 'q9')"></td>
@@ -138,7 +123,7 @@
             <td><input type="checkbox" name="q9" value=0 onclick="onlyOneCheckbox(this, 'q9')"></td>
         </tr>
         <tr>
-            <td>Giving a gift for a wedding, birthday or 
+            <td>10. Giving a gift for a wedding, birthday or 
                 other occasion would put a strain on 
                 my finances for the month </td>
             <td><input type="checkbox" name="q10" value=4 onclick="onlyOneCheckbox(this, 'q10')"></td>
@@ -151,6 +136,9 @@
     <br>
     <button id="calculateButton">Submit Survey</button>
     </div>
+
+    <!-- importing local -->
+    <script language="JavaScript" type="text/javascript" src="{{url_for('static', filename='js/RFW-script.js')}}"></script>
 
 </body>
 </html>
