@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #5bc0de; /* Light blue */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.light-blue-bg {
+    background-color: #e7f3fe; /* Light blue background */
+}
+
+.light-grey-bg {
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+#investment-chart {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+#income-result {
+    margin-top: 10px;
+    font-weight: bold;
+}
