@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/registration.css')}}">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container p-4" style="max-width: 85%; overflow: visible;">
+        <div class="row justify-content-center g-0 p-0">
+            <div id="right-side" class="col-7 col-lg-7 col-md-12 col-sm-12 d-flex justify-content-center"
+                align="center">
+                <div class="container_left" style="z-index: 1;">
+                    <div class="input_area">
+                        <h1 class="Title_signup">DolFin</h1>
+                        <h2 class="Subtitle">Empowering Your Financial Journey</h2>
+                        <div class="row align-items-center">
+                            <div class="col-2 col-lg-2 col-md-1 col-sm-1">
+                                <button onclick="nextPrev(-1)" style="border: none;">
+                                    <img id="previousPage" src="../static/img/sign up/slide-left.png" class="img-fluid">
+                                </button>
+                            </div>
+                            <div class="col-8 col-lg-8 col-md-10 col-sm-10">
+                                <form method="POST" action="/register">
+                                    <div class="tab">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="date" name="dob" class="form-control" placeholder="Date of Birth" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select name="gender" class="form-select" required>
+                                                    <option value="" disabled selected>Select Gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+    <div class="col-md-6">
+        <input id="password-input" type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
+            title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" 
+            required oninput="updateStrengthBar(this.value)" onfocus="showRequirements()" onblur="hideRequirements()">
+        <div id="checkField">
+            <ul>
+                <li id="digit">One digit</li>
+                <li id="lowercase">One lowercase letter</li>
+                <li id="uppercase">One uppercase letter</li>
+                <li id="special">One special character</li>
+                <li id="length-min">At least 12 characters long</li>
+                <li id="length-max">Maximum of 20 characters</li>
+            </ul>
+            <p id="internalList">Password is too common. Please choose a different one</p>
+        </div>
+        <!-- Checkfield for validation of password requirements -->
+        <!-- Password strength bar -->
+        <div class="password-strength">
+            <div id="strength-bar"></div>
+            <span id="strength-label"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+    </div>
+</div>
+
+                                        <!-- Occupation Field -->
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="occupation" class="form-control" placeholder="Occupation" required>
+                                            </div>
+                                        </div>
+                                        <!-- Address Field -->
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="postal_code" class="form-control" placeholder="Postal Code" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="city" class="form-control" placeholder="City" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <input type="text" name="state" class="form-control" placeholder="State" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="country" class="form-control" placeholder="Country" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" value="" id="remember_me">
+                                            <label class="form-check-label" for="remember_me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" value="" id="terms_agree" required>
+                                            <label class="form-check-label" for="terms_agree">
+                                                I agree to terms and Privacy Policy
+                                            </label>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary" value="Register">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center">
+                            <div class="col-10 offset-1">
+                                <div class="or-text">OR</div>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <div class="social-login">
+                                    <button type="button" class="btn-google">
+                                        <img src="../static/img/google_icon.svg" alt="Google" class="btn-logo"> Sign up
+                                        with
+                                        Google
+                                    </button>
+                                    <button type="button" class="btn-microsoft">
+                                        <img src="../static/img/microsoft_logo.svg" alt="Microsoft" class="btn-logo">
+                                        Sign
+                                        up
+                                        with
+                                        Microsoft
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-5 col-lg-5 col-md-12 col-sm-12 d-flex justify-content-center">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" style="position: absolute; top: 275px;">
+                            <img src="../static/img/sign up/cover_style.png" alt="image" style="visibility: visible;"
+                                class="top-right-image">
+                        </div>
+                        <div class="col-12">
+
+                            <div class="text_top" id="text_top_right" style="top: 300%;">
+                                Your Journey Towards Smarter Financial Management Starts Here.
+                            </div>
+                        </div>
+                        <div class="col-12" style="position: absolute; top: 400px;">
+                            <div class="text_bg">
+                                <ul class="text_mid">
+                                    <li>Unified view of all your financial accounts in one place.</li>
+                                    <li>Customized advice with AI-powered predictions.</li>
+                                    <li>Compare your finances with peers for better decisions.</li>
+                                    <br>
+                                    <img src="../static/img/dolfin_icon_v2 2.png" alt="dolfin" id="dol-float">
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/register.js')}}"></script>
+</body>
+
+</html>
