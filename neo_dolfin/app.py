@@ -155,8 +155,8 @@ def setup_logging():
     #configuring log rotation 
     rotating_handler = RotatingFileHandler(
         filename= './logs/dolfin-root.log', #new master log defined 
-        maxBytes= , 
-        backupCount= 
+        maxBytes= LOG_MAX_SIZE, 
+        backupCount= LOG_BACKUP_COUNT
     )
     rotating_handler.setFormatter(logging.Formatter("[%(asctime)s] %(levelname)s in %(module)s.py >>> %(message)s"))
 
