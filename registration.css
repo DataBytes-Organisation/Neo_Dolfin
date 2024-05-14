@@ -1,0 +1,34 @@
+/* Style for the password strength bar container */
+.password-strength {
+    margin-top: 10px;
+    position: relative;
+}
+
+/* Style for the strength bar */
+#strength-bar {
+    height: 10px;
+    width: 100%; /* Full width of the container */
+    background-color: #ccc; /* Default color */
+    border-radius: 5px;
+}
+
+/* Style for the strength label */
+#strength-label {
+    position: absolute;
+    top: -20px; /* Position above the strength bar */
+    left: 0;
+    font-size: 12px;
+}
+
+/* Additional styling for different strength levels */
+#strength-bar.medium {
+    background-color: yellow; /* Medium strength color */
+}
+
+#strength-bar.strong {
+    background-color: green; /* Strong strength color */
+}
+
+#strength-bar.weak {
+    background-color: red; /* Weak strength color */
+}
