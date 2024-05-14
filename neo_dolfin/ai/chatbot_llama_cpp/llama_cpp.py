@@ -19,6 +19,10 @@ from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_compl
 from langchain.docstore.document import Document
 from langchain.text_splitter import Language, RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
+from textblob import TextBlob
+import speech_recognition as sr
+import time
+
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 import csv
 from termcolor import cprint
@@ -353,6 +357,68 @@ def create_qa_chain(device, prompt_type="llama"):
 
     return qa_chain
 
+def recognize_speech():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        try:
+            audio = recognizer.listen(source, timeout=5, phrase_time_limit=None)
+        except sr.WaitTimeoutError:
+            print("No speech detected. Timeout reached.")
+            return None
+    try:
+        text = recognizer.recognize_google(audio)
+        print(f"You said: {text}")
+        return text
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand your speech.")
+    except sr.RequestError as e:
+        print(f"Error: {e}")
+
+def analyze_sentiment(text):
+    blob = TextBlob(text)
+    sentiment = blob.sentiment.polarity
+    if sentiment > 0:
+        return "Positive", sentiment
+    elif sentiment < 0:
+        return "Negative", sentiment
+    else:
+        return "Neutral", sentiment
+
+def store_negative_sentiment(user_input, response, sentiment_score):
+    with open("negative_sentiments.txt", "a") as file:
+        file.write(f"User Input: {user_input}\n")
+        file.write(f"Response: {response}\n")
+        file.write(f"Sentiment Score: {sentiment_score}\n")
+        file.write("---\n")
+
+def execute_chat_chain(chain):
+    while True:
+        print("How would you like to communicate with the bot?")
+        print("1. Type\n2. Speak")
+        input_mode = input("Enter the number associated with your preferred method or type 'quit', 'q' or 'exit' to exit: ")
+        if input_mode.lower() in ["quit", "q", "exit"]:
+            break
+        if input_mode.lower() not in ["1", "2"]:
+            print("Invalid input mode. Please select 1 for 'chat' or 2 for 'voice'.")
+            continue
+        if input_mode == "1":
+            user_input = input("> Question: ")
+        elif input_mode == "2":
+            user_input = recognize_speech()
+            if user_input is None:
+                continue
+        sentiment, sentiment_score = analyze_sentiment(user_input)
+        print(f"Sentiment: {sentiment} (Score: {sentiment_score:.2f})")
+        start_time = time.time()
+        response = chain.invoke({"input": user_input})
+        response_time = time.time() - start_time
+        print("\n> Answer:")
+        print("\n" + response["answer"], end="\n\n")
+        print(f"Response time: {response_time:.2f} seconds")
+        if sentiment == "Negative":
+            store_negative_sentiment(user_input, response["answer"], sentiment_score)
+
 def main():
     """
     Main function to ingest documents, create a question-answering chain, and handle user queries.
@@ -366,21 +432,7 @@ def main():
         os.mkdir(MODELS_DIR)
 
     qa_chain = create_qa_chain(device, prompt_type=prompt_type)
-
-    while True:
-        query = input("\nEnter a query: ")
-        if query == "exit":
-            break
-        result = qa_chain(query)
-        answer, docs = result["result"], result["source_documents"]
-
-        # print("\n\n> Question:")
-        cprint("\n\n> Question:", 'green')
-        cprint(query, 'green')
-        # print("\n> Answer:")
-        cprint("\n> Answer:", 'blue')
-        cprint(answer, 'blue')
-
+    execute_chat_chain(qa_chain)
 
 if __name__ == "__main__":
     logging.basicConfig(

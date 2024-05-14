@@ -4,11 +4,11 @@ langchain-core
 langchain-groq
 chromadb
 pypdf
-dotenv
+python-dotenv
 huggingface_hub
 transformers
 torch
 termcolor
 textblob
-speech_recognition
+SpeechRecognition
 sentence-transformers
