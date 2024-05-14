@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-core
+langchain-groq
+chromadb==0.4.3
+pypdf
+python-dotenv
+huggingface_hub
+transformers
+torch
+termcolor
+textblob
+sentence-transformers
