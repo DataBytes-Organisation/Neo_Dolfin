@@ -8,6 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 import logging
 from logging.config import dictConfig
+from logging.handlers import RotatingFileHandler
 import secrets
 import io
 import boto3 as boto3
@@ -145,10 +146,42 @@ dictConfig(
     }
 )
 # "dolfin" logger is essentially a master log. "dolfin.app" is a child logger of the "dolfin" logger. ".app" and ".basiq" are set to automatically propagate back to the master log.
+
+def setup_logging(): 
+    #define log rotation parameters 
+    LOG_MAX_SIZE = 10 * 1024 * 1024 #10 MB log size 
+    LOG_BACKUP_COUNT = 5 #number of backup log files until the first is overwritten 
+
+    #configuring log rotation 
+    rotating_handler = RotatingFileHandler(
+        filename= './logs/dolfin-root.log', #new master log defined 
+        maxBytes= , 
+        backupCount= 
+    )
+    rotating_handler.setFormatter(logging.Formatter("[%(asctime)s] %(levelname)s in %(module)s.py >>> %(message)s"))
+
+    master_logger = logging.getLogger("dolfin") 
+    master_logger.addHandler(rotating_handler)
+
+#functions to collect contextual logging enhancement stuff 
+
+#def get_current_request_id():
+    #example implementation
+    #return "1234"
+#def get_current_user_id():
+    #if 'user_id' in session: 
+        #user_id = session['user_id']
+        #return user_id
+    #return user_id
+#def extract_accessed_webpage(log_message): 
+    #example 
+    #return "/path/to/webpage.html" 
+
 #master_log  = logging.getLogger("dolfin")
 app_log     = logging.getLogger("dolfin.app")
 #basiq_log   = logging.getLogger("dolfin.basiq")
 user_log    = logging.getLogger("dolfin.users")
+setup_logging()
 
 app = Flask(__name__)
 app.static_folder = 'static'
