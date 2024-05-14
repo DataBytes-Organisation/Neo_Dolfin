@@ -67,24 +67,37 @@ def init_dolfin_db():
         return "An error occurred: " + str(e)
 
 
-def register_user(email, mobile, first_name, middle_name, last_name, password, gender, occupation, birth, address, city,
-                  country, state, postcode):
+import sqlite3
+
+def register_user(username, email, mobile, first_name, middle_name, last_name, password):
     """
-    Registers a new user in the database.
-    Parameters include personal information, credentials of the user, and address details.
+    Creates a new user and adds it to the users table in the database.
+
+    Args:
+    username (str): User's username.
+    email (str): User's email address.
+    mobile (str): User's mobile number.
+    first_name (str): User's first name.
+    middle_name (str): User's middle name.
+    last_name (str): User's last name.
+    password (str): User's hashed password.
+
+    Returns:
+    dict: A dictionary containing the result of the operation or an error message.
     """
+    database_address = "../db/dolfin_db.db"  # Path to your database
     try:
         with sqlite3.connect(database_address) as conn:
             cursor = conn.cursor()
-            cursor.execute('''INSERT INTO users (email, mobile, first_name, middle_name, last_name, password, gender, occupation, birth, address, city, country, state, postcode)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                           (email, mobile, first_name, middle_name, last_name, password, gender, occupation, birth,
-                            address, city, country, state, postcode))
+            # SQL to insert a new user into the users table
+            cursor.execute('''
+                INSERT INTO users (username, email, mobile, first_name, middle_name, last_name, password)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ''', (username, email, mobile, first_name, middle_name, last_name, password))
             conn.commit()
-            return "User inserted successfully into 'users' table."
+            return {cursor.lastrowid}  # Return new user ID
     except sqlite3.Error as e:
-        return "An error occurred: " + str(e)
-
+        return {"success": False, "error": str(e)}  # Return error message if something goes wrong
 
 def get_basiq_id(user_id):
     """
@@ -321,3 +334,27 @@ def verify_user(email, provided_password):
     except sqlite3.Error as e:
         print("An error occurred:", e)
         return None
+
+def check_user_exists(username, email):
+    """
+    Check if a user with the given username or email already exists in the database.
+
+    Args:
+    username (str): The username to check in the database.
+    email (str): The email to check in the database.
+
+    Returns:
+    bool: True if user exists, False otherwise.
+    """
+    database_address = "../db/dolfin_db.db"  # Adjust the path as necessary
+    try:
+        with sqlite3.connect(database_address) as conn:
+            cursor = conn.cursor()
+            # Query to check if a username or email already exists
+            cursor.execute("SELECT 1 FROM users WHERE username = ? OR email = ?", (username, email))
+            if cursor.fetchone():
+                return True  # User exists
+            return False  # No user found
+    except sqlite3.Error as e:
+        print("An error occurred:", e)
+        return False  # Return False or handle the error appropriately depending on your error handling policy

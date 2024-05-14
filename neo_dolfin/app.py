@@ -411,23 +411,10 @@ def register():
         # If present, set validation_checkbox to True; otherwise, set it to False
         validation_checkbox = True if 'validation' in request.form else False
 
-        """ OLD DB FORMAT:
-        # Check if the username or email already exists in the database
-        existing_user = User.query.filter_by(username=input_username).first()
-        existing_email = User.query.filter_by(email=input_email).first()
-
-        # OLD Create a new user and add it to the database
-        new_user = User(username=input_username, email=input_email, password=input_password)
-        db.session.add(new_user)
-        db.session.commit()
-        """
-        #
-        existing_user = UsersNew.query.filter_by(username=input_username).first()
-        existing_email = UsersNew.query.filter_by(email=input_email).first()
-        print(existing_user)
+        existing_user = db_op.check_user_exists(input_username, input_email)
 
         # If user exists, they need to retry.
-        if existing_user or existing_email:
+        if existing_user:
             user_log.info("REGISTER: (ip?) attempted to register as an existing user.") # keep usernames ambiguous, for now
             return 'Username or email already exists. Please choose a different one.'
 
@@ -437,26 +424,22 @@ def register():
         arg_hash = PasswordHasher()
         input_password = arg_hash.hash(input_password) #; print(hashed)
 
-        # Create a new user and add it to the users_new database
-        # Names are currently hard coded pending name fields in registration
-        new_user = UsersNew(username=input_username, email=input_email, mobile="+61450627105",
+        new_user_id = db_op.create_user(username=input_username, email=input_email, mobile="+61450627105",
                             first_name="SAMPLE1",middle_name="test",last_name="USER",password=input_password)
-        db.session.add(new_user)
-        db.session.commit()
 
 
-        user_ops.register_basiq_id(new_user.id)      # Create a new entity on our API key, based on the data passed into the user registration form
+        user_ops.register_basiq_id(new_user_id)      # Create a new entity on our API key, based on the data passed into the user registration form
         
-        user_ops.link_bank_account(new_user.id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
+        user_ops.link_bank_account(new_user_id)             # A user will need to link an account to their Basiq entity (that they won't see the entity)
         # Log result
-        user_log.info("REGISTER: New user %s, (%s %s) successfully registered and added to database."%(new_user.username,new_user.first_name, new_user.last_name))
+        user_log.info("REGISTER: New user %s, (%s %s) successfully registered and added to database."%(input_username,"SAMPLE1", "USER"))
 
         # create a new mapping for a user
         # not relevant in users_new but remains in if need for later database gen
-        new_user_id = new_user.id
-        new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
-        db.session.add(new_user_map)
-        db.session.commit()
+
+        # new_user_map = UserTestMap(userid = input_username, testid=new_user_id)
+        # db.session.add(new_user_map)
+        # db.session.commit()
 
         # Validate address using AddressFinder API and Create a new user address entry to the database
         user = User.query.filter_by(id=new_user_id).first()
