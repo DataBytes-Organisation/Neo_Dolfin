@@ -1,0 +1,106 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 230vh;
+}
+
+#mainBody {
+    flex: 1;
+}
+
+#headerSection {
+    background-image: none;
+}
+
+#headerTitle {
+    font-size: 15vw;
+    font-family: 'Impact';
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+    position: absolute;
+    left: 1vw;
+    top: 12vh;
+    letter-spacing: 0.5vw;
+    text-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
+    animation: slideInLeft 1s ease-in-out;
+}
+
+/* Basic styling for emails */
+#emails-container{
+    padding-top: 14vw;
+}
+
+.email {
+    border: 5px solid #1c82c6;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.email-header {
+    font-weight: bold;
+}
+
+.email-body {
+    margin-top: 5px;
+}
+
+
+/* Add a media query to override the Bootstrap classes for smaller screens */
+@media (max-width: 767px) {
+    #custom-navbar {
+        position: absolute;
+        top: 20%;
+        left: -10%;
+    }
+    #custom-navbar .navbar-collapse {
+      display: flex !important;
+      justify-content: space-between;
+    }
+    #custom-navbar .navbar-toggler {
+      display: none;
+    }
+    #custom-navbar .navbar-nav {
+      flex-direction: row;
+    }
+    #custom-navbar .nav-item {
+      margin-right: -13%; /* Adjust the spacing between buttons */
+    }
+    #custom-navbar .btn {
+      font-size: 0.8rem; /* Adjust the font size of the buttons */
+      padding: 0.2rem 0.5rem; /* Adjust the padding of the buttons */
+      width: 80px; /* Set a specific width for the buttons */
+    }
+}
+
+/* Add a media query to override the Bootstrap classes for tablet screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #custom-navbar {
+        position: absolute;
+        top: 30%;
+        left: -5%;
+    }
+    #custom-navbar .navbar-collapse {
+      display: flex !important;
+      justify-content: space-between;
+    }
+    #custom-navbar .navbar-toggler {
+      display: none;
+    }
+    #custom-navbar .navbar-nav {
+      flex-direction: row;
+    }
+    #custom-navbar .nav-item {
+      margin-right: -8%; /* Adjust the spacing between buttons */
+    }
+    #custom-navbar .btn {
+      font-size: 1.8rem; /* Adjust the font size of the buttons */
+      padding: 1.2rem 2.5rem; /* Adjust the padding of the buttons */
+      width: 200px; /* Set a specific width for the buttons */
+    }
+}

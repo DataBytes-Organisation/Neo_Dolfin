@@ -34,7 +34,18 @@
 
 }
 
+.fas {
+    padding-top: 0.4em;
+    color: #FAFAFE;
+    font-size: 20px;
+}
+
 .nav-link:hover {
+    color: #0077BB;
+    border-bottom: 2px solid #0077BB;
+}
+
+.fas:hover {
     color: #0077BB;
     border-bottom: 2px solid #0077BB;
 }
@@ -71,5 +82,40 @@
     padding: 8px 15px; /* Adjust padding as needed */
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 260px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    text-align: center;
+}
 
+.dropdown-content a {
+    color: black;
+    padding: 8px 0;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none; /* Remove border from the last notification */
+  }
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content #notificationsLink {
+    color: blue; /* Change the color */
+    font-size: 12px;
+    text-decoration: underline;
+  }
+
+.show {
+    display: block;
+}
 

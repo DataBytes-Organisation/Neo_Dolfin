@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -21,6 +22,13 @@
           </li>
           <li class="nav-item {% if current_page == 'FAQ' %}active{% endif %}">
             <a class="nav-link" href="/FAQ">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-bell icon" onclick="fetchNotifications(event)"></i>
+            <div class="dropdown-content" id="myDropdown">
+              <!-- Notifications will be dynamically added here -->
+              <a href="#" id="notificationsLink">View All Notifications</a>
+            </div>
           </li>
           <li class="nav-item dropdown {% if current_page == 'profile' %}active{% endif %}">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,4 +59,63 @@
             navItem.classList.add('active');
         }
     });
+
+    async function fetchNotifications(event) {
+      var dropdown = document.getElementById("myDropdown");
+      dropdown.classList.toggle("show");
+
+      try {
+        // Fetch notifications from email API
+        // const response = await fetch('YOUR_EMAIL_API_ENDPOINT');
+        // const notifications = await response.json();
+
+        // Mock notifications data
+        const notifications = [
+          { title: 'Notification 1', link: '#' },
+          { title: 'Notification 2', link: '#' },
+          { title: 'Notification 3', link: '#' },
+          { title: 'Notification 4', link: '#' },
+          { title: 'Notification 5', link: '#' }
+        ];
+
+        // Clear previous notifications
+        dropdown.innerHTML = '';
+
+        // Populate dropdown with fetched notifications
+        notifications.forEach(notification => {
+          const notificationLink = document.createElement('a');
+          notificationLink.href = notification.link; // Adjust as per your API response
+          notificationLink.textContent = notification.title; // Adjust as per your API response
+          dropdown.appendChild(notificationLink);
+        });
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+        // Handle error
+      }
+
+      // Add link to view all notifications
+      const notificationsLink = document.createElement('a');
+      notificationsLink.href = '/notifications'; // Adjust the link URL as needed
+      notificationsLink.textContent = 'View All Notifications';
+      notificationsLink.id = 'notificationsLink'; // Set an ID for easy access
+      dropdown.appendChild(notificationsLink);
+
+      // Adjust dropdown position if it extends beyond viewport
+      const dropdownRect = dropdown.getBoundingClientRect();
+      if (dropdownRect.right > window.innerWidth) {
+        dropdown.style.left = (window.innerWidth - dropdownRect.width) + 'px';
+      }
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.icon')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
 </script>

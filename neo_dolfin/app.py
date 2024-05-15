@@ -316,7 +316,7 @@ def before_request():
         # skip
         if request.path.startswith('/static'):
             return
-        if request.path == '/' or request.path == '/login' or request.path == '/register' or request.path == '/submit'or request.path == '/submit':
+        if request.path == '/' or request.path == '/login' or request.path == '/register' or request.path == '/submit' or request.path == '/resetpw/':
             return
         # check
         print('@session[user_id]', session.get('user_id'))
@@ -752,6 +752,26 @@ def auth_FAQ():
 @app.route('/RFW-prototype/')
 def auth_survey(): 
         return render_template("RFW-prototype.html")
+
+## APPLICATION NOTIFICATION PAGE 
+@app.route('/notifications/')
+def auth_notifications(): 
+        return render_template("notifications.html")
+
+## APPLICATION REST PASSWORD PAGE   
+@app.route('/resetpw/')
+def auth_resetpw():
+        return render_template("resetpw.html")
+
+## APPLICATION CONFIRM PASSWORD PAGE   
+@app.route('/confirmpw/')
+def auth_confirmpw():
+        return render_template("confirmpw.html")
+
+## APPLICATION CONFIRMATION MESSAGE PAGE   
+@app.route('/confirmationpw/')
+def auth_confirmationpw():
+        return render_template("confirmationpw.html")
     
 # APPLICATION TERMS OF USE PAGE 
 @app.route('/terms-of-use/')
