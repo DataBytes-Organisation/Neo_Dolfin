@@ -40,7 +40,7 @@
     <div class="headerTitle">
         <div class="headerSpace"></div>
         <img class="dashboardTitle" src="static/img/dashboardTitle.png">
-        <img class="dashboardTitle-dropShadow" src="static/img/dashboardTitle.png" style="z-index: -1;">
+        <!-- <img class="dashboardTitle-dropShadow" src="static/img/dashboardTitle.png" style="z-index: -1;"> -->
         <div id="trans-body-rectangle"></div>        
     </div>
 
@@ -111,7 +111,7 @@
     
     <div> 
         <div class= "background">
-            <div class="container px-4 text-center">
+            <!-- <div class="container px-4 text-center">
                 <div class="row row-cols-3">
                     <div class="col">
                         <div class="p-3"> <p> <strong> Current Balance: </strong> <br> $<span id="currentBalance">{{ jsd6 | safe }}</span> </p> 
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -213,213 +213,213 @@
         document.getElementById("month").innerHTML = month;
         document.getElementById("year").innerHTML = year;
 
-        //PIE CHART 2
-        var js1 = {{ jsd1|tojson|safe }};
-        var jsd1 = JSON.parse(js1);
+        // //PIE CHART 2
+        // var js1 = {{ jsd1|tojson|safe }};
+        // var jsd1 = JSON.parse(js1);
 
-        var jsd1_labels = [...new Set(jsd1.map(item => item.class))];
-        var jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
+        // var jsd1_labels = [...new Set(jsd1.map(item => item.class))];
+        // var jsd1_counts = jsd1_labels.map(label => jsd1.filter(item => item.class === label).length);
 
-        var ctx1 = document.getElementById('pie1').getContext('2d');
-        var pie1 = new Chart(ctx1, {
-            type: 'pie',  // Specify the chart type as 'pie'
-            data: {
-                labels: jsd1_labels,  // Unique labels
-                datasets: [{
-                    data: jsd1_counts,  // Counts for each label
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                        // Add more colors if needed
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                        // Add more colors if needed
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {
-                    title: {
-                    display: true,
-                    text: 'Account Transaction Types'},
-                    legend: {display:false}}
-            }
-        });
+        // var ctx1 = document.getElementById('pie1').getContext('2d');
+        // var pie1 = new Chart(ctx1, {
+        //     type: 'pie',  // Specify the chart type as 'pie'
+        //     data: {
+        //         labels: jsd1_labels,  // Unique labels
+        //         datasets: [{
+        //             data: jsd1_counts,  // Counts for each label
+        //             backgroundColor: [
+        //                 'rgba(255, 99, 132, 0.2)',
+        //                 'rgba(54, 162, 235, 0.2)',
+        //                 'rgba(255, 206, 86, 0.2)',
+        //                 'rgba(75, 192, 192, 0.2)',
+        //                 'rgba(153, 102, 255, 0.2)',
+        //                 'rgba(255, 159, 64, 0.2)'
+        //                 // Add more colors if needed
+        //             ],
+        //             borderColor: [
+        //                 'rgba(255, 99, 132, 1)',
+        //                 'rgba(54, 162, 235, 1)',
+        //                 'rgba(255, 206, 86, 1)',
+        //                 'rgba(75, 192, 192, 1)',
+        //                 'rgba(153, 102, 255, 1)',
+        //                 'rgba(255, 159, 64, 1)'
+        //                 // Add more colors if needed
+        //             ],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         plugins: {
+        //             title: {
+        //             display: true,
+        //             text: 'Account Transaction Types'},
+        //             legend: {display:false}}
+        //     }
+        // });
 
-        // PIE CHART 3
-        var js2 = {{ jsd2|tojson|safe }};
-        var jsd2 = JSON.parse(js2);
+        // // PIE CHART 3
+        // var js2 = {{ jsd2|tojson|safe }};
+        // var jsd2 = JSON.parse(js2);
 
-        var jsd2_labels = [...new Set(jsd2.map(item => item.subclass))];
-        var jsd2_counts = jsd2_labels.map(label => jsd2.filter(item => item.subclass === label).length);
+        // var jsd2_labels = [...new Set(jsd2.map(item => item.subclass))];
+        // var jsd2_counts = jsd2_labels.map(label => jsd2.filter(item => item.subclass === label).length);
 
-        var ctx2 = document.getElementById('dou1').getContext('2d');
-        var pa1 = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: jsd2_labels,
-                datasets: [{
-                    data: jsd2_counts,
-                    backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                    // Add more colors if needed
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                    // Add more colors if needed
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Account Transaction Payees'},
-                    legend: {display:false}}
-        }
-        });
+        // var ctx2 = document.getElementById('dou1').getContext('2d');
+        // var pa1 = new Chart(ctx2, {
+        //     type: 'pie',
+        //     data: {
+        //         labels: jsd2_labels,
+        //         datasets: [{
+        //             data: jsd2_counts,
+        //             backgroundColor: [
+        //             'rgba(255, 99, 132, 0.2)',
+        //             'rgba(54, 162, 235, 0.2)',
+        //             'rgba(255, 206, 86, 0.2)',
+        //             'rgba(75, 192, 192, 0.2)',
+        //             'rgba(153, 102, 255, 0.2)',
+        //             'rgba(255, 159, 64, 0.2)'
+        //             // Add more colors if needed
+        //         ],
+        //         borderColor: [
+        //             'rgba(255, 99, 132, 1)',
+        //             'rgba(54, 162, 235, 1)',
+        //             'rgba(255, 206, 86, 1)',
+        //             'rgba(75, 192, 192, 1)',
+        //             'rgba(153, 102, 255, 1)',
+        //             'rgba(255, 159, 64, 1)'
+        //             // Add more colors if needed
+        //         ],
+        //         borderWidth: 1
+        //     }]
+        // },
+        // options: {
+        //     plugins: {
+        //         title: {
+        //             display: true,
+        //             text: 'Account Transaction Payees'},
+        //             legend: {display:false}}
+        // }
+        // });
 
-        // PIE CHART 1
-        var js3 = {{ jsd3|tojson|safe }};
-        var jsd3 = JSON.parse(js3)
+        // // PIE CHART 1
+        // var js3 = {{ jsd3|tojson|safe }};
+        // var jsd3 = JSON.parse(js3)
 
-        var ctx3 = document.getElementById('bar1').getContext('2d');
+        // var ctx3 = document.getElementById('bar1').getContext('2d');
 
-        var creditData = jsd3.filter(obj => obj.direction === 'credit');
-        var debitData = jsd3.filter(obj => obj.direction === 'debit');
+        // var creditData = jsd3.filter(obj => obj.direction === 'credit');
+        // var debitData = jsd3.filter(obj => obj.direction === 'debit');
 
-        var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
-        var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
+        // var creditTotal = creditData.reduce((acc, obj) => acc + obj.amount, 0);
+        // var debitTotal = debitData.reduce((acc, obj) => acc + Math.abs(obj.amount), 0);
 
-        var jsd3_labels = ['Debit', 'Credit'];
-        var jsd3_values = [creditTotal, debitTotal];
+        // var jsd3_labels = ['Debit', 'Credit'];
+        // var jsd3_values = [creditTotal, debitTotal];
 
-        var barChart = new Chart(ctx3, {
-            type: 'pie',
-            data: {
-                labels: ['Debit','Credit'],
-                datasets: [{
-                    data: jsd3_values,
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
-                    borderWidth: 1
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Account Credit vs Account Debit'},
-                legend: {display:false}}
-        }
-        });
+        // var barChart = new Chart(ctx3, {
+        //     type: 'pie',
+        //     data: {
+        //         labels: ['Debit','Credit'],
+        //         datasets: [{
+        //             data: jsd3_values,
+        //             backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+        //             borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+        //             borderWidth: 1
+        //     }]
+        // },
+        // options: {
+        //     plugins: {
+        //         title: {
+        //             display: true,
+        //             text: 'Account Credit vs Account Debit'},
+        //         legend: {display:false}}
+        // }
+        // });
 
-        // LINE1 : Balance Data
-        var js4 = {{ jsd4|tojson|safe }};
-        var jsd4 = JSON.parse(js4);
+        // // LINE1 : Balance Data
+        // var js4 = {{ jsd4|tojson|safe }};
+        // var jsd4 = JSON.parse(js4);
 
-        var dates = jsd4.map(entry => entry.postDate);
-        var balances = jsd4.map(entry => entry.balance);
+        // var dates = jsd4.map(entry => entry.postDate);
+        // var balances = jsd4.map(entry => entry.balance);
 
-        dates = dates.map(dateString => dateString.split('T')[0]);
+        // dates = dates.map(dateString => dateString.split('T')[0]);
 
-        dates.reverse()
-        balances.reverse()
+        // dates.reverse()
+        // balances.reverse()
 
-        const ctxl1 = document.getElementById('myChart');
-        var linechart = new Chart(ctxl1, {
-        type: 'line',
-        data: {
-            labels: dates,
-            datasets: [{
-                label: '($) Balance',
-                data: balances,
-                borderWidth: 2
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Account Balance History ($)'},
-                legend: {display:false}},
-            scales: {
-            y: {
-                beginAtZero: true
-                    }   
-                }
-            }
-        });
+        // const ctxl1 = document.getElementById('myChart');
+        // var linechart = new Chart(ctxl1, {
+        // type: 'line',
+        // data: {
+        //     labels: dates,
+        //     datasets: [{
+        //         label: '($) Balance',
+        //         data: balances,
+        //         borderWidth: 2
+        //     }]
+        // },
+        // options: {
+        //     plugins: {
+        //         title: {
+        //             display: true,
+        //             text: 'Account Balance History ($)'},
+        //         legend: {display:false}},
+        //     scales: {
+        //     y: {
+        //         beginAtZero: true
+        //             }   
+        //         }
+        //     }
+        // });
 
-        // LINE2 : Savings Model 
-        var js5 = {{ jsd5|tojson|safe }};
-        var jsd5 = JSON.parse(js5);
+        // // LINE2 : Savings Model 
+        // var js5 = {{ jsd5|tojson|safe }};
+        // var jsd5 = JSON.parse(js5);
 
-        var dates5 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[0]);
-        var balance1 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[1]);
-        var balance2 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[2]);
-        var balance3 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[3]);
+        // var dates5 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[0]);
+        // var balance1 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[1]);
+        // var balance2 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[2]);
+        // var balance3 = jsd5.map(entry => entry["\tlower balance\tupper balance\tmean_balance"].split('\t')[3]);
         
-        const ctxl2 = document.getElementById('myChart2');
-        var lineChart = new Chart(ctxl2, {
-                type: 'line',
-                data: {
-                    labels: dates5,
-                    datasets: [{
-                        label: 'Downwards Trending Balance Prediction',
-                        data: balance1,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }, {
-                        label: 'Upwards Trending Balance Prediction',
-                        data: balance2,
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }, {
-                        label: 'Average Balance Prediction',
-                        data: balance3,
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    plugins: {
-                title: {
-                    display: true,
-                    text: 'AI generated Balance Predictions ($)'},
-                legend: {display:false}},
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
-                }
-            });
+        // const ctxl2 = document.getElementById('myChart2');
+        // var lineChart = new Chart(ctxl2, {
+        //         type: 'line',
+        //         data: {
+        //             labels: dates5,
+        //             datasets: [{
+        //                 label: 'Downwards Trending Balance Prediction',
+        //                 data: balance1,
+        //                 borderColor: 'rgba(75, 192, 192, 1)',
+        //                 borderWidth: 2,
+        //                 fill: false
+        //             }, {
+        //                 label: 'Upwards Trending Balance Prediction',
+        //                 data: balance2,
+        //                 borderColor: 'rgba(255, 99, 132, 1)',
+        //                 borderWidth: 2,
+        //                 fill: false
+        //             }, {
+        //                 label: 'Average Balance Prediction',
+        //                 data: balance3,
+        //                 borderColor: 'rgba(54, 162, 235, 1)',
+        //                 borderWidth: 2,
+        //                 fill: false
+        //             }]
+        //         },
+        //         options: {
+        //             plugins: {
+        //         title: {
+        //             display: true,
+        //             text: 'AI generated Balance Predictions ($)'},
+        //         legend: {display:false}},
+        //             scales: {
+        //                 y: {
+        //                     beginAtZero: false
+        //                 }
+        //             }
+        //         }
+        //     });
         
         // ACCOUNT DROPDOWN
         var jsxxArray = {{ jsxx | safe }};
