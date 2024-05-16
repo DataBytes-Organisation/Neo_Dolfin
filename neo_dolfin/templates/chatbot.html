@@ -1,5 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>DolFin Chatbot</title>
+</head>
+<body>
+    <div class="container p-4">
+        <h2 class="heading">DolFine chatbot</h2>
+    </div>
+    <div class="chatbox-container" style="position:fixed; bottom:0px; right: 0px">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="static\img\favicon-32x32.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Chatbot</h4>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                    <button class="chatbox__send--footer voice__button">Voice</button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><img src="static\img\chat_724715.png"/></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    </script>
+    <script src="../static/js/chatbot_app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- #####old_chatbot##### -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -49,4 +101,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
 
-</html>
+</html> -->
