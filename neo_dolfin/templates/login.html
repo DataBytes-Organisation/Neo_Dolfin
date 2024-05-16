@@ -29,6 +29,10 @@
                         <form method="POST" action="/login">
                             <input type="text" name="email" class="form-control" placeholder="Email" required>
                             <input type="password" name="password" class="form-control" placeholder="Password" required>
+                             <!-- Google reCAPTCHA widget -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
                             <div class="link-container">
                                 <a href="./register" class="auth-link">
                                     <div>New to DolFin?</div>
