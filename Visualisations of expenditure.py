@@ -13,64 +13,63 @@ import matplotlib.pyplot as plt
 # In[11]:
 
 
-def plot_financial_overview_for_user(user_id, file_path):
+def plot_financial_overview_for_user_interactive(file_path):
     import pandas as pd
     import matplotlib.pyplot as plt
 
     # Load the data from the specified Excel file
     data = pd.read_excel(file_path)
-    
+
     # Ensure 'Date' is in datetime format
     data['Date'] = pd.to_datetime(data['Date'])
+
+    # Prompt the user to enter a User ID
+    user_id = int(input("Please enter a User ID to display the financial overview: "))
+    print(f"You have selected User ID: {user_id}")  # Confirming the user's selection
+
     
-    # Add a 'User ID' field if it does not exist
+    # Add a 'User ID' field if it does not exist in the dataset
     if 'User ID' not in data.columns:
         data['User ID'] = range(1, len(data) + 1)
-    
+
     # Filter data for the specified user ID
     user_data = data[data['User ID'] == user_id]
-    
+
+    # Check if there is data available for the selected user ID
     if user_data.empty:
         print(f"No data available for User ID: {user_id}")
         return
 
-    # Define color scheme
+    # Define color scheme for the plot
     colors = {"Credit": "#0077bb", "Debit": "#d9d9d9", "Balance": "#343a40", "Text": "#abb5be"}
 
-    # Plotting bars
-    # Define positions for the groups
-    bar_width = 0.15  # Slimmer bars
+    # Plotting bars for Credit, Debit, and Balance
+    plt.figure(figsize=(14, 7))
+    bar_width = 0.15  # Width of the bars
     r1 = range(len(user_data))
     r2 = [x + bar_width for x in r1]
     r3 = [x + 2 * bar_width for x in r1]
 
-    # Create bars
-    plt.figure(figsize=(14, 7))
     plt.bar(r1, user_data['Credit'], color=colors['Credit'], width=bar_width, edgecolor='grey', label='Credit')
     plt.bar(r2, user_data['Debit'], color=colors['Debit'], width=bar_width, edgecolor='grey', label='Debit')
     plt.bar(r3, user_data['Balance'], color=colors['Balance'], width=bar_width, edgecolor='grey', label='Balance')
-    
-    # Add xticks on the middle of the group bars
+
+    # Adding x-axis labels, title, and other plot details
     plt.xlabel('Date', fontweight='bold')
     plt.xticks([r + bar_width for r in range(len(user_data))], user_data['Date'].dt.strftime('%Y-%m-%d'))
-    
-    # Adding labels and title
     plt.ylabel('Amount')
     plt.title(f'Financial Overview for User ID: {user_id}')
 
-    # Display category information in light-toned colors
+    # Display additional category information in a text box
     category_info = f"Categories:\nCategory 1: {user_data['Category 1'].unique()}\nCategory 2: {user_data['Category 2'].unique()}\nCategory 3: {user_data['Category 3'].unique()}"
     plt.figtext(0.915, 0.5, category_info, ha="center", va="center", fontsize=10, bbox={"boxstyle":"round", "facecolor":colors['Text']})
-    
-    # Adjust layout to make room for category information
+
     plt.subplots_adjust(right=0.85)
-    
-    # Create legend & Show graphic
     plt.legend()
     plt.show()
 
 # Example usage:
-# plot_financial_overview_for_user(1, 'fake_bank_account_transactions2 1.xlsx')
+# plot_financial_overview_for_user_interactive('fake_bank_account_transactions2 1.xlsx')
 
 
 # In[8]:
