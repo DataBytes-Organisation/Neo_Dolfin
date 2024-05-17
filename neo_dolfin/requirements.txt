@@ -76,7 +76,7 @@ nltk==3.8.1
 numpy==1.24.3
 oauthlib==3.2.2
 opt-einsum==3.3.0
-packaging==23.1
+packaging
 pandas==2.0.3
 parso==0.8.3
 patsy==0.5.3
