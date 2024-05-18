@@ -327,6 +327,15 @@ height="4.840277777777778in"}
 
     a.  Data handling policies have been developed
 
+7. **Create Transaction Classification AI model**
+
+    a. Multiple NLP models have been developed to replace the Basiq API for next trimester.
+
+8. **Create a Fraud Detection AI model**
+
+    a. A fraud detection model has been developed to protect DolFin customers.
+
+
 **New:**
 
 7.  **Define and implement password management policies for a more
