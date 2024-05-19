@@ -15,7 +15,7 @@ Unordered List
 <br></br>
 
 <details> 
-  
+
 <summary>Sprint 1 and 2 Contributions</summary> 
 
 | Name                  | Contributions|
@@ -65,7 +65,7 @@ Unordered List
 </details>
 
 <details>
-  
+
 <summary>Sprint 3&4 Contributions</summary>
 
 Practice in this table or the other! It's totally up to you :D 
@@ -79,5 +79,6 @@ Practice in this table or the other! It's totally up to you :D
 | Name                  | Contributions|
 |:-------------|:-------------------|
 | Nicholas Lane   | Write contributions here ! <li>I developed a NLP model that uses transfer learning to classify transactions using a BERT transformer.</li><li>I wrote code to clean and preprocess text data, encode class labels, then tokenized transaction descriptions using BERT tokenizer, convert to BERT input format.</<li><li>Created a function to create datasets, create datasets for training, validation, and testing.</li><li>Loaded in the Pre-trained BERT Model: Load pre-trained BERT model for NLP classification, then added an output layer for class prediction.</li><li>Compiled and train the BERT model with training dataset and fine tuned the model and finally evaluated the performance of the model.</li><li>Updated the code to include the DolFin colour code format, and resubmitted the code</li><li>I development of a Deep Neural Network model to identify and classify fraudulent bank transactions.</li><li>I searched for a suitable dataset, that would contain the information that DolFin would be able to access through the Open Banking platform.</li><li>I write code to clean and preprocess the various data types and prepare them for the deep learning model.</li><li>I split the data into training and testing datasets which were then made into TensorFlow datasets, which had been shuffled and prefetched.</li><li>I developed a model and added regulation to improve the model’s generalizability and reduce overfitting to the training data.</li><li>>The model was compiled and then evaluated, I also updated the colours to the Dolfin colour format and then submitted the code as a .py file.</li><liAttended product owner meetings and team meetings</li><li>Assist with handover documentation and presentation slides.</li>|
-  
+| Junkai Jiang | Write notes about how to set up Dolfin_new<br/>Set up Dolfin_new GitHub repository<br/>Develop JWT service for user authentication(Dolfin_new)<br/>Develop Basiq API service(Dolfin_new)<br/>Develop database service(Dolfin_new)<br/>Review the pull request by Deepak: Optimization of the clear transaction function.<br/>Review the pull request by Sagar: Email verification function.<br/>Review the pull request for rebuilding the login route and update the login page<br/>Review the pull request for rebuilding the dashboard<br/>Set up Dolfin_new Trello backlog<br/>Redesigned and developed the dashboard web interface of the new project<br/>Discussions with Junior Developer<br/>Discuss with Junior about setting up a Dolfin account<br/>Discuss with Junior about the transition of the project (React part)<br/>Discuss with Junior about the account delete functionality<br/>Discuss with Juniors about the handover document<br/>Connect the reported financial well-being feature to the database and backend(Dolfin_new)<br/>Connect income and expenditure overview to the backend(Dolfin_new)<br/>Connect D-cloud to the backend(Dolfin_new)<br/>Add linking to the bank account feature(Dolfin_new)<br/>Fix the backend Docker file<br/>Complete the showcase video (Dolfin_new part) |
+
 </details>
