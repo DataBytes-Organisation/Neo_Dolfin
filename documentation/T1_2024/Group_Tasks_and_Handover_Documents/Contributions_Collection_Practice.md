@@ -47,7 +47,7 @@ Unordered List
 | Muhammad Ali Saad  |               |
 | Muhammad Saad Saad |               |
 | Nick Lane |               |
-| Pradipta Dutta |               |
+| Pradipta Dutta | Conducted market research on finance management and highlighted on key areas to focus for building a financial well-being application. Documented research findings into a report. Built a savings prediction model using a combination of ARIMA and RF and created a pull request. Took up some leadership roles and as a code reviewer for DS/AI stream to review codes and approve the request. Did study on functionalities potentially useful for the project and conveyed my idea to team lead. I have taken leadership role and I am currently assisting team lead on certain tasks and also reviewing codes on GitHub. Apart from reviewing codes and merging them to the main repository, I am also helping juniors to clear their doubts about the project. I have undertaken the task of getting updates from my fellow team members and report it to my team lead. I am helping few juniors with GitHub and guiding them thoroughly with commits and pull request. |
 | Ricky Boeing |               |
 | Sagar Gupta |               |
 | Sahana Gollapalli |               |
