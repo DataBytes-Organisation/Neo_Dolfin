@@ -35,6 +35,10 @@ import matplotlib.pyplot as plt
 import base64
 import matplotlib
 import torch
+import plotly.graph_objects as go
+from wordcloud import WordCloud
+from textblob import TextBlob
+from transformers import BertTokenizerFast, BertForSequenceClassification
 matplotlib.use('Agg')
 
 from ai.cloud import word_cloud, expenditure_cluster_model
@@ -215,6 +219,11 @@ user_ops = API_db_op
 db_op = database_operation
 API_CORE_ops = optimized_API.Core(os.getenv('API_KEY'))
 API_DATA_ops = optimized_API.Data()
+
+# Too big for github around 411MB
+# Load the pre-trained BERT model
+# sentiment_model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
+# sentiment_model.load_state_dict(torch.load('ai/sentiment_analysis/best_model.pt', map_location=torch.device('cpu')))  # Load your saved model weights
 
 class User(db.Model):
     id =        db.Column(db.Integer, primary_key=True)
@@ -817,20 +826,63 @@ def feedback():
         competitors_do_well = request.form['competitors_do_well']
         similarities = request.form['similarities']
 
+        # Too big for github model around 411MB
+        # #######################################
+        #
+        # #Sentiment analysis using bert model#
+        #
+        # # Load the tokenizer
+        # tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
+        #
+        # # Example input sentence
+        # text = competitors_do_well + similarities
+        #
+        # # Tokenize the input
+        # inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True)
+        #
+        # # Make predictions
+        # with torch.no_grad():
+        #     model_logits = sentiment_model(**inputs).logits
+        #     probabilities = torch.softmax(model_logits, dim=1)
+        #     predicted_class = torch.argmax(probabilities, dim=1).item()
+        #
+        # # Map predicted class to sentiment label
+        # sentiment_labels = {0: 'negative', 1: 'neutral', 2: 'positive'}
+        # sentiment = sentiment_labels[predicted_class]
+        #
+        # ######################################
+
+        sentence = competitors_do_well + similarities
+
+        # Analyze sentiment
+        analysis = TextBlob(sentence)
+
+        # Get polarity (range: -1 to 1)
+        polarity = analysis.sentiment.polarity
+
+        # Determine sentiment
+        if polarity > 0:
+            sentiment = "positive"
+        elif polarity < 0:
+            sentiment = "negative"
+        else:
+            sentiment = "neutral"
+
         # Create a dictionary with the form data
         feedback_data = {
-            'Features Rating': features_rating,
-            'Security Rating': security_rating,
-            'Recommendation Rating': recommend_rating,
-            'Valuable Features': features_valuable,
-            'Competitors Do Well': competitors_do_well,
-            'Similarities': similarities,
+            'features_rating': features_rating,
+            'security_rating': security_rating,
+            'recommend_rating': recommend_rating,
+            'features_valuable': features_valuable,
+            'competitors_do_well': competitors_do_well,
+            'similarities': similarities,
+            'sentiment': sentiment
         }
 
         print("Received Feedback Data:", feedback_data)
 
         # Log the data to a CSV file
-        data_folder = 'data'
+        data_folder = 'ai/generated_data'
         os.makedirs(data_folder, exist_ok=True)
 
         # Log the data to a CSV file inside the 'data' folder
@@ -846,6 +898,43 @@ def feedback():
             writer.writerow(feedback_data)
 
         print("Feedback Data Logged to CSV")
+
+        # # Connect to the SQLite database (create it if it doesn't exist)
+        # db_filename = 'db/dolfin_db.db'
+        # conn = sqlite3.connect(db_filename)
+        #
+        # # Create a cursor to execute SQL commands
+        # cursor = conn.cursor()
+        #
+        # # Create a table if it doesn't exist
+        # cursor.execute('''
+        #     CREATE TABLE IF NOT EXISTS feedback (
+        #         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        #         features_rating INTEGER,
+        #         security_rating INTEGER,
+        #         recommend_rating INTEGER,
+        #         features_valuable VARCHAR(50),
+        #         competitors_do_well TEXT,
+        #         similarities TEXT
+        #     )
+        # ''')
+        #
+        # # Insert the feedback data into the table
+        # cursor.execute('''
+        #     INSERT INTO feedback (
+        #         features_rating, security_rating, recommend_rating,
+        #         features_valuable, competitors_do_well, similarities
+        #     ) VALUES (?, ?, ?, ?, ?, ?)
+        # ''', (
+        #     features_rating, security_rating, recommend_rating,
+        #     features_valuable, competitors_do_well, similarities
+        # ))
+        #
+        # # Commit the changes and close the connection
+        # conn.commit()
+        # conn.close()
+        #
+        # print("Feedback Data Logged to SQLite database (feedback.db)")
 
         return render_template('feedback_thank_you.html')
 
@@ -890,6 +979,42 @@ def profile():
         defacc = 'ALL'
         
         return render_template("profile.html", jsd8=jfx8, email=email, jsd6=curr_bal, jsxx=jfxx, jsd3=jfx3, user_id=user_id, defacc=defacc)
+
+def generate_sankey(data, custom_labels=None):
+
+    # Create a list of all unique nodes
+    nodes = pd.concat([data['features_valuable'], data['sentiment']]).unique()
+
+    # Create a mapping of node names to integers
+    node_map = {node: i for i, node in enumerate(nodes)}
+
+    # Map the source nodes to their respective indices
+    source_indices = data['features_valuable'].map(node_map)
+
+    # Map the target nodes to their respective indices
+    target_indices = data['sentiment'].map(node_map)
+
+    # Create a Sankey diagram
+    fig = go.Figure(data=[go.Sankey(
+        node=dict(
+            pad=15,
+            thickness=20,
+            line=dict(color="#fafafe", width=0.5),
+            label=nodes.tolist(),
+            color="#343a40"
+        ),
+        link=dict(
+            source=source_indices,
+            target=target_indices,
+            value=[1] * len(data),  # each row represents a single unit
+            color='#0077bb'
+        )
+    )])
+
+    fig.update_layout(title_text="Sankey Diagram", font_size=10)
+
+    fig.write_html("static/html/sankey.html")
+    
 def generate_pie_chart(data, category, custom_labels=None):
     # Count the occurrences of each value in the given category
     value_counts = data[category].value_counts()
@@ -900,7 +1025,7 @@ def generate_pie_chart(data, category, custom_labels=None):
     
     # Check if custom labels are provided
     labels = custom_labels if custom_labels else value_counts.index
-    plt.pie(value_counts, labels=labels, autopct='%1.1f%%', startangle=90, colors=['red', 'orange', 'yellow', 'green', 'blue'])
+    plt.pie(value_counts, labels=labels, autopct='%1.1f%%', startangle=90, colors=['#343a40', '#0077bb', '#d9d9d9', '#fafafe', '#abb5be'])
     plt.title(f'{category} Distribution')
 
     # Add a legend
@@ -917,28 +1042,37 @@ def generate_pie_chart(data, category, custom_labels=None):
     # Return the encoded image
     return image_base64
 
-@app.route('/visualizations', methods=['GET'])
+@app.route('/feedback_visualizations', methods=['GET'])
 def visualizations():
-    # Assuming 'feedback_data.csv' is your CSV file inside the 'data' folder
-    csv_filename = 'data/feedback_data.csv'
+    
+    csv_filename = 'ai/generated_data/feedback_data.csv'
 
     # Read the CSV file into a Pandas DataFrame
     data = pd.read_csv(csv_filename)
 
-    # Get unique categories from the DataFrame columns (excluding non-numeric ones)
-    categories = [col for col in data.columns if data[col].dtype == 'int64']
+    # Get unique categories from the DataFrame columns
+    categories = [col for col in data.columns if data[col].dtype == 'int64' or col == "features_valuable" or col == "sentiment"]
 
     # Generate the chart data for each category
     chart_data = {}
     for category in categories:
         chart_data[category] = generate_pie_chart(data, category)
 
+    generate_sankey(data)
+
+    competitor_text = ' '.join(data['competitors_do_well'])
+    similarity_text = ' '.join(data['similarities'])
+    wordcloud = WordCloud().generate(competitor_text)
+    wordcloud_similarity = WordCloud().generate(similarity_text)
+    wordcloud.to_file("static/img/competitor_wordcloud.png")
+    wordcloud_similarity.to_file("static/img/similarities_wordcloud.png")
+
     return render_template('visualizations.html', chart_data=chart_data)
 
 @app.route('/visualizations/<category>', methods=['GET'])
 def visualize_category(category):
     # Assuming 'feedback_data.csv' is your CSV file
-    csv_filename = 'data/feedback_data.csv'
+    csv_filename = 'ai/generated_data/feedback_data.csv'
 
     # Read the CSV file into a Pandas DataFrame
     data = pd.read_csv(csv_filename)
