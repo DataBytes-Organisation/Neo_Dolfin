@@ -60,31 +60,34 @@
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <input id ="password-input" type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
-                                                title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" required 
-                                                oninput="checkPassword()" onfocus="showRequirements()" onblur="hideRequirements()">
-                                                <div id="checkField">
-                                                    <ul>
-                                                        <li id="digit">One digit</li>
-                                                        <li id="lowercase">One lowercase letter</li>
-                                                        <li id="uppercase">One uppercase letter</li>
-                                                        <li id="special">One special character</li>
-                                                        <li id="length-min">At least 12 characters long</li>
-                                                        <li id="length-max">Maximum of 20 characters</li>
-                                                    </ul>
-                                                    <p id="internalList">Password is too common. Please choose a different one</p>
-                                                </div>    
-                                              <!--Checkfield for validation of password requirements-->
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
-                                            </div>
-                                        	<!-- Add the reCAPTCHA widget -->
-<!--<div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                                           <div class="col-md-6">
+        <input id="password-input" type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,20}" 
+            title="Your password must contain one digit, one lowercase letter, one uppercase letter, one special character, no space, and it must be at least 8 characters long with a maximum of 16 characters" 
+            required oninput="updateStrengthBar(this.value)" onfocus="showRequirements()" onblur="hideRequirements()">
+			<button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn">Show</button>
+        <div id="checkField">
+            <ul>
+                <li id="digit">One digit</li>
+                <li id="lowercase">One lowercase letter</li>
+                <li id="uppercase">One uppercase letter</li>
+                <li id="special">One special character</li>
+                <li id="length-min">At least 12 characters long</li>
+                <li id="length-max">Maximum of 20 characters</li>
+            </ul>
+            <p id="internalList">Password is too common. Please choose a different one</p>
+        </div>
+        <!-- Checkfield for validation of password requirements -->
+        <!-- Password strength bar -->
+        <div class="password-strength">
+            <div id="strength-bar"></div>
+            <span id="strength-label"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <input id="confirm_password_input"  type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+		<button class="btn btn-outline-secondary" type="button" id="toggleConfirmPasswordBtn">Show</button>
+    </div>
 </div>
-
 <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
                                         <!-- Occupation Field -->
                                         <div class="row mb-3">
